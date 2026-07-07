@@ -1,0 +1,1098 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Für MealBites · Julia Bergles</title>
+<meta name="description" content="Content-Design für MealBites. Persönlicher Pitch von Julia Bergles." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* Julias 4-Farben-Palette */
+    --bg: #ffebd9;          /* Warm Cream als Basis */
+    --bg-alt: #e0e0dc;      /* Taupe für Section-Wechsel */
+    --bg-soft: #e2d5dd;     /* Sanftes Rosé */
+    --taupe: #c7c1b7;       /* Mittleres Taupe */
+    --card: #ffffff;
+
+    --ink: #2d2820;
+    --ink-soft: #4a4238;
+    --muted: #7a6f60;
+    --muted-lite: #a89f8f;
+
+    /* Akzent bleibt Petrol/warm dunkel für Kontrast + Buttons */
+    --caramel: #4a4238;
+    --caramel-hi: #6a5f52;
+    --caramel-deep: #2d2820;
+    --caramel-tint: rgba(74, 66, 56, 0.08);
+
+    /* Dunkle Section-BG: warmer Espresso-Ton */
+    --espresso: #2d2820;
+    --espresso-warm: #4a4238;
+
+    /* Champagner-Highlights bleiben */
+    --champ: #c9a96e;
+    --champ-hi: #dcc088;
+
+    --line: rgba(45, 40, 32, 0.1);
+    --line-strong: rgba(45, 40, 32, 0.2);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    font-variant-numeric: tabular-nums;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 32px; }
+  section { padding: 100px 0; position: relative; }
+  h1, h2, h3, h4 { font-family: 'Cormorant Garamond', 'DM Sans', serif; letter-spacing: -0.018em; line-height: 1.05; font-weight: 500; color: var(--ink); font-style: italic; }
+  h3, h4 { font-style: normal; font-weight: 700; font-family: 'DM Sans', sans-serif; letter-spacing: -0.02em; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 1s cubic-bezier(0.2, 0.7, 0.2, 1), transform 1s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 0.1s; }
+  .reveal-d2 { transition-delay: 0.2s; }
+  .reveal-d3 { transition-delay: 0.3s; }
+
+  /* Shimmer button */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 18px 34px; border-radius: 999px; font-weight: 700; font-size: 14px;
+    letter-spacing: 0.6px; transition: all 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+    position: relative; overflow: hidden; cursor: pointer; border: 0;
+    font-family: 'Inter', sans-serif; text-transform: uppercase;
+  }
+  .btn::before {
+    content: ""; position: absolute; top: 0; left: -150%;
+    width: 60%; height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    animation: shimmer 3.5s infinite;
+    pointer-events: none;
+  }
+  @keyframes shimmer {
+    0% { left: -150%; }
+    45%, 100% { left: 200%; }
+  }
+  .btn-primary {
+    background: var(--caramel); color: #fff;
+    box-shadow: 0 10px 26px rgba(184, 118, 58, 0.3);
+  }
+  .btn-primary:hover { background: var(--caramel-deep); transform: translateY(-3px); box-shadow: 0 18px 40px rgba(184, 118, 58, 0.42); }
+  .btn-arrow { transition: transform 0.3s; font-size: 18px; }
+  .btn:hover .btn-arrow { transform: translateX(5px); }
+
+  /* Cover-Badge */
+  .cover-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 16px; border-radius: 999px;
+    background: rgba(184, 118, 58, 0.12);
+    border: 1px solid rgba(184, 118, 58, 0.3);
+    font-size: 12px; color: var(--caramel-deep); font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .cover-badge .pulse {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--caramel);
+    box-shadow: 0 0 12px var(--caramel);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.6; }
+  }
+
+  /* HERO */
+  .hero {
+    padding: 140px 0 60px;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero-glow {
+    position: absolute; top: -100px; right: -200px; width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(184, 118, 58, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+    animation: floatOrb 15s ease-in-out infinite;
+  }
+  @keyframes floatOrb {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(40px, -40px); }
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; position: relative; z-index: 2; }
+  @media (max-width: 800px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  .hero h1 {
+    font-size: clamp(48px, 6.5vw, 84px); font-weight: 800; letter-spacing: -0.035em;
+    line-height: 1; margin-bottom: 28px;
+  }
+  .hero h1 .accent { color: var(--caramel); }
+  .hero h1 .marker {
+    position: relative; display: inline-block;
+  }
+  .hero h1 .marker::after {
+    content: ""; position: absolute; bottom: 8px; left: 0; width: 100%; height: 12px;
+    background: var(--champ); opacity: 0.4; z-index: -1;
+  }
+  .hero p.lede {
+    font-size: 20px; color: var(--ink-soft); line-height: 1.5;
+    max-width: 500px; margin-bottom: 40px;
+  }
+
+  .hero-portrait {
+    aspect-ratio: 4/5; border-radius: 24px;
+    overflow: hidden; position: relative;
+    box-shadow: 0 30px 60px rgba(45, 24, 16, 0.25);
+  }
+  .hero-portrait img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-portrait-tag {
+    position: absolute; bottom: 20px; left: 20px;
+    background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(10px);
+    padding: 10px 18px; border-radius: 999px;
+    font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--caramel-deep);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .hero-portrait-tag .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--caramel); animation: pulse 2s infinite; }
+
+  /* KICKER / SECTION TITLES */
+  .kicker {
+    display: inline-block; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--caramel); font-weight: 700; margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: clamp(32px, 4.5vw, 52px); font-weight: 800;
+    letter-spacing: -0.03em; color: var(--ink); line-height: 1.08;
+  }
+  .section-title .accent { color: var(--caramel); }
+
+  /* Marquee Ticker (Editorial Banner) */
+  .ticker-strip {
+    background: var(--espresso); color: #fff;
+    padding: 24px 0; overflow: hidden; position: relative;
+    border-top: 1px solid rgba(201, 169, 110, 0.15);
+    border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+  }
+  .ticker-inner {
+    display: flex; gap: 60px;
+    animation: tickerScroll 45s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+  }
+  @keyframes tickerScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .ticker-item {
+    display: inline-flex; align-items: center; gap: 14px;
+    font-size: 15px; font-weight: 500;
+  }
+  .ticker-item .num { font-weight: 800; font-size: 20px; color: var(--champ); letter-spacing: -0.02em; }
+  .ticker-item .sep {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--champ);
+    display: inline-block;
+  }
+
+  /* STORY (Persönlich, mit transparentem Portrait im Hintergrund) */
+  .story {
+    background: var(--card); padding: 100px 0;
+    position: relative; overflow: hidden;
+  }
+  .story::before {
+    content: ""; position: absolute; top: 0; right: -100px; width: 700px; height: 100%;
+    background-image: url('img/portrait-hero.jpg');
+    background-size: cover; background-position: center;
+    opacity: 0.07;
+    filter: grayscale(60%) sepia(20%);
+    pointer-events: none;
+    animation: portraitZoom 25s ease-in-out infinite alternate;
+  }
+  @keyframes portraitZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.08); }
+  }
+  .story-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 2; }
+  .story h2 { margin-bottom: 40px; }
+  .story p {
+    font-size: 18px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 24px;
+  }
+  .story p strong { color: var(--caramel-deep); font-weight: 700; }
+  .story-quote {
+    background: var(--bg-alt); border-left: 4px solid var(--caramel);
+    padding: 32px; border-radius: 8px; margin: 40px 0;
+    font-size: 20px; font-style: italic; color: var(--ink);
+    font-weight: 500; line-height: 1.5;
+    backdrop-filter: blur(8px);
+  }
+  .story-quote::before { content: "„"; font-size: 60px; color: var(--caramel); line-height: 0; vertical-align: -20px; margin-right: 4px; }
+
+  /* MEHRWERT / WHY-ME (Dark) */
+  .why { background: var(--espresso); color: #fff; padding: 100px 0; }
+  .why-inner { max-width: 900px; margin: 0 auto; }
+  .why h2 { color: #fff; margin-bottom: 60px; text-align: center; }
+  .why h2 .accent { color: var(--champ); }
+  .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  @media (max-width: 700px) { .why-grid { grid-template-columns: 1fr; } }
+  .why-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(217, 167, 105, 0.25);
+    border-radius: 20px; padding: 32px 28px;
+    transition: all 0.3s;
+  }
+  .why-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--champ);
+    background: rgba(217, 167, 105, 0.08);
+  }
+  .why-card-num {
+    font-size: 40px; font-weight: 900; color: var(--champ);
+    letter-spacing: -0.03em; margin-bottom: 8px; line-height: 1;
+  }
+  .why-card-lbl {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.55); font-weight: 700; margin-bottom: 12px;
+  }
+  .why-card h3 { color: #fff; font-size: 18px; margin-bottom: 8px; }
+  .why-card p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.55; }
+
+  /* FORMAT-VORSCHLAG */
+  .format { background: var(--bg-alt); padding: 100px 0; }
+  .format-inner { max-width: 900px; margin: 0 auto; }
+  .format-header { text-align: center; margin-bottom: 60px; }
+  .format-header p { font-size: 17px; color: var(--muted); margin-top: 16px; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .slide-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+  .slide-item {
+    background: var(--card); border-radius: 14px;
+    padding: 24px 28px;
+    border: 1px solid var(--line);
+    display: grid; grid-template-columns: 60px 1fr; gap: 20px; align-items: start;
+    transition: all 0.3s;
+  }
+  .slide-item:hover { transform: translateX(6px); border-color: var(--caramel); }
+  .slide-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px; font-weight: 900; color: var(--caramel);
+    letter-spacing: -0.03em;
+  }
+  .slide-content h4 {
+    font-size: 15px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--caramel-deep); font-weight: 700; margin-bottom: 8px;
+  }
+  .slide-content p { font-size: 15px; color: var(--ink-soft); line-height: 1.5; }
+  .slide-content p em { font-style: italic; color: var(--caramel-deep); }
+
+  /* BONUS-VALUE */
+  .bonus { background: var(--card); padding: 100px 0; }
+  .bonus-inner { max-width: 900px; margin: 0 auto; }
+  .bonus h2 { text-align: center; margin-bottom: 20px; }
+  .bonus > .container > .lede { text-align: center; font-size: 17px; color: var(--muted); max-width: 600px; margin: 0 auto 60px; line-height: 1.6; }
+  .bonus-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  @media (max-width: 700px) { .bonus-grid { grid-template-columns: 1fr; } }
+  .bonus-card {
+    background: var(--bg-alt); border-radius: 20px;
+    padding: 32px 28px; position: relative;
+    transition: all 0.3s;
+    border: 1px solid var(--line);
+  }
+  .bonus-card:hover { transform: translateY(-4px); border-color: var(--caramel); box-shadow: 0 20px 40px rgba(184, 118, 58, 0.12); }
+  .bonus-card .num {
+    position: absolute; top: 20px; right: 24px;
+    font-size: 44px; font-weight: 900; color: var(--caramel);
+    opacity: 0.2; letter-spacing: -0.03em;
+  }
+  .bonus-card .icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--caramel); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+  .bonus-card h3 { font-size: 20px; margin-bottom: 10px; color: var(--ink); }
+  .bonus-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* COMMUNITY */
+  .community-section { background: var(--bg-alt); padding: 100px 0; }
+  .community-inner { max-width: 1000px; margin: 0 auto; }
+  .community-header { text-align: center; margin-bottom: 60px; }
+  .community-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  }
+  @media (max-width: 700px) { .community-grid { grid-template-columns: repeat(2, 1fr); } }
+  .comm-stat {
+    background: var(--card); border-radius: 16px;
+    padding: 30px 24px; text-align: center;
+    border: 1px solid var(--line);
+    transition: all 0.3s;
+  }
+  .comm-stat:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(184, 118, 58, 0.12); }
+  .comm-stat-num {
+    font-size: 38px; font-weight: 900; color: var(--caramel);
+    letter-spacing: -0.03em; line-height: 1; margin-bottom: 12px;
+  }
+  .comm-stat-lbl {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--muted); font-weight: 700; margin-bottom: 6px;
+  }
+  .comm-stat-hint { font-size: 12px; color: var(--muted-lite); font-style: italic; }
+
+  .community-footnote {
+    text-align: center; margin-top: 40px; padding: 24px;
+    background: rgba(184, 118, 58, 0.08); border-radius: 12px;
+    border-left: 3px solid var(--caramel);
+    font-size: 15px; color: var(--ink-soft); font-style: italic;
+    max-width: 800px; margin-left: auto; margin-right: auto;
+  }
+
+  /* CTA / KONTAKT */
+  .cta { background: var(--espresso); color: #fff; padding: 120px 0; text-align: center; position: relative; overflow: hidden; }
+  .cta::before {
+    content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(217, 167, 105, 0.12), transparent 60%);
+    pointer-events: none;
+  }
+  .cta > .container { position: relative; z-index: 2; }
+  .cta h2 { color: #fff; font-size: clamp(40px, 6vw, 76px); margin-bottom: 20px; letter-spacing: -0.03em; }
+  .cta h2 .accent { color: var(--champ); }
+  .cta > .container > p { font-size: 18px; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 40px; line-height: 1.55; }
+  .cta-info {
+    display: flex; gap: 40px; justify-content: center; margin-top: 60px;
+    padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.15); flex-wrap: wrap;
+  }
+  .cta-info-item { text-align: center; }
+  .cta-info-lbl { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--champ); font-weight: 700; margin-bottom: 8px; }
+  .cta-info-val { font-size: 15px; color: #fff; font-weight: 500; }
+
+  /* Footer klein */
+  footer { background: var(--espresso-warm); color: rgba(255,255,255,0.5); padding: 32px 0; text-align: center; font-size: 12px; }
+  footer a { color: var(--champ); }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250, 247, 242, 0.85); backdrop-filter: saturate(1.4) blur(18px); border-bottom: 1px solid var(--line);">
+  <div style="max-width: 1000px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between;">
+    <a href="index.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; font-weight: 500; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--caramel)';" onmouseout="this.style.color='var(--muted)';">
+      <span style="font-size: 18px;">←</span>
+      Zurück zu On Point
+    </a>
+    <a href="index.html" style="font-weight: 800; font-size: 20px; letter-spacing: -0.03em; color: var(--ink); text-decoration: none;">On Point<span style="color: var(--champ); font-size: 26px;">.</span></a>
+  </div>
+</nav>
+
+<!-- Diagonaler Editorial-Marquee (top) -->
+<style>
+  .diag-marquee {
+    background: var(--espresso);
+    color: #fff;
+    padding: 22px 0;
+    overflow: hidden;
+    position: relative;
+    margin-top: 60px;
+  }
+  .diag-marquee-inner {
+    display: flex;
+    gap: 50px;
+    animation: tickerScroll 45s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+    font-family: 'Inter', sans-serif;
+  }
+  .diag-marquee-inner span.txt {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.2px;
+  }
+  .diag-marquee-inner span.acc {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.2px;
+  }
+  .diag-marquee-inner .num-hi {
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--champ);
+    letter-spacing: -0.01em;
+  }
+  .diag-marquee-inner span.dot {
+    display: inline-block;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--champ);
+    opacity: 0.7;
+    vertical-align: middle;
+  }
+  @media (max-width: 700px) {
+    .diag-marquee-inner span.txt, .diag-marquee-inner span.acc { font-size: 13px; }
+    .diag-marquee-inner .num-hi { font-size: 15px; }
+    .diag-marquee-inner { gap: 30px; }
+  }
+
+  /* Cinema Big Number */
+  .cinema-bignum {
+    background: var(--espresso);
+    color: #fff;
+    padding: 140px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid rgba(201,169,110,0.1);
+  }
+  .cinema-bignum::before {
+    content: "";
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px; height: 1000px;
+    background: radial-gradient(circle, rgba(201,169,110,0.15), transparent 60%);
+    pointer-events: none;
+    animation: pulseGlow 6s ease-in-out infinite;
+  }
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+  }
+  .cinema-mini {
+    font-size: 12px; letter-spacing: 5px; text-transform: uppercase;
+    color: var(--champ); font-weight: 700; margin-bottom: 32px;
+    display: flex; align-items: center; justify-content: center; gap: 20px;
+    position: relative; z-index: 2;
+  }
+  .cinema-mini::before, .cinema-mini::after {
+    content: ""; width: 40px; height: 1px; background: var(--champ);
+  }
+  .cinema-num {
+    font-size: clamp(120px, 22vw, 320px);
+    font-weight: 900;
+    letter-spacing: -0.06em;
+    line-height: 0.85;
+    background: linear-gradient(180deg, #fff 0%, var(--champ) 60%, var(--champ-hi) 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    margin-bottom: 20px;
+    position: relative; z-index: 2;
+  }
+  .cinema-label {
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+    position: relative; z-index: 2;
+  }
+  .cinema-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.5);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    position: relative; z-index: 2;
+  }
+  .cinema-sub .accent { color: var(--champ); font-weight: 700; }
+
+  /* Editorial Split Card */
+  .split-card {
+    background: var(--card);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .split-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  @media (max-width: 900px) { .split-inner { grid-template-columns: 1fr; gap: 40px; } }
+  .split-num-huge {
+    font-size: clamp(180px, 26vw, 360px);
+    font-weight: 900;
+    letter-spacing: -0.08em;
+    line-height: 0.75;
+    background: linear-gradient(180deg, var(--caramel), var(--champ));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    font-style: italic;
+  }
+  .split-content h3 {
+    font-size: clamp(32px, 4vw, 46px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+  .split-content p {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+</style>
+
+<!-- HERO-BILDBANNER -->
+<div id="top-banner" style="width: 100%; height: 227px; background: linear-gradient(135deg, var(--espresso), var(--caramel)); position: relative; overflow: hidden; margin-top: 60px;">
+  <!-- Julia legt hier ein Bild rein. Dann austauschen mit:
+       <img src="img/[dateiname]" style="width: 100%; height: 100%; object-fit: cover;" alt="" />
+       Aktuell: eleganter Gradient-Placeholder als Übergang. -->
+  <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.35); font-size: 13px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700;">
+    Bildbanner. Dateiname sagen. Ich tausche.
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="cover-badge reveal">
+          <span class="pulse"></span>
+          <span>Pitch für MealBites</span>
+        </div>
+        <h1 class="reveal reveal-d1">Hallo <span class="accent">MealBites</span>.<br />Ich habe eine <span class="marker">Idee</span> für euch.</h1>
+        <p class="lede reveal reveal-d2">Ich bin Julia. Ich habe selbst ein Food-Startup gegründet, meine Zielgruppe versteht euch besser als jede Marktforschung, und ich weiß wie Content aussieht, der aus Followern Kunden macht.</p>
+        <a class="btn btn-primary reveal reveal-d3" href="#kontakt">
+          Lasst uns reden <span class="btn-arrow">→</span>
+        </a>
+      </div>
+      <div class="reveal reveal-d2">
+        <div class="hero-portrait">
+          <img src="img/portrait-hero.jpg" alt="Julia Bergles" />
+          <div class="hero-portrait-tag">
+            <span class="dot"></span>
+            Julia Bergles · Content
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cinema Big Number -->
+<section class="cinema-bignum">
+  <div class="container reveal">
+    <div class="cinema-mini">Warum ihr mich braucht</div>
+    <div class="cinema-num">93,8&#8239;%</div>
+    <div class="cinema-label">Nicht-Follower-Reichweite.</div>
+    <p class="cinema-sub">Meine Reels erreichen zu <span class="accent">93,8 %</span> Menschen außerhalb meiner eigenen Bubble. Das ist der Unterschied zwischen Content, der bei euren Followern bleibt, und Content, der neue Kundinnen für MealBites bringt.</p>
+  </div>
+</section>
+
+<!-- Editorial Split Card -->
+<section class="split-card">
+  <div class="split-inner reveal">
+    <div>
+      <div class="split-num-huge">01</div>
+    </div>
+    <div class="split-content">
+      <div style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--caramel); font-weight: 700; margin-bottom: 14px;">Startup verstanden</div>
+      <h3>Ich weiß, wie sich <span style="color: var(--caramel);">euer Alltag</span> anfühlt.</h3>
+      <p>Ich habe selbst ein Food-Startup gegründet und drei Jahre lang jeden Meter gekämpft: Produkt, Verpackung, Vertrieb, Content, Zulassung. Ich kenne die Nächte, in denen man sich fragt, ob es sich lohnt. Und ich weiß, was man wirklich braucht, um weiterzumachen.</p>
+      <p>Bei MealBites unterstütze ich nicht als Agentur von außen, sondern als jemand, der schon selbst mit einem Rezept in der Küche stand und sich gefragt hat: <em>„Wer versteht mich?"</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="container">
+    <div class="story-inner">
+      <span class="kicker reveal">Kurz zu mir</span>
+      <h2 class="section-title reveal reveal-d1">Ich weiß, wie sich <span class="accent">euer Weg</span> anfühlt.</h2>
+
+      <p class="reveal reveal-d2" style="margin-top: 40px;">Vor ein paar Jahren habe ich selbst ein Food-Startup gegründet. Gesunde, <strong>zuckerfreie und glutenfreie Backmischungen</strong>. Ich habe rezeptiert, gebrandet, verpackt, verkauft.</p>
+
+      <p class="reveal reveal-d2">Bis mich meine eigene Gesundheit gestoppt hat. Ich konnte die Produkte selbst nicht mehr essen, und damit verlor ich die Motivation, sie zu vermarkten.</p>
+
+      <p class="reveal reveal-d3">Also habe ich mich neu ausgerichtet. Was ich schon immer konnte: Gestaltung. Ich habe ein <strong>Fachabitur im Bereich Gestaltung</strong> und bin heute selbständig als Content-Designerin.</p>
+
+      <p class="reveal reveal-d3">Nebenbei habe ich meine Community weitergeführt. Und dort ist etwas Besonderes entstanden:</p>
+
+      <div class="story-quote reveal reveal-d3">
+        Eine sehr klare Nische aus Menschen, die täglich mit körperlichen Beschwerden durch Essen leben. Darmfreundliche Ernährung, Histaminintoleranz, Laktose, Fructose. Menschen, die genau wissen, was ein guter Snack für sie bedeutet — und was nicht.
+      </div>
+
+      <p class="reveal reveal-d3">Deshalb schreibe ich euch. Weil ich aus <strong>zwei Perspektiven</strong> auf euer Produkt schauen kann: Als jemand, der weiß, wie hart der Startup-Aufbau von 0 auf 100 wirklich ist. Und als jemand, dessen Community <strong>genau eure Zielgruppe</strong> ist.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY-ME (Dark) -->
+<section class="why">
+  <div class="container">
+    <div class="why-inner">
+      <span class="kicker reveal" style="color: var(--champ);">Warum ich zu euch passe</span>
+      <h2 class="reveal reveal-d1">Vier Dinge, die <span class="accent">niemand sonst</span> mitbringt.</h2>
+
+      <div class="why-grid">
+        <div class="why-card reveal reveal-d1">
+          <div class="why-card-num">01</div>
+          <div class="why-card-lbl">Insider</div>
+          <h3>Selbst gegründet</h3>
+          <p>Ich weiß, wie ein Food-Startup wirklich funktioniert. Ich verstehe eure täglichen Fragen, weil ich sie mir selbst gestellt habe.</p>
+        </div>
+
+        <div class="why-card reveal reveal-d2">
+          <div class="why-card-num">02</div>
+          <div class="why-card-lbl">Community</div>
+          <h3>Kaufkräftige Zielgruppe</h3>
+          <p>Menschen mit Reizdarm, HIT, Unverträglichkeiten geben deutlich mehr Geld für den richtigen Snack aus als der Durchschnitt.</p>
+        </div>
+
+        <div class="why-card reveal reveal-d2">
+          <div class="why-card-num">03</div>
+          <div class="why-card-lbl">Handwerk</div>
+          <h3>Fachlich fundiert</h3>
+          <p>Fachabitur Gestaltung. Jeder Beitrag handgemacht, jede Zutat medizinisch geprüft. Kein KI-Copy-Paste.</p>
+        </div>
+
+        <div class="why-card reveal reveal-d3">
+          <div class="why-card-num">04</div>
+          <div class="why-card-lbl">Reichweite</div>
+          <h3>706k Konten / Monat</h3>
+          <p>Meine eigenen Kanäle. 93,8 % Nicht-Follower-Reach. Wenn ihr wollt: Ich stelle euch aktiv vor.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMAT-VORSCHLAG -->
+<section class="format">
+  <div class="container">
+    <div class="format-inner">
+      <div class="format-header">
+        <span class="kicker reveal">Mein konkreter Vorschlag</span>
+        <h2 class="section-title reveal reveal-d1">Das Format: <span class="accent">„Der 2-Stunden-Test"</span></h2>
+        <p class="reveal reveal-d2">Wöchentliches Karussell. Jede Woche ein Produkt. Immer gleiche Struktur. Nach vier Wochen kennt eure Community das Format und kommt aktiv zurück.</p>
+      </div>
+
+      <div class="slide-list">
+        <div class="slide-item reveal reveal-d1">
+          <div class="slide-num">01</div>
+          <div class="slide-content">
+            <h4>Hook</h4>
+            <p><em>„Es ist 14:37 Uhr. Zoom-Call in 45 Minuten. Sie greifen zu ___"</em></p>
+          </div>
+        </div>
+        <div class="slide-item reveal reveal-d1">
+          <div class="slide-num">02</div>
+          <div class="slide-content">
+            <h4>Das Problem</h4>
+            <p>Was passiert nach Kaffee und Keks: Blutzucker-Crash um 15:30, Konzentrationsloch, Meeting-Fokus weg.</p>
+          </div>
+        </div>
+        <div class="slide-item reveal reveal-d2">
+          <div class="slide-num">03</div>
+          <div class="slide-content">
+            <h4>Der Test-Rahmen</h4>
+            <p>Was Sättigung wirklich misst: Ballaststoff-Timing, Protein-Absorption, Blutzucker-Trägheit. Fachlich fundiert.</p>
+          </div>
+        </div>
+        <div class="slide-item reveal reveal-d2">
+          <div class="slide-num">04</div>
+          <div class="slide-content">
+            <h4>MealBites im Test</h4>
+            <p>Zutaten aufgeschlüsselt: <em>X g Protein + Y g Ballaststoffe = konkret wie viele Stunden Sättigung.</em> Nicht Claims. Zahlen.</p>
+          </div>
+        </div>
+        <div class="slide-item reveal reveal-d3">
+          <div class="slide-num">05</div>
+          <div class="slide-content">
+            <h4>Real-Life-Beispiel</h4>
+            <p>Meeting-Fokus bis 18 Uhr statt Crash um 15:30. Reale Zielgruppe, reale Szene.</p>
+          </div>
+        </div>
+        <div class="slide-item reveal reveal-d3">
+          <div class="slide-num">06</div>
+          <div class="slide-content">
+            <h4>Für wen konkret</h4>
+            <p>Vielreisende, Zahnärztin im OP, Nachtschicht, Programmierer, Sport nach der Arbeit.</p>
+          </div>
+        </div>
+        <div class="slide-item reveal reveal-d3">
+          <div class="slide-num">07</div>
+          <div class="slide-content">
+            <h4>Call to Action</h4>
+            <p>Wo kaufen. Wie testen. Klar und ohne Bla.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="text-align: center; margin-top: 40px; padding: 24px; background: rgba(184, 118, 58, 0.08); border-radius: 12px; border-left: 3px solid var(--caramel); font-size: 15px; color: var(--ink-soft);">
+        <strong style="color: var(--caramel-deep);">Warum genau dieses Format:</strong> Es beweist euren USP („2 bis 4 Stunden Sättigung") mit <em>Zahlen</em> statt mit <em>Claims</em>. Genau der Unterschied, den kaufkräftige Zielgruppen belohnen.
+      </div>
+
+      <!-- Weekly Content Plan -->
+      <div class="reveal" style="margin-top: 60px;">
+        <h3 style="text-align: center; font-size: 26px; margin-bottom: 12px; color: var(--ink);">Der komplette <span style="color: var(--caramel);">Wochenplan</span>.</h3>
+        <p style="text-align: center; font-size: 15px; color: var(--muted); margin-bottom: 40px; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.6;">Zwei mögliche Varianten. Wir stimmen im Erstgespräch ab, worauf euer Fokus in den ersten drei Monaten liegt.</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="plans-grid">
+          <div style="background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 32px 28px;">
+            <div style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--caramel); font-weight: 700; margin-bottom: 10px;">Variante A</div>
+            <h4 style="font-size: 20px; margin-bottom: 20px;">Fokus Reichweite</h4>
+            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+              <li style="display: flex; gap: 12px; align-items: baseline; font-size: 14px; color: var(--ink-soft);"><span style="color: var(--caramel); font-weight: 700;">3</span><span>Reels pro Woche</span></li>
+              <li style="display: flex; gap: 12px; align-items: baseline; font-size: 14px; color: var(--ink-soft);"><span style="color: var(--caramel); font-weight: 700;">2</span><span>Beiträge pro Woche</span></li>
+              <li style="display: flex; gap: 12px; align-items: baseline; font-size: 14px; color: var(--ink-soft);"><span style="color: var(--caramel); font-weight: 700;">1</span><span>Vor-Ort-Dreh pro Monat</span></li>
+            </ul>
+            <p style="font-size: 13px; color: var(--muted); margin-top: 20px; line-height: 1.55;">Für schnelles Wachstum: viel bewegter Content, Reichweite über die eigene Bubble hinaus, mehr virale Chancen.</p>
+          </div>
+
+          <div style="background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 32px 28px;">
+            <div style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--caramel); font-weight: 700; margin-bottom: 10px;">Variante B</div>
+            <h4 style="font-size: 20px; margin-bottom: 20px;">Fokus Community</h4>
+            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+              <li style="display: flex; gap: 12px; align-items: baseline; font-size: 14px; color: var(--ink-soft);"><span style="color: var(--caramel); font-weight: 700;">2</span><span>Reels pro Woche</span></li>
+              <li style="display: flex; gap: 12px; align-items: baseline; font-size: 14px; color: var(--ink-soft);"><span style="color: var(--caramel); font-weight: 700;">3</span><span>Beiträge pro Woche</span></li>
+              <li style="display: flex; gap: 12px; align-items: baseline; font-size: 14px; color: var(--ink-soft);"><span style="color: var(--caramel); font-weight: 700;">1</span><span>Vor-Ort-Dreh pro Monat</span></li>
+            </ul>
+            <p style="font-size: 13px; color: var(--muted); margin-top: 20px; line-height: 1.55;">Für tiefe Bindung: Aufklärung, Rezepte, Vergleiche. Community-Kommunikation und Nachhaltige Kundenloyalität.</p>
+          </div>
+        </div>
+
+        <!-- Konstant enthalten -->
+        <div class="reveal" style="margin-top: 30px; background: var(--espresso); color: #fff; border-radius: 20px; padding: 40px 36px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;" class="const-grid">
+            <div>
+              <div style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--champ); font-weight: 700; margin-bottom: 14px;">In beiden Varianten enthalten</div>
+              <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px;">
+                <li style="font-size: 14px; color: rgba(255,255,255,0.85); padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--champ);">·</span>Recherche und monatlicher Contentplan</li>
+                <li style="font-size: 14px; color: rgba(255,255,255,0.85); padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--champ);">·</span>Konzept, Schnitt, Captions</li>
+                <li style="font-size: 14px; color: rgba(255,255,255,0.85); padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--champ);">·</span>ManyChat-Automation für mehr Anfragen</li>
+                <li style="font-size: 14px; color: rgba(255,255,255,0.85); padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--champ);">·</span>Community-Aufbau und laufendes Management</li>
+                <li style="font-size: 14px; color: rgba(255,255,255,0.85); padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--champ);">·</span>Einarbeitung von vorhandenem Material</li>
+              </ul>
+            </div>
+            <div>
+              <div style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--champ); font-weight: 700; margin-bottom: 14px;">Alle Tools bringe ich mit</div>
+              <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px;">
+                <li style="font-size: 14px; color: rgba(255,255,255,0.85); padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--champ);">·</span>ManyChat, CapCut Pro, Canva Pro</li>
+                <li style="font-size: 14px; color: rgba(255,255,255,0.85); padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--champ);">·</span>Figma, Claude Pro, ChatGPT Pro</li>
+                <li style="font-size: 14px; color: var(--champ); font-weight: 700; padding-left: 20px; position: relative; margin-top: 8px;"><span style="position: absolute; left: 0;">→</span>Ihr habt keine Software-Kosten für den Content.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Preis -->
+        <div class="reveal" style="text-align: center; margin-top: 40px; padding: 40px; background: linear-gradient(135deg, var(--caramel), var(--caramel-hi)); border-radius: 20px; color: #fff; box-shadow: 0 20px 40px rgba(184, 118, 58, 0.3);">
+          <div style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.85); font-weight: 700; margin-bottom: 10px;">Monatspauschale</div>
+          <div style="font-size: 72px; font-weight: 900; letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;">2.290&nbsp;€</div>
+          <div style="font-size: 14px; color: rgba(255,255,255,0.85);">pro Monat, plus 1 Vor-Ort-Dreh · zzgl. MwSt.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REZEPTE-Section (selbst gekocht) -->
+<section style="background: var(--card); padding: 120px 0; position: relative; overflow: hidden;">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1200px; margin: 0 auto;" class="rezept-header-grid">
+      <div class="reveal">
+        <span class="kicker">Rezept der Woche</span>
+        <h2 class="section-title">Ich koche <span style="color: var(--caramel);">selber</span>. Jede Woche.</h2>
+        <p style="font-size: 17px; color: var(--ink-soft); line-height: 1.7; margin-top: 24px; margin-bottom: 20px;">Rezepte laufen wöchentlich als eigenes Format. Ich koche in meiner Küche, kombiniere MealBites-Produkte mit saisonalen Zutaten und filme den ganzen Prozess. Wahlweise mit oder ohne mich im Bild.</p>
+        <p style="font-size: 17px; color: var(--ink-soft); line-height: 1.7;">Was rauskommt: appetitanregender Content, der zum Nachmachen einlädt. Und Community-Aktivierung durch den Reflex „Schreib &lsquo;Rezept&rsquo; in die Kommentare".</p>
+      </div>
+      <div class="reveal reveal-d2">
+        <div style="aspect-ratio: 4/5; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 60px rgba(30, 77, 85, 0.2); transform: rotate(1.5deg);">
+          <img src="img/recipe-1386.jpg" alt="Rezeptbeispiel" style="width: 100%; height: 100%; object-fit: cover;" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Editorial Rezept-Grid -->
+    <div style="margin-top: 80px; display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;" class="rezept-grid">
+      <div class="reveal reveal-d1" style="grid-column: 1 / 5; grid-row: 1 / 3; border-radius: 16px; overflow: hidden; aspect-ratio: 4/5; box-shadow: 0 20px 40px rgba(30, 77, 85, 0.12);">
+        <img src="img/recipe-1399.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='';" />
+      </div>
+      <div class="reveal reveal-d1" style="grid-column: 5 / 9; grid-row: 1 / 2; border-radius: 16px; overflow: hidden; aspect-ratio: 1/1; box-shadow: 0 20px 40px rgba(30, 77, 85, 0.12);">
+        <img src="img/recipe-2016.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='';" />
+      </div>
+      <div class="reveal reveal-d2" style="grid-column: 9 / 13; grid-row: 1 / 3; border-radius: 16px; overflow: hidden; aspect-ratio: 4/5; box-shadow: 0 20px 40px rgba(30, 77, 85, 0.12);">
+        <img src="img/recipe-2476.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='';" />
+      </div>
+      <div class="reveal reveal-d2" style="grid-column: 5 / 13; grid-row: 2 / 3; border-radius: 16px; overflow: hidden; aspect-ratio: 12/5; box-shadow: 0 20px 40px rgba(30, 77, 85, 0.12);">
+        <img src="img/recipe-2359.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;" onmouseover="this.style.transform='scale(1.02)';" onmouseout="this.style.transform='';" />
+      </div>
+    </div>
+
+    <p class="reveal reveal-d3" style="text-align: center; margin-top: 40px; font-size: 14px; color: var(--muted); font-style: italic;">Alles selbst gekocht, selbst fotografiert. Kein Stockmaterial, kein KI-Bild.</p>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 900px) {
+    .rezept-header-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .rezept-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .rezept-grid > div { grid-column: auto !important; grid-row: auto !important; aspect-ratio: 1/1 !important; }
+  }
+  @media (max-width: 500px) {
+    .rezept-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+<!-- HANDY-MOCKUPS mit laufenden Reels -->
+<section style="background: var(--espresso); color: #fff; padding: 120px 0; position: relative; overflow: hidden;">
+  <div style="position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,169,110,0.15), transparent 60%); pointer-events: none;"></div>
+  <div class="container" style="position: relative; z-index: 2;">
+    <div class="reveal" style="text-align: center; margin-bottom: 80px;">
+      <span class="kicker" style="color: var(--champ);">So sieht es aus</span>
+      <h2 class="section-title" style="color: #fff;">Live-Beispiele aus meiner <span class="glossy">Arbeit</span>.</h2>
+      <p style="font-size: 17px; color: rgba(255,255,255,0.6); margin-top: 20px; max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.55; text-align: center;">Reels, die ich in den letzten Monaten für Kunden gedreht habe. Handschriften. Bewegte Bilder. Alles handgemacht.</p>
+    </div>
+
+    <div style="display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; align-items: flex-end; max-width: 1100px; margin: 0 auto;" class="mb-devices">
+      <!-- Handy 1 -->
+      <div class="reveal reveal-d1" style="display: flex; flex-direction: column; align-items: center; gap: 20px; transform: rotate(-2deg);">
+        <div style="width: 240px; height: 500px; background: #111; border-radius: 38px; padding: 8px; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); position: relative;">
+          <div style="position: absolute; top: 14px; left: 50%; transform: translateX(-50%); width: 72px; height: 22px; background: #000; border-radius: 100px; z-index: 3;"></div>
+          <div style="width: 100%; height: 100%; border-radius: 32px; overflow: hidden; background: #000;">
+            <video src="img/video-1.mov" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <span style="display: inline-block; padding: 5px 12px; border-radius: 999px; background: rgba(201,169,110,0.15); color: var(--champ); border: 1px solid var(--champ); font-size: 11px; font-weight: 700; letter-spacing: 0.5px;">Reel</span>
+          <h4 style="font-size: 15px; margin-top: 8px; color: #fff; font-weight: 700;">Bold &amp; Direkt</h4>
+        </div>
+      </div>
+
+      <!-- Handy 2 (mitte, größer, ohne rotation) -->
+      <div class="reveal reveal-d2" style="display: flex; flex-direction: column; align-items: center; gap: 20px; transform: translateY(-40px); z-index: 3;">
+        <div style="width: 260px; height: 540px; background: #111; border-radius: 40px; padding: 8px; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5); position: relative;">
+          <div style="position: absolute; top: 14px; left: 50%; transform: translateX(-50%); width: 80px; height: 24px; background: #000; border-radius: 100px; z-index: 3;"></div>
+          <div style="width: 100%; height: 100%; border-radius: 34px; overflow: hidden; background: #000;">
+            <video src="img/video-2.mov" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <span style="display: inline-block; padding: 5px 12px; border-radius: 999px; background: var(--champ); color: var(--espresso); font-size: 11px; font-weight: 700; letter-spacing: 0.5px;">Reel</span>
+          <h4 style="font-size: 15px; margin-top: 8px; color: #fff; font-weight: 700;">Warm &amp; Nährend</h4>
+        </div>
+      </div>
+
+      <!-- Handy 3 -->
+      <div class="reveal reveal-d3" style="display: flex; flex-direction: column; align-items: center; gap: 20px; transform: rotate(2deg) translateY(-10px);">
+        <div style="width: 240px; height: 500px; background: #111; border-radius: 38px; padding: 8px; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); position: relative;">
+          <div style="position: absolute; top: 14px; left: 50%; transform: translateX(-50%); width: 72px; height: 22px; background: #000; border-radius: 100px; z-index: 3;"></div>
+          <div style="width: 100%; height: 100%; border-radius: 32px; overflow: hidden; background: #000;">
+            <video src="img/video-3.mov" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <span style="display: inline-block; padding: 5px 12px; border-radius: 999px; background: rgba(201,169,110,0.15); color: var(--champ); border: 1px solid var(--champ); font-size: 11px; font-weight: 700; letter-spacing: 0.5px;">Reel</span>
+          <h4 style="font-size: 15px; margin-top: 8px; color: #fff; font-weight: 700;">Ruhig &amp; Klar</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT-MÖGLICHKEITEN (Sprech-Optionen) -->
+<section style="background: var(--bg); padding: 100px 0;">
+  <div class="container">
+    <div class="reveal" style="text-align: center; margin-bottom: 60px;">
+      <span class="kicker">Ihr entscheidet</span>
+      <h2 class="section-title">Verschiedene <span style="color: var(--caramel);">Sprech-Optionen</span>.</h2>
+      <p style="font-size: 17px; color: var(--muted); margin-top: 20px; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.55; text-align: center;">Ihr müsst nicht vor der Kamera stehen, wenn ihr das nicht wollt. Ich bringe vier Formate mit, wir wählen gemeinsam die Mischung.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto;" class="sprech-grid">
+      <div class="reveal reveal-d1" style="background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 32px 24px; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--caramel)'; this.style.boxShadow='0 20px 40px rgba(30, 77, 85, 0.1)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--line)'; this.style.boxShadow='';">
+        <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--caramel-tint); color: var(--caramel); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a6 6 0 016-6h4a6 6 0 016 6v2"/></svg>
+        </div>
+        <h4 style="font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--ink);">Ihr vor der Kamera</h4>
+        <p style="font-size: 13px; color: var(--muted); line-height: 1.55;">Ich komme zu euch, drehe mit euch. Ihr seid das Gesicht. Echt und nahbar.</p>
+      </div>
+
+      <div class="reveal reveal-d2" style="background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 32px 24px; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--caramel)'; this.style.boxShadow='0 20px 40px rgba(30, 77, 85, 0.1)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--line)'; this.style.boxShadow='';">
+        <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(201, 169, 110, 0.14); color: var(--champ); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17 3l4 4-11 11H6v-4z"/><circle cx="12" cy="20" r="1"/></svg>
+        </div>
+        <h4 style="font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--ink);">Ich vor der Kamera</h4>
+        <p style="font-size: 13px; color: var(--muted); line-height: 1.55;">Kein Bock selbst zu filmen? Ich übernehme als Testimonial-Stimme für eure Marke.</p>
+      </div>
+
+      <div class="reveal reveal-d2" style="background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 32px 24px; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--caramel)'; this.style.boxShadow='0 20px 40px rgba(30, 77, 85, 0.1)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--line)'; this.style.boxShadow='';">
+        <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--caramel-tint); color: var(--caramel); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 5h16M4 12h10M4 19h16"/></svg>
+        </div>
+        <h4 style="font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--ink);">Textoverlays</h4>
+        <p style="font-size: 13px; color: var(--muted); line-height: 1.55;">Reels und Beiträge mit ausdrucksstarker Typografie, ganz ohne Sprecherin.</p>
+      </div>
+
+      <div class="reveal reveal-d3" style="background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 32px 24px; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--caramel)'; this.style.boxShadow='0 20px 40px rgba(30, 77, 85, 0.1)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--line)'; this.style.boxShadow='';">
+        <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(201, 169, 110, 0.14); color: var(--champ); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2a3 3 0 00-3 3v6a3 3 0 006 0V5a3 3 0 00-3-3z"/><path d="M19 10v1a7 7 0 01-14 0v-1"/><path d="M12 18v4M8 22h8"/></svg>
+        </div>
+        <h4 style="font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--ink);">Direkt gesprochen</h4>
+        <p style="font-size: 13px; color: var(--muted); line-height: 1.55;">Voice-Overs, Storys, Podcast-Snippets. Klare Stimme, kein Bild-Ablenker.</p>
+      </div>
+    </div>
+    <style>
+      @media (max-width: 900px) { .sprech-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+      @media (max-width: 500px) { .sprech-grid { grid-template-columns: 1fr !important; } }
+      @media (max-width: 900px) { .mb-devices > div { transform: none !important; } }
+    </style>
+  </div>
+</section>
+
+<!-- BONUS-VALUE -->
+<section class="bonus">
+  <div class="container">
+    <div class="bonus-inner">
+      <span class="kicker reveal" style="display: block; text-align: center;">Der Extra-Wert</span>
+      <h2 class="section-title reveal reveal-d1">Vier Kanäle, ein Angebot.</h2>
+      <p class="lede reveal reveal-d2">Neben Content-Design bringe ich ein bestehendes Ökosystem mit, das euch als Sprungbrett dienen kann.</p>
+
+      <div class="bonus-grid">
+        <div class="bonus-card reveal reveal-d1">
+          <div class="num">01</div>
+          <div class="icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="12" cy="12" r="4"/></svg>
+          </div>
+          <h3>Instagram-Cross-Post</h3>
+          <p>MealBites-Produkte auf @julia_bergles &amp; @Smacado_. Meine Community sieht euch direkt, nicht als Werbung.</p>
+        </div>
+
+        <div class="bonus-card reveal reveal-d2">
+          <div class="num">02</div>
+          <div class="icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+          </div>
+          <h3>App-Integration TerraLuna</h3>
+          <p>Meine App für Menschen mit Unverträglichkeiten. MealBites wird als „Verträglicher Snack" gelistet und direkt empfohlen.</p>
+        </div>
+
+        <div class="bonus-card reveal reveal-d2">
+          <div class="num">03</div>
+          <div class="icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <h3>WhatsApp-Community</h3>
+          <p>Direkter Zugang in eine private Community. Persönliche Empfehlung wirkt zehnmal stärker als jede Instagram-Story.</p>
+        </div>
+
+        <div class="bonus-card reveal reveal-d3">
+          <div class="num">04</div>
+          <div class="icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2l3 6 6 1-4.5 4 1 6.5L12 17l-5.5 3.5 1-6.5L3 10l6-1z"/></svg>
+          </div>
+          <h3>Idee: Histaminarme Edition</h3>
+          <p>Meine Nische — Menschen mit HIT — sind extrem kaufkräftig und finden aktuell fast keine passenden Snacks. Ein exklusives Nischen-Produkt könnte ein Wachstumshebel sein.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY-STATS -->
+<section class="community-section">
+  <div class="container">
+    <div class="community-inner">
+      <div class="community-header">
+        <span class="kicker reveal">Meine Community in Zahlen</span>
+        <h2 class="section-title reveal reveal-d1">Nicht groß. <span class="accent">Aber richtig.</span></h2>
+      </div>
+
+      <div class="community-grid">
+        <div class="comm-stat reveal reveal-d1">
+          <div class="comm-stat-num">706k</div>
+          <div class="comm-stat-lbl">Erreichte Konten</div>
+          <div class="comm-stat-hint">pro Monat</div>
+        </div>
+        <div class="comm-stat reveal reveal-d1">
+          <div class="comm-stat-num">1,77M</div>
+          <div class="comm-stat-lbl">Reel-Aufrufe</div>
+          <div class="comm-stat-hint">pro Monat</div>
+        </div>
+        <div class="comm-stat reveal reveal-d2">
+          <div class="comm-stat-num">93,8&#8239;%</div>
+          <div class="comm-stat-lbl">Nicht-Follower</div>
+          <div class="comm-stat-hint">viral über die Bubble hinaus</div>
+        </div>
+        <div class="comm-stat reveal reveal-d2">
+          <div class="comm-stat-num">76&#8239;%</div>
+          <div class="comm-stat-lbl">Weiblich · 18–25</div>
+          <div class="comm-stat-hint">Kaufentscheider im Alltag</div>
+        </div>
+      </div>
+
+      <div class="community-footnote reveal reveal-d3">
+        <strong>Warum das für MealBites zählt:</strong> Menschen mit chronischen Beschwerden geben pro Monat 40–120 € für Ernährung aus, die sie vertragen. Sie sind es gewohnt, für Qualität zu zahlen. Das ist die Zielgruppe, die euer 2-Stunden-Sättigungs-Versprechen wirklich versteht.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="kontakt">
+  <div class="container">
+    <span class="kicker reveal" style="color: var(--champ);">Nächster Schritt</span>
+    <h2 class="reveal reveal-d1">20 Minuten. <span class="accent">Kaffee.</span> Wir schauen ob's passt.</h2>
+    <p class="reveal reveal-d2">Ich habe konkrete Ideen, ihr habt konkrete Ziele. Ein kurzes Kennenlerngespräch reicht, um zu sehen, ob eine Zusammenarbeit Sinn macht.</p>
+    <a class="btn btn-primary reveal reveal-d3" href="mailto:julia@bergles.net?subject=MealBites%20x%20On%20Point">
+      Termin per E-Mail vereinbaren <span class="btn-arrow">→</span>
+    </a>
+
+    <div class="cta-info reveal reveal-d3">
+      <div class="cta-info-item">
+        <div class="cta-info-lbl">E-Mail</div>
+        <div class="cta-info-val">julia@bergles.net</div>
+      </div>
+      <div class="cta-info-item">
+        <div class="cta-info-lbl">Instagram</div>
+        <div class="cta-info-val">@julia_bergles</div>
+      </div>
+      <div class="cta-info-item">
+        <div class="cta-info-lbl">Standort</div>
+        <div class="cta-info-val">Augsburg · deutschlandweit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    Ein persönlicher Pitch von Julia Bergles · <a href="index.html">On Point Agentur</a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>
+
+</body>
+</html>

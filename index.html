@@ -1,0 +1,1172 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>On Point · Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=object-sans@300,400,500,600,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap">
+<style>
+  :root {
+    --bg: #FBF2ED;
+    --bg-warm: #F3D6C6;
+    --bg-soft: #E8D0BE;
+    --card: #ffffff;
+
+    --ink: #2D1F22;
+    --ink-soft: #4a3236;
+    --muted: #8a6f72;
+    --muted-lite: #b09a9c;
+
+    --bordeaux: #8B2E3A;
+    --bordeaux-hi: #A5384A;
+    --bordeaux-deep: #6E1F2C;
+
+    --gold: #C5A46D;
+    --gold-hi: #d5b884;
+
+    --line: rgba(45, 31, 34, 0.08);
+    --line-strong: rgba(45, 31, 34, 0.18);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Object Sans', -apple-system, sans-serif;
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img, video { max-width: 100%; display: block; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+  @media (max-width: 700px) { .container { padding: 0 24px; } }
+
+  h1, h2, .serif {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.02;
+    color: var(--ink);
+  }
+  h3, h4 {
+    font-family: 'Object Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+
+  /* Circle-Italic (Editorial-Signature, gängiges Muster) */
+  .circle-italic {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    position: relative;
+    display: inline-block;
+    padding: 0 12px;
+  }
+  .circle-italic::before {
+    content: "";
+    position: absolute; inset: -6% -4% -6% -4%;
+    border: 1.5px solid var(--ink);
+    border-radius: 55% 45% 55% 45% / 55% 45% 55% 45%;
+    transform: rotate(-3deg);
+    pointer-events: none;
+  }
+  .circle-italic.gold::before { border-color: var(--gold); }
+  .circle-italic.white::before { border-color: #fff; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(251, 242, 237, 0.85);
+    backdrop-filter: saturate(1.3) blur(20px);
+    -webkit-backdrop-filter: saturate(1.3) blur(20px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .row {
+    max-width: 1200px; margin: 0 auto;
+    padding: 22px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500; font-size: 26px;
+    color: var(--ink); letter-spacing: -0.02em;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .brand::before {
+    content: "";
+    display: inline-block; width: 16px; height: 16px;
+    background: var(--bordeaux); border-radius: 50%;
+  }
+  nav ul { display: flex; gap: 42px; list-style: none; }
+  nav ul a {
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink); font-weight: 500;
+    transition: color 0.3s;
+  }
+  nav ul a:hover { color: var(--bordeaux); }
+  .nav-cta {
+    padding: 13px 26px;
+    background: var(--ink); color: var(--bg);
+    border-radius: 999px;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    font-weight: 500;
+    transition: all 0.4s;
+  }
+  .nav-cta:hover { background: var(--bordeaux); }
+  @media (max-width: 900px) { nav ul { display: none; } }
+
+  /* ─── HERO Full-Bleed ─── */
+  .hero {
+    height: 100vh; min-height: 700px;
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 100px 40px 40px;
+  }
+  .hero-bg { position: absolute; inset: 0; z-index: 1; }
+  .hero-bg img {
+    width: 100%; height: 100%; object-fit: cover;
+    animation: kenburns 30s ease-in-out infinite alternate;
+  }
+  @keyframes kenburns {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.08); }
+  }
+  .hero-bg::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(45, 31, 34, 0.15) 0%, rgba(45, 31, 34, 0.5) 100%);
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    color: #fff; max-width: 900px;
+  }
+  .hero-eyebrow {
+    font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85); font-weight: 500;
+    margin-bottom: 36px;
+    display: inline-flex; align-items: center; gap: 20px;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ""; width: 60px; height: 1px; background: var(--gold);
+  }
+  .hero h1 {
+    color: #fff;
+    font-size: clamp(52px, 8vw, 108px);
+    font-weight: 400;
+    line-height: 1.02;
+    margin-bottom: 32px;
+    letter-spacing: -0.02em;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+  }
+  .hero-sub {
+    font-size: 19px;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 620px;
+    margin: 0 auto 48px;
+    line-height: 1.55;
+    font-weight: 400;
+  }
+  .hero-buttons {
+    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+  }
+  .btn-red {
+    padding: 20px 44px;
+    background: var(--bordeaux); color: #fff;
+    border: 0; border-radius: 999px;
+    font-family: 'Object Sans', sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s;
+    box-shadow: 0 20px 40px rgba(139, 46, 58, 0.35);
+    display: inline-block;
+  }
+  .btn-red:hover { background: var(--bordeaux-hi); transform: translateY(-3px); box-shadow: 0 25px 50px rgba(139, 46, 58, 0.5); }
+  .btn-outline-white {
+    padding: 20px 44px;
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 999px;
+    font-family: 'Object Sans', sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    cursor: pointer; backdrop-filter: blur(8px);
+    transition: all 0.4s;
+    display: inline-block;
+  }
+  .btn-outline-white:hover { background: #fff; color: var(--ink); }
+
+  /* ─── VIELLEICHT KENNST DU UNS AUS ─── */
+  .press {
+    padding: 70px 0;
+    background: var(--bg);
+    text-align: center;
+  }
+  .press-header {
+    font-size: 12px; letter-spacing: 0.2em;
+    color: var(--muted); font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+  }
+  .press-logos {
+    display: flex; gap: 60px; justify-content: center; align-items: center; flex-wrap: wrap;
+    max-width: 1000px; margin: 0 auto;
+  }
+  .press-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500; font-size: 22px;
+    color: var(--ink); opacity: 0.5;
+    transition: opacity 0.3s;
+    letter-spacing: 0.03em;
+  }
+  .press-logo:hover { opacity: 1; }
+  .press-logo.bold {
+    font-family: 'Object Sans', sans-serif; font-weight: 700;
+    text-transform: lowercase; font-style: italic;
+  }
+  .press-logo.serif { font-style: italic; }
+
+  /* ─── MARQUEE Bilder ─── */
+  .marquee-strip {
+    padding: 40px 0 80px;
+    background: var(--bg);
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+  }
+  .marquee-track {
+    display: flex; gap: 28px; width: max-content;
+    animation: mScroll 60s linear infinite;
+  }
+  @keyframes mScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .marquee-card {
+    flex-shrink: 0; width: 260px; aspect-ratio: 4/5;
+    border-radius: 3px; overflow: hidden;
+    box-shadow: 0 20px 40px rgba(45, 31, 34, 0.1);
+  }
+  .marquee-card img, .marquee-card video { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ─── 6 BAUSTEINE (Dark Luxury) ─── */
+  .features {
+    padding: 160px 0;
+    background: var(--ink);
+    color: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .features::before {
+    content: ""; position: absolute; top: -200px; right: -200px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(197, 164, 109, 0.12), transparent 70%);
+    pointer-events: none;
+  }
+  .features::after {
+    content: ""; position: absolute; bottom: -200px; left: -200px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 46, 58, 0.15), transparent 70%);
+    pointer-events: none;
+  }
+  .features-header { text-align: center; margin-bottom: 90px; max-width: 900px; margin-left: auto; margin-right: auto; position: relative; }
+  .features-eyebrow {
+    font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500;
+    margin-bottom: 24px; display: inline-block;
+  }
+  .features-header h2 {
+    font-size: clamp(44px, 6vw, 88px);
+    font-weight: 400;
+    margin-bottom: 24px;
+    color: var(--bg);
+  }
+  .features-header h2 em { font-style: italic; color: var(--gold); }
+  .features-lede { font-size: 17px; color: rgba(251, 242, 237, 0.7); line-height: 1.6; max-width: 620px; margin: 0 auto; }
+
+  .features-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    max-width: 1200px; margin: 0 auto;
+    position: relative;
+  }
+  @media (max-width: 900px) { .features-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .features-grid { grid-template-columns: 1fr; } }
+
+  .feature-card {
+    background: rgba(251, 242, 237, 0.04);
+    padding: 44px 36px;
+    border-radius: 6px;
+    border: 1px solid rgba(197, 164, 109, 0.2);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(6px);
+  }
+  .feature-card:hover {
+    transform: translateY(-6px);
+    background: rgba(251, 242, 237, 0.06);
+    border-color: var(--gold);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  }
+  .feature-badge {
+    display: inline-block;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .feature-card h3 {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+    font-size: 26px; color: var(--bg);
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+  .feature-card p {
+    font-size: 14px; color: rgba(251, 242, 237, 0.65); line-height: 1.65;
+  }
+
+  /* ─── PORTFOLIO Tab-System (Wähle deine Welt) ─── */
+  .portfolio { padding: 160px 0; background: var(--bg); }
+  .portfolio-header { text-align: center; margin-bottom: 60px; max-width: 900px; margin-left: auto; margin-right: auto; }
+  .portfolio-header .eyebrow {
+    font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--muted); font-weight: 500;
+    margin-bottom: 24px; display: inline-block;
+  }
+  .portfolio-header h2 { font-size: clamp(44px, 6vw, 88px); font-weight: 400; margin-bottom: 20px; }
+  .portfolio-header h2 em { font-style: italic; color: var(--bordeaux); }
+  .portfolio-header p { font-size: 16px; color: var(--muted); }
+
+  .port-tabs {
+    display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 60px;
+  }
+  .port-tab {
+    padding: 14px 26px;
+    background: var(--card);
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    font-family: 'Object Sans', sans-serif;
+    font-size: 13px; font-weight: 500;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.4s;
+  }
+  .port-tab:hover { border-color: var(--bordeaux); color: var(--bordeaux); }
+  .port-tab.active {
+    background: var(--bordeaux); border-color: var(--bordeaux); color: #fff;
+    box-shadow: 0 10px 20px rgba(139, 46, 58, 0.25);
+  }
+
+  .port-panel { display: none; animation: pFade 0.5s ease; }
+  .port-panel.active { display: block; }
+  @keyframes pFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  .port-inner {
+    max-width: 1100px; margin: 0 auto;
+    background: var(--card);
+    border-radius: 12px;
+    padding: 60px 50px;
+    border: 1px solid var(--line);
+  }
+  @media (max-width: 700px) { .port-inner { padding: 40px 24px; } }
+  .port-inner .k { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 20px; display: inline-block; }
+  .port-inner h3 {
+    font-family: 'Playfair Display', serif; font-weight: 500;
+    font-size: clamp(36px, 5vw, 60px);
+    margin-bottom: 20px; line-height: 1.05;
+  }
+  .port-inner p { font-size: 16px; color: var(--muted); max-width: 620px; margin-bottom: 40px; line-height: 1.65; }
+
+  .port-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 700px) { .port-grid { grid-template-columns: 1fr 1fr; } }
+  .port-item {
+    border-radius: 4px; overflow: hidden; aspect-ratio: 4/5;
+    box-shadow: 0 10px 20px rgba(45, 31, 34, 0.08);
+    transition: transform 0.5s;
+  }
+  .port-item:hover { transform: translateY(-4px); }
+  .port-item img { width: 100%; height: 100%; object-fit: cover; }
+
+  .port-fitness-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    background: #0e0e0e; padding: 40px 30px; border-radius: 8px;
+  }
+  @media (max-width: 700px) { .port-fitness-grid { grid-template-columns: 1fr; } }
+  .port-fitness-grid > div { border-radius: 4px; overflow: hidden; }
+  .port-fitness-grid img { width: 100%; height: auto; display: block; }
+
+  .port-mental-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  }
+  @media (max-width: 700px) { .port-mental-grid { grid-template-columns: repeat(2, 1fr); } }
+  .port-mental-grid > div { border-radius: 4px; overflow: hidden; aspect-ratio: 3/4; }
+  .port-mental-grid img { width: 100%; height: 100%; object-fit: cover; }
+
+  .port-placeholder {
+    text-align: center; padding: 80px 30px;
+  }
+  .port-placeholder .icon {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: var(--bg-soft); color: var(--bordeaux);
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 24px;
+  }
+
+  /* ─── ÜBER JULIA ─── */
+  .mentor { padding: 160px 0; background: var(--bg-warm); }
+  .mentor-inner {
+    display: grid; grid-template-columns: 0.9fr 1.1fr;
+    gap: 80px; align-items: center;
+    max-width: 1200px; margin: 0 auto;
+  }
+  @media (max-width: 900px) { .mentor-inner { grid-template-columns: 1fr; gap: 50px; } }
+  .mentor-portrait {
+    aspect-ratio: 4/5; border-radius: 3px; overflow: hidden;
+    box-shadow: 0 50px 100px rgba(45, 31, 34, 0.25);
+    position: relative;
+    padding: 12px;
+    background: linear-gradient(135deg, var(--gold), #b8925c 50%, var(--gold));
+  }
+  .mentor-portrait::after {
+    content: ""; position: absolute; inset: 12px;
+    border: 1px solid rgba(45, 31, 34, 0.15);
+    pointer-events: none; z-index: 2;
+  }
+  .mentor-portrait img { width: 100%; height: 100%; object-fit: cover; animation: kenburns 24s ease-in-out infinite alternate; position: relative; z-index: 1; }
+  .mentor-eyebrow {
+    color: var(--bordeaux) !important;
+  }
+  .mentor-eyebrow {
+    font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--muted); font-weight: 500; margin-bottom: 24px;
+  }
+  .mentor-content h2 {
+    font-size: clamp(44px, 6vw, 82px); font-weight: 400;
+    margin-bottom: 32px;
+  }
+  .mentor-content h2 em { font-style: italic; color: var(--bordeaux); }
+  .mentor-content p {
+    font-size: 17px; color: var(--ink-soft);
+    line-height: 1.7; margin-bottom: 20px;
+  }
+  .mentor-chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 32px 0; }
+  .mentor-chips span {
+    padding: 8px 16px;
+    background: var(--card); border: 1px solid var(--line-strong);
+    border-radius: 999px; font-size: 12px; color: var(--ink); font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+
+  /* ─── RESULTS (Zahlen dunkel) ─── */
+  .results { padding: 160px 0; background: var(--ink); color: var(--bg); text-align: center; }
+  .results-header { max-width: 900px; margin: 0 auto 90px; }
+  .results-header h2 { color: var(--bg); font-size: clamp(44px, 6vw, 90px); font-weight: 400; }
+  .results-header h2 em { color: var(--gold); font-style: italic; }
+  .results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px 80px; max-width: 1100px; margin: 0 auto; }
+  @media (max-width: 700px) { .results-grid { grid-template-columns: 1fr; gap: 50px; } }
+  .result {
+    display: grid; grid-template-columns: auto 1fr;
+    gap: 30px; align-items: center;
+    text-align: left;
+  }
+  .result .num {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-weight: 400;
+    font-size: clamp(60px, 7vw, 100px);
+    color: var(--gold); line-height: 0.9;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+  .result-text { display: flex; flex-direction: column; gap: 6px; }
+  .result .lbl { font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(251, 242, 237, 0.7); font-weight: 500; }
+  .result .hint { font-family: 'Playfair Display', serif; font-style: italic; font-size: 15px; color: rgba(251, 242, 237, 0.6); }
+
+  /* ─── NEWSLETTER Split ─── */
+  .newsletter-section { padding: 160px 0; background: var(--bg); }
+  .nl-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    max-width: 1200px; margin: 0 auto;
+    background: var(--card);
+    border-radius: 8px; overflow: hidden;
+    box-shadow: 0 50px 100px rgba(45, 31, 34, 0.15);
+  }
+  @media (max-width: 900px) { .nl-inner { grid-template-columns: 1fr; } }
+  .nl-image { aspect-ratio: 1/1; overflow: hidden; }
+  .nl-image img { width: 100%; height: 100%; object-fit: cover; animation: kenburns 20s ease-in-out infinite alternate; }
+  .nl-content { padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; }
+  @media (max-width: 700px) { .nl-content { padding: 50px 30px; } }
+  .nl-mark { width: 60px; height: 2px; background: var(--gold); margin-bottom: 32px; }
+  .nl-content h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 400; line-height: 1.1; margin-bottom: 24px; }
+  .nl-content h2 em { font-style: italic; color: var(--bordeaux); }
+  .nl-content p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 32px; }
+  .nl-form {
+    display: flex; gap: 0;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px; padding: 6px 6px 6px 20px;
+    background: var(--bg);
+  }
+  .nl-form input { flex: 1; border: 0; background: transparent; font-family: 'Object Sans', sans-serif; font-size: 14px; color: var(--ink); outline: none; }
+  .nl-form button {
+    padding: 14px 28px;
+    background: var(--bordeaux); color: #fff;
+    border: 0; border-radius: 999px;
+    font-family: 'Object Sans', sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    cursor: pointer; transition: background 0.4s;
+  }
+  .nl-form button:hover { background: var(--bordeaux-hi); }
+
+  /* ─── FOOTER ─── */
+  footer { background: var(--ink); color: rgba(251, 242, 237, 0.6); padding: 80px 0 40px; }
+  .footer-top {
+    max-width: 1200px; margin: 0 auto 100px; padding: 0 40px;
+    display: grid; grid-template-columns: 1fr auto auto; gap: 60px;
+  }
+  @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr; gap: 40px; } }
+  .footer-nav { display: flex; flex-direction: column; gap: 12px; }
+  .footer-nav a { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bg); font-weight: 500; transition: color 0.3s; }
+  .footer-nav a:hover { color: var(--gold); }
+  .footer-social-h { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(251, 242, 237, 0.5); margin-bottom: 12px; }
+  .footer-social { display: flex; gap: 16px; }
+  .footer-social a {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: rgba(251, 242, 237, 0.1);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--bg); transition: all 0.3s;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.05em;
+  }
+  .footer-social a:hover { background: var(--gold); color: var(--ink); }
+  .footer-legal a { display: block; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bg); margin-bottom: 8px; transition: color 0.3s; }
+  .footer-legal a:hover { color: var(--gold); }
+  .footer-xxl { text-align: center; padding: 0 20px; }
+  .footer-xxl .logo {
+    font-family: 'Playfair Display', serif; font-weight: 500;
+    font-size: clamp(80px, 18vw, 240px);
+    color: var(--bg); letter-spacing: -0.03em; line-height: 0.85;
+  }
+  .footer-xxl .logo .g { color: var(--bordeaux); }
+  .footer-copy { margin-top: 50px; text-align: center; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(251, 242, 237, 0.35); }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="row">
+    <a href="#" class="brand">On Point</a>
+    <ul>
+      <li><a href="angebot.html">Angebot</a></li>
+      <li><a href="angebot.html#prozess">So starten wir</a></li>
+      <li><a href="angebot.html#faq">Fragen</a></li>
+      <li><a href="#mentor">Über Julia</a></li>
+      <li><a href="#newsletter">Kontakt</a></li>
+    </ul>
+    <a href="#newsletter" class="nav-cta">Beratung</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img src="img/bild-3.jpg" alt="Julia Bergles" /></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal">Content auf den Punkt gebracht</div>
+    <h1 class="reveal d1">Mehr Kunden.<br />Nicht nur mehr <span class="circle-italic white">Likes</span>.</h1>
+    <p class="hero-sub reveal d2">
+      On Point macht aus Followern Kundinnen.<br />
+      Für Marken, die echten Content statt KI wollen.<br />
+      <span style="color: var(--gold); font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px;">Besonders stark im Gesundheitsbereich —</span><br />
+      <span style="opacity: 0.85; font-size: 16px;">als Betroffene und angehende Ernährungsberaterin.</span>
+    </p>
+    <div class="hero-buttons reveal d3">
+      <a href="#newsletter" class="btn-red">Erstgespräch buchen</a>
+      <a href="#branchen" class="btn-outline-white">Arbeiten ansehen</a>
+    </div>
+  </div>
+</section>
+
+<!-- VIELLEICHT KENNST DU MICH AUCH AUS -->
+<section class="press">
+  <div class="container">
+    <div class="press-header reveal">Vielleicht kennst du mich auch aus</div>
+    <div class="press-logos reveal d1">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+        <span class="press-logo serif">TerraLuna</span>
+        <span style="font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 500;">App-Entwicklerin</span>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+        <span class="press-logo">Bruckner</span>
+        <span style="font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 500;">Einrichtungshaus</span>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+        <span class="press-logo bold">nicole schleer</span>
+        <span style="font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 500;">Mediale Lebensberatung</span>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+        <span class="press-logo serif">Theresa Ross</span>
+        <span style="font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 500;">Gesundheitsberatung</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE Bilder -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <div class="marquee-card"><img src="img/kitchen-1.png" alt="" /></div>
+    <div class="marquee-card"><video src="img/video-1.mov" autoplay loop muted playsinline></video></div>
+    <div class="marquee-card"><img src="img/mental-1.png" alt="" /></div>
+    <div class="marquee-card"><img src="img/rezept-1.png" alt="" /></div>
+    <div class="marquee-card"><img src="img/recipe-1386.jpg" alt="" /></div>
+    <div class="marquee-card"><img src="img/kitchen-3.png" alt="" /></div>
+    <div class="marquee-card"><video src="img/video-2.mov" autoplay loop muted playsinline></video></div>
+    <div class="marquee-card"><img src="img/mental-4.png" alt="" /></div>
+    <div class="marquee-card"><img src="img/rezept-3.png" alt="" /></div>
+    <div class="marquee-card"><img src="img/recipe-2359.jpg" alt="" /></div>
+    <!-- Duplikate für nahtloses Scrolling -->
+    <div class="marquee-card"><img src="img/kitchen-1.png" alt="" /></div>
+    <div class="marquee-card"><video src="img/video-1.mov" autoplay loop muted playsinline></video></div>
+    <div class="marquee-card"><img src="img/mental-1.png" alt="" /></div>
+    <div class="marquee-card"><img src="img/rezept-1.png" alt="" /></div>
+    <div class="marquee-card"><img src="img/recipe-1386.jpg" alt="" /></div>
+    <div class="marquee-card"><img src="img/kitchen-3.png" alt="" /></div>
+    <div class="marquee-card"><video src="img/video-2.mov" autoplay loop muted playsinline></video></div>
+    <div class="marquee-card"><img src="img/mental-4.png" alt="" /></div>
+    <div class="marquee-card"><img src="img/rezept-3.png" alt="" /></div>
+    <div class="marquee-card"><img src="img/recipe-2359.jpg" alt="" /></div>
+  </div>
+</div>
+
+<!-- 6 BAUSTEINE -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="features-header reveal">
+      <span class="features-eyebrow">Was Sie bekommen</span>
+      <h2>Nicht nur <em>Content</em>.<br />Sondern Ergebnisse.</h2>
+      <p class="features-lede">Sechs Bausteine. Ein Ziel: Menschen, die Ihre Marke buchen. Nicht nur liken.</p>
+      <div style="margin-top: 40px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <a href="angebot.html" style="display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--bordeaux); color: #fff; border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; box-shadow: 0 20px 40px rgba(139, 46, 58, 0.3); transition: all 0.4s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">Das biete ich an <span style="font-size: 16px;">→</span></a>
+        <a href="angebot.html#prozess" style="display: inline-flex; align-items: center; gap: 12px; padding: 18px 32px; background: transparent; color: var(--bg); border: 1.5px solid rgba(251, 242, 237, 0.35); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.4s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--gold)'; this.style.color='var(--gold)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(251, 242, 237, 0.35)'; this.style.color='var(--bg)'">So starten wir <span style="font-size: 16px;">→</span></a>
+      </div>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card reveal d1">
+        <div class="feature-badge">Neu-Anfragen</div>
+        <h3>Sichtbarkeit, die anfragt</h3>
+        <p>Beiträge, die nicht nur gesehen, sondern geklickt werden. Community, die aktiv in Ihre DMs schreibt.</p>
+        <a href="angebot.html#pakete" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">Pakete ansehen <span>→</span></a>
+      </div>
+
+      <div class="feature-card reveal d1">
+        <div class="feature-badge">Automation</div>
+        <h3>ManyChat-Automation</h3>
+        <p>Jede DM wird zur Verkaufschance. Automatisierte Antworten, die zu Buchungen führen. 24/7.</p>
+        <a href="angebot.html#manychat" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">So funktioniert's <span>→</span></a>
+      </div>
+
+      <div class="feature-card reveal d2">
+        <div class="feature-badge">Vor Ort</div>
+        <h3>Videodreh bei Ihnen</h3>
+        <p>Ich komme zu Ihnen. Echte Bilder, echter Praxis-Alltag. Das, was Kunden Vertrauen gibt.</p>
+        <a href="angebot.html#prozess" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">So läuft's ab <span>→</span></a>
+      </div>
+
+      <div class="feature-card reveal d2">
+        <div class="feature-badge">Für Sie: kein Stress</div>
+        <h3>Community im Namen Ihrer Marke</h3>
+        <p>Ich beantworte Kommentare und DMs. In Ihrem Namen, in Ihrem Ton. Aktive Community statt totes Profil.</p>
+        <a href="angebot.html#anders" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">Was mich besonders macht <span>✦</span></a>
+      </div>
+
+      <div class="feature-card reveal d3">
+        <div class="feature-badge">Insider-Wissen</div>
+        <h3>Fachliche Ansprache</h3>
+        <p>Captions ohne Heilversprechen. Medizinisch sauber, aus Betroffenen-Sicht. Kein KI-Bla.</p>
+        <a href="angebot.html#anders" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">Was mich besonders macht <span>✦</span></a>
+      </div>
+
+      <div class="feature-card reveal d3">
+        <div class="feature-badge">Reach-Boost</div>
+        <h3>Zugang zu meiner Community</h3>
+        <p>Ausgewählte Beiträge auf @Julia_Bergles. Bis 1,77 Mio. Aufrufe pro Monat. Echte Zielgruppe.</p>
+        <a href="angebot.html#addons" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">Reichweite ansehen <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUSGEWÄHLTE ARBEITEN (iPhone-Mockups) -->
+<section style="padding: 160px 0; background: var(--bg);">
+  <div class="container">
+    <div class="reveal" style="text-align: center; margin-bottom: 90px; max-width: 900px; margin-left: auto; margin-right: auto;">
+      <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 24px; display: inline-block;">Ausgewählte Arbeiten</span>
+      <h2 style="font-size: clamp(44px, 6vw, 88px); font-weight: 400; margin-bottom: 20px;">So sieht <em style="font-style: italic; color: var(--bordeaux);">on point</em> aus.</h2>
+      <p style="font-size: 16px; color: var(--muted);">Drei Handschriften. Drei Kunden. Ein Prinzip: keine Templates.</p>
+    </div>
+
+    <div style="display: flex; gap: 50px; justify-content: center; flex-wrap: wrap; align-items: flex-end; max-width: 1200px; margin: 0 auto;" class="mb-phones">
+
+      <!-- Handy 1: Fitness mit Beitrag -->
+      <div class="reveal d1" style="display: flex; flex-direction: column; align-items: center; gap: 24px; transform: rotate(-3deg) translateY(20px);">
+        <div style="width: 290px; height: 600px; background: #111; border-radius: 44px; padding: 9px; box-shadow: 0 50px 100px rgba(45, 31, 34, 0.28); position: relative;">
+          <div style="position: absolute; top: 15px; left: 50%; transform: translateX(-50%); width: 88px; height: 24px; background: #000; border-radius: 100px; z-index: 3;"></div>
+          <div style="width: 100%; height: 100%; border-radius: 38px; overflow: hidden; background: #000;">
+            <img src="img/fitness-1.png" alt="Fitness-Beitrag" style="width: 100%; height: 100%; object-fit: cover;" />
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <span style="display: inline-block; padding: 6px 14px; background: rgba(139, 46, 58, 0.08); color: var(--bordeaux); border: 1px solid rgba(139, 46, 58, 0.25); border-radius: 999px; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600;">Fitness</span>
+          <h4 style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 22px; margin-top: 10px; color: var(--ink);">Studio Kampagne</h4>
+        </div>
+      </div>
+
+      <!-- Handy 2: Rezepte (Mitte, Waffel mit Erdbeeren) -->
+      <div class="reveal d2" style="display: flex; flex-direction: column; align-items: center; gap: 24px; transform: translateY(-30px); z-index: 3;">
+        <div style="width: 290px; height: 600px; background: #111; border-radius: 44px; padding: 9px; box-shadow: 0 50px 100px rgba(45, 31, 34, 0.28); position: relative;">
+          <div style="position: absolute; top: 15px; left: 50%; transform: translateX(-50%); width: 88px; height: 24px; background: #000; border-radius: 100px; z-index: 3;"></div>
+          <div style="width: 100%; height: 100%; border-radius: 38px; overflow: hidden; background: #000;">
+            <img src="img/recipe-1386.jpg" alt="Rezept-Beitrag" style="width: 100%; height: 100%; object-fit: cover;" />
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <span style="display: inline-block; padding: 6px 14px; background: rgba(139, 46, 58, 0.08); color: var(--bordeaux); border: 1px solid rgba(139, 46, 58, 0.25); border-radius: 999px; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600;">Ernährung</span>
+          <h4 style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 22px; margin-top: 10px; color: var(--ink);">Rezepte</h4>
+        </div>
+      </div>
+
+      <!-- Handy 3: Einrichtungshaus Bruckner (Video rechts) -->
+      <div class="reveal d3" style="display: flex; flex-direction: column; align-items: center; gap: 24px; transform: rotate(3deg);">
+        <div style="width: 290px; height: 600px; background: #111; border-radius: 44px; padding: 9px; box-shadow: 0 50px 100px rgba(45, 31, 34, 0.28); position: relative;">
+          <div style="position: absolute; top: 15px; left: 50%; transform: translateX(-50%); width: 88px; height: 24px; background: #000; border-radius: 100px; z-index: 3;"></div>
+          <div style="width: 100%; height: 100%; border-radius: 38px; overflow: hidden; background: #000;">
+            <video src="img/video-1.mov" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <span style="display: inline-block; padding: 6px 14px; background: rgba(139, 46, 58, 0.08); color: var(--bordeaux); border: 1px solid rgba(139, 46, 58, 0.25); border-radius: 999px; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600;">Einrichtungshaus</span>
+          <h4 style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 22px; margin-top: 10px; color: var(--ink);">Bruckner</h4>
+        </div>
+      </div>
+
+    </div>
+    <style>
+      @media (max-width: 900px) { .mb-phones > div { transform: none !important; } }
+    </style>
+  </div>
+</section>
+
+<!-- WÄHLE DEINE BRANCHE (Chips) -->
+<section style="padding: 160px 0; background: var(--bg);" id="branchen">
+  <div class="container">
+    <div class="reveal" style="text-align: center; margin-bottom: 80px; max-width: 900px; margin-left: auto; margin-right: auto;">
+      <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 24px; display: inline-block;">Für wen</span>
+      <h2 style="font-size: clamp(44px, 6vw, 88px); font-weight: 400; margin-bottom: 20px;">Wählen Sie Ihre <span class="circle-italic">Branche</span>.</h2>
+      <p style="font-size: 16px; color: var(--muted);">Jede Nische hat ihre eigene Handschrift. Wir bauen sie mit Ihnen.</p>
+    </div>
+
+    <!-- Tab Buttons -->
+    <div class="reveal d1" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 60px; max-width: 900px; margin-left: auto; margin-right: auto;">
+      <button class="branche-tab active" data-branche="fitness" onclick="switchBranche(this, 'fitness')">Fitness</button>
+      <button class="branche-tab" data-branche="einrichtung" onclick="switchBranche(this, 'einrichtung')">Einrichtung &amp; Möbel</button>
+      <button class="branche-tab" data-branche="mental" onclick="switchBranche(this, 'mental')">Mediale Beratung</button>
+      <button class="branche-tab" data-branche="rezepte" onclick="switchBranche(this, 'rezepte')">Rezepte</button>
+      <button class="branche-tab" data-branche="ernaehrung" onclick="switchBranche(this, 'ernaehrung')">Gesundheit &amp; Ernährung</button>
+    </div>
+
+    <style>
+      .branche-tab {
+        padding: 14px 26px;
+        background: transparent;
+        border: 1.5px solid var(--line-strong);
+        border-radius: 999px;
+        font-family: 'Object Sans', sans-serif;
+        font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+        color: var(--ink); cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .branche-tab:hover { border-color: var(--bordeaux); color: var(--bordeaux); }
+      .branche-tab.active {
+        background: var(--bordeaux); color: #fff; border-color: var(--bordeaux);
+        box-shadow: 0 12px 30px rgba(139, 46, 58, 0.3);
+      }
+      .branche-panel { display: none; animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+      .branche-panel.active { display: block; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+
+    <div class="reveal d2" style="max-width: 1100px; margin: 0 auto;">
+      <!-- Panel: Fitness -->
+      <div class="branche-panel active" data-panel="fitness">
+        <div style="background: linear-gradient(135deg, var(--ink), #1a1315); color: var(--bg); border-radius: 16px; padding: 60px 50px; overflow: hidden; position: relative;">
+          <div style="position: absolute; top: 30px; right: 30px; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 180px; color: rgba(197, 164, 109, 0.08); line-height: 1; pointer-events: none;">N°01</div>
+          <div style="position: relative; z-index: 2;">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+              <div style="height: 1px; width: 50px; background: var(--gold);"></div>
+              <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); font-weight: 600;">Editorial · Fitnessstudio</span>
+            </div>
+            <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: clamp(32px, 4.5vw, 56px); letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 20px; color: #fff;">
+              Bold. Klar. <span style="font-style: italic; color: var(--gold);">Ohne Bla.</span>
+            </h3>
+            <p style="font-size: 16px; color: rgba(251, 242, 237, 0.75); line-height: 1.6; max-width: 560px; margin-bottom: 40px;">Karussell-Serie für ein Fitnessstudio. Problem, Lösung, Call-to-Action. Content, der Anmeldungen bringt.</p>
+            <div style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px;">
+              <div style="grid-column: 1 / 6; grid-row: 1 / 3; border-radius: 6px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.5);"><img src="img/fitness-1.png" alt="Fitness 1" style="width: 100%; display: block;" /></div>
+              <div style="grid-column: 6 / 13; grid-row: 1 / 2; border-radius: 6px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4);"><img src="img/fitness-2.png" alt="Fitness 2" style="width: 100%; display: block;" /></div>
+              <div style="grid-column: 6 / 13; grid-row: 2 / 3; border-radius: 6px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4);"><img src="img/fitness-3.png" alt="Fitness 3" style="width: 100%; display: block;" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Einrichtung / Bruckner -->
+      <div class="branche-panel" data-panel="einrichtung">
+        <div style="background: var(--card); border-radius: 16px; padding: 60px 50px; border: 1px solid var(--line);">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+            <div style="height: 1px; width: 50px; background: var(--gold);"></div>
+            <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); font-weight: 600;">Editorial · Einrichtungshaus Bruckner</span>
+          </div>
+          <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: clamp(32px, 4.5vw, 56px); letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 20px; color: var(--ink);">
+            Elegant. <span style="font-style: italic; color: var(--bordeaux);">Warm.</span> Editorial.
+          </h3>
+          <p style="font-size: 16px; color: var(--muted); line-height: 1.6; max-width: 560px; margin-bottom: 40px;">Sechsteilige Karussell-Serie im Editorial-Look. Zeigt, wie ruhig und ausdrucksstark Content sein kann.</p>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
+            <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5;"><img src="img/kitchen-1.png" alt="Kitchen 1" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5;"><img src="img/kitchen-2.png" alt="Kitchen 2" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5;"><img src="img/kitchen-3.png" alt="Kitchen 3" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5;"><img src="img/kitchen-4.png" alt="Kitchen 4" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5;"><img src="img/kitchen-5.png" alt="Kitchen 5" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5;"><img src="img/kitchen-6.png" alt="Kitchen 6" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Mediale Beratung -->
+      <div class="branche-panel" data-panel="mental">
+        <div style="background: linear-gradient(135deg, var(--bg), var(--bg-warm)); border-radius: 16px; padding: 60px 50px; border: 1px solid var(--line);">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+            <div style="height: 1px; width: 50px; background: var(--bordeaux);"></div>
+            <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--bordeaux); font-weight: 600;">Editorial · Mediale Lebensberatung</span>
+          </div>
+          <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: clamp(32px, 4.5vw, 56px); letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 20px; color: var(--ink);">
+            Sanft. Klar. <span style="font-style: italic; color: var(--bordeaux);">Verbunden.</span>
+          </h3>
+          <p style="font-size: 16px; color: var(--muted); line-height: 1.6; max-width: 560px; margin-bottom: 40px;">Content für mediale Lebensberatung, Coaches, mentale Gesundheitspraxen — mit Ruhe, Klarheit und Tiefe. Für Nicole Schleer und weitere Kundinnen.</p>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;">
+            <div style="border-radius: 6px; overflow: hidden; box-shadow: 0 20px 40px rgba(139, 46, 58, 0.1);"><img src="img/mental-1.png" alt="" style="width: 100%; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; box-shadow: 0 20px 40px rgba(139, 46, 58, 0.1);"><img src="img/mental-2.png" alt="" style="width: 100%; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; box-shadow: 0 20px 40px rgba(139, 46, 58, 0.1);"><img src="img/mental-3.png" alt="" style="width: 100%; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; box-shadow: 0 20px 40px rgba(139, 46, 58, 0.1);"><img src="img/mental-4.png" alt="" style="width: 100%; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; box-shadow: 0 20px 40px rgba(139, 46, 58, 0.1);"><img src="img/mental-5.png" alt="" style="width: 100%; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; box-shadow: 0 20px 40px rgba(139, 46, 58, 0.1);"><img src="img/mental-6.png" alt="" style="width: 100%; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; box-shadow: 0 20px 40px rgba(139, 46, 58, 0.1);"><img src="img/mental-8.png" alt="" style="width: 100%; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; box-shadow: 0 20px 40px rgba(139, 46, 58, 0.1);"><img src="img/mental-9.png" alt="" style="width: 100%; display: block;" /></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Rezepte -->
+      <div class="branche-panel" data-panel="rezepte">
+        <div style="background: linear-gradient(135deg, var(--bg-warm), var(--bg-soft)); border-radius: 16px; padding: 60px 50px;">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+            <div style="height: 1px; width: 50px; background: var(--bordeaux);"></div>
+            <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--bordeaux); font-weight: 600;">Editorial · Rezept-Fotografie</span>
+          </div>
+          <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: clamp(32px, 4.5vw, 56px); letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 20px; color: var(--ink);">
+            Warm. Handgemacht. <span style="font-style: italic; color: var(--bordeaux);">Appetitanregend.</span>
+          </h3>
+          <p style="font-size: 16px; color: var(--muted); line-height: 1.6; max-width: 560px; margin-bottom: 40px;">Rezept-Content für Ernährungsberaterinnen und Food-Marken. Alles selbst gebacken, fotografiert, geschnitten.</p>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
+            <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5; box-shadow: 0 20px 40px rgba(45, 31, 34, 0.12);"><img src="img/recipe-1386.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5; box-shadow: 0 20px 40px rgba(45, 31, 34, 0.12);"><img src="img/recipe-1399.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5; box-shadow: 0 20px 40px rgba(45, 31, 34, 0.12);"><img src="img/recipe-2359.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5; box-shadow: 0 20px 40px rgba(45, 31, 34, 0.12);"><img src="img/rezept-1.png" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5; box-shadow: 0 20px 40px rgba(45, 31, 34, 0.12);"><img src="img/rezept-2.png" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5; box-shadow: 0 20px 40px rgba(45, 31, 34, 0.12);"><img src="img/rezept-3.png" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Gesundheit & Ernährung -->
+      <div class="branche-panel" data-panel="ernaehrung">
+        <div style="background: var(--card); border-radius: 16px; padding: 60px 50px; border: 1px solid var(--line);">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+            <div style="height: 1px; width: 50px; background: var(--gold);"></div>
+            <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); font-weight: 600;">Editorial · Gesundheit &amp; Ernährung</span>
+          </div>
+          <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: clamp(32px, 4.5vw, 56px); letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 20px; color: var(--ink);">
+            Fachlich. <span style="font-style: italic; color: var(--bordeaux);">Empathisch.</span> Meine Nische.
+          </h3>
+          <p style="font-size: 16px; color: var(--muted); line-height: 1.6; max-width: 560px; margin-bottom: 40px;">Content aus meiner eigenen Marke <strong style="color: var(--ink);">TerraLuna</strong> — für Frauen mit Histaminintoleranz, Darmproblemen und Zyklus-Themen. Hier bin ich selbst betroffen und weiß, wie man dieses Publikum ehrlich erreicht.</p>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
+            <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5;"><img src="img/idea-1.png" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5;"><img src="img/idea-2.png" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5;"><img src="img/idea-3.png" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5;"><img src="img/idea-4.png" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5;"><img src="img/idea-5.png" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+            <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5;"><img src="img/idea-6.png" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="reveal" style="text-align: center; margin-top: 50px; font-size: 14px; color: var(--muted); font-style: italic;">Auch Marken aus anderen Branchen willkommen. Mein Fokus bleibt aber Health &amp; Gesundheit.</p>
+  </div>
+</section>
+
+<!-- ÜBER JULIA -->
+<section class="mentor" id="mentor">
+  <div class="container">
+    <div class="mentor-inner">
+      <div class="mentor-portrait reveal"><img src="img/hero-neu.jpg" alt="Julia Bergles" /></div>
+      <div class="mentor-content reveal d2">
+        <div class="mentor-eyebrow">Wer ich bin</div>
+        <h2>Julia als deine <em>Partnerin</em>.</h2>
+        <p>Fachabitur Gestaltung. Seit 2024 selbständige Social Media Managerin. Gründerin und Entwicklerin der TerraLuna-App — der ersten deutschen App speziell für Frauen mit Histaminintoleranz und zyklusbezogenen Ernährungsbedürfnissen.</p>
+        <p>Ich baue Content, der zu 93,8 % außerhalb der eigenen Bubble ankommt. Weil ich das Thema Gesundheit von zwei Seiten kenne — als Betroffene und als Designerin.</p>
+        <ul style="list-style: none; padding: 0; margin: 32px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px;">
+          <li style="display: flex; gap: 12px; align-items: center; font-size: 15px; color: var(--ink); font-weight: 500;">
+            <span style="width: 24px; height: 24px; border-radius: 50%; background: var(--bordeaux); flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            Fachabitur Gestaltung
+          </li>
+          <li style="display: flex; gap: 12px; align-items: center; font-size: 15px; color: var(--ink); font-weight: 500;">
+            <span style="width: 24px; height: 24px; border-radius: 50%; background: var(--bordeaux); flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            Seit 2024 selbständig
+          </li>
+          <li style="display: flex; gap: 12px; align-items: center; font-size: 15px; color: var(--ink); font-weight: 500;">
+            <span style="width: 24px; height: 24px; border-radius: 50%; background: var(--bordeaux); flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            TerraLuna-Gründerin
+          </li>
+          <li style="display: flex; gap: 12px; align-items: center; font-size: 15px; color: var(--ink); font-weight: 500;">
+            <span style="width: 24px; height: 24px; border-radius: 50%; background: var(--bordeaux); flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            Augsburg + remote
+          </li>
+          <li style="display: flex; gap: 12px; align-items: center; font-size: 15px; color: var(--ink); font-weight: 500;">
+            <span style="width: 24px; height: 24px; border-radius: 50%; background: var(--bordeaux); flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            706k Konten / Monat
+          </li>
+          <li style="display: flex; gap: 12px; align-items: center; font-size: 15px; color: var(--ink); font-weight: 500;">
+            <span style="width: 24px; height: 24px; border-radius: 50%; background: var(--bordeaux); flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            Selbst betroffen
+          </li>
+        </ul>
+        <a href="#newsletter" class="btn-red">Kennenlerngespräch buchen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results">
+  <div class="container">
+    <div class="results-header reveal">
+      <h2>Zahlen sprechen <em>lauter</em> als Slogans.</h2>
+    </div>
+    <div class="results-grid">
+      <div class="result reveal d1">
+        <div class="num">706k</div>
+        <div class="result-text">
+          <div class="lbl">Konten / Monat</div>
+          <div class="hint">erreicht</div>
+        </div>
+      </div>
+      <div class="result reveal d2">
+        <div class="num">1,77M</div>
+        <div class="result-text">
+          <div class="lbl">Reel-Aufrufe</div>
+          <div class="hint">pro Monat</div>
+        </div>
+      </div>
+      <div class="result reveal d3">
+        <div class="num">93,8&thinsp;%</div>
+        <div class="result-text">
+          <div class="lbl">Nicht-Follower</div>
+          <div class="hint">virale Reichweite</div>
+        </div>
+      </div>
+      <div class="result reveal d3">
+        <div class="num">79,2&thinsp;%</div>
+        <div class="result-text">
+          <div class="lbl">Interaktion</div>
+          <div class="hint">außerhalb der Bubble</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EHRLICHE STIMMEN (Testimonial · Dark Bordeaux) -->
+<section style="padding: 160px 0; background: linear-gradient(180deg, var(--bordeaux-deep, #6E1F2C), var(--bordeaux) 70%); color: var(--bg); position: relative; overflow: hidden;">
+  <div style="position: absolute; top: -150px; left: -150px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(197, 164, 109, 0.18), transparent 70%); pointer-events: none;"></div>
+  <div style="position: absolute; bottom: -150px; right: -150px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(197, 164, 109, 0.12), transparent 70%); pointer-events: none;"></div>
+  <div class="container" style="position: relative;">
+    <div class="reveal" style="text-align: center; margin-bottom: 80px; max-width: 900px; margin-left: auto; margin-right: auto;">
+      <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 24px; display: inline-block;">Was Kundinnen sagen</span>
+      <h2 style="font-size: clamp(44px, 6vw, 88px); font-weight: 400; color: var(--bg);">Ehrliche <span style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold);">Stimmen</span>.</h2>
+    </div>
+    <div class="reveal d1" style="max-width: 900px; margin: 0 auto; text-align: center; padding: 0 30px;">
+      <div style="color: var(--gold); font-size: 22px; letter-spacing: 4px; margin-bottom: 36px;">★ ★ ★ ★ ★</div>
+      <blockquote style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: clamp(24px, 3.2vw, 42px); color: var(--bg); line-height: 1.35; letter-spacing: -0.01em; margin-bottom: 48px;">
+        „Julia versteht Gesundheit von zwei Seiten. Sie hat mir geholfen, meine Marke sichtbar zu machen, ohne dass ich meine Werte verkaufen musste. Das ist selten."
+      </blockquote>
+      <div style="display: inline-flex; align-items: center; gap: 20px;">
+        <span style="width: 40px; height: 1px; background: var(--gold);"></span>
+        <div style="text-align: center;">
+          <div style="font-family: 'Object Sans', sans-serif; font-weight: 600; font-size: 15px; color: var(--gold); letter-spacing: 0.03em; margin-bottom: 4px;">Theresa Ross</div>
+          <div style="font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(251, 242, 237, 0.65); font-weight: 500;">Gesundheitsberatung</div>
+        </div>
+        <span style="width: 40px; height: 1px; background: var(--gold);"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER Split -->
+<section class="newsletter-section" id="newsletter">
+  <div class="container">
+    <div class="nl-inner reveal">
+      <div class="nl-image"><img src="img/portrait-hero.jpg" alt="" /></div>
+      <div class="nl-content">
+        <div class="nl-mark"></div>
+        <h2>Reden wir <em>Klartext</em>.</h2>
+        <p>20 Minuten Erstgespräch. Kostenlos, unverbindlich. Wir schauen, ob wir zusammenpassen.</p>
+        <form class="nl-form" onsubmit="event.preventDefault(); alert('Danke, ich melde mich!');">
+          <input type="email" placeholder="Ihre E-Mail-Adresse" required />
+          <button type="submit">Termin</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-nav">
+      <a href="#features">Leistungen</a>
+      <a href="#branchen">Arbeiten</a>
+      <a href="angebot.html">Angebot</a>
+      <a href="#mentor">Über Julia</a>
+      <a href="#newsletter">Kontakt</a>
+    </div>
+    <div>
+      <div class="footer-social-h">Folge uns</div>
+      <div class="footer-social">
+        <a href="https://instagram.com/julia_bergles" target="_blank" rel="noopener">IG</a>
+        <a href="#" target="_blank" rel="noopener">TT</a>
+        <a href="#" target="_blank" rel="noopener">Pt</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="agb.html">AGB</a>
+    </div>
+  </div>
+  <div class="footer-xxl">
+    <div class="logo">ON<span class="g">·</span>POINT</div>
+    <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: 22px; color: var(--gold); margin-top: 12px; letter-spacing: 0.02em;">Content auf den Punkt gebracht.</div>
+  </div>
+  <div class="footer-copy">© 2026 On Point · Julia Bergles · Augsburg</div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  function switchPort(button, tabId) {
+    document.querySelectorAll('.port-tab').forEach(b => b.classList.remove('active'));
+    button.classList.add('active');
+    document.querySelectorAll('.port-panel').forEach(p => p.classList.remove('active'));
+    document.querySelector('.port-panel[data-panel="' + tabId + '"]').classList.add('active');
+  }
+
+  function switchBranche(button, brancheId) {
+    document.querySelectorAll('.branche-tab').forEach(b => b.classList.remove('active'));
+    button.classList.add('active');
+    document.querySelectorAll('.branche-panel').forEach(p => p.classList.remove('active'));
+    const target = document.querySelector('.branche-panel[data-panel="' + brancheId + '"]');
+    if (target) target.classList.add('active');
+  }
+
+  function toggleFragen() {
+    const panel = document.getElementById('fragen-panel');
+    const icon = document.getElementById('fragen-icon');
+    panel.classList.toggle('open');
+    icon.textContent = panel.classList.contains('open') ? '×' : '?';
+  }
+</script>
+
+<!-- FRAGEN-WIDGET (Sonne) -->
+<div id="fragen-widget" style="position: fixed; bottom: 24px; right: 24px; z-index: 300;">
+  <button id="fragen-toggle" aria-label="Häufige Fragen" style="width: 68px; height: 68px; border-radius: 50%; background: #8B2E3A; border: 0; cursor: pointer; box-shadow: 0 15px 35px rgba(139, 46, 58, 0.4); position: relative; transition: all 0.4s; display: flex; align-items: center; justify-content: center;" onclick="toggleFragen()" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform=''">
+    <div style="position: absolute; inset: -8px; border-radius: 50%; pointer-events: none; animation: rotateSun 20s linear infinite;">
+      <svg width="84" height="84" viewBox="0 0 84 84" style="display: block;">
+        <g stroke="#C5A46D" stroke-width="1.5" stroke-linecap="round" fill="none">
+          <line x1="42" y1="4" x2="42" y2="12"/>
+          <line x1="42" y1="72" x2="42" y2="80"/>
+          <line x1="4" y1="42" x2="12" y2="42"/>
+          <line x1="72" y1="42" x2="80" y2="42"/>
+          <line x1="15" y1="15" x2="21" y2="21"/>
+          <line x1="63" y1="63" x2="69" y2="69"/>
+          <line x1="15" y1="69" x2="21" y2="63"/>
+          <line x1="63" y1="21" x2="69" y2="15"/>
+        </g>
+      </svg>
+    </div>
+    <span id="fragen-icon" style="color: #C5A46D; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 30px; line-height: 1; position: relative; z-index: 2; pointer-events: none;">?</span>
+  </button>
+
+  <div id="fragen-panel" style="position: absolute; bottom: 84px; right: 0; width: 340px; max-width: calc(100vw - 48px); background: #fff; border-radius: 16px; box-shadow: 0 40px 80px rgba(45, 31, 34, 0.25); overflow: hidden; opacity: 0; visibility: hidden; transform: translateY(20px) scale(0.95); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid rgba(45, 31, 34, 0.08);">
+    <div style="padding: 22px 24px 18px; background: linear-gradient(135deg, #8B2E3A, #a5384a); color: #fff;">
+      <div style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: #C5A46D; font-weight: 700; margin-bottom: 6px;">Häufige Fragen</div>
+      <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 22px; letter-spacing: -0.01em;">Was möchten Sie wissen?</div>
+    </div>
+    <div style="padding: 12px; max-height: 380px; overflow-y: auto;">
+      <a href="angebot.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Wie lange bin ich vertraglich gebunden?</a>
+      <a href="angebot.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Wie viele Feedback-Runden sind drin?</a>
+      <a href="angebot.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Was passiert bei Urlaub oder Krankheit?</a>
+      <a href="angebot.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Kann ich zwischen den Paketen wechseln?</a>
+      <a href="angebot.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Wann sehe ich erste Ergebnisse?</a>
+      <a href="angebot.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Wem gehört der Content?</a>
+      <a href="angebot.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Muss ich vor die Kamera?</a>
+    </div>
+    <div style="padding: 14px 22px 18px; border-top: 1px solid rgba(45, 31, 34, 0.08); text-align: center;">
+      <a href="angebot.html#faq" style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #8B2E3A; font-weight: 700; text-decoration: none;">Alle Fragen ansehen →</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes rotateSun { to { transform: rotate(360deg); } }
+  #fragen-panel.open { opacity: 1 !important; visibility: visible !important; transform: translateY(0) scale(1) !important; }
+</style>
+
+</body>
+</html>
