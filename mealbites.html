@@ -8,46 +8,47 @@
 <meta name="description" content="Content-Design für MealBites. Persönlicher Pitch von Julia Bergles." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=object-sans@300,400,500,600,700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet" />
 <style>
   :root {
-    /* Julias 4-Farben-Palette */
-    --bg: #ffebd9;          /* Warm Cream als Basis */
-    --bg-alt: #e0e0dc;      /* Taupe für Section-Wechsel */
-    --bg-soft: #e2d5dd;     /* Sanftes Rosé */
-    --taupe: #c7c1b7;       /* Mittleres Taupe */
+    /* On Point Palette */
+    --bg: #FBF2ED;          /* Warm Rosé-Cream */
+    --bg-alt: #F3D6C6;      /* Peach (Section-Wechsel) */
+    --bg-soft: #E8D0BE;     /* Sand */
+    --taupe: rgba(45, 31, 34, 0.18);
     --card: #ffffff;
 
-    --ink: #2d2820;
-    --ink-soft: #4a4238;
-    --muted: #7a6f60;
-    --muted-lite: #a89f8f;
+    --ink: #2D1F22;         /* Warm Dark */
+    --ink-soft: #4a3236;
+    --muted: #8a6f72;
+    --muted-lite: #b09aa0;
 
-    /* Akzent bleibt Petrol/warm dunkel für Kontrast + Buttons */
-    --caramel: #4a4238;
-    --caramel-hi: #6a5f52;
-    --caramel-deep: #2d2820;
-    --caramel-tint: rgba(74, 66, 56, 0.08);
+    /* Bordeaux als Haupt-Akzent (statt Caramel) */
+    --caramel: #8B2E3A;
+    --caramel-hi: #A5384A;
+    --caramel-deep: #6E1F2C;
+    --caramel-tint: rgba(139, 46, 58, 0.08);
 
-    /* Dunkle Section-BG: warmer Espresso-Ton */
-    --espresso: #2d2820;
-    --espresso-warm: #4a4238;
+    /* Dunkle Section-BG: warm-dunkel wie On Point */
+    --espresso: #2D1F22;
+    --espresso-warm: #4a3236;
 
-    /* Champagner-Highlights bleiben */
-    --champ: #c9a96e;
-    --champ-hi: #dcc088;
+    /* Champagne Gold */
+    --champ: #C5A46D;
+    --champ-hi: #d5b884;
 
-    --line: rgba(45, 40, 32, 0.1);
-    --line-strong: rgba(45, 40, 32, 0.2);
+    --line: rgba(45, 31, 34, 0.08);
+    --line-strong: rgba(45, 31, 34, 0.18);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-family: 'Object Sans', -apple-system, sans-serif;
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
     font-variant-numeric: tabular-nums;
@@ -56,8 +57,8 @@
   img { max-width: 100%; display: block; }
   .container { max-width: 1000px; margin: 0 auto; padding: 0 32px; }
   section { padding: 100px 0; position: relative; }
-  h1, h2, h3, h4 { font-family: 'Cormorant Garamond', 'DM Sans', serif; letter-spacing: -0.018em; line-height: 1.05; font-weight: 500; color: var(--ink); font-style: italic; }
-  h3, h4 { font-style: normal; font-weight: 700; font-family: 'DM Sans', sans-serif; letter-spacing: -0.02em; }
+  h1, h2 { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; line-height: 1.02; font-weight: 500; color: var(--ink); }
+  h3, h4 { font-family: 'Object Sans', sans-serif; font-weight: 600; letter-spacing: -0.005em; color: var(--ink); }
 
   /* Reveal */
   .reveal { opacity: 0; transform: translateY(22px); transition: opacity 1s cubic-bezier(0.2, 0.7, 0.2, 1), transform 1s cubic-bezier(0.2, 0.7, 0.2, 1); }
@@ -72,7 +73,7 @@
     padding: 18px 34px; border-radius: 999px; font-weight: 700; font-size: 14px;
     letter-spacing: 0.6px; transition: all 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
     position: relative; overflow: hidden; cursor: pointer; border: 0;
-    font-family: 'Inter', sans-serif; text-transform: uppercase;
+    font-family: 'Object Sans', sans-serif; text-transform: uppercase;
   }
   .btn::before {
     content: ""; position: absolute; top: 0; left: -150%;
@@ -281,7 +282,7 @@
   }
   .slide-item:hover { transform: translateX(6px); border-color: var(--caramel); }
   .slide-num {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Object Sans', sans-serif;
     font-size: 24px; font-weight: 900; color: var(--caramel);
     letter-spacing: -0.03em;
   }
@@ -407,7 +408,7 @@
     animation: tickerScroll 45s linear infinite;
     white-space: nowrap;
     width: max-content;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Object Sans', sans-serif;
   }
   .diag-marquee-inner span.txt {
     display: inline-flex;
