@@ -4,40 +4,26 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex, nofollow" />
-<title>Für MealBites · Julia Bergles</title>
-<meta name="description" content="Content-Design für MealBites. Persönlicher Pitch von Julia Bergles." />
+<title>Für MealBites · On Point</title>
+<meta name="description" content="Meine Bewerbung als Creator in Residence für MealBites. Julia Bergles, On Point." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=object-sans@300,400,500,600,700&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap">
 <style>
   :root {
-    /* On Point Palette */
-    --bg: #FBF2ED;          /* Warm Rosé-Cream */
-    --bg-alt: #F3D6C6;      /* Peach (Section-Wechsel) */
-    --bg-soft: #E8D0BE;     /* Sand */
-    --taupe: rgba(45, 31, 34, 0.18);
+    --bg: #FBF2ED;
+    --bg-warm: #F3D6C6;
+    --bg-soft: #E8D0BE;
     --card: #ffffff;
-
-    --ink: #2D1F22;         /* Warm Dark */
+    --ink: #2D1F22;
     --ink-soft: #4a3236;
     --muted: #8a6f72;
-    --muted-lite: #b09aa0;
-
-    /* Bordeaux als Haupt-Akzent (statt Caramel) */
-    --caramel: #8B2E3A;
-    --caramel-hi: #A5384A;
-    --caramel-deep: #6E1F2C;
-    --caramel-tint: rgba(139, 46, 58, 0.08);
-
-    /* Dunkle Section-BG: warm-dunkel wie On Point */
-    --espresso: #2D1F22;
-    --espresso-warm: #4a3236;
-
-    /* Champagne Gold */
-    --champ: #C5A46D;
-    --champ-hi: #d5b884;
-
+    --bordeaux: #8B2E3A;
+    --bordeaux-hi: #A5384A;
+    --bordeaux-deep: #6E1F2C;
+    --gold: #C5A46D;
+    --gold-hi: #d5b884;
     --line: rgba(45, 31, 34, 0.08);
     --line-strong: rgba(45, 31, 34, 0.18);
   }
@@ -51,1286 +37,647 @@
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
-    font-variant-numeric: tabular-nums;
   }
   a { color: inherit; text-decoration: none; }
   img { max-width: 100%; display: block; }
-  .container { max-width: 1000px; margin: 0 auto; padding: 0 32px; }
-  section { padding: 100px 0; position: relative; }
-  h1, h2 { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; line-height: 1.02; font-weight: 500; color: var(--ink); }
-  h3, h4 { font-family: 'Object Sans', sans-serif; font-weight: 600; letter-spacing: -0.005em; color: var(--ink); }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+  @media (max-width: 700px) { .container { padding: 0 24px; } }
 
-  /* Reveal */
-  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 1s cubic-bezier(0.2, 0.7, 0.2, 1), transform 1s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  h1, h2, .serif {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500; letter-spacing: -0.015em;
+    line-height: 1.02; color: var(--ink);
+  }
+  h3, h4 {
+    font-family: 'Object Sans', sans-serif;
+    font-weight: 600; letter-spacing: -0.005em;
+  }
+
+  .circle-italic {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-weight: 400;
+    position: relative; display: inline-block;
+    padding: 0 12px;
+  }
+  .circle-italic::before {
+    content: ""; position: absolute; inset: -6% -4% -6% -4%;
+    border: 1.5px solid var(--ink);
+    border-radius: 55% 45% 55% 45% / 55% 45% 55% 45%;
+    transform: rotate(-3deg); pointer-events: none;
+  }
+  .circle-italic.gold::before { border-color: var(--gold); }
+  .circle-italic.white::before { border-color: #fff; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
   .reveal.in { opacity: 1; transform: translateY(0); }
-  .reveal-d1 { transition-delay: 0.1s; }
-  .reveal-d2 { transition-delay: 0.2s; }
-  .reveal-d3 { transition-delay: 0.3s; }
+  .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
 
-  /* Shimmer button */
-  .btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 18px 34px; border-radius: 999px; font-weight: 700; font-size: 14px;
-    letter-spacing: 0.6px; transition: all 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
-    position: relative; overflow: hidden; cursor: pointer; border: 0;
-    font-family: 'Object Sans', sans-serif; text-transform: uppercase;
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(251, 242, 237, 0.85);
+    backdrop-filter: saturate(1.3) blur(20px);
+    border-bottom: 1px solid var(--line);
   }
-  .btn::before {
-    content: ""; position: absolute; top: 0; left: -150%;
-    width: 60%; height: 100%;
-    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-    animation: shimmer 3.5s infinite;
-    pointer-events: none;
+  nav .row {
+    max-width: 1200px; margin: 0 auto; padding: 22px 40px;
+    display: flex; justify-content: space-between; align-items: center;
   }
-  @keyframes shimmer {
-    0% { left: -150%; }
-    45%, 100% { left: 200%; }
+  .brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500; font-size: 26px;
+    color: var(--ink); letter-spacing: -0.02em;
+    display: flex; align-items: center; gap: 8px;
   }
-  .btn-primary {
-    background: var(--caramel); color: #fff;
-    box-shadow: 0 10px 26px rgba(184, 118, 58, 0.3);
+  .brand::before {
+    content: ""; display: inline-block; width: 16px; height: 16px;
+    background: var(--bordeaux); border-radius: 50%;
   }
-  .btn-primary:hover { background: var(--caramel-deep); transform: translateY(-3px); box-shadow: 0 18px 40px rgba(184, 118, 58, 0.42); }
-  .btn-arrow { transition: transform 0.3s; font-size: 18px; }
-  .btn:hover .btn-arrow { transform: translateX(5px); }
+  nav ul { display: flex; gap: 42px; list-style: none; }
+  nav ul a {
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink); font-weight: 500;
+    transition: color 0.3s;
+  }
+  nav ul a:hover { color: var(--bordeaux); }
+  .nav-cta {
+    padding: 13px 26px;
+    background: var(--bordeaux); color: #fff;
+    border-radius: 999px;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    font-weight: 500; transition: all 0.4s;
+  }
+  .nav-cta:hover { background: var(--bordeaux-hi); }
+  @media (max-width: 900px) { nav ul { display: none; } }
 
-  /* Cover-Badge */
-  .cover-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 8px 16px; border-radius: 999px;
-    background: rgba(184, 118, 58, 0.12);
-    border: 1px solid rgba(184, 118, 58, 0.3);
-    font-size: 12px; color: var(--caramel-deep); font-weight: 700;
-    letter-spacing: 1.5px; text-transform: uppercase;
-    margin-bottom: 32px;
+  .btn-red {
+    padding: 20px 44px;
+    background: var(--bordeaux); color: #fff;
+    border: 0; border-radius: 999px;
+    font-family: 'Object Sans', sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.4s;
+    box-shadow: 0 20px 40px rgba(139, 46, 58, 0.35);
+    display: inline-block;
   }
-  .cover-badge .pulse {
-    width: 8px; height: 8px; border-radius: 50%; background: var(--caramel);
-    box-shadow: 0 0 12px var(--caramel);
-    animation: pulse 2s infinite;
+  .btn-red:hover { background: var(--bordeaux-hi); transform: translateY(-3px); }
+
+  .btn-ghost {
+    padding: 20px 44px;
+    background: transparent; color: var(--ink);
+    border: 1.5px solid var(--line-strong); border-radius: 999px;
+    font-family: 'Object Sans', sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.4s;
+    display: inline-block;
   }
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.4); opacity: 0.6; }
-  }
+  .btn-ghost:hover { border-color: var(--bordeaux); color: var(--bordeaux); }
 
   /* HERO */
   .hero {
-    padding: 140px 0 60px;
-    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
-    position: relative; overflow: hidden;
+    padding: 200px 0 120px;
+    text-align: center;
+    position: relative;
   }
-  .hero-glow {
-    position: absolute; top: -100px; right: -200px; width: 700px; height: 700px;
-    background: radial-gradient(circle, rgba(184, 118, 58, 0.15) 0%, transparent 60%);
-    pointer-events: none;
-    animation: floatOrb 15s ease-in-out infinite;
+  .hero-eyebrow {
+    font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--muted); font-weight: 500; margin-bottom: 36px;
+    display: inline-flex; align-items: center; gap: 20px;
   }
-  @keyframes floatOrb {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(40px, -40px); }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ""; width: 60px; height: 1px; background: var(--gold);
   }
-  .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; position: relative; z-index: 2; }
-  @media (max-width: 800px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
-
   .hero h1 {
-    font-size: clamp(48px, 6.5vw, 84px); font-weight: 800; letter-spacing: -0.035em;
-    line-height: 1; margin-bottom: 28px;
+    font-size: clamp(48px, 8vw, 108px);
+    font-weight: 400; line-height: 1.02;
+    margin-bottom: 32px; max-width: 900px; margin-left: auto; margin-right: auto;
+    letter-spacing: -0.02em;
   }
-  .hero h1 .accent { color: var(--caramel); }
-  .hero h1 .marker {
-    position: relative; display: inline-block;
+  .hero-sub {
+    font-size: 19px; color: var(--muted);
+    max-width: 640px; margin: 0 auto 40px;
+    line-height: 1.55;
   }
-  .hero h1 .marker::after {
-    content: ""; position: absolute; bottom: 8px; left: 0; width: 100%; height: 12px;
-    background: var(--champ); opacity: 0.4; z-index: -1;
-  }
-  .hero p.lede {
-    font-size: 20px; color: var(--ink-soft); line-height: 1.5;
-    max-width: 500px; margin-bottom: 40px;
-  }
+  .hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
 
-  .hero-portrait {
-    aspect-ratio: 4/5; border-radius: 24px;
-    overflow: hidden; position: relative;
-    box-shadow: 0 30px 60px rgba(45, 24, 16, 0.25);
+  /* VIER VERSPRECHEN (Dark) */
+  .anders {
+    padding: 140px 0;
+    background: var(--ink);
+    color: var(--bg);
+    position: relative;
+    overflow: hidden;
   }
-  .hero-portrait img { width: 100%; height: 100%; object-fit: cover; }
-  .hero-portrait-tag {
-    position: absolute; bottom: 20px; left: 20px;
-    background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(10px);
-    padding: 10px 18px; border-radius: 999px;
-    font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-    color: var(--caramel-deep);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .hero-portrait-tag .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--caramel); animation: pulse 2s infinite; }
-
-  /* KICKER / SECTION TITLES */
-  .kicker {
-    display: inline-block; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--caramel); font-weight: 700; margin-bottom: 16px;
-  }
-  .section-title {
-    font-size: clamp(32px, 4.5vw, 52px); font-weight: 800;
-    letter-spacing: -0.03em; color: var(--ink); line-height: 1.08;
-  }
-  .section-title .accent { color: var(--caramel); }
-
-  /* Marquee Ticker (Editorial Banner) */
-  .ticker-strip {
-    background: var(--espresso); color: #fff;
-    padding: 24px 0; overflow: hidden; position: relative;
-    border-top: 1px solid rgba(201, 169, 110, 0.15);
-    border-bottom: 1px solid rgba(201, 169, 110, 0.15);
-  }
-  .ticker-inner {
-    display: flex; gap: 60px;
-    animation: tickerScroll 45s linear infinite;
-    white-space: nowrap;
-    width: max-content;
-  }
-  @keyframes tickerScroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  .ticker-item {
-    display: inline-flex; align-items: center; gap: 14px;
-    font-size: 15px; font-weight: 500;
-  }
-  .ticker-item .num { font-weight: 800; font-size: 20px; color: var(--champ); letter-spacing: -0.02em; }
-  .ticker-item .sep {
-    width: 6px; height: 6px; border-radius: 50%; background: var(--champ);
-    display: inline-block;
-  }
-
-  /* STORY (Persönlich, mit transparentem Portrait im Hintergrund) */
-  .story {
-    background: var(--card); padding: 100px 0;
-    position: relative; overflow: hidden;
-  }
-  .story::before {
-    content: ""; position: absolute; top: 0; right: -100px; width: 700px; height: 100%;
-    background-image: url('img/portrait-hero.jpg');
-    background-size: cover; background-position: center;
-    opacity: 0.07;
-    filter: grayscale(60%) sepia(20%);
+  .anders::before {
+    content: ""; position: absolute; top: -200px; right: -200px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(197, 164, 109, 0.12), transparent 70%);
     pointer-events: none;
-    animation: portraitZoom 25s ease-in-out infinite alternate;
   }
-  @keyframes portraitZoom {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.08); }
+  .anders::after {
+    content: ""; position: absolute; bottom: -200px; left: -200px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 46, 58, 0.15), transparent 70%);
+    pointer-events: none;
   }
-  .story-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 2; }
-  .story h2 { margin-bottom: 40px; }
-  .story p {
-    font-size: 18px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 24px;
+  .anders .container { position: relative; }
+  .anders-header { text-align: center; margin-bottom: 80px; }
+  .anders-eyebrow {
+    font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500;
+    margin-bottom: 24px; display: inline-block;
   }
-  .story p strong { color: var(--caramel-deep); font-weight: 700; }
-  .story-quote {
-    background: var(--bg-alt); border-left: 4px solid var(--caramel);
-    padding: 32px; border-radius: 8px; margin: 40px 0;
-    font-size: 20px; font-style: italic; color: var(--ink);
-    font-weight: 500; line-height: 1.5;
-    backdrop-filter: blur(8px);
+  .anders-header h2 {
+    font-size: clamp(40px, 5.5vw, 80px);
+    font-weight: 400;
+    color: var(--bg);
   }
-  .story-quote::before { content: "„"; font-size: 60px; color: var(--caramel); line-height: 0; vertical-align: -20px; margin-right: 4px; }
+  .anders-header h2 em { font-style: italic; color: var(--gold); }
+  .anders-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 24px; max-width: 1200px; margin: 0 auto;
+  }
+  @media (max-width: 900px) { .anders-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .anders-grid { grid-template-columns: 1fr; } }
+  .anders-card {
+    background: rgba(251, 242, 237, 0.04);
+    padding: 40px 32px;
+    border-radius: 6px;
+    border: 1px solid rgba(197, 164, 109, 0.2);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(6px);
+  }
+  .anders-card:hover {
+    transform: translateY(-6px);
+    background: rgba(251, 242, 237, 0.06);
+    border-color: var(--gold);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  }
+  .anders-num {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    color: var(--gold); font-size: 15px; letter-spacing: 0.2em;
+    margin-bottom: 20px; display: block;
+  }
+  .anders-card h3 {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-weight: 500; font-size: 24px;
+    color: var(--bg); margin-bottom: 12px; letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .anders-card p { font-size: 14px; color: rgba(251, 242, 237, 0.65); line-height: 1.65; }
 
-  /* MEHRWERT / WHY-ME (Dark) */
-  .why { background: var(--espresso); color: #fff; padding: 100px 0; }
-  .why-inner { max-width: 900px; margin: 0 auto; }
-  .why h2 { color: #fff; margin-bottom: 60px; text-align: center; }
-  .why h2 .accent { color: var(--champ); }
-  .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  @media (max-width: 700px) { .why-grid { grid-template-columns: 1fr; } }
-  .why-card {
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(217, 167, 105, 0.25);
-    border-radius: 20px; padding: 32px 28px;
-    transition: all 0.3s;
+  /* 15 FRAGEN */
+  .fragen { padding: 160px 0; background: var(--bg); }
+  .fragen-header { text-align: center; margin-bottom: 80px; max-width: 900px; margin-left: auto; margin-right: auto; }
+  .fragen-header .eyebrow {
+    font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--muted); font-weight: 500; margin-bottom: 24px; display: inline-block;
   }
-  .why-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--champ);
-    background: rgba(217, 167, 105, 0.08);
+  .fragen-header h2 { font-size: clamp(44px, 6vw, 88px); font-weight: 400; margin-bottom: 20px; }
+  .fragen-header p { font-size: 17px; color: var(--muted); line-height: 1.6; }
+  .fragen-grid { max-width: 1000px; margin: 0 auto; display: grid; gap: 20px; }
+  .fragen-card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 32px 36px;
+    display: grid; grid-template-columns: 80px 1fr; gap: 30px; align-items: baseline;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .why-card-num {
-    font-size: 40px; font-weight: 900; color: var(--champ);
-    letter-spacing: -0.03em; margin-bottom: 8px; line-height: 1;
+  .fragen-card:hover { border-color: var(--bordeaux); box-shadow: 0 20px 40px rgba(45, 31, 34, 0.08); }
+  .fragen-num {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-weight: 500; color: var(--bordeaux);
+    font-size: 32px; line-height: 1;
   }
-  .why-card-lbl {
-    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-    color: rgba(255,255,255,0.55); font-weight: 700; margin-bottom: 12px;
+  .fragen-q {
+    font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600; margin-bottom: 10px;
   }
-  .why-card h3 { color: #fff; font-size: 18px; margin-bottom: 8px; }
-  .why-card p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.55; }
+  .fragen-a {
+    font-family: 'Playfair Display', serif; font-weight: 500;
+    font-size: 26px; color: var(--ink); line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .fragen-a em { font-style: italic; color: var(--bordeaux); }
+  .fragen-body { font-size: 15px; color: var(--ink-soft); line-height: 1.7; margin-top: 12px; }
+  .fragen-card.dark {
+    background: var(--ink); color: var(--bg); border: 1px solid rgba(197, 164, 109, 0.25);
+  }
+  .fragen-card.dark .fragen-q { color: rgba(251, 242, 237, 0.65); }
+  .fragen-card.dark .fragen-num { color: var(--gold); }
+  .fragen-card.dark .fragen-a { color: var(--bg); }
+  .fragen-card.dark .fragen-a em { color: var(--gold); }
+  .fragen-card.dark .fragen-body { color: rgba(251, 242, 237, 0.75); }
+  .fragen-card.gradient {
+    background: linear-gradient(135deg, var(--bordeaux), var(--bordeaux-hi));
+    color: #fff; border: 0;
+  }
+  .fragen-card.gradient .fragen-q { color: rgba(255, 255, 255, 0.85); }
+  .fragen-card.gradient .fragen-num { color: rgba(255, 255, 255, 0.7); }
+  .fragen-card.gradient .fragen-a { color: #fff; }
+  .fragen-card.gradient .fragen-a em { color: var(--gold); }
+  .fragen-card.gradient .fragen-body { color: rgba(255, 255, 255, 0.85); }
+  .fragen-card.wide { grid-template-columns: 80px 1fr; align-items: flex-start; }
+  .highlight-box {
+    background: var(--bg); padding: 18px 22px; border-radius: 8px; border-left: 3px solid var(--bordeaux);
+    margin-top: 16px; font-size: 15px; color: var(--ink-soft); line-height: 1.7;
+  }
+  .fragen-card.dark .highlight-box, .fragen-card.gradient .highlight-box {
+    background: rgba(255, 255, 255, 0.08); border-left-color: var(--gold);
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .hooks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px; }
+  @media (max-width: 700px) { .hooks-grid { grid-template-columns: 1fr; } }
+  .hook-group-title {
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--bordeaux); font-weight: 700; margin-bottom: 12px;
+  }
+  .hook { background: var(--bg); border-left: 3px solid var(--bordeaux); padding: 12px 16px; margin-bottom: 10px; font-size: 15px; font-style: italic; color: var(--ink); line-height: 1.5; }
+  @media (max-width: 600px) {
+    .fragen-card { grid-template-columns: 1fr; gap: 12px; }
+  }
 
-  /* FORMAT-VORSCHLAG */
-  .format { background: var(--bg-alt); padding: 100px 0; }
-  .format-inner { max-width: 900px; margin: 0 auto; }
-  .format-header { text-align: center; margin-bottom: 60px; }
-  .format-header p { font-size: 17px; color: var(--muted); margin-top: 16px; max-width: 600px; margin-left: auto; margin-right: auto; }
-  .slide-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
-  .slide-item {
-    background: var(--card); border-radius: 14px;
-    padding: 24px 28px;
-    border: 1px solid var(--line);
-    display: grid; grid-template-columns: 60px 1fr; gap: 20px; align-items: start;
-    transition: all 0.3s;
-  }
-  .slide-item:hover { transform: translateX(6px); border-color: var(--caramel); }
-  .slide-num {
-    font-family: 'Object Sans', sans-serif;
-    font-size: 24px; font-weight: 900; color: var(--caramel);
-    letter-spacing: -0.03em;
-  }
-  .slide-content h4 {
-    font-size: 15px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--caramel-deep); font-weight: 700; margin-bottom: 8px;
-  }
-  .slide-content p { font-size: 15px; color: var(--ink-soft); line-height: 1.5; }
-  .slide-content p em { font-style: italic; color: var(--caramel-deep); }
+  /* REICHWEITE */
+  .reichweite { padding: 140px 0; background: var(--ink); color: var(--bg); position: relative; overflow: hidden; }
+  .reichweite::before { content: ""; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(197, 164, 109, 0.15), transparent 70%); }
+  .reichweite::after { content: ""; position: absolute; bottom: -100px; left: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(139, 46, 58, 0.15), transparent 70%); }
+  .reichweite .container { position: relative; }
+  .reichweite-header { text-align: center; margin-bottom: 80px; max-width: 900px; margin-left: auto; margin-right: auto; }
+  .reichweite-header .eyebrow { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 24px; display: inline-block; }
+  .reichweite-header h2 { font-size: clamp(40px, 5.5vw, 80px); font-weight: 400; color: var(--bg); line-height: 1.05; margin-bottom: 24px; }
+  .reichweite-header h2 em { font-style: italic; color: var(--gold); }
+  .reichweite-header p { font-size: 17px; color: rgba(251, 242, 237, 0.65); line-height: 1.6; }
+  .rw-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 0 auto; }
+  @media (max-width: 900px) { .rw-grid { grid-template-columns: 1fr; } }
+  .rw-card { padding: 40px 32px; background: rgba(251, 242, 237, 0.04); border: 1px solid rgba(197, 164, 109, 0.2); border-radius: 8px; }
+  .rw-num { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--gold); font-size: 52px; line-height: 1; margin-bottom: 12px; }
+  .rw-card h4 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--bg); font-size: 22px; margin-bottom: 10px; letter-spacing: -0.01em; }
+  .rw-card p { font-size: 14px; color: rgba(251, 242, 237, 0.7); line-height: 1.6; }
 
-  /* BONUS-VALUE */
-  .bonus { background: var(--card); padding: 100px 0; }
-  .bonus-inner { max-width: 900px; margin: 0 auto; }
-  .bonus h2 { text-align: center; margin-bottom: 20px; }
-  .bonus > .container > .lede { text-align: center; font-size: 17px; color: var(--muted); max-width: 600px; margin: 0 auto 60px; line-height: 1.6; }
-  .bonus-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  @media (max-width: 700px) { .bonus-grid { grid-template-columns: 1fr; } }
+  /* BONUS: Podcast + Co-Produkt */
+  .bonus { padding: 140px 0; background: linear-gradient(180deg, var(--bg), var(--bg-warm)); }
+  .bonus-header { text-align: center; margin-bottom: 70px; max-width: 900px; margin-left: auto; margin-right: auto; }
+  .bonus-header .eyebrow { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--bordeaux); font-weight: 600; margin-bottom: 20px; display: inline-block; }
+  .bonus-header h2 { font-size: clamp(40px, 5.5vw, 76px); font-weight: 400; margin-bottom: 16px; }
+  .bonus-header h2 em { font-style: italic; color: var(--bordeaux); }
+  .bonus-header p { font-size: 16px; color: var(--muted); }
+  .bonus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1000px; margin: 0 auto; }
+  @media (max-width: 800px) { .bonus-grid { grid-template-columns: 1fr; } }
   .bonus-card {
-    background: var(--bg-alt); border-radius: 20px;
-    padding: 32px 28px; position: relative;
-    transition: all 0.3s;
-    border: 1px solid var(--line);
+    background: linear-gradient(135deg, var(--bordeaux), var(--bordeaux-hi)); color: #fff;
+    border-radius: 12px; padding: 44px 40px;
+    box-shadow: 0 20px 50px rgba(139, 46, 58, 0.25);
   }
-  .bonus-card:hover { transform: translateY(-4px); border-color: var(--caramel); box-shadow: 0 20px 40px rgba(184, 118, 58, 0.12); }
-  .bonus-card .num {
-    position: absolute; top: 20px; right: 24px;
-    font-size: 44px; font-weight: 900; color: var(--caramel);
-    opacity: 0.2; letter-spacing: -0.03em;
-  }
-  .bonus-card .icon {
-    width: 48px; height: 48px; border-radius: 12px;
-    background: var(--caramel); color: #fff;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 20px;
-  }
-  .bonus-card h3 { font-size: 20px; margin-bottom: 10px; color: var(--ink); }
-  .bonus-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .bonus-card .tag { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 14px; }
+  .bonus-card h3 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 30px; color: #fff; margin-bottom: 14px; letter-spacing: -0.01em; }
+  .bonus-card p { font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.7; }
 
-  /* COMMUNITY */
-  .community-section { background: var(--bg-alt); padding: 100px 0; }
-  .community-inner { max-width: 1000px; margin: 0 auto; }
-  .community-header { text-align: center; margin-bottom: 60px; }
-  .community-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
-  }
-  @media (max-width: 700px) { .community-grid { grid-template-columns: repeat(2, 1fr); } }
-  .comm-stat {
-    background: var(--card); border-radius: 16px;
-    padding: 30px 24px; text-align: center;
-    border: 1px solid var(--line);
-    transition: all 0.3s;
-  }
-  .comm-stat:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(184, 118, 58, 0.12); }
-  .comm-stat-num {
-    font-size: 38px; font-weight: 900; color: var(--caramel);
-    letter-spacing: -0.03em; line-height: 1; margin-bottom: 12px;
-  }
-  .comm-stat-lbl {
-    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
-    color: var(--muted); font-weight: 700; margin-bottom: 6px;
-  }
-  .comm-stat-hint { font-size: 12px; color: var(--muted-lite); font-style: italic; }
+  /* CTA */
+  .cta { padding: 160px 0; background: var(--ink); color: var(--bg); text-align: center; }
+  .cta h2 { color: var(--bg); font-size: clamp(44px, 7vw, 100px); font-weight: 400; margin-bottom: 24px; }
+  .cta h2 em { font-style: italic; color: var(--gold); }
+  .cta p { font-size: 18px; color: rgba(251, 242, 237, 0.65); max-width: 620px; margin: 0 auto 48px; line-height: 1.55; }
 
-  .community-footnote {
-    text-align: center; margin-top: 40px; padding: 24px;
-    background: rgba(184, 118, 58, 0.08); border-radius: 12px;
-    border-left: 3px solid var(--caramel);
-    font-size: 15px; color: var(--ink-soft); font-style: italic;
-    max-width: 800px; margin-left: auto; margin-right: auto;
-  }
-
-  /* CTA / KONTAKT */
-  .cta { background: var(--espresso); color: #fff; padding: 120px 0; text-align: center; position: relative; overflow: hidden; }
-  .cta::before {
-    content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: 800px; height: 800px;
-    background: radial-gradient(circle, rgba(217, 167, 105, 0.12), transparent 60%);
-    pointer-events: none;
-  }
-  .cta > .container { position: relative; z-index: 2; }
-  .cta h2 { color: #fff; font-size: clamp(40px, 6vw, 76px); margin-bottom: 20px; letter-spacing: -0.03em; }
-  .cta h2 .accent { color: var(--champ); }
-  .cta > .container > p { font-size: 18px; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 40px; line-height: 1.55; }
-  .cta-info {
-    display: flex; gap: 40px; justify-content: center; margin-top: 60px;
-    padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.15); flex-wrap: wrap;
-  }
-  .cta-info-item { text-align: center; }
-  .cta-info-lbl { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--champ); font-weight: 700; margin-bottom: 8px; }
-  .cta-info-val { font-size: 15px; color: #fff; font-weight: 500; }
-
-  /* Footer klein */
-  footer { background: var(--espresso-warm); color: rgba(255,255,255,0.5); padding: 32px 0; text-align: center; font-size: 12px; }
-  footer a { color: var(--champ); }
+  /* FOOTER */
+  footer { background: var(--ink); color: rgba(251, 242, 237, 0.6); padding: 60px 0 30px; border-top: 1px solid rgba(197, 164, 109, 0.15); }
+  footer .row { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  footer p { font-size: 12px; letter-spacing: 0.15em; color: rgba(251, 242, 237, 0.4); }
+  footer a { font-size: 12px; letter-spacing: 0.15em; color: var(--bg); transition: color 0.3s; }
+  footer a:hover { color: var(--gold); }
+  footer .links { display: flex; gap: 28px; }
 </style>
 </head>
 <body>
 
-<!-- Nav -->
-<nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250, 247, 242, 0.85); backdrop-filter: saturate(1.4) blur(18px); border-bottom: 1px solid var(--line);">
-  <div style="max-width: 1000px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between;">
-    <a href="index.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; font-weight: 500; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--caramel)';" onmouseout="this.style.color='var(--muted)';">
-      <span style="font-size: 18px;">←</span>
-      Zurück zu On Point
-    </a>
-    <a href="index.html" style="font-weight: 800; font-size: 20px; letter-spacing: -0.03em; color: var(--ink); text-decoration: none;">On Point<span style="color: var(--champ); font-size: 26px;">.</span></a>
+<!-- NAV -->
+<nav>
+  <div class="row">
+    <a href="index.html" class="brand">On Point</a>
+    <ul>
+      <li><a href="#versprechen">Versprechen</a></li>
+      <li><a href="#fragen">Eure Fragen</a></li>
+      <li><a href="#reichweite">Reichweite</a></li>
+      <li><a href="#bonus">Bonus</a></li>
+    </ul>
+    <a href="mailto:julia@bergles.net?subject=MealBites%20Creator%20in%20Residence" class="nav-cta">Erstgespräch</a>
   </div>
 </nav>
 
-<!-- Diagonaler Editorial-Marquee (top) -->
-<style>
-  .diag-marquee {
-    background: var(--espresso);
-    color: #fff;
-    padding: 22px 0;
-    overflow: hidden;
-    position: relative;
-    margin-top: 60px;
-  }
-  .diag-marquee-inner {
-    display: flex;
-    gap: 50px;
-    animation: tickerScroll 45s linear infinite;
-    white-space: nowrap;
-    width: max-content;
-    font-family: 'Object Sans', sans-serif;
-  }
-  .diag-marquee-inner span.txt {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 15px;
-    font-weight: 500;
-    color: rgba(255,255,255,0.9);
-    letter-spacing: 0.2px;
-  }
-  .diag-marquee-inner span.acc {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 15px;
-    font-weight: 500;
-    color: rgba(255,255,255,0.9);
-    letter-spacing: 0.2px;
-  }
-  .diag-marquee-inner .num-hi {
-    font-weight: 800;
-    font-size: 18px;
-    color: var(--champ);
-    letter-spacing: -0.01em;
-  }
-  .diag-marquee-inner span.dot {
-    display: inline-block;
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background: var(--champ);
-    opacity: 0.7;
-    vertical-align: middle;
-  }
-  @media (max-width: 700px) {
-    .diag-marquee-inner span.txt, .diag-marquee-inner span.acc { font-size: 13px; }
-    .diag-marquee-inner .num-hi { font-size: 15px; }
-    .diag-marquee-inner { gap: 30px; }
-  }
-
-  /* Cinema Big Number */
-  .cinema-bignum {
-    background: var(--espresso);
-    color: #fff;
-    padding: 140px 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    border-top: 1px solid rgba(201,169,110,0.1);
-  }
-  .cinema-bignum::before {
-    content: "";
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 1000px; height: 1000px;
-    background: radial-gradient(circle, rgba(201,169,110,0.15), transparent 60%);
-    pointer-events: none;
-    animation: pulseGlow 6s ease-in-out infinite;
-  }
-  @keyframes pulseGlow {
-    0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
-    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
-  }
-  .cinema-mini {
-    font-size: 12px; letter-spacing: 5px; text-transform: uppercase;
-    color: var(--champ); font-weight: 700; margin-bottom: 32px;
-    display: flex; align-items: center; justify-content: center; gap: 20px;
-    position: relative; z-index: 2;
-  }
-  .cinema-mini::before, .cinema-mini::after {
-    content: ""; width: 40px; height: 1px; background: var(--champ);
-  }
-  .cinema-num {
-    font-size: clamp(120px, 22vw, 320px);
-    font-weight: 900;
-    letter-spacing: -0.06em;
-    line-height: 0.85;
-    background: linear-gradient(180deg, #fff 0%, var(--champ) 60%, var(--champ-hi) 100%);
-    -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent; color: transparent;
-    margin-bottom: 20px;
-    position: relative; z-index: 2;
-  }
-  .cinema-label {
-    font-size: clamp(20px, 3vw, 32px);
-    font-weight: 300;
-    color: rgba(255,255,255,0.7);
-    letter-spacing: -0.01em;
-    margin-bottom: 24px;
-    position: relative; z-index: 2;
-  }
-  .cinema-sub {
-    font-size: 16px;
-    color: rgba(255,255,255,0.5);
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
-    position: relative; z-index: 2;
-  }
-  .cinema-sub .accent { color: var(--champ); font-weight: 700; }
-
-  /* Editorial Split Card */
-  .split-card {
-    background: var(--card);
-    padding: 100px 0;
-    position: relative;
-    overflow: hidden;
-  }
-  .split-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 32px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-  }
-  @media (max-width: 900px) { .split-inner { grid-template-columns: 1fr; gap: 40px; } }
-  .split-num-huge {
-    font-size: clamp(180px, 26vw, 360px);
-    font-weight: 900;
-    letter-spacing: -0.08em;
-    line-height: 0.75;
-    background: linear-gradient(180deg, var(--caramel), var(--champ));
-    -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent; color: transparent;
-    font-style: italic;
-  }
-  .split-content h3 {
-    font-size: clamp(32px, 4vw, 46px);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    margin-bottom: 20px;
-  }
-  .split-content p {
-    font-size: 17px;
-    color: var(--ink-soft);
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-</style>
-
-<!-- HERO-BILDBANNER -->
-<div id="top-banner" style="width: 100%; height: 227px; background: linear-gradient(135deg, var(--espresso), var(--caramel)); position: relative; overflow: hidden; margin-top: 60px;">
-  <!-- Julia legt hier ein Bild rein. Dann austauschen mit:
-       <img src="img/[dateiname]" style="width: 100%; height: 100%; object-fit: cover;" alt="" />
-       Aktuell: eleganter Gradient-Placeholder als Übergang. -->
-  <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.35); font-size: 13px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700;">
-    Bildbanner. Dateiname sagen. Ich tausche.
-  </div>
-</div>
-
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-glow"></div>
   <div class="container">
-    <div class="hero-grid">
-      <div>
-        <div class="cover-badge reveal">
-          <span class="pulse"></span>
-          <span>Pitch für MealBites</span>
-        </div>
-        <h1 class="reveal reveal-d1">Hallo <span class="accent">MealBites</span>.<br />Ich habe eine <span class="marker">Idee</span> für euch.</h1>
-        <p class="lede reveal reveal-d2">Ich bin Julia. Ich habe selbst ein Food-Startup gegründet, meine Zielgruppe versteht euch besser als jede Marktforschung, und ich weiß wie Content aussieht, der aus Followern Kunden macht.</p>
-        <a class="btn btn-primary reveal reveal-d3" href="#kontakt">
-          Lasst uns reden <span class="btn-arrow">→</span>
-        </a>
+    <div class="hero-eyebrow reveal">Bewerbung · Creator in Residence</div>
+    <h1 class="reveal d1">Für <span class="circle-italic">MealBites</span>.<br />Nicht für alle.</h1>
+    <p class="hero-sub reveal d2">Ich habe eure Ausschreibung nicht als Formular beantwortet, sondern als Website. So arbeite ich auch für euch: handgemacht, fachlich fundiert, mit echter Community — statt Copy-Paste und KI-Text.</p>
+    <div class="hero-buttons reveal d3">
+      <a href="#fragen" class="btn-red">Eure Fragen beantwortet <span>→</span></a>
+      <a href="#reichweite" class="btn-ghost">Meine Reichweite <span>✦</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- VIER VERSPRECHEN -->
+<section class="anders" id="versprechen">
+  <div class="container">
+    <div class="anders-header reveal">
+      <span class="anders-eyebrow">Was ihr von mir bekommt</span>
+      <h2>Vier <em>Versprechen</em>.</h2>
+    </div>
+    <div class="anders-grid">
+      <div class="anders-card reveal d1">
+        <span class="anders-num">N° 01</span>
+        <h3>Keine KI-Bilder, keine KI-Texte</h3>
+        <p>KI wirkt billig und wird von eurer Zielgruppe sofort erkannt. Ich mache alles handgemacht — Rezepte selbst gekocht, Reels selbst gedreht, Captions selbst geschrieben.</p>
       </div>
-      <div class="reveal reveal-d2">
-        <div class="hero-portrait">
-          <img src="img/portrait-hero.jpg" alt="Julia Bergles" />
-          <div class="hero-portrait-tag">
-            <span class="dot"></span>
-            Julia Bergles · Content
-          </div>
-        </div>
+      <div class="anders-card reveal d1">
+        <span class="anders-num">N° 02</span>
+        <h3>Community immer aktiv einbezogen</h3>
+        <p>Frage-Storys, UGC-Aufrufe, Community-Reposts. Kein Beitrag geht raus, ohne dass eure Zielgruppe eingebunden wird. Deshalb performt Content bei mir, statt nur zu erscheinen.</p>
+      </div>
+      <div class="anders-card reveal d2">
+        <span class="anders-num">N° 03</span>
+        <h3>Ich verstehe eure Zielgruppe von innen</h3>
+        <p>Ich bin selbst betroffen — chronische Verdauungsprobleme, Histaminintoleranz. Ich rede nicht über Sättigung, ich fühle sie. Genau das merken eure Kundinnen im ersten Frame.</p>
+      </div>
+      <div class="anders-card reveal d2">
+        <span class="anders-num">N° 04</span>
+        <h3>Alle Tools laufen über mich</h3>
+        <p>Canva Pro, CapCut Pro, Claude, ChatGPT — keine Software-Abos für euch, keine Lizenzen, kein Setup. Ihr zahlt eine Rechnung, sonst nichts.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 15 FRAGEN · 15 ANTWORTEN -->
-<section id="antworten" style="background: linear-gradient(180deg, var(--bg), var(--bg-soft)); padding: 140px 0; position: relative; overflow: hidden;">
+<!-- 15 FRAGEN · MEINE ANTWORTEN -->
+<section class="fragen" id="fragen">
   <div class="container">
-    <div class="reveal" style="text-align: center; margin-bottom: 90px; max-width: 900px; margin-left: auto; margin-right: auto;">
-      <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--caramel); font-weight: 700; margin-bottom: 24px; display: inline-block;">Eure Bewerbungs-Fragen</span>
-      <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: clamp(38px, 5.5vw, 78px); color: var(--ink); line-height: 1.05; margin-bottom: 20px; letter-spacing: -0.02em;">15 Fragen. <span style="font-style: italic; color: var(--caramel);">Meine Antworten</span>.</h2>
-      <p style="font-size: 17px; color: var(--muted); line-height: 1.6;">Statt Copy-Paste ins Formular — hier ist meine Bewerbung als Website. So arbeite ich auch für euch.</p>
+    <div class="fragen-header reveal">
+      <span class="eyebrow">Statt Formular-Antworten</span>
+      <h2>Eure Fragen. <span class="circle-italic">Meine Antworten</span>.</h2>
+      <p>15 Fragen habt ihr gestellt. Hier sind meine Antworten — persönlich, konkret, nachlesbar. So arbeite ich auch für euch.</p>
     </div>
 
-    <div style="max-width: 1000px; margin: 0 auto; display: grid; gap: 20px;">
+    <div class="fragen-grid">
 
       <!-- Q1 · Name -->
-      <div class="reveal d1" style="background: var(--card); border-radius: 12px; padding: 32px 36px; border: 1px solid var(--taupe); display: grid; grid-template-columns: 80px 1fr; gap: 30px; align-items: baseline;">
-        <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--caramel); font-size: 32px; line-height: 1;">01</div>
+      <div class="fragen-card reveal d1">
+        <div class="fragen-num">01</div>
         <div>
-          <div style="font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 8px;">Wie heißt du?</div>
-          <div style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 32px; color: var(--ink); line-height: 1.1; letter-spacing: -0.01em;">Julia Bergles.</div>
+          <div class="fragen-q">Wie heißt du?</div>
+          <div class="fragen-a">Julia Bergles.</div>
         </div>
       </div>
 
       <!-- Q2 · Kontakt -->
-      <div class="reveal d1" style="background: var(--card); border-radius: 12px; padding: 32px 36px; border: 1px solid var(--taupe); display: grid; grid-template-columns: 80px 1fr; gap: 30px; align-items: baseline;">
-        <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--caramel); font-size: 32px; line-height: 1;">02</div>
+      <div class="fragen-card reveal d1">
+        <div class="fragen-num">02</div>
         <div>
-          <div style="font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 8px;">Wie erreicht ihr mich?</div>
-          <div style="font-size: 18px; color: var(--ink); line-height: 1.5;">
-            <a href="mailto:julia@bergles.net" style="color: var(--caramel); text-decoration: none; border-bottom: 1px solid var(--caramel);">julia@bergles.net</a> · WhatsApp auf Anfrage · <a href="https://agentur.juliabergles.de" style="color: var(--caramel); text-decoration: none; border-bottom: 1px solid var(--caramel);">agentur.juliabergles.de</a>
+          <div class="fragen-q">Wie erreicht ihr mich?</div>
+          <div class="fragen-a" style="font-size: 20px; line-height: 1.4;">
+            <a href="mailto:julia@bergles.net" style="color: var(--bordeaux); border-bottom: 1px solid var(--bordeaux);">julia@bergles.net</a> · WhatsApp auf Anfrage<br />
+            <a href="https://agentur.juliabergles.de" style="color: var(--bordeaux); border-bottom: 1px solid var(--bordeaux); font-family: 'Object Sans', sans-serif; font-style: normal; font-size: 16px;">agentur.juliabergles.de</a>
           </div>
         </div>
       </div>
 
       <!-- Q3 · Wichtigster Kanal -->
-      <div class="reveal d2" style="background: var(--espresso); color: #fff; border-radius: 12px; padding: 40px 40px; display: grid; grid-template-columns: 80px 1fr; gap: 30px; align-items: center;">
-        <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--bg); font-size: 32px; line-height: 1; opacity: 0.6;">03</div>
+      <div class="fragen-card dark reveal d2 wide">
+        <div class="fragen-num">03</div>
         <div>
-          <div style="font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 600; margin-bottom: 10px;">Mein wichtigster Kanal</div>
-          <div style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 40px; color: #fff; margin-bottom: 12px; letter-spacing: -0.01em;"><a href="https://instagram.com/julia_bergles" target="_blank" style="color: #fff; text-decoration: none;">@julia_bergles</a> · <span style="font-style: italic;">Instagram</span></div>
-          <div style="font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.6;"><strong style="color: #fff;">706.000 Konten / Monat</strong> · <strong style="color: #fff;">1,77 Mio Reel-Aufrufe / Monat</strong> · <strong style="color: #fff;">93,8 % Nicht-Follower-Reach</strong>. Auf den bin ich stolz, weil ich ihn ohne Ad-Budget aufgebaut habe — nur mit ehrlichem Health-Content aus eigener Betroffenheit.</div>
+          <div class="fragen-q">Mein wichtigster Kanal</div>
+          <div class="fragen-a"><a href="https://instagram.com/julia_bergles" target="_blank" rel="noopener" style="color: inherit;">@julia_bergles</a> · <em>Instagram</em></div>
+          <div class="fragen-body"><strong style="color: var(--gold);">706.000 Konten / Monat</strong> · <strong style="color: var(--gold);">1,77 Mio Reel-Aufrufe</strong> · <strong style="color: var(--gold);">93,8 % Nicht-Follower-Reach</strong>. Auf den bin ich stolz, weil ich ihn ohne Ad-Budget aufgebaut habe — nur mit ehrlichem Health-Content aus eigener Betroffenheit.</div>
         </div>
       </div>
 
       <!-- Q4 · Ein Video -->
-      <div class="reveal d2" style="background: var(--card); border-radius: 12px; padding: 32px 36px; border: 1px solid var(--taupe); display: grid; grid-template-columns: 80px 1fr; gap: 30px; align-items: baseline;">
-        <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--caramel); font-size: 32px; line-height: 1;">04</div>
+      <div class="fragen-card reveal d2 wide">
+        <div class="fragen-num">04</div>
         <div>
-          <div style="font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 8px;">Ein Video, das zeigt was ich kann</div>
-          <div style="font-size: 18px; color: var(--ink); line-height: 1.55; margin-bottom: 10px;"><a href="https://www.instagram.com/p/DaM4azhjVth/" target="_blank" rel="noopener" style="color: var(--caramel); font-weight: 700; border-bottom: 2px solid var(--caramel); text-decoration: none;">instagram.com/p/DaM4azhjVth →</a></div>
-          <div style="font-size: 14px; color: var(--muted); line-height: 1.6; font-style: italic;">Warum genau dieses: Es zeigt in 30 Sekunden was ich am besten kann — fachliche Info persönlich verpackt, ohne Werbe-Ton, und mit einem klaren Grund für die Zielgruppe, es zu speichern und weiterzuschicken.</div>
+          <div class="fragen-q">Ein Video, das zeigt was ich kann</div>
+          <div class="fragen-a" style="font-size: 20px;"><a href="https://www.instagram.com/p/DaM4azhjVth/" target="_blank" rel="noopener" style="color: var(--bordeaux); border-bottom: 2px solid var(--bordeaux);">instagram.com/p/DaM4azhjVth →</a></div>
+          <div class="fragen-body" style="font-style: italic;">Warum genau dieses: Es zeigt in 30 Sekunden was ich am besten kann — fachliche Info persönlich verpackt, ohne Werbe-Ton, und mit einem klaren Grund für die Zielgruppe, es zu speichern und weiterzuschicken.</div>
         </div>
       </div>
 
       <!-- Q5 · Vor der Kamera -->
-      <div class="reveal d3" style="background: linear-gradient(135deg, var(--caramel), var(--caramel-hi)); color: #fff; border-radius: 12px; padding: 40px 40px; display: grid; grid-template-columns: 80px 1fr; gap: 30px; align-items: center;">
-        <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: rgba(255,255,255,0.7); font-size: 32px; line-height: 1;">05</div>
+      <div class="fragen-card gradient reveal d3 wide">
+        <div class="fragen-num">05</div>
         <div>
-          <div style="font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.75); font-weight: 600; margin-bottom: 10px;">Wie wohl vor der Kamera?</div>
-          <div style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 32px; color: #fff; margin-bottom: 10px; letter-spacing: -0.01em; line-height: 1.15;"><span style="font-style: italic;">„Easy — ich rede einfach drauf los."</span></div>
-          <div style="font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.6;">Ich stehe seit 2 Jahren regelmäßig vor der Kamera. Für MealBites bin ich flexibel: Ich vor der Kamera, ihr vor der Kamera, Voice-Over auf Bildern — was funktioniert.</div>
+          <div class="fragen-q">Wie wohl vor der Kamera?</div>
+          <div class="fragen-a"><em>„Easy — ich rede einfach drauf los."</em></div>
+          <div class="fragen-body">Ich stehe seit 2 Jahren regelmäßig vor der Kamera. Für MealBites bin ich flexibel: Ich vor der Kamera, ihr vor der Kamera, Voice-Over auf Bildern — was für euch funktioniert.</div>
         </div>
       </div>
 
       <!-- Q6 · Scrollstopper-Hooks -->
-      <div class="reveal d1" style="background: var(--card); border-radius: 12px; padding: 40px; border: 1px solid var(--taupe);">
-        <div style="display: grid; grid-template-columns: 80px 1fr; gap: 30px; margin-bottom: 32px;">
-          <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--caramel); font-size: 32px; line-height: 1;">06</div>
-          <div>
-            <div style="font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 6px;">Scrollstopper-Test</div>
-            <div style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 24px; color: var(--ink); letter-spacing: -0.01em;">Zwei Hooks pro Zielgruppe.</div>
-          </div>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-left: 110px;" class="hooks-grid">
-          <div>
-            <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--caramel); font-weight: 700; margin-bottom: 14px;">Gymbros &amp; Gymgirls</div>
-            <div style="background: var(--bg); border-left: 3px solid var(--caramel); padding: 14px 18px; margin-bottom: 10px; font-size: 15px; color: var(--ink); font-style: italic; line-height: 1.5;">„Dein Post-Workout-Meal in 90 Sek — ohne Kochen, ohne Whey."</div>
-            <div style="background: var(--bg); border-left: 3px solid var(--caramel); padding: 14px 18px; font-size: 15px; color: var(--ink); font-style: italic; line-height: 1.5;">„30g Protein. Kein Löffel Pulver. Ratet mal wo drin?"</div>
-          </div>
-          <div>
-            <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--caramel); font-weight: 700; margin-bottom: 14px;">Workaholics ohne Mittagspause</div>
-            <div style="background: var(--bg); border-left: 3px solid var(--caramel); padding: 14px 18px; margin-bottom: 10px; font-size: 15px; color: var(--ink); font-style: italic; line-height: 1.5;">„POV: 13 Uhr, Meeting, kein Essen. Hier ist der Grund warum du nicht kollabierst."</div>
-            <div style="background: var(--bg); border-left: 3px solid var(--caramel); padding: 14px 18px; font-size: 15px; color: var(--ink); font-style: italic; line-height: 1.5;">„2 Stunden satt, ohne 20 Min Kochen. Das ist kein Marketing, das ist Physiologie."</div>
+      <div class="fragen-card reveal d1 wide">
+        <div class="fragen-num">06</div>
+        <div>
+          <div class="fragen-q">Scrollstopper-Test</div>
+          <div class="fragen-a">Zwei Hooks pro Zielgruppe.</div>
+          <div class="hooks-grid">
+            <div>
+              <div class="hook-group-title">Gymbros &amp; Gymgirls</div>
+              <div class="hook">„Dein Post-Workout-Meal in 90 Sek — ohne Kochen, ohne Whey."</div>
+              <div class="hook">„30g Protein. Kein Löffel Pulver. Ratet mal wo drin?"</div>
+            </div>
+            <div>
+              <div class="hook-group-title">Workaholics ohne Mittagspause</div>
+              <div class="hook">„POV: 13 Uhr, Meeting, kein Essen. Hier ist der Grund warum du nicht kollabierst."</div>
+              <div class="hook">„2 Stunden satt, ohne 20 Min Kochen. Das ist kein Marketing, das ist Physiologie."</div>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Q7 · Community-Frage MealBites -->
-      <div class="reveal d1" style="background: var(--card); border-radius: 12px; padding: 40px; border: 1px solid var(--taupe);">
-        <div style="display: grid; grid-template-columns: 80px 1fr; gap: 30px;">
-          <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--caramel); font-size: 32px; line-height: 1;">07</div>
-          <div>
-            <div style="font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 8px;">Was eure Community wirklich fragt</div>
-            <div style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 26px; color: var(--ink); margin-bottom: 20px; letter-spacing: -0.01em; line-height: 1.2;">„Ist das wirklich <em style="color: var(--caramel);">satt-machend</em> — oder muss ich nach 2 Stunden wieder essen?"</div>
-            <div style="font-size: 15px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 20px;">Die Frage taucht in fast jedem zweiten Kommentar auf. Und ihr beantwortet sie meistens mit Zahlen — Kalorien, Makros, „30g Protein". Das überzeugt niemanden, der schon zehnmal enttäuscht wurde.</div>
-            <div style="background: var(--bg); padding: 20px 24px; border-radius: 8px;">
-              <div style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--caramel); font-weight: 700; margin-bottom: 10px;">Mein Format</div>
-              <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 22px; color: var(--ink); margin-bottom: 10px;">„2h später"</div>
-              <div style="font-size: 14px; color: var(--muted); line-height: 1.6;">Ein einziges Reel-Format: Ich esse ein MealBites-Produkt um 12 Uhr, filme mich um 14 Uhr, sage ehrlich wie ich mich fühle. Kein Skript, keine Perfektion. Wöchentlich, verschiedene Produkte, immer die gleiche Uhrzeit. <strong style="color: var(--ink);">Wirkung:</strong> Der Beweis ist die Community selbst, nicht das Produktversprechen.</div>
-            </div>
+      <div class="fragen-card reveal d1 wide">
+        <div class="fragen-num">07</div>
+        <div>
+          <div class="fragen-q">Was eure Community wirklich fragt</div>
+          <div class="fragen-a">„Ist das wirklich <em>satt-machend</em> — oder muss ich nach 2 Stunden wieder essen?"</div>
+          <div class="fragen-body">Die Frage taucht in fast jedem zweiten Kommentar auf. Und ihr beantwortet sie meistens mit Zahlen — Kalorien, Makros, „30g Protein". Das überzeugt niemanden, der schon zehnmal enttäuscht wurde.</div>
+          <div class="highlight-box">
+            <strong style="color: var(--bordeaux);">Mein Format: „2h später"</strong><br />
+            Ein einziges Reel-Format: Ich esse ein MealBites-Produkt um 12 Uhr, filme mich um 14 Uhr, sage ehrlich wie ich mich fühle. Kein Skript, keine Perfektion. Wöchentlich, verschiedene Produkte, immer die gleiche Uhrzeit. Der Beweis ist die Community selbst, nicht das Produktversprechen.
           </div>
         </div>
       </div>
 
       <!-- Q8 · Wiederkehrendes Format -->
-      <div class="reveal d2" style="background: var(--espresso); color: #fff; border-radius: 12px; padding: 40px;">
-        <div style="display: grid; grid-template-columns: 80px 1fr; gap: 30px;">
-          <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--bg); font-size: 32px; line-height: 1; opacity: 0.6;">08</div>
-          <div>
-            <div style="font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.65); font-weight: 600; margin-bottom: 8px;">Ein Format, das ich starten würde</div>
-            <div style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 40px; color: #fff; margin-bottom: 14px; letter-spacing: -0.01em; line-height: 1.1;"><span style="font-style: italic; color: var(--taupe);">„MealBites</span> im echten Leben.<span style="font-style: italic; color: var(--taupe);">"</span></div>
-            <div style="font-size: 16px; color: rgba(255,255,255,0.8); line-height: 1.7;">Wöchentliches Reel-Format: Ich zeige einen realen Alltags-Moment (Meeting, Zug, Sport, Kindergarten-Abholung), wo Essen normalerweise scheitert — und wie MealBites den Moment rettet. <strong style="color: #fff;">Warum:</strong> Weil euer Produkt-Versprechen erst dann Sinn macht, wenn die Zielgruppe sich selbst in der Situation sieht. Nicht in einem Studio.</div>
-          </div>
+      <div class="fragen-card dark reveal d2 wide">
+        <div class="fragen-num">08</div>
+        <div>
+          <div class="fragen-q">Ein Format, das ich starten würde</div>
+          <div class="fragen-a"><em>„MealBites</em> im echten Leben.<em>"</em></div>
+          <div class="fragen-body">Wöchentliches Reel-Format: Ich zeige einen realen Alltags-Moment (Meeting, Zug, Sport, Kindergarten-Abholung), wo Essen normalerweise scheitert — und wie MealBites den Moment rettet. <strong style="color: var(--gold);">Warum:</strong> Weil euer Produkt-Versprechen erst dann Sinn macht, wenn die Zielgruppe sich selbst in der Situation sieht. Nicht in einem Studio.</div>
         </div>
       </div>
 
       <!-- Q9 · Trend den alle falsch machen -->
-      <div class="reveal d2" style="background: var(--card); border-radius: 12px; padding: 40px; border: 1px solid var(--taupe);">
-        <div style="display: grid; grid-template-columns: 80px 1fr; gap: 30px;">
-          <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--caramel); font-size: 32px; line-height: 1;">09</div>
-          <div>
-            <div style="font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 8px;">Der Trend, den alle falsch machen</div>
-            <div style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 28px; color: var(--ink); margin-bottom: 16px; letter-spacing: -0.01em; line-height: 1.15;"><span style="font-style: italic;">„KI-generierte Rezept-Reels."</span></div>
-            <div style="font-size: 16px; color: var(--ink-soft); line-height: 1.7;">Perfekte Beleuchtung, perfekte Küche, perfekter Rezept-Text. Kein Mensch würde das je nachkochen. Die Zielgruppe merkt das sofort und scrollt weiter — auch wenn sie's nicht bewusst als „KI" erkennt. Ich mache das exakte Gegenteil: unaufgeräumte Küche, ehrliche „mist, das ist angebrannt"-Momente, echte Zutaten. Das speichern die Leute. Das andere überspringen sie.</div>
-          </div>
+      <div class="fragen-card reveal d2 wide">
+        <div class="fragen-num">09</div>
+        <div>
+          <div class="fragen-q">Der Trend, den alle falsch machen</div>
+          <div class="fragen-a"><em>„KI-generierte Rezept-Reels."</em></div>
+          <div class="fragen-body">Perfekte Beleuchtung, perfekte Küche, perfekter Rezept-Text. Kein Mensch würde das je nachkochen. Die Zielgruppe merkt das sofort und scrollt weiter — auch wenn sie's nicht bewusst als „KI" erkennt. Ich mache das exakte Gegenteil: unaufgeräumte Küche, ehrliche „mist, das ist angebrannt"-Momente, echte Zutaten. Das speichern die Leute. Das andere überspringen sie.</div>
         </div>
       </div>
 
       <!-- Q10 · Brand die ich feiere -->
-      <div class="reveal d3" style="background: var(--card); border-radius: 12px; padding: 32px 36px; border: 1px solid var(--taupe); display: grid; grid-template-columns: 80px 1fr; gap: 30px; align-items: baseline;">
-        <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--caramel); font-size: 32px; line-height: 1;">10</div>
+      <div class="fragen-card reveal d3">
+        <div class="fragen-num">10</div>
         <div>
-          <div style="font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 8px;">Eine Brand, die ich feiere</div>
-          <div style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 28px; color: var(--ink); margin-bottom: 10px; letter-spacing: -0.01em;"><span style="font-style: italic; color: var(--caramel);">LinisBites.</span></div>
-          <div style="font-size: 15px; color: var(--ink-soft); line-height: 1.7;">Sie zeigt ihre Firma offen, herzlich und vor allem ganz persönlich. Eine wirkliche Story hinter einem Produkt — nicht einfach verkaufen, sondern Menschen verstehen. Das ist heutzutage das beste Verkaufsargument: Im eigenen Alltag nutzen.</div>
+          <div class="fragen-q">Eine Brand, die ich feiere</div>
+          <div class="fragen-a"><em>LinisBites.</em></div>
+          <div class="fragen-body">Sie zeigt ihre Firma offen, herzlich und vor allem ganz persönlich. Eine wirkliche Story hinter einem Produkt — nicht einfach verkaufen, sondern Menschen verstehen. Das ist heutzutage das beste Verkaufsargument: Im eigenen Alltag nutzen.</div>
         </div>
       </div>
 
       <!-- Q11 · Start -->
-      <div class="reveal d3" style="background: var(--card); border-radius: 12px; padding: 32px 36px; border: 1px solid var(--taupe); display: grid; grid-template-columns: 80px 1fr; gap: 30px; align-items: baseline;">
-        <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--caramel); font-size: 32px; line-height: 1;">11</div>
+      <div class="fragen-card reveal d3">
+        <div class="fragen-num">11</div>
         <div>
-          <div style="font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 8px;">Ab wann könnte ich starten?</div>
-          <div style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 26px; color: var(--ink); letter-spacing: -0.01em;">Sofort. Kickoff im nächsten Monat, erste Reels 2 Wochen später live.</div>
+          <div class="fragen-q">Ab wann könnte ich starten?</div>
+          <div class="fragen-a">Sofort. Kickoff im nächsten Monat, erste Reels 2 Wochen später live.</div>
         </div>
       </div>
 
       <!-- Q12 · Umfang & Honorar -->
-      <div class="reveal d1" style="background: linear-gradient(135deg, var(--caramel), var(--caramel-hi)); color: #fff; border-radius: 12px; padding: 44px 40px;">
-        <div style="display: grid; grid-template-columns: 80px 1fr; gap: 30px;">
-          <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: rgba(255,255,255,0.7); font-size: 32px; line-height: 1;">12</div>
-          <div>
-            <div style="font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.8); font-weight: 600; margin-bottom: 12px;">Umfang &amp; Honorar</div>
-            <div style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: clamp(26px, 3.5vw, 40px); color: #fff; letter-spacing: -0.01em; line-height: 1.15; margin-bottom: 24px;"><span style="font-style: italic;">Das besprechen wir am liebsten im Call</span> — sobald ich weiß, was und wie viel ihr posten möchtet.</div>
-
-            <div style="background: rgba(255,255,255,0.1); border-left: 3px solid var(--champ); padding: 18px 22px; border-radius: 4px; margin-bottom: 14px;">
-              <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--champ); font-weight: 700; margin-bottom: 8px;">Mein Vorschlag für einen schnellen Start</div>
-              <div style="font-size: 15px; color: #fff; line-height: 1.7;"><strong>Alle 2 Tage frischer Content</strong> — konkret <strong>3 Beiträge + 3 Reels pro Woche</strong>, 6 Tage aktiv. Am Anfang funktioniert diese Frequenz am zuverlässigsten: der Algorithmus versteht schnell, was ihr macht, und die Community gewöhnt sich an einen festen Rhythmus.</div>
-            </div>
-
-            <div style="background: rgba(255,255,255,0.1); border-left: 3px solid var(--champ); padding: 18px 22px; border-radius: 4px; margin-bottom: 20px;">
-              <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--champ); font-weight: 700; margin-bottom: 8px;">Was immer mitläuft</div>
-              <div style="font-size: 15px; color: #fff; line-height: 1.7;"><strong>Die Community aktiv einbeziehen</strong> — Frage-Storys, UGC-Aufrufe, Community-Reposts, „Was esst ihr heute?"-Formate. Kein Beitrag geht raus, ohne dass die Zielgruppe eingebunden wird. Das ist der Grund, warum Content bei mir performt und nicht nur erscheint.</div>
-            </div>
-
-            <div style="font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6;">gemäß § 19 UStG (Kleinunternehmerin) · alle Tools (Canva Pro, CapCut Pro, Claude, ChatGPT) laufen über mich · <strong style="color: #fff;">konkreter Preis nach dem Erstgespräch</strong>.</div>
+      <div class="fragen-card gradient reveal d1 wide">
+        <div class="fragen-num">12</div>
+        <div>
+          <div class="fragen-q">Umfang &amp; Honorar</div>
+          <div class="fragen-a"><em>Das besprechen wir am liebsten im Call</em> — sobald ich weiß, was und wie viel ihr posten möchtet.</div>
+          <div class="highlight-box">
+            <strong style="color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-size: 11px;">Mein Vorschlag für einen schnellen Start</strong><br /><br />
+            <strong style="color: #fff;">Alle 2 Tage frischer Content</strong> — konkret <strong style="color: #fff;">3 Beiträge + 3 Reels pro Woche</strong>, 6 Tage aktiv. Am Anfang funktioniert diese Frequenz am zuverlässigsten: der Algorithmus versteht schnell, was ihr macht, und die Community gewöhnt sich an einen festen Rhythmus.
           </div>
+          <div class="highlight-box" style="margin-top: 12px;">
+            <strong style="color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-size: 11px;">Was immer mitläuft</strong><br /><br />
+            <strong style="color: #fff;">Die Community aktiv einbeziehen</strong> — Frage-Storys, UGC-Aufrufe, Community-Reposts, „Was esst ihr heute?"-Formate. Kein Beitrag geht raus, ohne dass die Zielgruppe eingebunden wird. Das ist der Grund, warum Content bei mir performt und nicht nur erscheint.
+          </div>
+          <div class="fragen-body" style="margin-top: 20px; font-size: 13px;">gemäß § 19 UStG (Kleinunternehmerin) · alle Tools (Canva Pro, CapCut Pro, Claude, ChatGPT) laufen über mich · <strong style="color: #fff;">konkreter Preis nach dem Erstgespräch</strong>.</div>
         </div>
       </div>
 
       <!-- Q13 · Portfolio -->
-      <div class="reveal d2" style="background: var(--card); border-radius: 12px; padding: 32px 36px; border: 1px solid var(--taupe); display: grid; grid-template-columns: 80px 1fr; gap: 30px; align-items: baseline;">
-        <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--caramel); font-size: 32px; line-height: 1;">13</div>
+      <div class="fragen-card reveal d2 wide">
+        <div class="fragen-num">13</div>
         <div>
-          <div style="font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 8px;">Portfolio</div>
-          <div style="font-size: 18px; color: var(--ink); line-height: 1.55;">Diese Seite ist mein Portfolio. Zusätzlich:<br /><a href="https://agentur.juliabergles.de" target="_blank" style="color: var(--caramel); font-weight: 700; border-bottom: 2px solid var(--caramel); text-decoration: none;">agentur.juliabergles.de</a> · <a href="https://instagram.com/julia_bergles" target="_blank" style="color: var(--caramel); font-weight: 700; border-bottom: 2px solid var(--caramel); text-decoration: none;">@julia_bergles</a> · <a href="https://apps.apple.com/de/app/terraluna/id6748120137" target="_blank" style="color: var(--caramel); font-weight: 700; border-bottom: 2px solid var(--caramel); text-decoration: none;">TerraLuna-App</a></div>
+          <div class="fragen-q">Portfolio</div>
+          <div class="fragen-a" style="font-size: 20px; line-height: 1.5;">
+            Diese Seite ist mein Portfolio.<br />
+            <a href="https://agentur.juliabergles.de" target="_blank" style="color: var(--bordeaux); border-bottom: 2px solid var(--bordeaux); font-family: 'Object Sans', sans-serif; font-style: normal; font-size: 16px;">agentur.juliabergles.de</a> ·
+            <a href="https://instagram.com/julia_bergles" target="_blank" style="color: var(--bordeaux); border-bottom: 2px solid var(--bordeaux); font-family: 'Object Sans', sans-serif; font-style: normal; font-size: 16px;">@julia_bergles</a> ·
+            <a href="https://apps.apple.com/de/app/terraluna/id6748120137" target="_blank" style="color: var(--bordeaux); border-bottom: 2px solid var(--bordeaux); font-family: 'Object Sans', sans-serif; font-style: normal; font-size: 16px;">TerraLuna-App</a>
+          </div>
         </div>
       </div>
 
       <!-- Q14 · Wie gefunden -->
-      <div class="reveal d2" style="background: var(--card); border-radius: 12px; padding: 32px 36px; border: 1px solid var(--taupe); display: grid; grid-template-columns: 80px 1fr; gap: 30px; align-items: baseline;">
-        <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--caramel); font-size: 32px; line-height: 1;">14</div>
+      <div class="fragen-card reveal d2 wide">
+        <div class="fragen-num">14</div>
         <div>
-          <div style="font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 8px;">Wie ich auf euch gestoßen bin</div>
-          <div style="font-size: 17px; color: var(--ink); line-height: 1.6;">Über Instagram. Euer Feed ist mir aufgefallen, weil euer Sättigungs-Versprechen genau die Frage aufgreift, die ich mir als selbst Betroffene mit chronischen Verdauungsproblemen jahrelang gestellt habe.</div>
+          <div class="fragen-q">Wie ich auf euch gestoßen bin</div>
+          <div class="fragen-a" style="font-size: 22px;">Über Instagram.</div>
+          <div class="fragen-body">Euer Feed ist mir aufgefallen, weil euer Sättigungs-Versprechen genau die Frage aufgreift, die ich mir als selbst Betroffene mit chronischen Verdauungsproblemen jahrelang gestellt habe.</div>
         </div>
       </div>
 
       <!-- Q15 · Was hättet ihr fragen sollen -->
-      <div class="reveal d3" style="background: var(--espresso); color: #fff; border-radius: 12px; padding: 44px 40px;">
-        <div style="display: grid; grid-template-columns: 80px 1fr; gap: 30px;">
-          <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--bg); font-size: 32px; line-height: 1; opacity: 0.6;">15</div>
-          <div>
-            <div style="font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.65); font-weight: 600; margin-bottom: 12px;">Was hättet ihr mich fragen sollen?</div>
-            <div style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 30px; color: #fff; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 20px;"><span style="font-style: italic;">„Warum bist du eigentlich selbstständig?"</span></div>
-            <div style="font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.7;">Weil ich Menschen mit ähnlichen Erfahrungen helfen will. Und weil es mir mit einer chronischen Krankheit schwer fällt, in einem klassischen Job jeden Tag arbeiten zu gehen. Selbstständig heißt für mich: Ich arbeite im Rhythmus, den mein Körper zulässt — und mache damit Content, der für andere in derselben Situation ehrlich weiterhilft. Genau die Menschen, die auch euer Produkt kaufen.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Q16 · Bonus: Was noch möglich wäre -->
-      <div class="reveal d1" style="background: linear-gradient(135deg, var(--caramel), var(--caramel-hi)); color: #fff; border-radius: 12px; padding: 44px 40px; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 20px; right: 24px; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 700;">Bonus</div>
-        <div style="display: grid; grid-template-columns: 80px 1fr; gap: 30px;">
-          <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: rgba(255,255,255,0.7); font-size: 32px; line-height: 1;">16</div>
-          <div>
-            <div style="font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.8); font-weight: 600; margin-bottom: 10px;">Was ich mir für uns noch vorstellen kann</div>
-            <div style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 28px; color: #fff; margin-bottom: 24px; letter-spacing: -0.01em; line-height: 1.2;"><span style="font-style: italic;">Über Content hinaus.</span></div>
-
-            <div style="display: grid; gap: 20px;">
-              <div style="background: rgba(255,255,255,0.1); border-left: 3px solid rgba(255,255,255,0.6); padding: 18px 22px; border-radius: 4px;">
-                <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.7); font-weight: 700; margin-bottom: 6px;">Podcast</div>
-                <div style="font-size: 15px; color: #fff; line-height: 1.6;">Ich starte demnächst meinen eigenen Podcast rund um chronische Ernährung, Alltag mit Unverträglichkeiten und Food-Startups. Ihr wärt jederzeit gerne als Gast dabei — eure Story von der Idee bis zum ersten Produkt passt perfekt.</div>
-              </div>
-
-              <div style="background: rgba(255,255,255,0.1); border-left: 3px solid rgba(255,255,255,0.6); padding: 18px 22px; border-radius: 4px;">
-                <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.7); font-weight: 700; margin-bottom: 6px;">Co-Produkt</div>
-                <div style="font-size: 15px; color: #fff; line-height: 1.6;">Vielleicht sogar ein <strong>gemeinsames histaminarmes Produkt</strong>? Meine TerraLuna-Community wartet aktiv auf sättigende, verträgliche Alltagsprodukte — das ist eine <strong>kaufkräftige Käuferschicht</strong>, die für Produkte, die sie wirklich vertragen, gerne mehr zahlt.</div>
-              </div>
-            </div>
-          </div>
+      <div class="fragen-card dark reveal d3 wide">
+        <div class="fragen-num">15</div>
+        <div>
+          <div class="fragen-q">Was hättet ihr mich fragen sollen?</div>
+          <div class="fragen-a"><em>„Warum bist du eigentlich selbstständig?"</em></div>
+          <div class="fragen-body">Weil ich Menschen mit ähnlichen Erfahrungen helfen will. Und weil es mir mit einer chronischen Krankheit schwer fällt, in einem klassischen Job jeden Tag arbeiten zu gehen. Selbstständig heißt für mich: Ich arbeite im Rhythmus, den mein Körper zulässt — und mache damit Content, der für andere in derselben Situation ehrlich weiterhilft. Genau die Menschen, die auch euer Produkt kaufen.</div>
         </div>
       </div>
 
     </div>
-
-    <!-- CTA nach den Antworten -->
-    <div class="reveal" style="text-align: center; margin-top: 80px; max-width: 700px; margin-left: auto; margin-right: auto;">
-      <p style="font-size: 17px; color: var(--ink-soft); font-style: italic; margin-bottom: 30px; line-height: 1.6;">Wenn ihr auf einen der Punkte tiefer eingehen wollt — schreibt mir. 20 Minuten Erstgespräch, kostenlos.</p>
-      <a href="mailto:julia@bergles.net?subject=MealBites%20Creator%20in%20Residence" style="display: inline-flex; align-items: center; gap: 12px; padding: 20px 44px; background: var(--caramel); color: #fff; border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; box-shadow: 0 20px 40px rgba(74, 66, 56, 0.3); transition: all 0.4s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">Erstgespräch buchen <span style="font-size: 16px;">→</span></a>
-    </div>
-  </div>
-  <style>
-    @media (max-width: 700px) {
-      #antworten [style*="grid-template-columns: 80px 1fr"] { grid-template-columns: 1fr !important; gap: 12px !important; }
-      #antworten .hooks-grid { grid-template-columns: 1fr !important; padding-left: 0 !important; }
-    }
-  </style>
-</section>
-
-<!-- Cinema Big Number -->
-<section class="cinema-bignum">
-  <div class="container reveal">
-    <div class="cinema-mini">Warum ihr mich braucht</div>
-    <div class="cinema-num">93,8&#8239;%</div>
-    <div class="cinema-label">Nicht-Follower-Reichweite.</div>
-    <p class="cinema-sub">Meine Reels erreichen zu <span class="accent">93,8 %</span> Menschen außerhalb meiner eigenen Bubble. Das ist der Unterschied zwischen Content, der bei euren Followern bleibt, und Content, der neue Kundinnen für MealBites bringt.</p>
   </div>
 </section>
 
-<!-- Editorial Split Card -->
-<section class="split-card">
-  <div class="split-inner reveal">
-    <div>
-      <div class="split-num-huge">01</div>
-    </div>
-    <div class="split-content">
-      <div style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--caramel); font-weight: 700; margin-bottom: 14px;">Startup verstanden</div>
-      <h3>Ich weiß, wie sich <span style="color: var(--caramel);">euer Alltag</span> anfühlt.</h3>
-      <p>Ich habe selbst ein Food-Startup gegründet und drei Jahre lang jeden Meter gekämpft: Produkt, Verpackung, Vertrieb, Content, Zulassung. Ich kenne die Nächte, in denen man sich fragt, ob es sich lohnt. Und ich weiß, was man wirklich braucht, um weiterzumachen.</p>
-      <p>Bei MealBites unterstütze ich nicht als Agentur von außen, sondern als jemand, der schon selbst mit einem Rezept in der Küche stand und sich gefragt hat: <em>„Wer versteht mich?"</em></p>
-    </div>
-  </div>
-</section>
-
-<!-- STORY -->
-<section class="story">
+<!-- REICHWEITE -->
+<section class="reichweite" id="reichweite">
   <div class="container">
-    <div class="story-inner">
-      <span class="kicker reveal">Kurz zu mir</span>
-      <h2 class="section-title reveal reveal-d1">Ich weiß, wie sich <span class="accent">euer Weg</span> anfühlt.</h2>
-
-      <p class="reveal reveal-d2" style="margin-top: 40px;">Vor ein paar Jahren habe ich selbst ein Food-Startup gegründet. Gesunde, <strong>zuckerfreie und glutenfreie Backmischungen</strong>. Ich habe rezeptiert, gebrandet, verpackt, verkauft.</p>
-
-      <p class="reveal reveal-d2">Bis mich meine eigene Gesundheit gestoppt hat. Ich konnte die Produkte selbst nicht mehr essen, und damit verlor ich die Motivation, sie zu vermarkten.</p>
-
-      <p class="reveal reveal-d3">Also habe ich mich neu ausgerichtet. Was ich schon immer konnte: Gestaltung. Ich habe ein <strong>Fachabitur im Bereich Gestaltung</strong> und bin heute selbständig als Content-Designerin.</p>
-
-      <p class="reveal reveal-d3">Nebenbei habe ich meine Community weitergeführt. Und dort ist etwas Besonderes entstanden:</p>
-
-      <div class="story-quote reveal reveal-d3">
-        Eine sehr klare Nische aus Menschen, die täglich mit körperlichen Beschwerden durch Essen leben. Darmfreundliche Ernährung, Histaminintoleranz, Laktose, Fructose. Menschen, die genau wissen, was ein guter Snack für sie bedeutet — und was nicht.
+    <div class="reichweite-header reveal">
+      <span class="eyebrow">Bonus für euch</span>
+      <h2>Ihr profitiert von meiner <em>Reichweite</em>.</h2>
+      <p>Nicht nur Content für euch — sondern automatisch Zugang zu meiner bestehenden Community im Gesundheitsbereich.</p>
+    </div>
+    <div class="rw-grid">
+      <div class="rw-card reveal d1">
+        <div class="rw-num">01</div>
+        <h4>Cross-Post @Julia_Bergles</h4>
+        <p>Ausgewählte Beiträge werden auf meinem Account geteilt — 706k Konten / Monat, 93,8 % Nicht-Follower-Reach.</p>
       </div>
-
-      <p class="reveal reveal-d3">Deshalb schreibe ich euch. Weil ich aus <strong>zwei Perspektiven</strong> auf euer Produkt schauen kann: Als jemand, der weiß, wie hart der Startup-Aufbau von 0 auf 100 wirklich ist. Und als jemand, dessen Community <strong>genau eure Zielgruppe</strong> ist.</p>
+      <div class="rw-card reveal d2">
+        <div class="rw-num">02</div>
+        <h4>Feature in TerraLuna-App</h4>
+        <p>Ihr werdet Nutzerinnen der App vorgestellt — eine gesundheitsaffine, kaufkräftige Zielgruppe, die aktiv Empfehlungen sucht.</p>
+      </div>
+      <div class="rw-card reveal d3">
+        <div class="rw-num">03</div>
+        <h4>WhatsApp-Community</h4>
+        <p>Empfehlungen in einen aktiven Kanal — dort wo tatsächlich gekauft und weiterempfohlen wird.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- WHY-ME (Dark) -->
-<section class="why">
+<!-- BONUS: Podcast + Co-Produkt -->
+<section class="bonus" id="bonus">
   <div class="container">
-    <div class="why-inner">
-      <span class="kicker reveal" style="color: var(--champ);">Warum ich zu euch passe</span>
-      <h2 class="reveal reveal-d1">Vier Dinge, die <span class="accent">niemand sonst</span> mitbringt.</h2>
-
-      <div class="why-grid">
-        <div class="why-card reveal reveal-d1">
-          <div class="why-card-num">01</div>
-          <div class="why-card-lbl">Insider</div>
-          <h3>Selbst gegründet</h3>
-          <p>Ich weiß, wie ein Food-Startup wirklich funktioniert. Ich verstehe eure täglichen Fragen, weil ich sie mir selbst gestellt habe.</p>
-        </div>
-
-        <div class="why-card reveal reveal-d2">
-          <div class="why-card-num">02</div>
-          <div class="why-card-lbl">Community</div>
-          <h3>Kaufkräftige Zielgruppe</h3>
-          <p>Menschen mit Reizdarm, HIT, Unverträglichkeiten geben deutlich mehr Geld für den richtigen Snack aus als der Durchschnitt.</p>
-        </div>
-
-        <div class="why-card reveal reveal-d2">
-          <div class="why-card-num">03</div>
-          <div class="why-card-lbl">Handwerk</div>
-          <h3>Fachlich fundiert</h3>
-          <p>Fachabitur Gestaltung. Jeder Beitrag handgemacht, jede Zutat medizinisch geprüft. Kein KI-Copy-Paste.</p>
-        </div>
-
-        <div class="why-card reveal reveal-d3">
-          <div class="why-card-num">04</div>
-          <div class="why-card-lbl">Reichweite</div>
-          <h3>706k Konten / Monat</h3>
-          <p>Meine eigenen Kanäle. 93,8 % Nicht-Follower-Reach. Wenn ihr wollt: Ich stelle euch aktiv vor.</p>
-        </div>
-      </div>
+    <div class="bonus-header reveal">
+      <span class="eyebrow">Was ich mir noch vorstellen kann</span>
+      <h2>Über Content <em>hinaus</em>.</h2>
+      <p>Wenn wir zusammen richtig gut werden, könnte auch das hier passen.</p>
     </div>
-  </div>
-</section>
-
-<!-- FORMAT-VORSCHLAG -->
-<section class="format">
-  <div class="container">
-    <div class="format-inner">
-      <div class="format-header">
-        <span class="kicker reveal">Mein konkreter Vorschlag</span>
-        <h2 class="section-title reveal reveal-d1">Das Format: <span class="accent">„Der 2-Stunden-Test"</span></h2>
-        <p class="reveal reveal-d2">Wöchentliches Karussell. Jede Woche ein Produkt. Immer gleiche Struktur. Nach vier Wochen kennt eure Community das Format und kommt aktiv zurück.</p>
+    <div class="bonus-grid">
+      <div class="bonus-card reveal d1">
+        <div class="tag">Podcast</div>
+        <h3>Ihr als Gast in meinem Podcast</h3>
+        <p>Ich starte demnächst meinen eigenen Podcast rund um chronische Ernährung, Alltag mit Unverträglichkeiten und Food-Startups. Ihr wärt jederzeit gerne als Gast dabei — eure Story von der Idee bis zum ersten Produkt passt perfekt.</p>
       </div>
-
-      <div class="slide-list">
-        <div class="slide-item reveal reveal-d1">
-          <div class="slide-num">01</div>
-          <div class="slide-content">
-            <h4>Hook</h4>
-            <p><em>„Es ist 14:37 Uhr. Zoom-Call in 45 Minuten. Sie greifen zu ___"</em></p>
-          </div>
-        </div>
-        <div class="slide-item reveal reveal-d1">
-          <div class="slide-num">02</div>
-          <div class="slide-content">
-            <h4>Das Problem</h4>
-            <p>Was passiert nach Kaffee und Keks: Blutzucker-Crash um 15:30, Konzentrationsloch, Meeting-Fokus weg.</p>
-          </div>
-        </div>
-        <div class="slide-item reveal reveal-d2">
-          <div class="slide-num">03</div>
-          <div class="slide-content">
-            <h4>Der Test-Rahmen</h4>
-            <p>Was Sättigung wirklich misst: Ballaststoff-Timing, Protein-Absorption, Blutzucker-Trägheit. Fachlich fundiert.</p>
-          </div>
-        </div>
-        <div class="slide-item reveal reveal-d2">
-          <div class="slide-num">04</div>
-          <div class="slide-content">
-            <h4>MealBites im Test</h4>
-            <p>Zutaten aufgeschlüsselt: <em>X g Protein + Y g Ballaststoffe = konkret wie viele Stunden Sättigung.</em> Nicht Claims. Zahlen.</p>
-          </div>
-        </div>
-        <div class="slide-item reveal reveal-d3">
-          <div class="slide-num">05</div>
-          <div class="slide-content">
-            <h4>Real-Life-Beispiel</h4>
-            <p>Meeting-Fokus bis 18 Uhr statt Crash um 15:30. Reale Zielgruppe, reale Szene.</p>
-          </div>
-        </div>
-        <div class="slide-item reveal reveal-d3">
-          <div class="slide-num">06</div>
-          <div class="slide-content">
-            <h4>Für wen konkret</h4>
-            <p>Vielreisende, Zahnärztin im OP, Nachtschicht, Programmierer, Sport nach der Arbeit.</p>
-          </div>
-        </div>
-        <div class="slide-item reveal reveal-d3">
-          <div class="slide-num">07</div>
-          <div class="slide-content">
-            <h4>Call to Action</h4>
-            <p>Wo kaufen. Wie testen. Klar und ohne Bla.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="reveal" style="text-align: center; margin-top: 40px; padding: 24px; background: rgba(184, 118, 58, 0.08); border-radius: 12px; border-left: 3px solid var(--caramel); font-size: 15px; color: var(--ink-soft);">
-        <strong style="color: var(--caramel-deep);">Warum genau dieses Format:</strong> Es beweist euren USP („2 bis 4 Stunden Sättigung") mit <em>Zahlen</em> statt mit <em>Claims</em>. Genau der Unterschied, den kaufkräftige Zielgruppen belohnen.
-      </div>
-
-      <!-- Weekly Content Plan -->
-      <div class="reveal" style="margin-top: 60px;">
-        <h3 style="text-align: center; font-size: 26px; margin-bottom: 12px; color: var(--ink);">Der komplette <span style="color: var(--caramel);">Wochenplan</span>.</h3>
-        <p style="text-align: center; font-size: 15px; color: var(--muted); margin-bottom: 40px; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.6;">Zwei mögliche Varianten. Wir stimmen im Erstgespräch ab, worauf euer Fokus in den ersten drei Monaten liegt.</p>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="plans-grid">
-          <div style="background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 32px 28px;">
-            <div style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--caramel); font-weight: 700; margin-bottom: 10px;">Variante A</div>
-            <h4 style="font-size: 20px; margin-bottom: 20px;">Fokus Reichweite</h4>
-            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
-              <li style="display: flex; gap: 12px; align-items: baseline; font-size: 14px; color: var(--ink-soft);"><span style="color: var(--caramel); font-weight: 700;">3</span><span>Reels pro Woche</span></li>
-              <li style="display: flex; gap: 12px; align-items: baseline; font-size: 14px; color: var(--ink-soft);"><span style="color: var(--caramel); font-weight: 700;">2</span><span>Beiträge pro Woche</span></li>
-              <li style="display: flex; gap: 12px; align-items: baseline; font-size: 14px; color: var(--ink-soft);"><span style="color: var(--caramel); font-weight: 700;">1</span><span>Vor-Ort-Dreh pro Monat</span></li>
-            </ul>
-            <p style="font-size: 13px; color: var(--muted); margin-top: 20px; line-height: 1.55;">Für schnelles Wachstum: viel bewegter Content, Reichweite über die eigene Bubble hinaus, mehr virale Chancen.</p>
-          </div>
-
-          <div style="background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 32px 28px;">
-            <div style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--caramel); font-weight: 700; margin-bottom: 10px;">Variante B</div>
-            <h4 style="font-size: 20px; margin-bottom: 20px;">Fokus Community</h4>
-            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
-              <li style="display: flex; gap: 12px; align-items: baseline; font-size: 14px; color: var(--ink-soft);"><span style="color: var(--caramel); font-weight: 700;">2</span><span>Reels pro Woche</span></li>
-              <li style="display: flex; gap: 12px; align-items: baseline; font-size: 14px; color: var(--ink-soft);"><span style="color: var(--caramel); font-weight: 700;">3</span><span>Beiträge pro Woche</span></li>
-              <li style="display: flex; gap: 12px; align-items: baseline; font-size: 14px; color: var(--ink-soft);"><span style="color: var(--caramel); font-weight: 700;">1</span><span>Vor-Ort-Dreh pro Monat</span></li>
-            </ul>
-            <p style="font-size: 13px; color: var(--muted); margin-top: 20px; line-height: 1.55;">Für tiefe Bindung: Aufklärung, Rezepte, Vergleiche. Community-Kommunikation und Nachhaltige Kundenloyalität.</p>
-          </div>
-        </div>
-
-        <!-- Konstant enthalten -->
-        <div class="reveal" style="margin-top: 30px; background: var(--espresso); color: #fff; border-radius: 20px; padding: 40px 36px;">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;" class="const-grid">
-            <div>
-              <div style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--champ); font-weight: 700; margin-bottom: 14px;">In beiden Varianten enthalten</div>
-              <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px;">
-                <li style="font-size: 14px; color: rgba(255,255,255,0.85); padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--champ);">·</span>Recherche und monatlicher Contentplan</li>
-                <li style="font-size: 14px; color: rgba(255,255,255,0.85); padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--champ);">·</span>Konzept, Schnitt, Captions</li>
-                <li style="font-size: 14px; color: rgba(255,255,255,0.85); padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--champ);">·</span>ManyChat-Automation für mehr Anfragen</li>
-                <li style="font-size: 14px; color: rgba(255,255,255,0.85); padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--champ);">·</span>Community-Aufbau und laufendes Management</li>
-                <li style="font-size: 14px; color: rgba(255,255,255,0.85); padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--champ);">·</span>Einarbeitung von vorhandenem Material</li>
-              </ul>
-            </div>
-            <div>
-              <div style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--champ); font-weight: 700; margin-bottom: 14px;">Alle Tools bringe ich mit</div>
-              <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px;">
-                <li style="font-size: 14px; color: rgba(255,255,255,0.85); padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--champ);">·</span>ManyChat, CapCut Pro, Canva Pro</li>
-                <li style="font-size: 14px; color: rgba(255,255,255,0.85); padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--champ);">·</span>Figma, Claude Pro, ChatGPT Pro</li>
-                <li style="font-size: 14px; color: var(--champ); font-weight: 700; padding-left: 20px; position: relative; margin-top: 8px;"><span style="position: absolute; left: 0;">→</span>Ihr habt keine Software-Kosten für den Content.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Preis -->
-        <div class="reveal" style="text-align: center; margin-top: 40px; padding: 40px; background: linear-gradient(135deg, var(--caramel), var(--caramel-hi)); border-radius: 20px; color: #fff; box-shadow: 0 20px 40px rgba(184, 118, 58, 0.3);">
-          <div style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.85); font-weight: 700; margin-bottom: 10px;">Monatspauschale</div>
-          <div style="font-size: 72px; font-weight: 900; letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;">2.290&nbsp;€</div>
-          <div style="font-size: 14px; color: rgba(255,255,255,0.85);">pro Monat, plus 1 Vor-Ort-Dreh · gemäß § 19 UStG</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REZEPTE-Section (selbst gekocht) -->
-<section style="background: var(--card); padding: 120px 0; position: relative; overflow: hidden;">
-  <div class="container">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1200px; margin: 0 auto;" class="rezept-header-grid">
-      <div class="reveal">
-        <span class="kicker">Rezept der Woche</span>
-        <h2 class="section-title">Ich koche <span style="color: var(--caramel);">selber</span>. Jede Woche.</h2>
-        <p style="font-size: 17px; color: var(--ink-soft); line-height: 1.7; margin-top: 24px; margin-bottom: 20px;">Rezepte laufen wöchentlich als eigenes Format. Ich koche in meiner Küche, kombiniere MealBites-Produkte mit saisonalen Zutaten und filme den ganzen Prozess. Wahlweise mit oder ohne mich im Bild.</p>
-        <p style="font-size: 17px; color: var(--ink-soft); line-height: 1.7;">Was rauskommt: appetitanregender Content, der zum Nachmachen einlädt. Und Community-Aktivierung durch den Reflex „Schreib &lsquo;Rezept&rsquo; in die Kommentare".</p>
-      </div>
-      <div class="reveal reveal-d2">
-        <div style="aspect-ratio: 4/5; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 60px rgba(30, 77, 85, 0.2); transform: rotate(1.5deg);">
-          <img src="img/recipe-1386.jpg" alt="Rezeptbeispiel" style="width: 100%; height: 100%; object-fit: cover;" />
-        </div>
-      </div>
-    </div>
-
-    <!-- Editorial Rezept-Grid -->
-    <div style="margin-top: 80px; display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;" class="rezept-grid">
-      <div class="reveal reveal-d1" style="grid-column: 1 / 5; grid-row: 1 / 3; border-radius: 16px; overflow: hidden; aspect-ratio: 4/5; box-shadow: 0 20px 40px rgba(30, 77, 85, 0.12);">
-        <img src="img/recipe-1399.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='';" />
-      </div>
-      <div class="reveal reveal-d1" style="grid-column: 5 / 9; grid-row: 1 / 2; border-radius: 16px; overflow: hidden; aspect-ratio: 1/1; box-shadow: 0 20px 40px rgba(30, 77, 85, 0.12);">
-        <img src="img/recipe-2016.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='';" />
-      </div>
-      <div class="reveal reveal-d2" style="grid-column: 9 / 13; grid-row: 1 / 3; border-radius: 16px; overflow: hidden; aspect-ratio: 4/5; box-shadow: 0 20px 40px rgba(30, 77, 85, 0.12);">
-        <img src="img/recipe-2476.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='';" />
-      </div>
-      <div class="reveal reveal-d2" style="grid-column: 5 / 13; grid-row: 2 / 3; border-radius: 16px; overflow: hidden; aspect-ratio: 12/5; box-shadow: 0 20px 40px rgba(30, 77, 85, 0.12);">
-        <img src="img/recipe-2359.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;" onmouseover="this.style.transform='scale(1.02)';" onmouseout="this.style.transform='';" />
-      </div>
-    </div>
-
-    <p class="reveal reveal-d3" style="text-align: center; margin-top: 40px; font-size: 14px; color: var(--muted); font-style: italic;">Alles selbst gekocht, selbst fotografiert. Kein Stockmaterial, kein KI-Bild.</p>
-  </div>
-</section>
-
-<style>
-  @media (max-width: 900px) {
-    .rezept-header-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
-    .rezept-grid { grid-template-columns: repeat(2, 1fr) !important; }
-    .rezept-grid > div { grid-column: auto !important; grid-row: auto !important; aspect-ratio: 1/1 !important; }
-  }
-  @media (max-width: 500px) {
-    .rezept-grid { grid-template-columns: 1fr !important; }
-  }
-</style>
-
-<!-- HANDY-MOCKUPS mit laufenden Reels -->
-<section style="background: var(--espresso); color: #fff; padding: 120px 0; position: relative; overflow: hidden;">
-  <div style="position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,169,110,0.15), transparent 60%); pointer-events: none;"></div>
-  <div class="container" style="position: relative; z-index: 2;">
-    <div class="reveal" style="text-align: center; margin-bottom: 80px;">
-      <span class="kicker" style="color: var(--champ);">So sieht es aus</span>
-      <h2 class="section-title" style="color: #fff;">Live-Beispiele aus meiner <span class="glossy">Arbeit</span>.</h2>
-      <p style="font-size: 17px; color: rgba(255,255,255,0.6); margin-top: 20px; max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.55; text-align: center;">Reels, die ich in den letzten Monaten für Kunden gedreht habe. Handschriften. Bewegte Bilder. Alles handgemacht.</p>
-    </div>
-
-    <div style="display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; align-items: flex-end; max-width: 1100px; margin: 0 auto;" class="mb-devices">
-      <!-- Handy 1 -->
-      <div class="reveal reveal-d1" style="display: flex; flex-direction: column; align-items: center; gap: 20px; transform: rotate(-2deg);">
-        <div style="width: 240px; height: 500px; background: #111; border-radius: 38px; padding: 8px; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); position: relative;">
-          <div style="position: absolute; top: 14px; left: 50%; transform: translateX(-50%); width: 72px; height: 22px; background: #000; border-radius: 100px; z-index: 3;"></div>
-          <div style="width: 100%; height: 100%; border-radius: 32px; overflow: hidden; background: #000;">
-            <video src="img/video-1.mov" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
-          </div>
-        </div>
-        <div style="text-align: center;">
-          <span style="display: inline-block; padding: 5px 12px; border-radius: 999px; background: rgba(201,169,110,0.15); color: var(--champ); border: 1px solid var(--champ); font-size: 11px; font-weight: 700; letter-spacing: 0.5px;">Reel</span>
-          <h4 style="font-size: 15px; margin-top: 8px; color: #fff; font-weight: 700;">Bold &amp; Direkt</h4>
-        </div>
-      </div>
-
-      <!-- Handy 2 (mitte, größer, ohne rotation) -->
-      <div class="reveal reveal-d2" style="display: flex; flex-direction: column; align-items: center; gap: 20px; transform: translateY(-40px); z-index: 3;">
-        <div style="width: 260px; height: 540px; background: #111; border-radius: 40px; padding: 8px; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5); position: relative;">
-          <div style="position: absolute; top: 14px; left: 50%; transform: translateX(-50%); width: 80px; height: 24px; background: #000; border-radius: 100px; z-index: 3;"></div>
-          <div style="width: 100%; height: 100%; border-radius: 34px; overflow: hidden; background: #000;">
-            <video src="img/video-2.mov" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
-          </div>
-        </div>
-        <div style="text-align: center;">
-          <span style="display: inline-block; padding: 5px 12px; border-radius: 999px; background: var(--champ); color: var(--espresso); font-size: 11px; font-weight: 700; letter-spacing: 0.5px;">Reel</span>
-          <h4 style="font-size: 15px; margin-top: 8px; color: #fff; font-weight: 700;">Warm &amp; Nährend</h4>
-        </div>
-      </div>
-
-      <!-- Handy 3 -->
-      <div class="reveal reveal-d3" style="display: flex; flex-direction: column; align-items: center; gap: 20px; transform: rotate(2deg) translateY(-10px);">
-        <div style="width: 240px; height: 500px; background: #111; border-radius: 38px; padding: 8px; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); position: relative;">
-          <div style="position: absolute; top: 14px; left: 50%; transform: translateX(-50%); width: 72px; height: 22px; background: #000; border-radius: 100px; z-index: 3;"></div>
-          <div style="width: 100%; height: 100%; border-radius: 32px; overflow: hidden; background: #000;">
-            <video src="img/video-3.mov" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
-          </div>
-        </div>
-        <div style="text-align: center;">
-          <span style="display: inline-block; padding: 5px 12px; border-radius: 999px; background: rgba(201,169,110,0.15); color: var(--champ); border: 1px solid var(--champ); font-size: 11px; font-weight: 700; letter-spacing: 0.5px;">Reel</span>
-          <h4 style="font-size: 15px; margin-top: 8px; color: #fff; font-weight: 700;">Ruhig &amp; Klar</h4>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTENT-MÖGLICHKEITEN (Sprech-Optionen) -->
-<section style="background: var(--bg); padding: 100px 0;">
-  <div class="container">
-    <div class="reveal" style="text-align: center; margin-bottom: 60px;">
-      <span class="kicker">Ihr entscheidet</span>
-      <h2 class="section-title">Verschiedene <span style="color: var(--caramel);">Sprech-Optionen</span>.</h2>
-      <p style="font-size: 17px; color: var(--muted); margin-top: 20px; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.55; text-align: center;">Ihr müsst nicht vor der Kamera stehen, wenn ihr das nicht wollt. Ich bringe vier Formate mit, wir wählen gemeinsam die Mischung.</p>
-    </div>
-
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto;" class="sprech-grid">
-      <div class="reveal reveal-d1" style="background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 32px 24px; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--caramel)'; this.style.boxShadow='0 20px 40px rgba(30, 77, 85, 0.1)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--line)'; this.style.boxShadow='';">
-        <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--caramel-tint); color: var(--caramel); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a6 6 0 016-6h4a6 6 0 016 6v2"/></svg>
-        </div>
-        <h4 style="font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--ink);">Ihr vor der Kamera</h4>
-        <p style="font-size: 13px; color: var(--muted); line-height: 1.55;">Ich komme zu euch, drehe mit euch. Ihr seid das Gesicht. Echt und nahbar.</p>
-      </div>
-
-      <div class="reveal reveal-d2" style="background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 32px 24px; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--caramel)'; this.style.boxShadow='0 20px 40px rgba(30, 77, 85, 0.1)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--line)'; this.style.boxShadow='';">
-        <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(201, 169, 110, 0.14); color: var(--champ); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17 3l4 4-11 11H6v-4z"/><circle cx="12" cy="20" r="1"/></svg>
-        </div>
-        <h4 style="font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--ink);">Ich vor der Kamera</h4>
-        <p style="font-size: 13px; color: var(--muted); line-height: 1.55;">Kein Bock selbst zu filmen? Ich übernehme als Testimonial-Stimme für eure Marke.</p>
-      </div>
-
-      <div class="reveal reveal-d2" style="background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 32px 24px; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--caramel)'; this.style.boxShadow='0 20px 40px rgba(30, 77, 85, 0.1)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--line)'; this.style.boxShadow='';">
-        <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--caramel-tint); color: var(--caramel); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 5h16M4 12h10M4 19h16"/></svg>
-        </div>
-        <h4 style="font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--ink);">Textoverlays</h4>
-        <p style="font-size: 13px; color: var(--muted); line-height: 1.55;">Reels und Beiträge mit ausdrucksstarker Typografie, ganz ohne Sprecherin.</p>
-      </div>
-
-      <div class="reveal reveal-d3" style="background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 32px 24px; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--caramel)'; this.style.boxShadow='0 20px 40px rgba(30, 77, 85, 0.1)';" onmouseout="this.style.transform=''; this.style.borderColor='var(--line)'; this.style.boxShadow='';">
-        <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(201, 169, 110, 0.14); color: var(--champ); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2a3 3 0 00-3 3v6a3 3 0 006 0V5a3 3 0 00-3-3z"/><path d="M19 10v1a7 7 0 01-14 0v-1"/><path d="M12 18v4M8 22h8"/></svg>
-        </div>
-        <h4 style="font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--ink);">Direkt gesprochen</h4>
-        <p style="font-size: 13px; color: var(--muted); line-height: 1.55;">Voice-Overs, Storys, Podcast-Snippets. Klare Stimme, kein Bild-Ablenker.</p>
-      </div>
-    </div>
-    <style>
-      @media (max-width: 900px) { .sprech-grid { grid-template-columns: repeat(2, 1fr) !important; } }
-      @media (max-width: 500px) { .sprech-grid { grid-template-columns: 1fr !important; } }
-      @media (max-width: 900px) { .mb-devices > div { transform: none !important; } }
-    </style>
-  </div>
-</section>
-
-<!-- BONUS-VALUE -->
-<section class="bonus">
-  <div class="container">
-    <div class="bonus-inner">
-      <span class="kicker reveal" style="display: block; text-align: center;">Der Extra-Wert</span>
-      <h2 class="section-title reveal reveal-d1">Vier Kanäle, ein Angebot.</h2>
-      <p class="lede reveal reveal-d2">Neben Content-Design bringe ich ein bestehendes Ökosystem mit, das euch als Sprungbrett dienen kann.</p>
-
-      <div class="bonus-grid">
-        <div class="bonus-card reveal reveal-d1">
-          <div class="num">01</div>
-          <div class="icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="12" cy="12" r="4"/></svg>
-          </div>
-          <h3>Instagram-Cross-Post</h3>
-          <p>MealBites-Produkte auf @julia_bergles &amp; @Smacado_. Meine Community sieht euch direkt, nicht als Werbung.</p>
-        </div>
-
-        <div class="bonus-card reveal reveal-d2">
-          <div class="num">02</div>
-          <div class="icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
-          </div>
-          <h3>App-Integration TerraLuna</h3>
-          <p>Meine App für Menschen mit Unverträglichkeiten. MealBites wird als „Verträglicher Snack" gelistet und direkt empfohlen.</p>
-        </div>
-
-        <div class="bonus-card reveal reveal-d2">
-          <div class="num">03</div>
-          <div class="icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-          </div>
-          <h3>WhatsApp-Community</h3>
-          <p>Direkter Zugang in eine private Community. Persönliche Empfehlung wirkt zehnmal stärker als jede Instagram-Story.</p>
-        </div>
-
-        <div class="bonus-card reveal reveal-d3">
-          <div class="num">04</div>
-          <div class="icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2l3 6 6 1-4.5 4 1 6.5L12 17l-5.5 3.5 1-6.5L3 10l6-1z"/></svg>
-          </div>
-          <h3>Idee: Histaminarme Edition</h3>
-          <p>Meine Nische — Menschen mit HIT — sind extrem kaufkräftig und finden aktuell fast keine passenden Snacks. Ein exklusives Nischen-Produkt könnte ein Wachstumshebel sein.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMMUNITY-STATS -->
-<section class="community-section">
-  <div class="container">
-    <div class="community-inner">
-      <div class="community-header">
-        <span class="kicker reveal">Meine Community in Zahlen</span>
-        <h2 class="section-title reveal reveal-d1">Nicht groß. <span class="accent">Aber richtig.</span></h2>
-      </div>
-
-      <div class="community-grid">
-        <div class="comm-stat reveal reveal-d1">
-          <div class="comm-stat-num">706k</div>
-          <div class="comm-stat-lbl">Erreichte Konten</div>
-          <div class="comm-stat-hint">pro Monat</div>
-        </div>
-        <div class="comm-stat reveal reveal-d1">
-          <div class="comm-stat-num">1,77M</div>
-          <div class="comm-stat-lbl">Reel-Aufrufe</div>
-          <div class="comm-stat-hint">pro Monat</div>
-        </div>
-        <div class="comm-stat reveal reveal-d2">
-          <div class="comm-stat-num">93,8&#8239;%</div>
-          <div class="comm-stat-lbl">Nicht-Follower</div>
-          <div class="comm-stat-hint">viral über die Bubble hinaus</div>
-        </div>
-        <div class="comm-stat reveal reveal-d2">
-          <div class="comm-stat-num">76&#8239;%</div>
-          <div class="comm-stat-lbl">Weiblich · 18–25</div>
-          <div class="comm-stat-hint">Kaufentscheider im Alltag</div>
-        </div>
-      </div>
-
-      <div class="community-footnote reveal reveal-d3">
-        <strong>Warum das für MealBites zählt:</strong> Menschen mit chronischen Beschwerden geben pro Monat 40–120 € für Ernährung aus, die sie vertragen. Sie sind es gewohnt, für Qualität zu zahlen. Das ist die Zielgruppe, die euer 2-Stunden-Sättigungs-Versprechen wirklich versteht.
+      <div class="bonus-card reveal d2">
+        <div class="tag">Co-Produkt</div>
+        <h3>Ein gemeinsames histaminarmes Produkt</h3>
+        <p>Meine TerraLuna-Community wartet aktiv auf sättigende, verträgliche Alltagsprodukte — das ist eine <strong>kaufkräftige Käuferschicht</strong>, die für Produkte, die sie wirklich vertragen, gerne mehr zahlt. Warum nicht gemeinsam?</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="cta" id="kontakt">
+<section class="cta">
   <div class="container">
-    <span class="kicker reveal" style="color: var(--champ);">Nächster Schritt</span>
-    <h2 class="reveal reveal-d1">20 Minuten. <span class="accent">Kaffee.</span> Wir schauen ob's passt.</h2>
-    <p class="reveal reveal-d2">Ich habe konkrete Ideen, ihr habt konkrete Ziele. Ein kurzes Kennenlerngespräch reicht, um zu sehen, ob eine Zusammenarbeit Sinn macht.</p>
-    <a class="btn btn-primary reveal reveal-d3" href="mailto:julia@bergles.net?subject=MealBites%20x%20On%20Point">
-      Termin per E-Mail vereinbaren <span class="btn-arrow">→</span>
-    </a>
-
-    <div class="cta-info reveal reveal-d3">
-      <div class="cta-info-item">
-        <div class="cta-info-lbl">E-Mail</div>
-        <div class="cta-info-val">julia@bergles.net</div>
-      </div>
-      <div class="cta-info-item">
-        <div class="cta-info-lbl">Instagram</div>
-        <div class="cta-info-val">@julia_bergles</div>
-      </div>
-      <div class="cta-info-item">
-        <div class="cta-info-lbl">Standort</div>
-        <div class="cta-info-val">Augsburg · deutschlandweit</div>
-      </div>
-    </div>
+    <h2 class="reveal">Reden wir <em>Klartext</em>.</h2>
+    <p class="reveal d1">20 Minuten Erstgespräch. Wir schauen was ihr braucht, ich zeige wie ich arbeite. Preis besprechen wir im gleichen Call — sobald ich Umfang und Ziele kenne.</p>
+    <a href="mailto:julia@bergles.net?subject=MealBites%20Creator%20in%20Residence" class="btn-red reveal d2" style="box-shadow: 0 20px 40px rgba(139, 46, 58, 0.5);">Erstgespräch anfragen <span>→</span></a>
   </div>
 </section>
 
 <footer>
-  <div class="container">
-    Ein persönlicher Pitch von Julia Bergles · <a href="index.html">On Point Agentur</a>
+  <div class="row">
+    <p>© 2026 On Point · Julia Bergles · Augsburg</p>
+    <div class="links">
+      <a href="index.html">Startseite</a>
+      <a href="angebot.html">Angebot</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
   </div>
 </footer>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
+  const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in');
-        observer.unobserve(entry.target);
-      }
+      if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
     });
-  }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
-  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 </script>
 
 </body>
