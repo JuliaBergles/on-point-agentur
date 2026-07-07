@@ -1026,20 +1026,39 @@
       <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 24px; display: inline-block;">Was Kundinnen sagen</span>
       <h2 style="font-size: clamp(44px, 6vw, 88px); font-weight: 400; color: var(--bg);">Ehrliche <span style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold);">Stimmen</span>.</h2>
     </div>
-    <div class="reveal d1" style="max-width: 900px; margin: 0 auto; text-align: center; padding: 0 30px;">
-      <div style="color: var(--gold); font-size: 22px; letter-spacing: 4px; margin-bottom: 36px;">★ ★ ★ ★ ★</div>
-      <blockquote style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: clamp(24px, 3.2vw, 42px); color: var(--bg); line-height: 1.35; letter-spacing: -0.01em; margin-bottom: 48px;">
-        „Julia versteht Gesundheit von zwei Seiten. Sie hat mir geholfen, meine Marke sichtbar zu machen, ohne dass ich meine Werte verkaufen musste. Das ist selten."
-      </blockquote>
-      <div style="display: inline-flex; align-items: center; gap: 20px;">
-        <span style="width: 40px; height: 1px; background: var(--gold);"></span>
-        <div style="text-align: center;">
-          <div style="font-family: 'Object Sans', sans-serif; font-weight: 600; font-size: 15px; color: var(--gold); letter-spacing: 0.03em; margin-bottom: 4px;">Theresa Ross</div>
-          <div style="font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(251, 242, 237, 0.65); font-weight: 500;">Gesundheitsberatung</div>
+    <div class="reveal d1" style="max-width: 1100px; margin: 0 auto; padding: 0 30px; display: grid; grid-template-columns: 340px 1fr; gap: 70px; align-items: center;" class="testimonial-grid">
+      <div style="width: 340px; margin: 0 auto; position: relative;">
+        <div style="width: 340px; background: #111; border-radius: 44px; padding: 8px; box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5); position: relative;">
+          <div style="position: absolute; top: 15px; left: 50%; transform: translateX(-50%); width: 100px; height: 26px; background: #000; border-radius: 100px; z-index: 3;"></div>
+          <div style="width: 100%; border-radius: 38px; overflow: hidden; background: #fff;">
+            <img src="img/feedback-theresa.jpg" alt="Feedback von Theresa Ross" style="width: 100%; display: block;" />
+          </div>
         </div>
-        <span style="width: 40px; height: 1px; background: var(--gold);"></span>
+        <div style="position: absolute; bottom: -20px; right: -20px; background: var(--gold); color: var(--ink); font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; padding: 12px 20px; border-radius: 999px; font-size: 14px; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);">★★★★★</div>
+      </div>
+      <div>
+        <div style="color: var(--gold); font-size: 22px; letter-spacing: 4px; margin-bottom: 24px;">★ ★ ★ ★ ★</div>
+        <blockquote style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: clamp(22px, 2.6vw, 34px); color: var(--bg); line-height: 1.4; letter-spacing: -0.01em; margin-bottom: 32px;">
+          „Rundum zufrieden. Erstklassige Arbeit! Ich kann die Zusammenarbeit mit Julia von Herzen empfehlen. Sie arbeitet äußerst zuverlässig, professionell und denkt immer mit. Wer eine kompetente, zuverlässige und angenehme Unterstützung im Bereich Social Media sucht, ist bei ihr definitiv in den besten Händen."
+        </blockquote>
+        <div style="display: inline-flex; align-items: center; gap: 20px;">
+          <span style="width: 40px; height: 1px; background: var(--gold);"></span>
+          <div>
+            <div style="font-family: 'Object Sans', sans-serif; font-weight: 600; font-size: 15px; color: var(--gold); letter-spacing: 0.03em; margin-bottom: 4px;">Theresa Ross</div>
+            <div style="font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(251, 242, 237, 0.65); font-weight: 500;">Gesundheitsberatung</div>
+          </div>
+        </div>
       </div>
     </div>
+    <style>
+      @media (max-width: 900px) {
+        section > .container > .reveal.d1[style*="grid-template-columns: 340px 1fr"] {
+          grid-template-columns: 1fr !important;
+          gap: 40px !important;
+          text-align: center;
+        }
+      }
+    </style>
   </div>
 </section>
 
@@ -1050,7 +1069,7 @@
       <div class="nl-image"><img src="img/portrait-hero.jpg" alt="" /></div>
       <div class="nl-content">
         <div class="nl-mark"></div>
-        <h2>Reden wir <em>Klartext</em>.</h2>
+        <h2>Reden wir <em>offen zusammen</em>.</h2>
         <p>20 Minuten Erstgespräch. Kostenlos, unverbindlich. Wir schauen, ob wir zusammenpassen.</p>
         <form class="nl-form" onsubmit="event.preventDefault(); alert('Danke, ich melde mich!');">
           <input type="email" placeholder="Ihre E-Mail-Adresse" required />
