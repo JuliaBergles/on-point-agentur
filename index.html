@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="robots" content="noindex, nofollow" />
+<meta name="robots" content="index, follow" />
 <title>On Point · Editorial</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -125,7 +125,314 @@
     transition: all 0.4s;
   }
   .nav-cta:hover { background: var(--bordeaux); }
-  @media (max-width: 900px) { nav ul { display: none; } }
+
+  /* Burger + Mobile-Menu */
+  .nav-burger {
+    display: none;
+    width: 40px; height: 40px;
+    background: transparent; border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    cursor: pointer;
+    align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .nav-burger span { display: block; width: 16px; height: 1.5px; background: var(--ink); position: relative; }
+  .nav-burger span::before, .nav-burger span::after {
+    content: ""; position: absolute; left: 0; width: 16px; height: 1.5px;
+    background: var(--ink); transition: transform 0.3s;
+  }
+  .nav-burger span::before { top: -5px; }
+  .nav-burger span::after  { top:  5px; }
+  .nav-burger.open span { background: transparent; }
+  .nav-burger.open span::before { top: 0; transform: rotate(45deg); }
+  .nav-burger.open span::after  { top: 0; transform: rotate(-45deg); }
+
+  @media (max-width: 980px) {
+    nav ul { display: none; }
+    .nav-cta { display: none; }
+    .nav-burger { display: inline-flex; }
+    .mobile-menu {
+      position: fixed; top: 78px; left: 0; right: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      padding: 24px 32px 32px;
+      display: none;
+      z-index: 99;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block; padding: 14px 0;
+      font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink); font-weight: 500;
+      border-bottom: 1px solid var(--line);
+    }
+    .mobile-menu .mobile-cta {
+      display: inline-block; margin-top: 20px; padding: 14px 28px;
+      background: var(--ink); color: var(--bg); border-radius: 999px;
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+      font-weight: 500; border-bottom: 0;
+    }
+  }
+  @media (min-width: 981px) { .mobile-menu { display: none !important; } }
+
+  /* ─── AUSWAHL-HERO (index.html) — dunkel editorial ─── */
+  .hero-choice {
+    padding: 180px 0 130px;
+    background: var(--ink);
+    color: var(--bg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-choice::before {
+    content: ""; position: absolute; top: 100px; left: -80px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 46, 58, 0.32), transparent 60%);
+    filter: blur(80px);
+    pointer-events: none; z-index: 0;
+    animation: floatA 22s ease-in-out infinite alternate;
+  }
+  .hero-choice::after {
+    content: ""; position: absolute; bottom: -120px; right: -60px;
+    width: 560px; height: 560px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(197, 164, 109, 0.24), transparent 60%);
+    filter: blur(90px);
+    pointer-events: none; z-index: 0;
+    animation: floatB 26s ease-in-out infinite alternate;
+  }
+  .hero-choice .container { position: relative; z-index: 1; }
+  .hero-choice .eyebrow {
+    font-size: 10px; letter-spacing: 0.45em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+    margin-bottom: 32px;
+    display: inline-block;
+  }
+  .hero-choice h1 {
+    font-size: clamp(52px, 8vw, 108px);
+    font-weight: 400;
+    margin-bottom: 28px;
+    letter-spacing: -0.03em;
+    line-height: 0.98;
+    color: var(--bg);
+  }
+  .hero-choice h1 em { font-style: italic; color: var(--gold); }
+  .hero-choice .lede {
+    font-size: 17px;
+    color: rgba(251, 242, 237, 0.7);
+    max-width: 560px;
+    margin: 0 auto 64px;
+    line-height: 1.65;
+  }
+  .choice-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  @media (max-width: 980px) { .choice-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .choice-grid { grid-template-columns: 1fr; } }
+  .choice-card {
+    background: rgba(251, 242, 237, 0.04);
+    border: 1px solid rgba(197, 164, 109, 0.22);
+    border-radius: 12px;
+    padding: 40px 28px 32px;
+    text-align: left;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex; flex-direction: column;
+    position: relative;
+    min-height: 300px;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+  }
+  .choice-card::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 55%, rgba(197, 164, 109, 0.08));
+    opacity: 0; transition: opacity 0.6s;
+    pointer-events: none;
+  }
+  .choice-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+    background: rgba(251, 242, 237, 0.06);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+  }
+  .choice-card:hover::after { opacity: 1; }
+  .choice-card .n {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-weight: 500; font-size: 44px;
+    color: var(--gold); line-height: 1;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+  .choice-card h3 {
+    font-family: 'Playfair Display', serif; font-weight: 500; font-style: italic;
+    font-size: 28px; color: var(--bg);
+    margin-bottom: 14px; line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .choice-card p {
+    font-size: 14px;
+    color: rgba(251, 242, 237, 0.65);
+    line-height: 1.65;
+    margin-bottom: 24px;
+    flex-grow: 1;
+  }
+  .choice-card .arrow {
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: gap 0.4s;
+  }
+  .choice-card:hover .arrow { gap: 12px; }
+
+  /* Featured „Ich weiß noch nicht" */
+  .choice-card.warm {
+    background: linear-gradient(135deg, var(--bordeaux-deep), var(--bordeaux));
+    border: 1px solid var(--gold);
+  }
+  .choice-card.warm:hover {
+    background: linear-gradient(135deg, var(--bordeaux), var(--bordeaux-hi));
+    box-shadow: 0 40px 80px rgba(139, 46, 58, 0.5);
+  }
+  .choice-card.warm .n { color: var(--gold); }
+  .choice-card.warm p { color: rgba(251, 242, 237, 0.85); }
+
+  /* ─── FLOATING AUSWAHL MODAL ─── */
+  .choice-modal {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    width: 380px;
+    max-width: calc(100vw - 48px);
+    background: linear-gradient(155deg, var(--ink), #1a1315);
+    color: var(--bg);
+    border: 1px solid rgba(197, 164, 109, 0.32);
+    border-radius: 16px;
+    padding: 32px 28px 28px;
+    z-index: 300;
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+  }
+  .choice-modal::before {
+    content: ""; position: absolute; top: -80px; right: -80px;
+    width: 240px; height: 240px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(197, 164, 109, 0.28), transparent 65%);
+    filter: blur(30px); pointer-events: none;
+  }
+  .choice-modal.open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+  .choice-modal > * { position: relative; z-index: 1; }
+  .choice-close {
+    position: absolute; top: 14px; right: 14px;
+    background: rgba(251, 242, 237, 0.08);
+    border: 0;
+    color: var(--bg);
+    cursor: pointer;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background 0.3s, transform 0.3s;
+    z-index: 2;
+  }
+  .choice-close:hover {
+    background: rgba(197, 164, 109, 0.3);
+    transform: rotate(90deg);
+  }
+  .choice-modal-eyebrow {
+    font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .choice-modal-h {
+    font-family: 'Playfair Display', serif; font-weight: 500;
+    font-size: 24px; color: var(--bg);
+    line-height: 1.15;
+    margin-bottom: 22px;
+    letter-spacing: -0.01em;
+  }
+  .choice-modal-h em { font-style: italic; color: var(--gold); }
+  .choice-modal-grid { display: flex; flex-direction: column; gap: 10px; }
+  .cm-card {
+    display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px;
+    padding: 14px 16px;
+    background: rgba(251, 242, 237, 0.04);
+    border: 1px solid rgba(197, 164, 109, 0.18);
+    border-radius: 10px;
+    color: var(--bg);
+    text-decoration: none;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .cm-card:hover {
+    background: rgba(251, 242, 237, 0.08);
+    border-color: var(--gold);
+    transform: translateX(4px);
+  }
+  .cm-n {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+    color: var(--gold); font-size: 22px; line-height: 1;
+    min-width: 26px;
+  }
+  .cm-body { display: flex; flex-direction: column; gap: 2px; }
+  .cm-h {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+    color: var(--bg); font-size: 16px; line-height: 1.2;
+  }
+  .cm-sub {
+    font-size: 12px; color: rgba(251, 242, 237, 0.6); line-height: 1.3;
+  }
+  .cm-arrow {
+    color: var(--gold); font-size: 18px;
+    transition: transform 0.3s;
+  }
+  .cm-card:hover .cm-arrow { transform: translateX(4px); }
+  .cm-card.cm-warm {
+    background: linear-gradient(135deg, var(--bordeaux-deep), var(--bordeaux));
+    border-color: var(--gold);
+  }
+  .cm-card.cm-warm:hover {
+    background: linear-gradient(135deg, var(--bordeaux), var(--bordeaux-hi));
+  }
+
+  /* Re-Open Button */
+  .choice-reopen {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    z-index: 300;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    transition: all 0.4s;
+  }
+  .choice-reopen:hover {
+    transform: scale(1.08);
+    background: var(--gold);
+    color: var(--ink);
+  }
+  .choice-reopen .pulse {
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    border: 1.5px solid var(--gold);
+    animation: pulseRing 2.4s ease-out infinite;
+    pointer-events: none;
+  }
+  @keyframes pulseRing {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.5); opacity: 0; }
+  }
+  @media (max-width: 500px) {
+    .choice-modal { width: calc(100vw - 32px); bottom: 16px; right: 16px; }
+    .choice-reopen { bottom: 16px; right: 16px; }
+  }
 
   /* ─── HERO Full-Bleed ─── */
   .hero {
@@ -565,29 +872,39 @@
 <!-- NAV -->
 <nav>
   <div class="row">
-    <a href="#" class="brand">On Point</a>
+    <a href="index.html" class="brand">On Point</a>
     <ul>
-      <li><a href="angebot.html">Angebot</a></li>
-      <li><a href="angebot.html#prozess">So starten wir</a></li>
-      <li><a href="angebot.html#faq">Fragen</a></li>
-      <li><a href="#mentor">Über Julia</a></li>
-      <li><a href="#newsletter">Kontakt</a></li>
+      <li><a href="warum-onpoint.html">Warum On Point</a></li>
+      <li><a href="social-media.html">Social Media</a></li>
+      <li><a href="mediendesign.html">Mediendesign</a></li>
+      <li><a href="websites.html">Webdesign</a></li>
+      <li><a href="pakete.html">Pakete</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
     </ul>
     <a href="#newsletter" class="nav-cta">Beratung</a>
+    <button class="nav-burger" aria-label="Menü" onclick="document.getElementById('mobile-menu').classList.toggle('open'); this.classList.toggle('open');"><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="warum-onpoint.html">Warum On Point</a>
+    <a href="social-media.html">Social Media</a>
+    <a href="mediendesign.html">Mediendesign</a>
+    <a href="websites.html">Webdesign</a>
+    <a href="pakete.html">Pakete</a>
+    <a href="ueber-mich.html">Über mich</a>
+    <a href="#newsletter" class="mobile-cta">Beratung</a>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO — Editorial mit Julia-Bild -->
 <section class="hero">
   <div class="hero-bg"><img src="img/bild-3.jpg" alt="Julia Bergles" /></div>
   <div class="hero-content">
     <div class="hero-eyebrow reveal">Content auf den Punkt gebracht</div>
     <h1 class="reveal d1">Mehr Kunden.<br />Nicht nur mehr <span class="circle-italic white">Likes</span>.</h1>
     <p class="hero-sub reveal d2">
-      On Point macht aus Followern Kundinnen.<br />
-      Für Marken, die echten Content statt KI wollen.<br />
-      <span style="color: var(--gold); font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px;">Besonders stark im Gesundheitsbereich —</span><br />
-      <span style="opacity: 0.85; font-size: 16px;">als Betroffene und angehende Ernährungsberaterin.</span>
+      On Point macht aus Followern Kundinnen.
+      <br>Für Marken, die echten Content wollen.
+      <br><span style="color: var(--gold); font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px;">Handgemacht, fachlich fundiert.</span>
     </p>
     <div class="hero-buttons reveal d3">
       <a href="#newsletter" class="btn-red">Erstgespräch buchen</a>
@@ -595,6 +912,54 @@
     </div>
   </div>
 </section>
+
+<!-- FLOATING AUSWAHL MODAL -->
+<div id="choice-modal" class="choice-modal" role="dialog" aria-label="Auswahl">
+  <button class="choice-close" aria-label="Schließen" onclick="closeChoiceModal()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="choice-modal-eyebrow">Weswegen sind Sie hier?</div>
+  <div class="choice-modal-h">Wo darf ich Sie <em>unterstützen</em>?</div>
+  <div class="choice-modal-grid">
+    <a href="social-media.html" class="cm-card">
+      <span class="cm-n">01</span>
+      <span class="cm-body">
+        <span class="cm-h">Social Media</span>
+        <span class="cm-sub">Aus Followern Kundinnen.</span>
+      </span>
+      <span class="cm-arrow">→</span>
+    </a>
+    <a href="mediendesign.html" class="cm-card">
+      <span class="cm-n">02</span>
+      <span class="cm-body">
+        <span class="cm-h">Mediendesign</span>
+        <span class="cm-sub">Print, Logo, Layout.</span>
+      </span>
+      <span class="cm-arrow">→</span>
+    </a>
+    <a href="websites.html" class="cm-card">
+      <span class="cm-n">03</span>
+      <span class="cm-body">
+        <span class="cm-h">Webdesign</span>
+        <span class="cm-sub">Websites, die verkaufen.</span>
+      </span>
+      <span class="cm-arrow">→</span>
+    </a>
+    <a href="warum-onpoint.html" class="cm-card cm-warm">
+      <span class="cm-n">04</span>
+      <span class="cm-body">
+        <span class="cm-h">Ich weiß noch nicht</span>
+        <span class="cm-sub">Über On Point.</span>
+      </span>
+      <span class="cm-arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<button id="choice-reopen" class="choice-reopen" aria-label="Auswahl öffnen" onclick="openChoiceModal()" style="display: none;">
+  <span class="pulse"></span>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/><circle cx="12" cy="12" r="10"/></svg>
+</button>
 
 <!-- VIELLEICHT KENNST DU MICH AUCH AUS -->
 <section class="press">
@@ -656,8 +1021,8 @@
       <h2>Nicht nur <em>Content</em>.<br />Sondern Ergebnisse.</h2>
       <p class="features-lede">Sechs Bausteine. Ein Ziel: Menschen, die Ihre Marke buchen. Nicht nur liken.</p>
       <div style="margin-top: 40px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-        <a href="angebot.html" style="display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--bordeaux); color: #fff; border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; box-shadow: 0 20px 40px rgba(139, 46, 58, 0.3); transition: all 0.4s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">Das biete ich an <span style="font-size: 16px;">→</span></a>
-        <a href="angebot.html#prozess" style="display: inline-flex; align-items: center; gap: 12px; padding: 18px 32px; background: transparent; color: var(--bg); border: 1.5px solid rgba(251, 242, 237, 0.35); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.4s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--gold)'; this.style.color='var(--gold)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(251, 242, 237, 0.35)'; this.style.color='var(--bg)'">So starten wir <span style="font-size: 16px;">→</span></a>
+        <a href="pakete.html" style="display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--bordeaux); color: #fff; border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; box-shadow: 0 20px 40px rgba(139, 46, 58, 0.3); transition: all 0.4s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">Pakete ansehen <span style="font-size: 16px;">→</span></a>
+        <a href="pakete.html#prozess" style="display: inline-flex; align-items: center; gap: 12px; padding: 18px 32px; background: transparent; color: var(--bg); border: 1.5px solid rgba(251, 242, 237, 0.35); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.4s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--gold)'; this.style.color='var(--gold)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(251, 242, 237, 0.35)'; this.style.color='var(--bg)'">So starten wir <span style="font-size: 16px;">→</span></a>
       </div>
     </div>
 
@@ -666,42 +1031,42 @@
         <div class="feature-badge">Neu-Anfragen</div>
         <h3>Sichtbarkeit, die anfragt</h3>
         <p>Beiträge, die nicht nur gesehen, sondern geklickt werden. Community, die aktiv in Ihre DMs schreibt.</p>
-        <a href="angebot.html#pakete" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">Pakete ansehen <span>→</span></a>
+        <a href="pakete.html" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">Pakete ansehen <span>→</span></a>
       </div>
 
       <div class="feature-card reveal d1">
         <div class="feature-badge">Automation</div>
         <h3>ManyChat-Automation</h3>
         <p>Jede DM wird zur Verkaufschance. Automatisierte Antworten, die zu Buchungen führen. 24/7.</p>
-        <a href="angebot.html#manychat" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">So funktioniert's <span>→</span></a>
+        <a href="social-media.html#manychat" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">So funktioniert's <span>→</span></a>
       </div>
 
       <div class="feature-card reveal d2">
         <div class="feature-badge">Vor Ort</div>
         <h3>Videodreh bei Ihnen</h3>
         <p>Ich komme zu Ihnen. Echte Bilder, echter Praxis-Alltag. Das, was Kunden Vertrauen gibt.</p>
-        <a href="angebot.html#prozess" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">So läuft's ab <span>→</span></a>
+        <a href="pakete.html#prozess" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">So läuft's ab <span>→</span></a>
       </div>
 
       <div class="feature-card reveal d2">
         <div class="feature-badge">Für Sie: kein Stress</div>
         <h3>Community im Namen Ihrer Marke</h3>
         <p>Ich beantworte Kommentare und DMs. In Ihrem Namen, in Ihrem Ton. Aktive Community statt totes Profil.</p>
-        <a href="angebot.html#anders" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">Was mich besonders macht <span>✦</span></a>
+        <a href="warum-onpoint.html" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">Was mich besonders macht <span>✦</span></a>
       </div>
 
       <div class="feature-card reveal d3">
         <div class="feature-badge">Insider-Wissen</div>
         <h3>Fachliche Ansprache</h3>
-        <p>Captions ohne Heilversprechen. Medizinisch sauber, aus Betroffenen-Sicht. Kein KI-Bla.</p>
-        <a href="angebot.html#anders" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">Was mich besonders macht <span>✦</span></a>
+        <p>Captions mit echtem Wissen. Sauber recherchiert, aus Erfahrung heraus. Kein KI-Bla.</p>
+        <a href="warum-onpoint.html" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">Was mich besonders macht <span>✦</span></a>
       </div>
 
       <div class="feature-card reveal d3">
         <div class="feature-badge">Reach-Boost</div>
         <h3>Zugang zu meiner Community</h3>
         <p>Ausgewählte Beiträge auf @Julia_Bergles. Bis 1,77 Mio. Aufrufe pro Monat. Echte Zielgruppe.</p>
-        <a href="angebot.html#addons" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">Reichweite ansehen <span>→</span></a>
+        <a href="warum-onpoint.html#reichweite" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">Reichweite ansehen <span>→</span></a>
       </div>
     </div>
   </div>
@@ -773,7 +1138,8 @@
     <div class="reveal" style="text-align: center; margin-bottom: 80px; max-width: 900px; margin-left: auto; margin-right: auto;">
       <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 24px; display: inline-block;">Für wen</span>
       <h2 style="font-size: clamp(44px, 6vw, 88px); font-weight: 400; margin-bottom: 20px;">Wählen Sie Ihre <span class="circle-italic">Branche</span>.</h2>
-      <p style="font-size: 16px; color: var(--muted); margin-bottom: 28px;">Jede Nische hat ihre eigene Handschrift. Wir bauen sie mit Ihnen.</p>
+      <p style="font-size: 16px; color: var(--muted); margin-bottom: 12px;">Ich arbeite branchenübergreifend — von Autohäusern bis Praxen.</p>
+      <p style="font-size: 15px; color: var(--muted); margin-bottom: 28px; font-style: italic;">Für Marken, die hochwertig auftreten wollen — nicht billig.</p>
 
       <div style="display: inline-flex; align-items: center; gap: 14px; padding: 14px 24px; background: linear-gradient(135deg, rgba(139, 46, 58, 0.08), rgba(197, 164, 109, 0.14)); border: 1.5px solid var(--gold); border-radius: 999px;">
         <span style="width: 30px; height: 30px; border-radius: 50%; background: var(--bordeaux); color: #fff; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
@@ -829,11 +1195,11 @@
             <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: clamp(32px, 4.5vw, 56px); letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 20px; color: #fff;">
               Bold. Klar. <span style="font-style: italic; color: var(--gold);">Ohne Bla.</span>
             </h3>
-            <p style="font-size: 16px; color: rgba(251, 242, 237, 0.75); line-height: 1.6; max-width: 560px; margin-bottom: 40px;">Karussell-Serie für ein Fitnessstudio. Problem, Lösung, Call-to-Action. Content, der Anmeldungen bringt.</p>
-            <div style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px;">
-              <div style="grid-column: 1 / 6; grid-row: 1 / 3; border-radius: 6px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.5);"><img src="img/fitness-1.png" alt="Fitness 1" style="width: 100%; display: block;" /></div>
-              <div style="grid-column: 6 / 13; grid-row: 1 / 2; border-radius: 6px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4);"><img src="img/fitness-2.png" alt="Fitness 2" style="width: 100%; display: block;" /></div>
-              <div style="grid-column: 6 / 13; grid-row: 2 / 3; border-radius: 6px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4);"><img src="img/fitness-3.png" alt="Fitness 3" style="width: 100%; display: block;" /></div>
+            <p style="font-size: 16px; color: rgba(251, 242, 237, 0.75); line-height: 1.6; max-width: 560px; margin-bottom: 20px;">Karussell-Serie für ein Fitnessstudio. Problem, Lösung, Call-to-Action. Content, der Anmeldungen bringt.</p>
+            <p style="display: inline-block; padding: 8px 18px; margin-bottom: 32px; background: rgba(197, 164, 109, 0.14); border: 1px solid var(--gold); border-radius: 999px; font-size: 12px; letter-spacing: 0.05em; color: var(--gold); font-weight: 600;">Ich nehme keine weiteren Fitnessstudios mehr an.</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div style="border-radius: 6px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.5);"><img src="img/fitness-1.png" alt="Fitnessstudio Beitrag 1" style="width: 100%; display: block;" /></div>
+              <div style="border-radius: 6px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4);"><img src="img/fitness-2.png" alt="Fitnessstudio Beitrag 2" style="width: 100%; display: block;" /></div>
             </div>
           </div>
         </div>
@@ -915,9 +1281,9 @@
             <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); font-weight: 600;">Editorial · Gesundheit &amp; Ernährung</span>
           </div>
           <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: clamp(32px, 4.5vw, 56px); letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 20px; color: var(--ink);">
-            Fachlich. <span style="font-style: italic; color: var(--bordeaux);">Empathisch.</span> Meine Nische.
+            Fachlich. <span style="font-style: italic; color: var(--bordeaux);">Empathisch.</span> Aus Erfahrung.
           </h3>
-          <p style="font-size: 16px; color: var(--muted); line-height: 1.6; max-width: 560px; margin-bottom: 40px;">Content aus meiner eigenen Marke <strong style="color: var(--ink);">TerraLuna</strong> — für Frauen mit Histaminintoleranz, Darmproblemen und Zyklus-Themen. Hier bin ich selbst betroffen und weiß, wie man dieses Publikum ehrlich erreicht.</p>
+          <p style="font-size: 16px; color: var(--muted); line-height: 1.6; max-width: 560px; margin-bottom: 40px;">Content aus meiner eigenen Marke <strong style="color: var(--ink);">TerraLuna</strong> — für Frauen mit Histaminintoleranz, Darmproblemen und Zyklus-Themen. Ein Beispiel, wie tief ich in ein Thema einsteige, wenn ich eine Marke betreue.</p>
           <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
             <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5;"><img src="img/idea-1.png" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
             <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5;"><img src="img/idea-2.png" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
@@ -930,7 +1296,7 @@
       </div>
     </div>
 
-    <p class="reveal" style="text-align: center; margin-top: 50px; font-size: 14px; color: var(--muted); font-style: italic;">Auch Marken aus anderen Branchen willkommen. Mein Fokus bleibt aber Health &amp; Gesundheit.</p>
+    <p class="reveal" style="text-align: center; margin-top: 50px; font-size: 14px; color: var(--muted); font-style: italic;">Ich arbeite branchenübergreifend — jede Marke bekommt ihre eigene Handschrift.</p>
   </div>
 </section>
 
@@ -943,7 +1309,7 @@
         <div class="mentor-eyebrow">Wer ich bin</div>
         <h2>Julia als deine <em>Partnerin</em>.</h2>
         <p>Fachabitur Gestaltung. Seit 2024 selbständige Social Media Managerin. Gründerin und Entwicklerin der TerraLuna-App — der ersten deutschen App speziell für Frauen mit Histaminintoleranz und zyklusbezogenen Ernährungsbedürfnissen.</p>
-        <p>Ich baue Content, der zu 93,8 % außerhalb der eigenen Bubble ankommt. Weil ich das Thema Gesundheit von zwei Seiten kenne — als Betroffene und als Designerin.</p>
+        <p>Ich baue Content, der zu 93,8 % außerhalb der eigenen Bubble ankommt. Weil ich Marken von zwei Seiten kenne — als Gründerin, die selbst Kundinnen gewinnen muss, und als Designerin, die weiß, wie Content aussehen muss, damit er nicht scrollt.</p>
         <ul style="list-style: none; padding: 0; margin: 32px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px;">
           <li style="display: flex; gap: 12px; align-items: center; font-size: 15px; color: var(--ink); font-weight: 500;">
             <span style="width: 24px; height: 24px; border-radius: 50%; background: var(--bordeaux); flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;">
@@ -1080,7 +1446,7 @@
       <div class="nl-content">
         <div class="nl-mark"></div>
         <h2>Reden wir <em>offen zusammen</em>.</h2>
-        <p>20 Minuten Erstgespräch. Kostenlos, unverbindlich. Wir schauen, ob wir zusammenpassen.</p>
+        <p>30 Minuten Erstgespräch. Kostenlos, unverbindlich. Wir schauen, ob wir zusammenpassen.</p>
         <form class="nl-form" onsubmit="event.preventDefault(); alert('Danke, ich melde mich!');">
           <input type="email" placeholder="Ihre E-Mail-Adresse" required />
           <button type="submit">Termin</button>
@@ -1094,10 +1460,11 @@
 <footer>
   <div class="footer-top">
     <div class="footer-nav">
-      <a href="#features">Leistungen</a>
-      <a href="#branchen">Arbeiten</a>
-      <a href="angebot.html">Angebot</a>
-      <a href="#mentor">Über Julia</a>
+      <a href="social-media.html">Social Media</a>
+      <a href="mediendesign.html">Mediendesign</a>
+      <a href="websites.html">Webdesign</a>
+      <a href="pakete.html">Pakete</a>
+      <a href="warum-onpoint.html">Warum On Point</a>
       <a href="#newsletter">Kontakt</a>
     </div>
     <div>
@@ -1150,6 +1517,24 @@
     panel.classList.toggle('open');
     icon.textContent = panel.classList.contains('open') ? '×' : '?';
   }
+
+  // Floating Auswahl-Modal: auto-open nach 3 Sek.
+  setTimeout(() => {
+    const m = document.getElementById('choice-modal');
+    if (m && !sessionStorage.getItem('choiceModalClosed')) m.classList.add('open');
+  }, 3000);
+  function closeChoiceModal() {
+    document.getElementById('choice-modal').classList.remove('open');
+    sessionStorage.setItem('choiceModalClosed', '1');
+    setTimeout(() => {
+      document.getElementById('choice-reopen').style.display = 'inline-flex';
+    }, 600);
+  }
+  function openChoiceModal() {
+    document.getElementById('choice-modal').classList.add('open');
+    document.getElementById('choice-reopen').style.display = 'none';
+    sessionStorage.removeItem('choiceModalClosed');
+  }
 </script>
 
 <!-- FRAGEN-WIDGET (Sonne) -->
@@ -1178,16 +1563,16 @@
       <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 22px; letter-spacing: -0.01em;">Was möchten Sie wissen?</div>
     </div>
     <div style="padding: 12px; max-height: 380px; overflow-y: auto;">
-      <a href="angebot.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Wie lange bin ich vertraglich gebunden?</a>
-      <a href="angebot.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Wie viele Feedback-Runden sind drin?</a>
-      <a href="angebot.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Was passiert bei Urlaub oder Krankheit?</a>
-      <a href="angebot.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Kann ich zwischen den Paketen wechseln?</a>
-      <a href="angebot.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Wann sehe ich erste Ergebnisse?</a>
-      <a href="angebot.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Wem gehört der Content?</a>
-      <a href="angebot.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Muss ich vor die Kamera?</a>
+      <a href="pakete.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Wie lange bin ich vertraglich gebunden?</a>
+      <a href="pakete.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Wie viele Feedback-Runden sind drin?</a>
+      <a href="pakete.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Was passiert bei Urlaub oder Krankheit?</a>
+      <a href="pakete.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Kann ich zwischen den Paketen wechseln?</a>
+      <a href="pakete.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Wann sehe ich erste Ergebnisse?</a>
+      <a href="pakete.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Wem gehört der Content?</a>
+      <a href="pakete.html#faq" style="display: block; padding: 14px 16px; font-size: 14px; color: #2D1F22; text-decoration: none; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#FBF2ED'" onmouseout="this.style.background=''">Muss ich vor die Kamera?</a>
     </div>
     <div style="padding: 14px 22px 18px; border-top: 1px solid rgba(45, 31, 34, 0.08); text-align: center;">
-      <a href="angebot.html#faq" style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #8B2E3A; font-weight: 700; text-decoration: none;">Alle Fragen ansehen →</a>
+      <a href="pakete.html#faq" style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #8B2E3A; font-weight: 700; text-decoration: none;">Alle Fragen ansehen →</a>
     </div>
   </div>
 </div>

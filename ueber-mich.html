@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index, follow" />
+<title>Über mich · On Point</title>
+<meta name="description" content="Julia Bergles. Was ich gelernt habe, woher mein Wissen kommt und was mich antreibt." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=object-sans@300,400,500,600,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap">
+<link rel="stylesheet" href="css/onpoint.css">
+<style>
+  /* Ausbildung Timeline */
+  .learn-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+    max-width: 1100px; margin: 0 auto;
+  }
+  @media (max-width: 800px) { .learn-grid { grid-template-columns: 1fr; } }
+  .learn-card {
+    background: rgba(251, 242, 237, 0.04);
+    border: 1px solid rgba(197, 164, 109, 0.22);
+    border-radius: 14px;
+    padding: 40px 36px;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(6px);
+  }
+  .learn-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    background: rgba(251, 242, 237, 0.06);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+  }
+  .learn-card .year {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+    color: var(--gold); font-size: 22px;
+    margin-bottom: 12px;
+  }
+  .learn-card h4 {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+    font-size: 26px; color: var(--bg);
+    margin-bottom: 12px; line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .learn-card p {
+    font-size: 15px; color: rgba(251, 242, 237, 0.7);
+    line-height: 1.7;
+  }
+
+  /* Wissen-Split */
+  .wissen-split {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px;
+    max-width: 1200px; margin: 0 auto; align-items: center;
+  }
+  @media (max-width: 900px) { .wissen-split { grid-template-columns: 1fr; gap: 40px; } }
+  .wissen-list {
+    list-style: none; padding: 0;
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .wissen-list li {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 24px 28px;
+    display: grid; grid-template-columns: 44px 1fr; gap: 20px;
+    align-items: flex-start;
+    transition: all 0.4s;
+  }
+  .wissen-list li:hover {
+    transform: translateX(4px);
+    border-color: var(--bordeaux);
+    box-shadow: 0 20px 40px rgba(45, 31, 34, 0.08);
+  }
+  .wissen-list .icn {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, rgba(139, 46, 58, 0.1), rgba(197, 164, 109, 0.16));
+    color: var(--bordeaux);
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .wissen-list h5 {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+    font-size: 19px; color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .wissen-list p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* Portrait */
+  .about-portrait {
+    aspect-ratio: 4/5;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 50px 100px rgba(45, 31, 34, 0.25);
+    padding: 12px;
+    background: linear-gradient(135deg, var(--gold), #b8925c 50%, var(--gold));
+    position: relative;
+  }
+  .about-portrait::after {
+    content: ""; position: absolute; inset: 12px;
+    border: 1px solid rgba(45, 31, 34, 0.15);
+    pointer-events: none; z-index: 2;
+  }
+  .about-portrait img {
+    width: 100%; height: 100%; object-fit: cover;
+    position: relative; z-index: 1;
+  }
+
+  /* Values */
+  .values-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  @media (max-width: 900px) { .values-grid { grid-template-columns: 1fr; } }
+  .value-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 40px 32px;
+    transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s;
+  }
+  .value-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    box-shadow: 0 30px 60px rgba(45, 31, 34, 0.1);
+  }
+  .value-card .value-n {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+    color: var(--gold); font-size: 44px; line-height: 1;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  .value-card h4 {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+    font-size: 24px; color: var(--ink);
+    margin-bottom: 12px; line-height: 1.15;
+  }
+  .value-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="row">
+    <a href="index.html" class="brand">On Point</a>
+    <ul>
+      <li><a href="warum-onpoint.html">Warum On Point</a></li>
+      <li><a href="social-media.html">Social Media</a></li>
+      <li><a href="mediendesign.html">Mediendesign</a></li>
+      <li><a href="websites.html">Webdesign</a></li>
+      <li><a href="pakete.html">Pakete</a></li>
+      <li><a href="ueber-mich.html" class="current">Über mich</a></li>
+    </ul>
+    <a href="#kontakt" class="nav-cta">Beratung</a>
+    <button class="nav-burger" aria-label="Menü" onclick="document.getElementById('mobile-menu').classList.toggle('open'); this.classList.toggle('open');"><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="warum-onpoint.html">Warum On Point</a>
+    <a href="social-media.html">Social Media</a>
+    <a href="mediendesign.html">Mediendesign</a>
+    <a href="websites.html">Webdesign</a>
+    <a href="pakete.html">Pakete</a>
+    <a href="ueber-mich.html" class="current">Über mich</a>
+    <a href="#kontakt" class="mobile-cta">Beratung</a>
+  </div>
+</nav>
+<div class="nav-spacer"></div>
+
+<!-- HERO -->
+<section class="page-hero page-hero-image" style="background-image: linear-gradient(180deg, rgba(45, 31, 34, 0.55), rgba(45, 31, 34, 0.85)), url('img/hero-warum-onpoint.jpg'); background-size: cover; background-position: center 20%; color: var(--bg);">
+  <div class="container">
+    <div class="eyebrow reveal" style="color: var(--gold);">Über mich</div>
+    <h1 class="reveal d1" style="color: #fff;">Julia <em style="color: var(--gold);">Bergles</em>.</h1>
+    <p class="lede reveal d2" style="color: rgba(255, 255, 255, 0.85);">
+      Was ich gelernt habe.
+      <br>Woher mein Wissen kommt.
+      <br><em style="color: var(--gold);">Und was mich antreibt.</em>
+    </p>
+  </div>
+</section>
+
+<!-- WAS ICH GELERNT HABE (dark) -->
+<section class="section section-dark section-orbs">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Ausbildung &amp; Werdegang</div>
+      <h2>Was ich <em>gelernt</em> habe.</h2>
+      <p>
+        Formale Ausbildung ist nur ein Teil.
+        <br>Der Rest kommt aus echter Praxis.
+      </p>
+    </div>
+    <div class="learn-grid">
+      <div class="learn-card reveal d1">
+        <div class="year">2024</div>
+        <h4>Fachabitur Gestaltung</h4>
+        <p>
+          Design-Grundlagen von Grund auf.
+          <br>Typografie, Layout, Bildsprache, Farbtheorie.
+          <br>Der Boden, auf dem alles andere steht.
+        </p>
+      </div>
+      <div class="learn-card reveal d2">
+        <div class="year">Seit 2024</div>
+        <h4>Autodidaktisches Vertiefen</h4>
+        <p>
+          Videoschnitt, Copywriting, Marketing, App-Development.
+          <br>Alles selbst beigebracht durch Bauen, Testen und Beobachten.
+          <br>Kein Zertifikat, aber täglicher Beweis in echten Projekten.
+        </p>
+      </div>
+      <div class="learn-card reveal d3">
+        <div class="year">Seit 2024</div>
+        <h4>Selbständig als Social Media Managerin</h4>
+        <p>
+          Von der ersten Kundin bis zur laufenden Agentur.
+          <br>Ich lerne bei jeder Marke etwas Neues über ihre Branche.
+          <br>Diese Vielfalt fließt zurück in jedes neue Projekt.
+        </p>
+      </div>
+      <div class="learn-card reveal d4">
+        <div class="year">Seit 2024</div>
+        <h4>Gründerin der TerraLuna-App</h4>
+        <p>
+          Eigene App entwickelt für Frauen mit Histaminintoleranz.
+          <br>App-Development, User-Research, Community-Aufbau.
+          <br>Vom Konzept bis Store-Launch.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WOHER DAS WISSEN KOMMT -->
+<section class="section" style="background: var(--bg-warm);">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Praktische Quellen</div>
+      <h2>Woher mein <em>Wissen</em> kommt.</h2>
+      <p>Nicht aus Kursen und Zertifikaten. Aus dem, was ich täglich selbst mache.</p>
+    </div>
+
+    <div class="wissen-split">
+      <ul class="wissen-list reveal d1">
+        <li>
+          <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+          <div>
+            <h5>Eigene Reichweite</h5>
+            <p>
+              706.000 erreichte Konten und 1,77 Mio. Reel-Aufrufe pro Monat auf @Julia_Bergles.
+              <br>Ich weiß, was 2026 auf Instagram funktioniert.
+              <br>Weil ich es täglich selbst mache.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M12 18h.01"/></svg></span>
+          <div>
+            <h5>TerraLuna-App</h5>
+            <p>
+              Eigene App gebaut, gelaunched, betrieben.
+              <br>Ich verstehe, wie man Produkte für eine Nische entwickelt.
+              <br>Dieses Denken bringt Marken einen anderen Blick auf ihre Kunden.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+          <div>
+            <h5>Betroffenen-Perspektive</h5>
+            <p>
+              Selbst Histaminintoleranz.
+              <br>Ich kenne Health-Themen aus zwei Blickwinkeln: als Content-Creator und als Nutzerin.
+              <br>Das führt zu Content, der echt klingt.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg></span>
+          <div>
+            <h5>Tägliches Testen</h5>
+            <p>
+              Jeder Beitrag ist ein Experiment.
+              <br>Ich sehe live, was Reichweite bringt und was nicht.
+              <br>Dieses Wissen fließt direkt in Ihren Content.
+            </p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="about-portrait reveal d2"><img src="img/hero-neu.jpg" alt="Julia Bergles"></div>
+    </div>
+  </div>
+</section>
+
+<!-- WAS MICH ANTREIBT -->
+<section class="section" style="background: var(--bg);">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Meine Werte</div>
+      <h2>Was mich <em>antreibt</em>.</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal d1">
+        <div class="value-n">01</div>
+        <h4>Ehrliche Arbeit</h4>
+        <p>
+          Keine versteckten Kosten.
+          <br>Kein Bullshit-Bingo im Angebot.
+          <br>Sie wissen, was Sie bekommen und was es kostet.
+        </p>
+      </div>
+      <div class="value-card reveal d2">
+        <div class="value-n">02</div>
+        <h4>Echte Menschen</h4>
+        <p>
+          Kein KI-Ton, kein Baukasten-Look.
+          <br>Marken haben eine Stimme.
+          <br>Meine Aufgabe ist, sie klar hören zu lassen.
+        </p>
+      </div>
+      <div class="value-card reveal d3">
+        <div class="value-n">03</div>
+        <h4>Zeit für Qualität</h4>
+        <p>
+          Ich arbeite mit wenigen Marken gleichzeitig.
+          <br>Damit ich jede so gut betreue, wie sie es verdient.
+          <br>Deshalb: nur eine Marke pro Branche und Region.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-block" id="kontakt">
+  <div class="container">
+    <div class="inner reveal">
+      <div class="mark"></div>
+      <h2>Reden wir <em>offen zusammen</em>.</h2>
+      <p>
+        30 Minuten Erstgespräch.
+        <br>Kostenlos und unverbindlich.
+      </p>
+      <div class="actions">
+        <a href="mailto:julia@juliabergles-agentur.de?subject=Erstgespr%C3%A4ch" class="btn-red">Erstgespräch buchen</a>
+        <a href="pakete.html" class="btn-outline">Pakete ansehen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">On Point</div>
+      <div class="tag">Content auf den Punkt gebracht.</div>
+      <div class="adr">Julia Bergles<br>Augsburg + remote<br>julia@juliabergles-agentur.de</div>
+    </div>
+    <div class="footer-col">
+      <h5>Bereiche</h5>
+      <a href="social-media.html">Social Media</a>
+      <a href="mediendesign.html">Mediendesign</a>
+      <a href="websites.html">Webdesign</a>
+      <a href="pakete.html">Pakete</a>
+    </div>
+    <div class="footer-col">
+      <h5>Info</h5>
+      <a href="warum-onpoint.html">Warum On Point</a>
+      <a href="ueber-mich.html">Über mich</a>
+      <a href="index.html">Startseite</a>
+    </div>
+    <div class="footer-col">
+      <h5>Rechtliches</h5>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+  </div>
+  <div class="footer-xxl">
+    <div class="logo-big">ON<span class="g">·</span>POINT</div>
+    <div class="footer-copy">© 2026 On Point · Julia Bergles · Augsburg</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>

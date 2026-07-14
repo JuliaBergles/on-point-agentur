@@ -1,0 +1,1120 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index, follow" />
+<title>Pakete · On Point</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=object-sans@300,400,500,600,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap">
+<style>
+  :root {
+    --bg: #FBF2ED;
+    --bg-warm: #F3D6C6;
+    --bg-soft: #E8D0BE;
+    --card: #ffffff;
+    --ink: #2D1F22;
+    --ink-soft: #4a3236;
+    --muted: #8a6f72;
+    --bordeaux: #8B2E3A;
+    --bordeaux-hi: #A5384A;
+    --bordeaux-deep: #6E1F2C;
+    --gold: #C5A46D;
+    --gold-hi: #d5b884;
+    --line: rgba(45, 31, 34, 0.08);
+    --line-strong: rgba(45, 31, 34, 0.18);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Object Sans', -apple-system, sans-serif;
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+  @media (max-width: 700px) { .container { padding: 0 24px; } }
+
+  h1, h2, .serif { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.015em; line-height: 1.02; color: var(--ink); }
+  h3, h4 { font-family: 'Object Sans', sans-serif; font-weight: 600; letter-spacing: -0.005em; }
+
+  .circle-italic {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-weight: 400;
+    position: relative; display: inline-block; padding: 0 12px;
+  }
+  .circle-italic::before {
+    content: ""; position: absolute; inset: -6% -4% -6% -4%;
+    border: 1.5px solid var(--ink);
+    border-radius: 55% 45% 55% 45% / 55% 45% 55% 45%;
+    transform: rotate(-3deg); pointer-events: none;
+  }
+  .circle-italic.gold::before { border-color: var(--gold); }
+  .circle-italic.white::before { border-color: #fff; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(251, 242, 237, 0.85);
+    backdrop-filter: saturate(1.3) blur(20px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .row {
+    max-width: 1240px; margin: 0 auto; padding: 18px 40px;
+    display: flex; justify-content: space-between; align-items: center; gap: 20px;
+  }
+  .brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500; font-size: 24px;
+    color: var(--ink); letter-spacing: -0.02em;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .brand::before { content: ""; display: inline-block; width: 14px; height: 14px; background: var(--bordeaux); border-radius: 50%; }
+  nav ul { display: flex; gap: 30px; list-style: none; }
+  nav ul a {
+    font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink); font-weight: 500; transition: color 0.3s;
+  }
+  nav ul a:hover { color: var(--bordeaux); }
+  nav ul a.active { color: var(--bordeaux); }
+  .nav-actions { display: flex; gap: 10px; align-items: center; }
+  .nav-call {
+    padding: 11px 18px;
+    background: transparent; color: var(--bordeaux);
+    border: 1.5px solid var(--bordeaux);
+    border-radius: 999px;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 600; transition: all 0.3s;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .nav-call:hover { background: var(--bordeaux); color: #fff; }
+  .nav-call svg { width: 13px; height: 13px; }
+  .nav-cta {
+    padding: 11px 22px;
+    background: var(--ink); color: var(--bg);
+    border-radius: 999px;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 500; transition: all 0.4s;
+  }
+  .nav-cta:hover { background: var(--bordeaux); }
+  @media (max-width: 1100px) { nav ul { display: none; } }
+  @media (max-width: 600px) { .nav-call span { display: none; } .nav-call { padding: 11px 14px; } }
+
+  .btn-red {
+    padding: 20px 44px;
+    background: var(--bordeaux); color: #fff;
+    border: 0; border-radius: 999px;
+    font-family: 'Object Sans', sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.4s;
+    box-shadow: 0 20px 40px rgba(139, 46, 58, 0.35);
+    display: inline-block;
+  }
+  .btn-red:hover { background: var(--bordeaux-hi); transform: translateY(-3px); }
+  .btn-ghost {
+    padding: 20px 44px;
+    background: transparent; color: var(--ink);
+    border: 1.5px solid var(--line-strong); border-radius: 999px;
+    font-family: 'Object Sans', sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.4s;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--bordeaux); color: var(--bordeaux); }
+
+  /* HERO */
+  .hero { padding: 180px 0 80px; text-align: center; position: relative; }
+  .hero-eyebrow {
+    font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--muted); font-weight: 500; margin-bottom: 30px;
+    display: inline-flex; align-items: center; gap: 20px;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after { content: ""; width: 60px; height: 1px; background: var(--gold); }
+  .hero h1 {
+    font-size: clamp(44px, 7vw, 92px);
+    font-weight: 400; line-height: 1.02;
+    margin-bottom: 28px; max-width: 900px; margin-left: auto; margin-right: auto;
+    letter-spacing: -0.02em;
+  }
+  .hero-sub { font-size: 18px; color: var(--muted); max-width: 640px; margin: 0 auto 20px; line-height: 1.55; }
+
+  /* BENEFIT-BLOCK */
+  .benefit {
+    max-width: 900px; margin: 40px auto 0;
+    padding: 44px 48px;
+    background: linear-gradient(135deg, rgba(139, 46, 58, 0.04), rgba(197, 164, 109, 0.10));
+    border: 1.5px solid var(--gold);
+    border-radius: 16px;
+    text-align: left;
+    box-shadow: 0 20px 50px rgba(45, 31, 34, 0.08);
+  }
+  .benefit-header {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 20px;
+    margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid rgba(197, 164, 109, 0.3);
+  }
+  .benefit-eyebrow {
+    font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+  }
+  .benefit h2 {
+    font-family: 'Playfair Display', serif; font-weight: 500;
+    font-size: clamp(24px, 3vw, 32px); color: var(--ink);
+    letter-spacing: -0.01em; line-height: 1.2;
+  }
+  .benefit h2 em { font-style: italic; color: var(--bordeaux); }
+  .benefit-list {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px;
+    list-style: none; padding: 0; margin: 0 0 24px;
+  }
+  .benefit-list li {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 15px; color: var(--ink); line-height: 1.5;
+  }
+  .benefit-check {
+    width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0;
+    background: var(--bordeaux) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'><path d='M20 6L9 17l-5-5'/></svg>") center / 13px no-repeat;
+  }
+  .benefit-plus {
+    background: rgba(139, 46, 58, 0.06);
+    border-left: 3px solid var(--bordeaux);
+    padding: 16px 20px; border-radius: 4px;
+    font-size: 14px; color: var(--ink-soft); line-height: 1.6;
+  }
+  .benefit-plus strong { color: var(--bordeaux); font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; }
+  @media (max-width: 700px) {
+    .benefit { padding: 32px 24px; }
+    .benefit-header { flex-direction: column; gap: 8px; }
+    .benefit-list { grid-template-columns: 1fr; }
+  }
+
+  /* PAKETE */
+  .packages { padding: 120px 0; }
+  .packages-header { text-align: center; margin-bottom: 60px; max-width: 900px; margin-left: auto; margin-right: auto; }
+  .packages-header .eyebrow { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 24px; display: inline-block; }
+  .packages-header h2 { font-size: clamp(40px, 5.5vw, 76px); font-weight: 400; margin-bottom: 20px; }
+  .packages-header h2 em { font-style: italic; color: var(--bordeaux); }
+  .packages-header p { font-size: 16px; color: var(--muted); }
+
+  .pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; }
+  @media (max-width: 1000px) { .pkg-grid { grid-template-columns: 1fr; max-width: 500px; } }
+
+  .pkg { background: var(--card); padding: 48px 40px; border-radius: 8px; border: 1px solid var(--line); position: relative; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+  .pkg:hover { transform: translateY(-6px); box-shadow: 0 30px 60px rgba(45, 31, 34, 0.12); }
+  .pkg.featured { background: linear-gradient(180deg, rgba(139, 46, 58, 0.05), var(--card)); border: 2px solid var(--bordeaux); box-shadow: 0 20px 50px rgba(139, 46, 58, 0.15); }
+  .pkg.featured::before { content: "Beliebteste Wahl"; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--bordeaux); color: #fff; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; padding: 8px 18px; border-radius: 999px; }
+  .pkg-name { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 32px; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.01em; }
+  .pkg-tag { font-size: 13px; color: var(--muted); margin-bottom: 32px; }
+  .pkg-price { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 32px; color: var(--bordeaux); line-height: 1; margin-bottom: 6px; }
+  .pkg-period { font-size: 12px; color: var(--muted); margin-bottom: 32px; }
+  .pkg-features { list-style: none; padding: 0; margin-bottom: 32px; border-top: 1px solid var(--line); }
+  .pkg-features li { padding: 14px 0; font-size: 14px; color: var(--ink); display: flex; gap: 12px; align-items: flex-start; line-height: 1.5; border-bottom: 1px solid var(--line); }
+  .pkg-features li:last-child { border-bottom: 0; }
+  .pkg-check { width: 22px; height: 22px; border-radius: 50%; background: var(--bordeaux) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'><path d='M20 6L9 17l-5-5'/></svg>") center / 14px no-repeat; flex-shrink: 0; margin-top: 2px; }
+
+  /* CTA */
+  .cta { padding: 140px 0; background: var(--ink); color: var(--bg); text-align: center; }
+  .cta h2 { color: var(--bg); font-size: clamp(44px, 7vw, 100px); font-weight: 400; margin-bottom: 24px; }
+  .cta h2 em { font-style: italic; color: var(--gold); }
+  .cta p { font-size: 18px; color: rgba(251, 242, 237, 0.65); max-width: 600px; margin: 0 auto 40px; line-height: 1.55; }
+  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .cta .btn-call {
+    padding: 20px 40px;
+    background: transparent; color: var(--gold);
+    border: 1.5px solid var(--gold); border-radius: 999px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 10px;
+    transition: all 0.4s;
+  }
+  .cta .btn-call:hover { background: var(--gold); color: var(--ink); }
+
+  /* FOOTER */
+  footer { background: var(--ink); color: rgba(251, 242, 237, 0.6); padding: 60px 0 30px; border-top: 1px solid rgba(197, 164, 109, 0.15); }
+  footer .row { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  footer p { font-size: 12px; letter-spacing: 0.15em; color: rgba(251, 242, 237, 0.4); }
+  footer a { font-size: 12px; letter-spacing: 0.15em; color: var(--bg); transition: color 0.3s; }
+  footer a:hover { color: var(--gold); }
+  footer .links { display: flex; gap: 28px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="row">
+    <a href="index.html" class="brand">On Point</a>
+    <ul>
+      <li><a href="warum-onpoint.html">Warum On Point</a></li>
+      <li><a href="social-media.html">Social Media</a></li>
+      <li><a href="websites.html">Webdesign</a></li>
+      <li><a href="mediendesign.html">Mediendesign</a></li>
+      <li><a href="pakete.html" class="active">Pakete</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="tel:+4915118515394" class="nav-call">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"/></svg>
+        <span>Anrufen</span>
+      </a>
+      <a href="index.html#newsletter" class="nav-cta">Beratung</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="background-image: linear-gradient(180deg, rgba(45, 31, 34, 0.50), rgba(45, 31, 34, 0.75)), url('img/hero-pakete.jpg'); background-size: 125%; background-position: center 40%; color: var(--bg);">
+  <div class="container">
+    <div class="hero-eyebrow reveal" style="color: var(--gold);">Retainer-Pakete</div>
+    <h1 class="reveal d1" style="color: #fff;">Feste <span class="circle-italic" style="color: var(--gold); border-color: var(--gold);">Betreuung</span>.<br>Volle Reichweite.</h1>
+    <p class="hero-sub reveal d2" style="color: rgba(255, 255, 255, 0.85);">
+      Monatliche Rundum-Betreuung Ihrer Social-Media-Präsenz.
+      <br>Individuell abgestimmt, mit einem Monat Kündigungsfrist.
+    </p>
+
+    <!-- RUNDUM-SORGLOS (dark editorial) -->
+    <div class="reveal d3 sorglos" style="margin-top: 80px;">
+      <div class="sorglos-inner">
+        <div class="sorglos-head">
+          <span class="sorglos-eyebrow">Ihr Vorteil</span>
+          <h2 class="sorglos-h">Rundum <em>sorglos</em>.<br>Ohne versteckte Nebenkosten.</h2>
+        </div>
+        <div class="sorglos-grid">
+          <div class="sorglos-item"><span class="sicn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 010 18"/></svg></span><span>Canva Pro</span></div>
+          <div class="sorglos-item"><span class="sicn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></span><span>CapCut Pro / Premiere</span></div>
+          <div class="sorglos-item"><span class="sicn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></span><span>Stock-Fotos &amp; Video</span></div>
+          <div class="sorglos-item"><span class="sicn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><span>Musik-Lizenzen (GEMA-frei)</span></div>
+          <div class="sorglos-item"><span class="sicn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><span>Scheduling-Tools</span></div>
+          <div class="sorglos-item"><span class="sicn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></span><span>Kamera &amp; Licht</span></div>
+          <div class="sorglos-item"><span class="sicn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span>Zeit für Content-Planung</span></div>
+          <div class="sorglos-item"><span class="sicn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span><span>Weiterbildung &amp; Trends</span></div>
+          <div class="sorglos-item highlight"><span class="sicn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l5-5-5-5v3H4a2 2 0 00-2 2v14a2 2 0 002 2h16a2 2 0 002-2v-3"/></svg></span><span><strong>30 Min. Live-Call</strong> zur Abstimmung</span></div>
+        </div>
+        <div class="sorglos-foot">
+          <span class="pulse-dot"></span>
+          <p>
+            <strong>Günstiger als eine interne Kraft.</strong>
+            <br>Kein Recruiting, kein Krankheitsausfall, keine Einarbeitung.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAKETE -->
+<section class="packages" id="pakete">
+  <div class="container">
+    <div class="packages-header reveal">
+      <span class="eyebrow">Drei Pakete zur Auswahl</span>
+      <h2>Individuell <em>abgestimmt</em>.</h2>
+      <p>Umfang und Preis stimmen wir im Erstgespräch gemeinsam ab — damit du genau das Paket bekommst, das zu deiner Marke passt.</p>
+    </div>
+
+    <!-- Verknappung + Exklusivität -->
+    <div class="reveal usp-twin" style="max-width: 1000px; margin: 0 auto 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+      <div style="padding: 22px 26px; background: linear-gradient(135deg, rgba(139, 46, 58, 0.08), rgba(197, 164, 109, 0.12)); border: 1.5px solid var(--gold); border-radius: 16px; display: flex; align-items: center; gap: 16px;">
+        <span style="width: 12px; height: 12px; border-radius: 50%; background: var(--bordeaux); box-shadow: 0 0 0 6px rgba(139, 46, 58, 0.15); animation: pulseDot 2s infinite; flex-shrink: 0;"></span>
+        <div style="font-size: 14px; color: var(--ink); line-height: 1.5;">
+          <strong style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; color: var(--bordeaux); font-size: 17px;">Nur noch 3 Retainer-Plätze</strong> für 2026 verfügbar.
+          <span style="display: block; font-size: 12px; color: var(--muted); margin-top: 4px;">Ich mache alles selbst, deshalb arbeite ich nur mit wenigen Marken gleichzeitig.</span>
+        </div>
+      </div>
+      <div style="padding: 22px 26px; background: linear-gradient(135deg, rgba(139, 46, 58, 0.08), rgba(197, 164, 109, 0.12)); border: 1.5px solid var(--gold); border-radius: 16px; display: flex; align-items: center; gap: 16px;">
+        <span style="width: 32px; height: 32px; flex-shrink: 0; border-radius: 50%; background: var(--bordeaux); color: #fff; display: inline-flex; align-items: center; justify-content: center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </span>
+        <div style="font-size: 14px; color: var(--ink); line-height: 1.5;">
+          <strong style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; color: var(--bordeaux); font-size: 17px;">Nur eine Marke pro Branche</strong> und Region.
+          <span style="display: block; font-size: 12px; color: var(--muted); margin-top: 4px;">Ich mache keinen Content für eure direkte Konkurrenz. Meine ganze Energie fließt in euren Markenaufbau.</span>
+        </div>
+      </div>
+    </div>
+    <style>
+      @media (max-width: 800px) { .usp-twin { grid-template-columns: 1fr !important; } }
+      @keyframes pulseDot {
+        0%, 100% { box-shadow: 0 0 0 6px rgba(139, 46, 58, 0.15); }
+        50% { box-shadow: 0 0 0 12px rgba(139, 46, 58, 0); }
+      }
+
+      /* ─── Rundum-Sorglos (dark editorial) ─── */
+      .sorglos {
+        max-width: 1200px; margin: 80px auto 0;
+      }
+      .sorglos-inner {
+        background: linear-gradient(150deg, var(--ink), #1a1315);
+        border: 1px solid rgba(197, 164, 109, 0.28);
+        border-radius: 16px;
+        padding: 60px 56px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
+      }
+      .sorglos-inner::before {
+        content: ""; position: absolute; top: -100px; right: -80px;
+        width: 380px; height: 380px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(197, 164, 109, 0.28), transparent 65%);
+        filter: blur(50px); pointer-events: none;
+      }
+      .sorglos-inner::after {
+        content: ""; position: absolute; bottom: -140px; left: -100px;
+        width: 380px; height: 380px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(139, 46, 58, 0.28), transparent 65%);
+        filter: blur(60px); pointer-events: none;
+      }
+      .sorglos-head { position: relative; z-index: 1; margin-bottom: 44px; text-align: center; }
+      .sorglos-eyebrow {
+        font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase;
+        color: var(--gold); font-weight: 700; margin-bottom: 18px; display: inline-block;
+      }
+      .sorglos-h {
+        font-family: 'Playfair Display', serif; font-weight: 500;
+        font-size: clamp(32px, 4vw, 56px);
+        color: var(--bg); line-height: 1.05; letter-spacing: -0.02em;
+      }
+      .sorglos-h em { font-style: italic; color: var(--gold); }
+      .sorglos-grid {
+        position: relative; z-index: 1;
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 20px;
+      }
+      @media (max-width: 800px) { .sorglos-grid { grid-template-columns: 1fr 1fr; } }
+      @media (max-width: 500px) { .sorglos-grid { grid-template-columns: 1fr; } }
+      .sorglos-item {
+        display: flex; align-items: center; gap: 14px;
+        padding: 14px 18px;
+        background: rgba(251, 242, 237, 0.04);
+        border: 1px solid rgba(197, 164, 109, 0.16);
+        border-radius: 10px;
+        font-size: 14px; color: var(--bg); font-weight: 500;
+        transition: all 0.4s;
+      }
+      .sorglos-item:hover {
+        border-color: var(--gold);
+        background: rgba(251, 242, 237, 0.07);
+        transform: translateY(-2px);
+      }
+      .sorglos-item.highlight {
+        background: linear-gradient(135deg, rgba(139, 46, 58, 0.4), rgba(197, 164, 109, 0.2));
+        border-color: var(--gold);
+      }
+      .sorglos-item .sicn {
+        width: 32px; height: 32px; border-radius: 50%;
+        background: rgba(197, 164, 109, 0.18);
+        color: var(--gold);
+        display: inline-flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+      }
+      .sorglos-item.highlight .sicn { background: rgba(197, 164, 109, 0.35); }
+      .sorglos-foot {
+        position: relative; z-index: 1;
+        margin-top: 40px; padding-top: 32px;
+        border-top: 1px solid rgba(197, 164, 109, 0.22);
+        display: flex; align-items: center; gap: 20px;
+        justify-content: center;
+      }
+      .sorglos-foot p {
+        font-size: 15px; color: rgba(251, 242, 237, 0.75); line-height: 1.6;
+      }
+      .sorglos-foot p strong {
+        font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+        color: var(--bg); font-size: 17px;
+      }
+      .sorglos-foot .pulse-dot {
+        width: 10px; height: 10px; border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 0 5px rgba(197, 164, 109, 0.2);
+        animation: pulseDot 2.2s ease-in-out infinite;
+        flex-shrink: 0;
+      }
+      @media (max-width: 700px) {
+        .sorglos-inner { padding: 40px 28px; }
+        .sorglos-foot { flex-direction: column; text-align: center; gap: 14px; }
+      }
+
+      /* ─── Verknappung (dark) ─── */
+      .usp-twin > div {
+        background: linear-gradient(135deg, var(--ink), #1a1315) !important;
+        border: 1px solid rgba(197, 164, 109, 0.28) !important;
+        color: var(--bg);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+      }
+      .usp-twin > div strong { color: var(--gold) !important; }
+      .usp-twin > div > div { color: var(--bg) !important; }
+      .usp-twin > div span[style*="color: var(--muted)"] { color: rgba(251, 242, 237, 0.65) !important; }
+      .usp-twin > div span[style*="background: var(--bordeaux)"] { background: var(--gold) !important; color: var(--ink) !important; }
+
+      /* ─── Prozess Accordion ─── */
+      .prozess-accordion { max-width: 900px; margin: 0 auto; }
+      .p-step {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        margin-bottom: 12px;
+        overflow: hidden;
+        transition: border-color 0.4s;
+      }
+      .p-step[open] { border-color: var(--bordeaux); }
+      .p-step summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 22px 24px;
+        display: grid;
+        grid-template-columns: 62px 1fr auto;
+        gap: 24px;
+        align-items: center;
+      }
+      .p-step summary::-webkit-details-marker { display: none; }
+      .p-step .p-n {
+        width: 62px; height: 62px; border-radius: 50%;
+        background: var(--card);
+        border: 2px solid var(--bordeaux);
+        display: inline-flex; align-items: center; justify-content: center;
+        font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+        color: var(--bordeaux); font-size: 22px;
+        transition: all 0.5s;
+      }
+      .p-step[open] .p-n {
+        background: var(--bordeaux); color: var(--gold);
+        box-shadow: 0 0 30px rgba(139, 46, 58, 0.35);
+      }
+      .p-step .p-title {
+        display: flex; flex-direction: column; gap: 4px;
+      }
+      .p-step .p-kicker {
+        font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+        color: var(--bordeaux); font-weight: 700;
+      }
+      .p-step .p-h {
+        font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+        font-size: 22px; color: var(--ink);
+      }
+      .p-step .p-arrow {
+        width: 32px; height: 32px; border-radius: 50%;
+        background: rgba(139, 46, 58, 0.08);
+        color: var(--bordeaux);
+        display: inline-flex; align-items: center; justify-content: center;
+        transition: transform 0.4s;
+      }
+      .p-step[open] .p-arrow { transform: rotate(180deg); }
+      .p-step .p-body {
+        padding: 0 24px 26px 110px;
+        font-size: 14px; color: var(--muted); line-height: 1.7;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.6s ease, opacity 0.6s ease, padding 0.6s ease;
+      }
+      .p-step[open] .p-body {
+        max-height: 400px;
+        opacity: 1;
+        padding-bottom: 26px;
+        padding-top: 4px;
+      }
+      /* Final Step: Content geht live */
+      .p-step.p-final { background: linear-gradient(135deg, var(--bordeaux), var(--bordeaux-hi)); border-color: var(--gold); color: #fff; }
+      .p-step.p-final .p-n { background: var(--bordeaux); border-color: var(--gold); color: var(--gold); }
+      .p-step.p-final[open] .p-n { background: var(--gold); color: var(--ink); }
+      .p-step.p-final .p-kicker { color: var(--gold); }
+      .p-step.p-final .p-h { color: #fff; }
+      .p-step.p-final .p-arrow { background: rgba(197, 164, 109, 0.25); color: var(--gold); }
+      .p-step.p-final .p-body { color: rgba(255, 255, 255, 0.85); }
+
+      @media (max-width: 600px) {
+        .p-step summary { grid-template-columns: 48px 1fr auto; gap: 14px; padding: 18px 16px; }
+        .p-step .p-n { width: 48px; height: 48px; font-size: 18px; }
+        .p-step .p-body { padding: 0 16px 22px 78px; }
+      }
+
+      /* ─── Pakete Section (dark editorial) ─── */
+      section.packages {
+        background: var(--ink) !important;
+        color: var(--bg);
+        position: relative;
+        overflow: hidden;
+      }
+      section.packages::before {
+        content: ""; position: absolute; top: -150px; left: -100px;
+        width: 500px; height: 500px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(197, 164, 109, 0.12), transparent 70%);
+        filter: blur(50px); pointer-events: none;
+      }
+      section.packages::after {
+        content: ""; position: absolute; bottom: -180px; right: -100px;
+        width: 500px; height: 500px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(139, 46, 58, 0.22), transparent 70%);
+        filter: blur(60px); pointer-events: none;
+      }
+      section.packages > .container { position: relative; z-index: 1; }
+      section.packages .packages-header .eyebrow,
+      section.packages .packages-header span.eyebrow { color: var(--gold) !important; }
+      section.packages .packages-header h2 { color: var(--bg) !important; }
+      section.packages .packages-header h2 em { color: var(--gold) !important; }
+      section.packages .packages-header p { color: rgba(251, 242, 237, 0.7) !important; }
+
+      /* Verknappung im dunklen Kontext */
+      section.packages .usp-twin > div {
+        background: rgba(251, 242, 237, 0.04) !important;
+        border-color: rgba(197, 164, 109, 0.28) !important;
+      }
+      section.packages .usp-twin > div > div,
+      section.packages .usp-twin > div * { color: var(--bg) !important; }
+      section.packages .usp-twin > div strong { color: var(--gold) !important; }
+      section.packages .usp-twin > div span[style*="var(--muted)"] { color: rgba(251, 242, 237, 0.65) !important; }
+      section.packages .usp-twin > div span[style*="background: var(--bordeaux)"],
+      section.packages .usp-twin > div span[style*="background:var(--bordeaux)"] { background: var(--gold) !important; color: var(--ink) !important; }
+      section.packages .usp-twin > div svg { color: var(--ink); }
+
+      /* „Kein Paket passt zu 100%" callout im Dunkel */
+      section.packages > .container > .reveal.d3[style*="background: rgba(197, 164, 109, 0.1)"] {
+        background: rgba(197, 164, 109, 0.08) !important;
+        border-left-color: var(--gold) !important;
+      }
+
+      /* Pakete Accordion */
+      .pkg-accordion { max-width: 1000px; margin: 0 auto; }
+      .pkg-card {
+        background: rgba(251, 242, 237, 0.04);
+        border: 1px solid rgba(197, 164, 109, 0.22);
+        border-radius: 14px;
+        margin-bottom: 16px;
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        backdrop-filter: blur(6px);
+      }
+      .pkg-card:hover:not([open]) {
+        border-color: rgba(197, 164, 109, 0.4);
+        background: rgba(251, 242, 237, 0.06);
+      }
+      .pkg-card[open] {
+        border-color: var(--gold);
+        background: rgba(251, 242, 237, 0.07);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+      }
+      .pkg-card.pkg-featured {
+        border-color: var(--gold);
+        background: linear-gradient(135deg, rgba(139, 46, 58, 0.28), rgba(197, 164, 109, 0.10));
+      }
+      .pkg-card.pkg-featured::before {
+        content: "Empfehlung";
+        position: absolute;
+        top: 20px; right: 24px;
+        padding: 6px 14px;
+        background: var(--gold);
+        color: var(--ink);
+        border-radius: 999px;
+        font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+        font-weight: 700;
+        z-index: 3;
+      }
+      .pkg-card { position: relative; }
+
+      .pkg-card summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 32px 40px;
+        display: grid;
+        grid-template-columns: 1.4fr 1fr auto;
+        gap: 30px;
+        align-items: center;
+      }
+      .pkg-card summary::-webkit-details-marker { display: none; }
+      .pkg-info { display: flex; flex-direction: column; gap: 6px; }
+      .pkg-name {
+        font-family: 'Playfair Display', serif; font-weight: 500;
+        font-size: 32px; color: var(--bg);
+        line-height: 1; letter-spacing: -0.02em;
+      }
+      .pkg-tag {
+        font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+        color: rgba(251, 242, 237, 0.65);
+        font-weight: 600;
+      }
+      .pkg-priceblock { text-align: left; }
+      .pkg-price {
+        font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+        font-size: 22px; color: var(--gold);
+        line-height: 1.1;
+      }
+      .pkg-period {
+        font-size: 12px; color: rgba(251, 242, 237, 0.55);
+        margin-top: 4px;
+        line-height: 1.4;
+      }
+      .pkg-toggle {
+        display: inline-flex; align-items: center; gap: 10px;
+        padding: 14px 22px;
+        border: 1.5px solid var(--gold);
+        border-radius: 999px;
+        color: var(--gold);
+        font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+        font-weight: 700;
+        white-space: nowrap;
+        transition: all 0.4s;
+      }
+      .pkg-card[open] .pkg-toggle {
+        background: var(--gold); color: var(--ink);
+      }
+      .pkg-toggle svg { transition: transform 0.4s; }
+      .pkg-card[open] .pkg-toggle svg { transform: rotate(180deg); }
+
+      .pkg-details {
+        padding: 0 40px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.7s ease, opacity 0.5s ease, padding 0.5s ease;
+      }
+      .pkg-card[open] .pkg-details {
+        max-height: 1200px;
+        opacity: 1;
+        padding-bottom: 36px;
+      }
+      .pkg-features {
+        list-style: none;
+        padding: 24px 0;
+        border-top: 1px dashed rgba(197, 164, 109, 0.22);
+        margin: 0 0 28px;
+        display: grid; grid-template-columns: 1fr 1fr;
+        gap: 14px 30px;
+      }
+      @media (max-width: 700px) { .pkg-features { grid-template-columns: 1fr; } }
+      .pkg-features li {
+        display: flex; align-items: flex-start; gap: 12px;
+        font-size: 14px; color: rgba(251, 242, 237, 0.85);
+        line-height: 1.5;
+      }
+      .pkg-features li strong { color: var(--gold); font-weight: 600; }
+      .pkg-features .pkg-check {
+        width: 20px; height: 20px; border-radius: 50%;
+        background: rgba(197, 164, 109, 0.18);
+        color: var(--gold);
+        display: inline-flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      .pkg-features .pkg-check::before {
+        content: ""; width: 8px; height: 4px;
+        border-left: 1.5px solid currentColor;
+        border-bottom: 1.5px solid currentColor;
+        transform: rotate(-45deg) translate(1px, -1px);
+      }
+      .pkg-details .btn-request {
+        display: inline-block;
+        padding: 16px 32px;
+        background: var(--gold);
+        color: var(--ink);
+        border-radius: 999px;
+        font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+        font-weight: 700;
+        transition: all 0.4s;
+        text-decoration: none;
+      }
+      .pkg-details .btn-request:hover {
+        background: var(--gold-hi);
+        transform: translateY(-2px);
+        box-shadow: 0 20px 40px rgba(197, 164, 109, 0.35);
+      }
+
+      @media (max-width: 800px) {
+        .pkg-card summary { grid-template-columns: 1fr; gap: 20px; padding: 28px 24px; }
+        .pkg-card .pkg-toggle { justify-self: start; }
+        .pkg-card.pkg-featured::before { top: -12px; right: 24px; }
+        .pkg-details { padding: 0 24px; }
+        .pkg-card[open] .pkg-details { padding-bottom: 28px; }
+      }
+    </style>
+
+    <div class="pkg-accordion reveal d1">
+      <!-- Paket 1: Starter -->
+      <details class="pkg-card">
+        <summary>
+          <span class="pkg-info">
+            <span class="pkg-name">Starter</span>
+            <span class="pkg-tag">Kontinuierlicher Aufbau</span>
+          </span>
+          <span class="pkg-priceblock">
+            <span class="pkg-price">Preis auf Anfrage</span>
+            <span class="pkg-period">Individuell abgestimmt<br>Kündigung 1 Monat</span>
+          </span>
+          <span class="pkg-toggle">
+            Angebot ansehen
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="pkg-details">
+          <ul class="pkg-features">
+            <li><span class="pkg-check"></span>2 Beiträge pro Woche (8 / Monat)</li>
+            <li><span class="pkg-check"></span>1 Reel pro Woche (4 / Monat)</li>
+            <li><span class="pkg-check"></span>Fester Rhythmus (Mo · Mi · Sa)</li>
+            <li><span class="pkg-check"></span>1 Vor-Ort-Dreh pro Monat (max. 3 h)</li>
+            <li><span class="pkg-check"></span>Wöchentliches Briefing (montags)</li>
+            <li><span class="pkg-check"></span>Recherche &amp; Contentplan</li>
+            <li><span class="pkg-check"></span>Captions + Videoschnitt</li>
+            <li><span class="pkg-check"></span>Community-Management</li>
+          </ul>
+          <a href="index.html#newsletter" class="btn-request">Starter anfragen</a>
+        </div>
+      </details>
+
+      <!-- Paket 2: Wachstum (featured) -->
+      <details class="pkg-card pkg-featured">
+        <summary>
+          <span class="pkg-info">
+            <span class="pkg-name">Wachstum</span>
+            <span class="pkg-tag">Mehr Frequenz &amp; Storys</span>
+          </span>
+          <span class="pkg-priceblock">
+            <span class="pkg-price">Preis auf Anfrage</span>
+            <span class="pkg-period">Individuell abgestimmt<br>Kündigung 1 Monat</span>
+          </span>
+          <span class="pkg-toggle">
+            Angebot ansehen
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="pkg-details">
+          <ul class="pkg-features">
+            <li><span class="pkg-check"></span>2 Beiträge pro Woche (8 / Monat)</li>
+            <li><span class="pkg-check"></span>1 Reel pro Woche (4 / Monat)</li>
+            <li><span class="pkg-check"></span>Fester Rhythmus (Beiträge + Reel + Storys)</li>
+            <li><span class="pkg-check"></span>1 Vor-Ort-Dreh pro Monat (max. 3 h)</li>
+            <li><span class="pkg-check"></span><strong>4 Storys pro Woche</strong></li>
+            <li><span class="pkg-check"></span>Wöchentliches Briefing (montags)</li>
+            <li><span class="pkg-check"></span>Recherche &amp; Contentplan</li>
+            <li><span class="pkg-check"></span>Captions + Videoschnitt</li>
+            <li><span class="pkg-check"></span><strong>ManyChat-Automation</strong></li>
+            <li><span class="pkg-check"></span>Community-Management</li>
+            <li><span class="pkg-check"></span><strong>Trend- &amp; Konkurrenzanalyse</strong></li>
+          </ul>
+          <a href="index.html#newsletter" class="btn-request">Wachstum anfragen</a>
+        </div>
+      </details>
+
+      <!-- Paket 3: Signature -->
+      <details class="pkg-card">
+        <summary>
+          <span class="pkg-info">
+            <span class="pkg-name">Signature</span>
+            <span class="pkg-tag">Maximale Content-Frequenz</span>
+          </span>
+          <span class="pkg-priceblock">
+            <span class="pkg-price">Preis auf Anfrage</span>
+            <span class="pkg-period">Individuell abgestimmt<br>Kündigung 1 Monat</span>
+          </span>
+          <span class="pkg-toggle">
+            Angebot ansehen
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="pkg-details">
+          <ul class="pkg-features">
+            <li><span class="pkg-check"></span><strong>3 Beiträge pro Woche (12 / Monat)</strong></li>
+            <li><span class="pkg-check"></span><strong>2 Reels pro Woche (8 / Monat)</strong></li>
+            <li><span class="pkg-check"></span>Fester Rhythmus + tägliche Storys</li>
+            <li><span class="pkg-check"></span>1 Vor-Ort-Dreh pro Monat (max. 3 h)</li>
+            <li><span class="pkg-check"></span><strong>Tägliche Storys</strong></li>
+            <li><span class="pkg-check"></span>Wöchentliches Briefing (montags)</li>
+            <li><span class="pkg-check"></span>Recherche &amp; Contentplan</li>
+            <li><span class="pkg-check"></span>Captions + Videoschnitt</li>
+            <li><span class="pkg-check"></span>ManyChat-Automation</li>
+            <li><span class="pkg-check"></span>Community-Management</li>
+            <li><span class="pkg-check"></span>Trend- &amp; Konkurrenzanalyse</li>
+            <li><span class="pkg-check"></span><strong>Monatlicher Reichweiten-Report</strong></li>
+            <li><span class="pkg-check"></span><strong>Cross-Post auf @Julia_Bergles</strong> (2 Beiträge + 1 Story / Monat)</li>
+            <li><span class="pkg-check"></span><strong>Erwähnung in TerraLuna-App</strong></li>
+          </ul>
+          <a href="index.html#newsletter" class="btn-request">Signature anfragen</a>
+        </div>
+      </details>
+    </div>
+
+    <div class="reveal d3" style="max-width: 780px; margin: 60px auto 0; padding: 28px 36px; background: rgba(197, 164, 109, 0.1); border-left: 3px solid var(--gold); border-radius: 4px; text-align: left;">
+      <p style="font-size: 15px; color: rgba(251, 242, 237, 0.9); line-height: 1.7; margin: 0;"><strong style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; color: var(--gold);">Kein Paket passt zu 100 %?</strong> Bevor wir über Preise reden, will ich verstehen, was Ihre Marke braucht.<br>Im kostenlosen Erstgespräch schauen wir gemeinsam, welcher Zuschnitt für Sie Sinn ergibt und was das dann kostet.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section id="addons" style="padding: 140px 0; background: var(--ink); color: var(--bg); position: relative; overflow: hidden;">
+  <div style="position: absolute; top: -150px; left: -150px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(197, 164, 109, 0.14), transparent 70%); pointer-events: none;"></div>
+  <div style="position: absolute; bottom: -150px; right: -150px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(139, 46, 58, 0.22), transparent 70%); pointer-events: none;"></div>
+  <div class="container" style="position: relative;">
+    <div class="reveal" style="text-align: center; margin-bottom: 70px; max-width: 900px; margin-left: auto; margin-right: auto;">
+      <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 20px; display: inline-block;">Zubuchbare Extras</span>
+      <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: clamp(32px, 4vw, 66px); margin-bottom: 16px; color: var(--bg); letter-spacing: -0.01em;">Meine <span style="font-style: italic; color: var(--gold);">Reichweite</span> als Add-On.</h3>
+      <p style="font-size: 16px; color: rgba(251, 242, 237, 0.7); max-width: 620px; margin: 0 auto; line-height: 1.6;">Kombinierbar mit jedem Paket. Buchbar ab Monat 2, wenn wir uns eingespielt haben.</p>
+    </div>
+    <div class="addon-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 950px; margin: 0 auto;">
+      <div class="reveal d1" style="background: rgba(251, 242, 237, 0.04); backdrop-filter: blur(8px); border: 1px solid var(--gold); border-radius: 12px; padding: 44px 36px; text-align: left; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);">
+        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 20px;">
+          <div style="width: 42px; height: 42px; border-radius: 50%; background: var(--gold); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; font-size: 18px;">A</div>
+          <span style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 700;">Add-On A</span>
+        </div>
+        <h4 style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 28px; color: var(--bg); margin-bottom: 12px; letter-spacing: -0.01em;">Cross-Posting</h4>
+        <p style="font-size: 14px; color: rgba(251, 242, 237, 0.7); line-height: 1.65; margin-bottom: 24px;"><strong style="color: var(--gold);">2 Beiträge + 1 Story</strong> pro Monat auf <strong style="color: var(--gold);">@Julia_Bergles</strong>. Bis zu 1,77 Mio. Aufrufe / Monat. Zielgruppe: Frauen im Gesundheitsbereich.</p>
+        <div style="border-top: 1px solid rgba(197, 164, 109, 0.25); padding-top: 20px; display: flex; justify-content: space-between; align-items: baseline;">
+          <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 32px; color: var(--gold); line-height: 1;">550&nbsp;€<span style="font-size: 14px; color: rgba(251, 242, 237, 0.6); font-family: 'Object Sans', sans-serif; font-style: normal; font-weight: 400;">&nbsp;/&nbsp;Monat</span></div>
+          <span style="font-size: 11px; color: rgba(251, 242, 237, 0.6); letter-spacing: 0.15em; text-transform: uppercase;">2 Posts + 1 Story</span>
+        </div>
+      </div>
+
+      <div class="reveal d2" style="background: rgba(251, 242, 237, 0.04); backdrop-filter: blur(8px); border: 1px solid var(--gold); border-radius: 12px; padding: 44px 36px; text-align: left; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);">
+        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 20px;">
+          <div style="width: 42px; height: 42px; border-radius: 50%; background: var(--gold); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; font-size: 18px;">B</div>
+          <span style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 700;">Add-On B</span>
+        </div>
+        <h4 style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 28px; color: var(--bg); margin-bottom: 12px; letter-spacing: -0.01em;">Erwähnung in TerraLuna-App</h4>
+        <p style="font-size: 14px; color: rgba(251, 242, 237, 0.7); line-height: 1.65; margin-bottom: 24px;">Ihre Marke wird in meiner <strong style="color: var(--gold);">TerraLuna-App</strong> platziert — warme, gesundheitsaffine Nutzerinnen, die aktiv Empfehlungen suchen.</p>
+        <div style="border-top: 1px solid rgba(197, 164, 109, 0.25); padding-top: 20px; display: flex; justify-content: space-between; align-items: baseline;">
+          <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 26px; color: var(--gold); line-height: 1;">Preis auf Anfrage</div>
+          <span style="font-size: 11px; color: rgba(251, 242, 237, 0.6); letter-spacing: 0.15em; text-transform: uppercase;">Feste Platzierung</span>
+        </div>
+      </div>
+    </div>
+    <p class="reveal" style="margin-top: 30px; text-align: center; font-size: 14px; color: rgba(251, 242, 237, 0.65); font-style: italic;">Beide Add-Ons zusammen als vergünstigtes Bundle.</p>
+    <style>@media (max-width: 800px) { .addon-grid { grid-template-columns: 1fr !important; } }</style>
+  </div>
+</section>
+
+<!-- SO STARTEN WIR (Prozess) -->
+<section id="prozess" style="padding: 140px 0; background: var(--bg); position: relative; overflow: hidden;">
+  <div class="container">
+    <div class="reveal" style="text-align: center; margin-bottom: 80px; max-width: 900px; margin-left: auto; margin-right: auto;">
+      <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 24px; display: inline-block;">Der Ablauf</span>
+      <h2 style="font-size: clamp(40px, 5.5vw, 76px); font-weight: 400; color: var(--ink); margin-bottom: 20px;">So <em style="font-style: italic; color: var(--bordeaux);">starten</em> wir.</h2>
+      <p style="font-size: 16px; color: var(--muted); line-height: 1.6;">Vom ersten Kontakt bis zum ersten veröffentlichten Beitrag — transparent, ohne versteckte Schritte.</p>
+    </div>
+
+    <div class="prozess-accordion reveal d1">
+      <details class="p-step">
+        <summary>
+          <span class="p-n">01</span>
+          <span class="p-title">
+            <span class="p-kicker">Unverbindlich · 30 Minuten</span>
+            <span class="p-h">Kostenloses Erstgespräch</span>
+          </span>
+          <span class="p-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="p-body">
+          Wir klären, ob wir zusammenpassen.
+          <br>Sie erzählen mir von Ihrer Marke, ich zeige Ihnen, wie ich arbeite.
+          <br>Kein Verkaufs-Pitch.
+        </div>
+      </details>
+
+      <details class="p-step">
+        <summary>
+          <span class="p-n">02</span>
+          <span class="p-title">
+            <span class="p-kicker">Nach Vertrag</span>
+            <span class="p-h">Zugang zu Instagram</span>
+          </span>
+          <span class="p-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="p-body">
+          Sicherer Login-Übergang.
+          <br>Ich bekomme Zugang als Redakteurin.
+          <br>Sie behalten die volle Kontrolle über Ihren Account.
+        </div>
+      </details>
+
+      <details class="p-step">
+        <summary>
+          <span class="p-n">03</span>
+          <span class="p-title">
+            <span class="p-kicker">Marken-Analyse</span>
+            <span class="p-h">Ich analysiere Ihre Marke</span>
+          </span>
+          <span class="p-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="p-body">
+          Ich sehe mir Ihre Website an, Ihre Produkte, Ihre Sprache, Ihre Zielgruppe.
+          <br>Daraus entsteht der Contentplan für den ersten Monat.
+        </div>
+      </details>
+
+      <details class="p-step">
+        <summary>
+          <span class="p-n">04</span>
+          <span class="p-title">
+            <span class="p-kicker">Produkte · Vor-Ort-Dreh</span>
+            <span class="p-h">Aufnahme &amp; Setup</span>
+          </span>
+          <span class="p-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="p-body">
+          Wenn Sie Produkte haben, schicken Sie mir welche für die Studio-Aufnahmen.
+          <br>Für Vor-Ort-Content kommen ich oder mein Kollege zu Ihnen.
+          <br>Maximal 3 Stunden Dreh, kein Skript.
+        </div>
+      </details>
+
+      <details class="p-step">
+        <summary>
+          <span class="p-n">05</span>
+          <span class="p-title">
+            <span class="p-kicker">Erste Beiträge · Freigabe</span>
+            <span class="p-h">Ich schneide, Sie geben frei</span>
+          </span>
+          <span class="p-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="p-body">
+          Ich schneide die ersten Videos und baue die Beiträge.
+          <br>Freigabe läuft unkompliziert über WhatsApp.
+          <br>Kein Portal, kein E-Mail-Pingpong.
+        </div>
+      </details>
+
+      <details class="p-step p-final">
+        <summary>
+          <span class="p-n">06</span>
+          <span class="p-title">
+            <span class="p-kicker">Ab jetzt läuft's</span>
+            <span class="p-h">Content geht live</span>
+          </span>
+          <span class="p-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="p-body">
+          Regelmäßig, konsistent, im Ton Ihrer Marke.
+          <br>Ich messe die Ergebnisse und optimiere monatlich.
+          <br>Ohne dass Sie dafür Aufwand haben.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ (Pakete-bezogen) -->
+<section id="faq" style="padding: 140px 0; background: var(--bg-warm);">
+  <div class="container">
+    <div class="reveal" style="text-align: center; margin-bottom: 60px; max-width: 900px; margin-left: auto; margin-right: auto;">
+      <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 24px; display: inline-block;">Häufige Fragen · Retainer</span>
+      <h2 style="font-size: clamp(38px, 5vw, 68px); font-weight: 400; color: var(--ink);">Was Kundinnen <span class="circle-italic">fragen</span>.</h2>
+    </div>
+    <div class="reveal d1" style="max-width: 800px; margin: 0 auto;">
+      <details style="background: var(--card); border: 1px solid var(--line); border-radius: 8px; margin-bottom: 12px; overflow: hidden; transition: border-color 0.3s;" ontoggle="this.style.borderColor = this.open ? 'var(--bordeaux)' : 'var(--line)'">
+        <summary style="padding: 24px 28px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-family: 'Object Sans', sans-serif; font-weight: 600; font-size: 17px; color: var(--ink);">
+          Wie lange bin ich vertraglich gebunden?
+          <span style="color: var(--bordeaux); font-size: 24px; transition: transform 0.3s; flex-shrink: 0;">+</span>
+        </summary>
+        <div style="padding: 0 28px 24px; font-size: 15px; color: var(--muted); line-height: 1.7;">
+          Kündigungsfrist 1 Monat zum Monatsende.
+          <br>Keine Mindestlaufzeit.
+          <br>Ich empfehle mindestens 3 Monate, vorher lassen sich Ergebnisse schwer beurteilen.
+        </div>
+      </details>
+      <details style="background: var(--card); border: 1px solid var(--line); border-radius: 8px; margin-bottom: 12px; overflow: hidden; transition: border-color 0.3s;" ontoggle="this.style.borderColor = this.open ? 'var(--bordeaux)' : 'var(--line)'">
+        <summary style="padding: 24px 28px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-family: 'Object Sans', sans-serif; font-weight: 600; font-size: 17px; color: var(--ink);">
+          Kann ich zwischen den Paketen wechseln?
+          <span style="color: var(--bordeaux); font-size: 24px; transition: transform 0.3s; flex-shrink: 0;">+</span>
+        </summary>
+        <div style="padding: 0 28px 24px; font-size: 15px; color: var(--muted); line-height: 1.7;">
+          Ja, jederzeit zum nächsten Monat.
+          <br>Upgrade sofort, Downgrade mit 1 Monat Vorlauf.
+        </div>
+      </details>
+      <details style="background: var(--card); border: 1px solid var(--line); border-radius: 8px; margin-bottom: 12px; overflow: hidden; transition: border-color 0.3s;" ontoggle="this.style.borderColor = this.open ? 'var(--bordeaux)' : 'var(--line)'">
+        <summary style="padding: 24px 28px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-family: 'Object Sans', sans-serif; font-weight: 600; font-size: 17px; color: var(--ink);">
+          Was passiert bei Urlaub oder Krankheit?
+          <span style="color: var(--bordeaux); font-size: 24px; transition: transform 0.3s; flex-shrink: 0;">+</span>
+        </summary>
+        <div style="padding: 0 28px 24px; font-size: 15px; color: var(--muted); line-height: 1.7;">
+          Ich produziere Content im Voraus.
+          <br>Ihr Feed läuft auch, wenn Sie im Urlaub sind.
+          <br>Bei meinem eigenen Urlaub (max. 2 Wochen pro Jahr) sage ich frühzeitig Bescheid und schiebe entsprechend vor.
+        </div>
+      </details>
+      <details style="background: var(--card); border: 1px solid var(--line); border-radius: 8px; margin-bottom: 12px; overflow: hidden; transition: border-color 0.3s;" ontoggle="this.style.borderColor = this.open ? 'var(--bordeaux)' : 'var(--line)'">
+        <summary style="padding: 24px 28px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-family: 'Object Sans', sans-serif; font-weight: 600; font-size: 17px; color: var(--ink);">
+          Wann sehe ich erste Ergebnisse?
+          <span style="color: var(--bordeaux); font-size: 24px; transition: transform 0.3s; flex-shrink: 0;">+</span>
+        </summary>
+        <div style="padding: 0 28px 24px; font-size: 15px; color: var(--muted); line-height: 1.7;">
+          Reichweite meist im ersten Monat sichtbar.
+          <br>Anfragen und Kundinnen brauchen realistisch 2 bis 3 Monate.
+          <br>Instagram belohnt Konsistenz, nicht Einzelbeiträge.
+        </div>
+      </details>
+      <details style="background: var(--card); border: 1px solid var(--line); border-radius: 8px; margin-bottom: 12px; overflow: hidden; transition: border-color 0.3s;" ontoggle="this.style.borderColor = this.open ? 'var(--bordeaux)' : 'var(--line)'">
+        <summary style="padding: 24px 28px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-family: 'Object Sans', sans-serif; font-weight: 600; font-size: 17px; color: var(--ink);">
+          Wem gehört der Content, den Sie produzieren?
+          <span style="color: var(--bordeaux); font-size: 24px; transition: transform 0.3s; flex-shrink: 0;">+</span>
+        </summary>
+        <div style="padding: 0 28px 24px; font-size: 15px; color: var(--muted); line-height: 1.7;">
+          Ihnen.
+          <br>Alle Nutzungsrechte am produzierten Content gehen ab Bezahlung auf Sie über.
+          <br>Auch für spätere Verwendung außerhalb von Instagram.
+        </div>
+      </details>
+    </div>
+  </div>
+  <style>
+    details summary::-webkit-details-marker { display: none; }
+    details[open] summary span { transform: rotate(45deg); }
+  </style>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <h2 class="reveal">Reden wir <em>offen zusammen</em>.</h2>
+    <p class="reveal d1">
+      30 Minuten Erstgespräch.
+      <br>Kostenlos und unverbindlich.
+      <br>Wir schauen, ob wir zusammenpassen.
+    </p>
+    <div class="cta-buttons reveal d2">
+      <a href="index.html#newsletter" class="btn-red" style="box-shadow: 0 20px 40px rgba(139, 46, 58, 0.5);">Erstgespräch buchen</a>
+      <a href="tel:+4915118515394" class="btn-call">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"/></svg>
+        Direkt anrufen
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="row">
+    <p>© 2026 On Point · Julia Bergles · Augsburg</p>
+    <div class="links">
+      <a href="index.html">Startseite</a>
+      <a href="warum-onpoint.html">Über Julia</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>

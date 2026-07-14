@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index, follow" />
+<title>Mediendesign · On Point</title>
+<meta name="description" content="Visitenkarten, Print und Grafik ohne KI. Editorial, hochwertig, handgemacht. Für Marken, die auch offline auffallen wollen." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=object-sans@300,400,500,600,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap">
+<link rel="stylesheet" href="css/onpoint.css">
+<style>
+  /* Leistungen (dark editorial) */
+  .leistung-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; }
+  @media (max-width: 1050px) { .leistung-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 500px) { .leistung-grid { grid-template-columns: 1fr; } }
+  .leistung {
+    background: rgba(251, 242, 237, 0.04);
+    border: 1px solid rgba(197, 164, 109, 0.22);
+    border-radius: 12px;
+    padding: 32px 28px;
+    text-align: left;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(6px);
+    position: relative;
+    overflow: hidden;
+  }
+  .leistung::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(197, 164, 109, 0.08));
+    opacity: 0; transition: opacity 0.6s; pointer-events: none;
+  }
+  .leistung:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    background: rgba(251, 242, 237, 0.06);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  }
+  .leistung:hover::before { opacity: 1; }
+  .leistung .thumb {
+    aspect-ratio: 16/10;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: rgba(251, 242, 237, 0.06);
+    position: relative;
+  }
+  .leistung .thumb img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .leistung:hover .thumb img { transform: scale(1.06); }
+  .leistung .thumb::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(45, 31, 34, 0.35));
+    pointer-events: none;
+  }
+  .leistung .icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: rgba(197, 164, 109, 0.14);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--gold); margin-bottom: 18px;
+  }
+  .leistung h4 {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+    font-size: 22px; color: var(--bg); margin-bottom: 12px;
+    line-height: 1.15; letter-spacing: -0.01em;
+  }
+  .leistung p { font-size: 14px; color: rgba(251, 242, 237, 0.65); line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="row">
+    <a href="index.html" class="brand">On Point</a>
+    <ul>
+      <li><a href="warum-onpoint.html">Warum On Point</a></li>
+      <li><a href="social-media.html">Social Media</a></li>
+      <li><a href="mediendesign.html" class="current">Mediendesign</a></li>
+      <li><a href="websites.html">Webdesign</a></li>
+      <li><a href="pakete.html">Pakete</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+    </ul>
+    <a href="#kontakt" class="nav-cta">Beratung</a>
+    <button class="nav-burger" aria-label="Menü" onclick="document.getElementById('mobile-menu').classList.toggle('open'); this.classList.toggle('open');"><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="warum-onpoint.html">Warum On Point</a>
+    <a href="social-media.html">Social Media</a>
+    <a href="mediendesign.html" class="current">Mediendesign</a>
+    <a href="websites.html">Webdesign</a>
+    <a href="pakete.html">Pakete</a>
+    <a href="ueber-mich.html">Über mich</a>
+    <a href="#kontakt" class="mobile-cta">Beratung</a>
+  </div>
+</nav>
+<div class="nav-spacer"></div>
+
+<section class="page-hero page-hero-image" style="background-image: linear-gradient(180deg, rgba(45, 31, 34, 0.88), rgba(45, 31, 34, 0.95)), url('img/hero-mediendesign.png'); background-size: cover; background-position: center; color: var(--bg);">
+  <div class="container">
+    <div class="eyebrow reveal" style="color: var(--gold);">Mediendesign</div>
+    <h1 class="reveal d1" style="color: #fff;">Print, das <em style="color: var(--gold);">bleibt</em>.</h1>
+    <p class="lede reveal d2" style="color: rgba(255, 255, 255, 0.85);">
+      Visitenkarten, Flyer, Corporate Design.
+      <br>Editorial, hochwertig, handgemacht.
+      <br><em style="color: var(--gold);">Ohne KI-Bla, ohne Baukasten-Look.</em>
+    </p>
+    <div class="reveal d3" style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+      <a href="#kontakt" class="btn-red">Anfrage stellen</a>
+      <a href="#referenzen" class="btn-outline">Referenzen ansehen</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE-STRIP -->
+<div class="mini-marquee reveal">
+  <div class="track">
+    <span class="item">Logo-Entwicklung</span><span class="sep"></span>
+    <span class="item">Visitenkarten</span><span class="sep"></span>
+    <span class="item">Event-Flyer</span><span class="sep"></span>
+    <span class="item">Kochbücher</span><span class="sep"></span>
+    <span class="item">E-Books</span><span class="sep"></span>
+    <span class="item">YouTube-Thumbnails</span><span class="sep"></span>
+    <span class="item">Präsentationen</span><span class="sep"></span>
+    <span class="item">Ohne KI</span><span class="sep"></span>
+    <span class="item">Corporate Design</span><span class="sep"></span>
+    <span class="item">Speisekarten</span><span class="sep"></span>
+    <span class="item">Workbooks</span><span class="sep"></span>
+    <span class="item">Broschüren</span><span class="sep"></span>
+    <span class="item">Logo-Entwicklung</span><span class="sep"></span>
+    <span class="item">Visitenkarten</span><span class="sep"></span>
+    <span class="item">Event-Flyer</span><span class="sep"></span>
+    <span class="item">Kochbücher</span><span class="sep"></span>
+    <span class="item">E-Books</span><span class="sep"></span>
+    <span class="item">YouTube-Thumbnails</span><span class="sep"></span>
+    <span class="item">Präsentationen</span><span class="sep"></span>
+    <span class="item">Ohne KI</span><span class="sep"></span>
+    <span class="item">Corporate Design</span><span class="sep"></span>
+    <span class="item">Speisekarten</span><span class="sep"></span>
+    <span class="item">Workbooks</span><span class="sep"></span>
+    <span class="item">Broschüren</span><span class="sep"></span>
+  </div>
+</div>
+
+<!-- LEISTUNGEN (dark) -->
+<section class="section section-dark section-orbs">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Leistungen</div>
+      <h2>Was ich <em>gestalte</em>.</h2>
+      <p>
+        Alles, was Ihre Marke sichtbar macht.
+        <br>Konsistent zu Website und Social Media.
+      </p>
+    </div>
+    <div class="leistung-grid">
+      <div class="leistung reveal d1">
+        <div class="thumb"><img src="img/ref-onpoint-visitenkarten.jpg" alt="Visitenkarten Beispiel"></div>
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></div>
+        <h4>Visitenkarten</h4>
+        <p>
+          Klassisch, mit QR-Code oder als Klappkarte.
+          <br>Papierwahl, Veredelung und Druckabwicklung inklusive.
+        </p>
+      </div>
+      <div class="leistung reveal d2">
+        <div class="thumb"><img src="img/flyer-1.png" alt="Flyer Beispiel"></div>
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 001 1h4"/><path d="M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/></svg></div>
+        <h4>Print &amp; Flyer</h4>
+        <p>
+          Event-Flyer, Frauentanzen, mediale Abende.
+          <br>Speisekarten, Broschüren, Kochbücher, Preislisten.
+        </p>
+      </div>
+      <div class="leistung reveal d3">
+        <div class="thumb"><img src="img/idea-2.png" alt="Workbook Beispiel"></div>
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
+        <h4>Workbooks, E-Books, Präsentationen</h4>
+        <p>
+          Sie geben mir Thema und Inhalt.
+          <br>Den Rest übernehme ich.
+        </p>
+      </div>
+      <div class="leistung reveal d4">
+        <div class="thumb"><img src="img/idea-6.png" alt="Corporate Design Beispiel"></div>
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></div>
+        <h4>Logo &amp; Corporate Design</h4>
+        <p>
+          Logo-Entwicklung von Grund auf.
+          <br>Dazu Farbwelt und Typografie.
+          <br>Ein System, das konsistent trägt.
+        </p>
+      </div>
+    </div>
+
+    <p class="reveal" style="text-align: center; margin: 40px auto 0; max-width: 780px; font-size: 15px; color: rgba(251, 242, 237, 0.7); font-style: italic; line-height: 1.7;">
+      Und alles andere auch.
+      <br>YouTube-Thumbnails, Social-Media-Grafiken, Icons, Etiketten.
+      <br>Wenn Sie ein Format brauchen, das hier nicht steht: einfach anfragen.
+    </p>
+
+    <div class="reveal" style="max-width: 720px; margin: 60px auto 0; text-align: center; padding: 40px 32px; background: linear-gradient(135deg, rgba(251, 242, 237, 0.04), rgba(197, 164, 109, 0.10)); border: 1.5px solid var(--gold); border-radius: 16px; position: relative; overflow: hidden; backdrop-filter: blur(6px);">
+      <div style="position: absolute; top: -60px; right: -60px; width: 180px; height: 180px; border-radius: 50%; background: radial-gradient(circle, rgba(197, 164, 109, 0.30), transparent 70%); filter: blur(20px); pointer-events: none;"></div>
+      <div style="position: relative;">
+        <div style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 24px; color: var(--gold); margin-bottom: 12px;">Preis auf Anfrage</div>
+        <p style="font-size: 15px; color: rgba(251, 242, 237, 0.75); line-height: 1.7;">
+          Weil jedes Projekt anders ist.
+          <br>Umfang, Papier, Auflage entscheiden.
+          <br>Nach dem Kennenlern-Call gibt's einen klaren Kostenvoranschlag.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENZEN -->
+<section class="section" id="referenzen" style="background: var(--bg-warm);">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Referenzen</div>
+      <h2>Aus meinem <em>Portfolio</em>.</h2>
+    </div>
+    <div class="ref-editorial">
+      <div class="ref-ed-card reveal d1">
+        <div class="ref-ed-visual"><img src="img/ref-littlehouse-visitenkarten.jpg" alt="LittleHouse Visitenkarten"></div>
+        <div class="ref-ed-meta">
+          <span class="kind">Print · Visitenkarten</span>
+          <h4>LittleHouse</h4>
+          <span class="sub">Abgestimmt auf die Markenwelt</span>
+        </div>
+      </div>
+      <div class="ref-ed-card reveal d2">
+        <div class="ref-ed-visual"><img src="img/ref-onpoint-visitenkarten.jpg" alt="On Point Visitenkarten"></div>
+        <div class="ref-ed-meta">
+          <span class="kind">Print · Eigene Marke</span>
+          <h4>On Point</h4>
+          <span class="sub">Bordeaux &amp; Gold als Signature</span>
+        </div>
+      </div>
+      <div class="ref-ed-card reveal d3">
+        <div class="ref-ed-visual"><img src="img/ref-qrcode-visitenkarten.jpg" alt="Visitenkarten mit QR-Code"></div>
+        <div class="ref-ed-meta">
+          <span class="kind">Print · Interaktiv</span>
+          <h4>QR-Karten</h4>
+          <span class="sub">Sprung von Karte zu Website</span>
+        </div>
+      </div>
+      <div class="ref-ed-card reveal d4">
+        <div class="ref-ed-visual placeholder"></div>
+        <div class="ref-ed-meta">
+          <span class="kind">Anonymisiert</span>
+          <h4>Autohaus</h4>
+          <span class="sub">Kampagne, ohne Kundenname</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Häufige Fragen</div>
+      <h2>Zu Mediendesign.<br><em>Klar</em> beantwortet.</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item"><summary>Warum kein Fixpreis auf der Seite?</summary><p>
+        Weil jedes Projekt anders ist.
+        <br>100 Visitenkarten in Standard-Weiß sind etwas anderes als 500 auf Baumwollpapier mit Goldveredelung.
+        <br>Nach dem Erstgespräch bekommen Sie einen klaren Kostenvoranschlag.
+      </p></details>
+      <details class="faq-item"><summary>Kümmern Sie sich um den Druck?</summary><p>
+        Auf Wunsch ja.
+        <br>Ich arbeite mit ausgewählten Druckereien, die für Papierqualität stehen.
+        <br>Passend zu Ihrer Marke.
+      </p></details>
+      <details class="faq-item"><summary>Bekomme ich die Druckdaten auch als Dateien?</summary><p>
+        Ja.
+        <br>Sie bekommen alle Endformate (PDF/X-4, JPG, PNG) inklusive Reinzeichnung.
+        <br>So können Sie auch später bei anderen Druckereien nachbestellen.
+      </p></details>
+      <details class="faq-item"><summary>Passen Print und Website farblich zusammen?</summary><p>
+        Ja.
+        <br>Wenn wir beides zusammen machen, entsteht ein konsistentes System.
+        <br>Auch wenn Sie nur einen Bereich buchen, achte ich auf Konsistenz zu Ihrer bestehenden Marke.
+      </p></details>
+      <details class="faq-item"><summary>Wie lange dauert ein typisches Projekt?</summary><p>
+        Visitenkarten: 1 bis 2 Wochen inklusive Druck.
+        <br>Flyer und Speisekarten: 2 bis 4 Wochen.
+        <br>Corporate Design komplett: 4 bis 8 Wochen.
+      </p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-block" id="kontakt">
+  <div class="container">
+    <div class="inner reveal">
+      <div class="mark"></div>
+      <h2>Reden wir <em>offen zusammen</em>.</h2>
+      <p>
+        30 Minuten Erstgespräch.
+        <br>Kostenlos und unverbindlich.
+        <br>Danach: klarer Kostenvoranschlag.
+      </p>
+      <div class="actions">
+        <a href="mailto:julia@juliabergles-agentur.de?subject=Anfrage%20Mediendesign" class="btn-red">Anfrage stellen</a>
+        <a href="pakete.html" class="btn-outline">Pakete ansehen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">On Point</div>
+      <div class="tag">Content auf den Punkt gebracht.</div>
+      <div class="adr">Julia Bergles<br>Augsburg + remote<br>julia@juliabergles-agentur.de</div>
+    </div>
+    <div class="footer-col">
+      <h5>Bereiche</h5>
+      <a href="social-media.html">Social Media</a>
+      <a href="mediendesign.html">Mediendesign</a>
+      <a href="websites.html">Webdesign</a>
+      <a href="pakete.html">Pakete</a>
+    </div>
+    <div class="footer-col">
+      <h5>Info</h5>
+      <a href="warum-onpoint.html">Warum On Point</a>
+      <a href="index.html">Startseite</a>
+    </div>
+    <div class="footer-col">
+      <h5>Rechtliches</h5>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+  </div>
+  <div class="footer-xxl">
+    <div class="logo-big">ON<span class="g">·</span>POINT</div>
+    <div class="footer-copy">© 2026 On Point · Julia Bergles · Augsburg</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>

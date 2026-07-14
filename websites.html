@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index, follow" />
+<title>Webdesign · On Point</title>
+<meta name="description" content="Websites, die verkaufen. Von Konzept bis Launch. Handgemacht, mobil optimiert, ohne Baukasten." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=object-sans@300,400,500,600,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap">
+<link rel="stylesheet" href="css/onpoint.css">
+<style>
+  /* Prozess-Schritte (dark editorial) */
+  .step-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  @media (max-width: 900px) { .step-grid { grid-template-columns: 1fr 1fr; gap: 16px; } }
+  @media (max-width: 600px) { .step-grid { grid-template-columns: 1fr; gap: 16px; } }
+
+  .step {
+    background: rgba(251, 242, 237, 0.03);
+    border: 1px solid rgba(197, 164, 109, 0.18);
+    border-radius: 10px;
+    padding: 40px 26px 34px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(4px);
+  }
+  .step::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(197, 164, 109, 0.08));
+    opacity: 0; transition: opacity 0.6s;
+    pointer-events: none;
+  }
+  .step:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+    background: rgba(251, 242, 237, 0.06);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  }
+  .step:hover::before { opacity: 1; }
+
+  .step .n {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+    color: var(--gold);
+    font-size: 64px; line-height: 1;
+    margin-bottom: 26px;
+    letter-spacing: -0.02em;
+    display: block;
+  }
+  .step h4 {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+    font-size: 24px; color: var(--bg);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .step p {
+    font-size: 13px;
+    color: rgba(251, 242, 237, 0.65);
+    line-height: 1.65;
+  }
+  .step .rule {
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--gold);
+    margin-bottom: 20px;
+    opacity: 0.6;
+  }
+
+  /* Pricing box */
+  .price-hero {
+    max-width: 780px; margin: 0 auto;
+    background: linear-gradient(135deg, var(--ink), #1a1315);
+    color: var(--bg);
+    border-radius: 16px;
+    padding: 60px 48px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .price-hero::before {
+    content: ""; position: absolute; top: -100px; right: -100px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(197, 164, 109, 0.2), transparent 70%);
+    pointer-events: none;
+  }
+  .price-hero .k { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 20px; display: inline-block; }
+  .price-hero .num {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: clamp(60px, 10vw, 120px); color: var(--gold);
+    line-height: 1; margin-bottom: 12px;
+  }
+  .price-hero .num em { font-size: 40%; font-style: normal; color: var(--bg); opacity: 0.7; }
+  .price-hero p { color: rgba(251, 242, 237, 0.75); font-size: 15px; max-width: 480px; margin: 0 auto; line-height: 1.65; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="row">
+    <a href="index.html" class="brand">On Point</a>
+    <ul>
+      <li><a href="warum-onpoint.html">Warum On Point</a></li>
+      <li><a href="social-media.html">Social Media</a></li>
+      <li><a href="mediendesign.html">Mediendesign</a></li>
+      <li><a href="websites.html" class="current">Webdesign</a></li>
+      <li><a href="pakete.html">Pakete</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+    </ul>
+    <a href="#kontakt" class="nav-cta">Beratung</a>
+    <button class="nav-burger" aria-label="Menü" onclick="document.getElementById('mobile-menu').classList.toggle('open'); this.classList.toggle('open');"><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="warum-onpoint.html">Warum On Point</a>
+    <a href="social-media.html">Social Media</a>
+    <a href="mediendesign.html">Mediendesign</a>
+    <a href="websites.html" class="current">Webdesign</a>
+    <a href="pakete.html">Pakete</a>
+    <a href="ueber-mich.html">Über mich</a>
+    <a href="#kontakt" class="mobile-cta">Beratung</a>
+  </div>
+</nav>
+<div class="nav-spacer"></div>
+
+<section class="page-hero page-hero-image" style="background-image: linear-gradient(180deg, rgba(45, 31, 34, 0.55), rgba(45, 31, 34, 0.85)), url('img/hero-websites.jpg'); background-size: cover; background-position: center; color: var(--bg);">
+  <div class="container">
+    <div class="eyebrow reveal" style="color: var(--gold);">Webdesign</div>
+    <h1 class="reveal d1" style="color: #fff;">Websites, die <em style="color: var(--gold);">verkaufen</em>.</h1>
+    <p class="lede reveal d2" style="color: rgba(255, 255, 255, 0.85);">
+      Von Konzept bis Launch.
+      <br>Handgemacht, mobil optimiert, ohne Baukasten.
+      <br><em style="color: var(--gold);">Beispiel? Sie sind gerade auf einer.</em>
+    </p>
+    <div class="reveal d3" style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+      <a href="#kontakt" class="btn-red">Erstgespräch buchen</a>
+      <a href="#prozess" class="btn-outline">Prozess ansehen</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE-STRIP -->
+<div class="mini-marquee reveal">
+  <div class="track">
+    <span class="item">Landing-Pages</span><span class="sep"></span>
+    <span class="item">Firmen-Websites</span><span class="sep"></span>
+    <span class="item">Blog</span><span class="sep"></span>
+    <span class="item">Shop</span><span class="sep"></span>
+    <span class="item">Kunden-Ownership</span><span class="sep"></span>
+    <span class="item">Astro Framework</span><span class="sep"></span>
+    <span class="item">Landing-Pages</span><span class="sep"></span>
+    <span class="item">Firmen-Websites</span><span class="sep"></span>
+    <span class="item">Blog</span><span class="sep"></span>
+    <span class="item">Shop</span><span class="sep"></span>
+    <span class="item">Kunden-Ownership</span><span class="sep"></span>
+    <span class="item">Astro Framework</span><span class="sep"></span>
+  </div>
+</div>
+
+<!-- PREIS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Preis</div>
+      <h2>Ehrlicher <em>Stundensatz</em>.</h2>
+      <p>
+        Kein Fixpreis, den ich am Ende künstlich hochrechnen muss.
+        <br>Nach dem Kennenlern-Call bekommen Sie eine ehrliche Stundenschätzung.
+      </p>
+    </div>
+    <div class="price-hero reveal d1">
+      <div class="k">Stundensatz</div>
+      <div class="num">80&thinsp;<em>€&thinsp;/&thinsp;Std.</em></div>
+      <p>
+        Übliche Website: rund 14 Stunden.
+        <br>Komplexere Projekte etwas länger.
+        <br>Vor der Zusammenarbeit gibt's immer eine transparente Aufwandsschätzung.
+      </p>
+    </div>
+
+    <div class="reveal d2" style="max-width: 780px; margin: 40px auto 0;">
+      <div style="font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); font-weight: 600; text-align: center; margin-bottom: 24px;">Damit Sie den Rahmen einschätzen können</div>
+      <div style="display: grid; grid-template-columns: 1fr; gap: 12px;">
+        <div style="display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 20px; padding: 20px 24px; background: var(--card); border: 1px solid var(--line); border-radius: 10px;">
+          <div>
+            <div style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: var(--ink);">Landing-Page</div>
+            <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">7–10 Stunden · Einseiter, fokussiert auf eine Aktion</div>
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--bordeaux); font-size: 22px; white-space: nowrap;">560–800 €</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 20px; padding: 20px 24px; background: var(--card); border: 1.5px solid var(--gold); border-radius: 10px;">
+          <div>
+            <div style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: var(--ink);">Übliche Website</div>
+            <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">rund 14 Stunden · Start-, Angebots- und Kontaktseiten</div>
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--bordeaux); font-size: 22px; white-space: nowrap;">ca. 1.120 €</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 20px; padding: 20px 24px; background: var(--card); border: 1px solid var(--line); border-radius: 10px;">
+          <div>
+            <div style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: var(--ink);">Komplexer</div>
+            <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">22–32 Stunden · Blog, Shop, individuelle Funktionen</div>
+          </div>
+          <div style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--bordeaux); font-size: 22px; white-space: nowrap;">1.760–2.560 €</div>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 24px; font-size: 13px; color: var(--muted); font-style: italic;">
+        Kein „ab X €"-Marketing.
+        <br>Nach dem Erstgespräch bekommen Sie eine ehrliche Schätzung, bevor ich anfange.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 5-SCHRITTE PROZESS (Dark Editorial) -->
+<section class="section section-dark section-orbs" id="prozess">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Prozess</div>
+      <h2>In fünf Schritten <em>online</em>.</h2>
+      <p>
+        Klar, ruhig, ohne Überraschungen.
+        <br>Sie wissen immer, wo wir stehen.
+      </p>
+    </div>
+    <div class="step-grid">
+      <div class="step reveal d1">
+        <span class="n">01</span>
+        <span class="rule"></span>
+        <h4>Konzept</h4>
+        <p>
+          Ziele, Zielgruppe, Wettbewerb.
+          <br>Was soll die Website leisten?
+        </p>
+      </div>
+      <div class="step reveal d1">
+        <span class="n">02</span>
+        <span class="rule"></span>
+        <h4>Design</h4>
+        <p>
+          Look &amp; Feel, Struktur, Typografie.
+          <br>Klick-Prototyp zur Freigabe.
+        </p>
+      </div>
+      <div class="step reveal d2">
+        <span class="n">03</span>
+        <span class="rule"></span>
+        <h4>Setup</h4>
+        <p>
+          Domain, Hosting, Analytics.
+          <br>Alles technisch aufgeräumt.
+        </p>
+      </div>
+      <div class="step reveal d2">
+        <span class="n">04</span>
+        <span class="rule"></span>
+        <h4>Umsetzung</h4>
+        <p>
+          Ich baue.
+          <br>Sie geben Feedback in klaren Runden.
+        </p>
+      </div>
+      <div class="step reveal d3">
+        <span class="n">05</span>
+        <span class="rule"></span>
+        <h4>Launch</h4>
+        <p>
+          Live gehen, testen, feilen.
+          <br>Danach eine kurze Einweisung für Sie.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAS DANACH PASSIERT -->
+<section class="section" id="danach">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Nach dem Launch</div>
+      <h2>Sie besitzen alles.<br><em>Kein Lock-in</em>.</h2>
+      <p>
+        Wichtig für mich: Sie können jederzeit ohne mich weitermachen.
+        <br>Domain, Code, Hosting-Account laufen auf Ihren Namen.
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto;">
+      <div class="reveal d1" style="background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 36px 28px;">
+        <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, rgba(139, 46, 58, 0.08), rgba(197, 164, 109, 0.14)); color: var(--bordeaux); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4 style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 22px; color: var(--ink); margin-bottom: 10px;">Sie besitzen alles</h4>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.6;">
+          Domain, Code auf GitHub, Hosting-Account.
+          <br>Alles unter Ihrem Namen.
+          <br>Jeder Web-Entwickler kann jederzeit übernehmen.
+        </p>
+      </div>
+      <div class="reveal d2" style="background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 36px 28px;">
+        <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, rgba(139, 46, 58, 0.08), rgba(197, 164, 109, 0.14)); color: var(--bordeaux); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </div>
+        <h4 style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 22px; color: var(--ink); margin-bottom: 10px;">Selbst editieren</h4>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.6;">
+          Sie bekommen einen Web-Zugang.
+          <br>Damit ändern Sie Texte, Bilder und Blog-Posts direkt.
+          <br>Ganz ohne HTML-Kenntnisse.
+        </p>
+      </div>
+      <div class="reveal d3" style="background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 36px 28px;">
+        <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, rgba(139, 46, 58, 0.08), rgba(197, 164, 109, 0.14)); color: var(--bordeaux); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </div>
+        <h4 style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 22px; color: var(--ink); margin-bottom: 10px;">Wenn Sie Hilfe wollen</h4>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.6;">
+          Änderungen jederzeit über Stundensatz (80&thinsp;€/h).
+          <br>Auf Wunsch monatliches Wartungs-Paket, individuell abgestimmt.
+        </p>
+      </div>
+    </div>
+
+    <!-- Laufende Kosten -->
+    <div class="reveal" style="max-width: 780px; margin: 60px auto 0; background: linear-gradient(135deg, var(--ink), #1a1315); color: var(--bg); border-radius: 16px; padding: 48px 44px; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: -100px; right: -100px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(197, 164, 109, 0.16), transparent 70%); pointer-events: none;"></div>
+      <div style="position: relative;">
+        <div style="font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 18px;">Laufende Pflegekosten</div>
+        <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 32px; color: var(--bg); margin-bottom: 24px; line-height: 1.15;">Fast <span style="font-style: italic; color: var(--gold);">nichts</span>.</h3>
+        <div style="display: grid; grid-template-columns: 1fr; gap: 4px; margin-bottom: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 14px 0; border-bottom: 1px dashed rgba(251, 242, 237, 0.15); gap: 20px;">
+            <div>
+              <div style="font-size: 15px; color: var(--bg); font-weight: 500;">Domain</div>
+              <div style="font-size: 12px; color: rgba(251, 242, 237, 0.6); margin-top: 2px;">z. B. .de bei INWX, Netcup, IONOS</div>
+            </div>
+            <div style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold); font-size: 18px; white-space: nowrap;">ca. 10–20&thinsp;€&thinsp;/&thinsp;Jahr</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 14px 0; border-bottom: 1px dashed rgba(251, 242, 237, 0.15); gap: 20px;">
+            <div>
+              <div style="font-size: 15px; color: var(--bg); font-weight: 500;">Hosting (Vercel / Netlify)</div>
+              <div style="font-size: 12px; color: rgba(251, 242, 237, 0.6); margin-top: 2px;">Free-Tier reicht für 99 % der Fälle</div>
+            </div>
+            <div style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold); font-size: 18px; white-space: nowrap;">0&thinsp;€</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 14px 0; gap: 20px;">
+            <div>
+              <div style="font-size: 15px; color: var(--bg); font-weight: 500;">CMS-Zugang</div>
+              <div style="font-size: 12px; color: rgba(251, 242, 237, 0.6); margin-top: 2px;">Open Source</div>
+            </div>
+            <div style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold); font-size: 18px; white-space: nowrap;">0&thinsp;€</div>
+          </div>
+        </div>
+        <div style="padding-top: 18px; border-top: 2px solid var(--gold); display: flex; justify-content: space-between; align-items: baseline;">
+          <div style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; color: var(--bg);">Zusammen</div>
+          <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 28px; color: var(--gold);">ca. 15&thinsp;€&thinsp;/&thinsp;Jahr</div>
+        </div>
+        <p style="margin-top: 24px; font-size: 13px; color: rgba(251, 242, 237, 0.7); line-height: 1.65; font-style: italic;">
+          Sie zahlen die Domain direkt an den Anbieter, ich bekomme davon nichts.
+          <br>Bei sehr viel Traffic (über 100k Besuche pro Monat) kann Hosting auf ca. 20&thinsp;€ pro Monat steigen.
+          <br>Bis dahin: kostenlos.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENZ Website -->
+<section class="section" id="referenzen">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Referenzen</div>
+      <h2>Bereits <em>gebaut</em>.</h2>
+    </div>
+    <div class="ref-editorial">
+      <div class="ref-ed-card reveal d1">
+        <div class="ref-ed-visual placeholder">
+          <img src="img/ref-littlehouse-website.jpg" alt="LittleHouse Website" onerror="this.style.display='none'">
+        </div>
+        <div class="ref-ed-meta">
+          <span class="kind">Website</span>
+          <h4>LittleHouse</h4>
+          <span class="sub">Konzept, Design, Umsetzung</span>
+        </div>
+      </div>
+      <div class="ref-ed-card reveal d2">
+        <div class="ref-ed-visual" style="background: linear-gradient(135deg, var(--bordeaux-deep), var(--bordeaux)); display: flex; align-items: center; justify-content: center;">
+          <div style="text-align: center; padding: 40px; position: relative; z-index: 3;">
+            <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 52px; color: var(--gold); line-height: 1;">On Point</div>
+            <div style="margin-top: 12px; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(251, 242, 237, 0.75); font-weight: 600;">Diese Seite</div>
+          </div>
+        </div>
+        <div class="ref-ed-meta">
+          <span class="kind">Website · Eigene Marke</span>
+          <h4>juliabergles-agentur.de</h4>
+          <span class="sub">Sie sind gerade drauf</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq" style="background: var(--bg-warm);">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Häufige Fragen</div>
+      <h2>Zu Webdesign.<br><em>Klar</em> beantwortet.</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item"><summary>Wie viele Stunden brauche ich für meine Website?</summary><p>
+        Übliche Website: rund 14 Stunden.
+        <br>Landing-Page: 7 bis 10 Stunden.
+        <br>Komplexere Projekte (Blog, Shop, individuelle Funktionen): 22 bis 32 Stunden.
+        <br>Nach dem Kennenlern-Call bekommen Sie eine ehrliche Schätzung, bevor ich anfange.
+      </p></details>
+      <details class="faq-item"><summary>Wem gehört die Website nach dem Launch?</summary><p>
+        Ihnen, vollständig.
+        <br>Domain, Code auf GitHub, Hosting-Konto laufen auf Ihren Namen.
+        <br>Jeder Web-Entwickler kann jederzeit übernehmen.
+        <br>Ich baue bewusst ohne Vendor-Lock-in.
+        <br>Details siehe <a href="#danach" style="color: var(--bordeaux); text-decoration: underline;">Nach dem Launch</a>.
+      </p></details>
+      <details class="faq-item"><summary>Was kostet die Website laufend?</summary><p>
+        Rund 10 bis 20 € pro Jahr für die Domain.
+        <br>Hosting und CMS-Zugang sind bei üblichen Größenordnungen kostenlos.
+        <br>Für Änderungen: Stundensatz 80&thinsp;€/h.
+        <br>Oder ein monatliches Wartungs-Paket auf Anfrage.
+      </p></details>
+      <details class="faq-item"><summary>Kann ich Texte und Bilder selbst ändern?</summary><p>
+        Ja.
+        <br>Sie bekommen einen Web-Zugang, über den Sie Texte, Bilder und Blog-Posts direkt bearbeiten können.
+        <br>Ganz ohne HTML-Kenntnisse.
+        <br>Nach dem Launch gibt's eine kurze Video-Einweisung.
+      </p></details>
+      <details class="faq-item"><summary>Nutzen Sie Baukästen wie Wix oder Squarespace?</summary><p>
+        Nein.
+        <br>Ich baue mit Astro, das erzeugt statische HTML-Seiten.
+        <br>Die laden sehr schnell und sind SEO-optimal.
+        <br>Sie sind nicht an eine Plattform gebunden und zahlen keine monatlichen Baukasten-Gebühren.
+      </p></details>
+      <details class="faq-item"><summary>Wie läuft die Zusammenarbeit ab?</summary><p>
+        Klare Schritte, klare Feedback-Runden.
+        <br>Keine endlosen Abstimmungsschleifen.
+        <br>Details siehe <a href="#prozess" style="color: var(--bordeaux); text-decoration: underline;">Prozess</a>.
+      </p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-block" id="kontakt">
+  <div class="container">
+    <div class="inner reveal">
+      <div class="mark"></div>
+      <h2>Reden wir <em>offen zusammen</em>.</h2>
+      <p>
+        30 Minuten Erstgespräch.
+        <br>Kostenlos und unverbindlich.
+        <br>Danach: ehrliche Stundenschätzung.
+      </p>
+      <div class="actions">
+        <a href="mailto:julia@juliabergles-agentur.de?subject=Erstgespr%C3%A4ch%20Webdesign" class="btn-red">Erstgespräch buchen</a>
+        <a href="pakete.html" class="btn-outline">Pakete ansehen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">On Point</div>
+      <div class="tag">Content auf den Punkt gebracht.</div>
+      <div class="adr">Julia Bergles<br>Augsburg + remote<br>julia@juliabergles-agentur.de</div>
+    </div>
+    <div class="footer-col">
+      <h5>Bereiche</h5>
+      <a href="social-media.html">Social Media</a>
+      <a href="mediendesign.html">Mediendesign</a>
+      <a href="websites.html">Webdesign</a>
+      <a href="pakete.html">Pakete</a>
+    </div>
+    <div class="footer-col">
+      <h5>Info</h5>
+      <a href="warum-onpoint.html">Warum On Point</a>
+      <a href="index.html">Startseite</a>
+    </div>
+    <div class="footer-col">
+      <h5>Rechtliches</h5>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+  </div>
+  <div class="footer-xxl">
+    <div class="logo-big">ON<span class="g">·</span>POINT</div>
+    <div class="footer-copy">© 2026 On Point · Julia Bergles · Augsburg</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>

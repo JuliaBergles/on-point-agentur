@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index, follow" />
+<title>Social Media · On Point</title>
+<meta name="description" content="Social Media Content, ManyChat Automation und Community Management. Beiträge, Reels, Stories im Namen Ihrer Marke." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=object-sans@300,400,500,600,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap">
+<link rel="stylesheet" href="css/onpoint.css">
+<style>
+  /* Sprech-Optionen Editorial Cards (mit Bild) */
+  .speak-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  @media (max-width: 900px) { .speak-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .speak-grid { grid-template-columns: 1fr; } }
+
+  .speak-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.6s,
+                border-color 0.6s;
+    position: relative;
+  }
+  .speak-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+    box-shadow: 0 30px 60px rgba(45, 31, 34, 0.15);
+  }
+  .speak-card .visual {
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, var(--bg-warm), var(--bg-soft));
+  }
+  .speak-card .visual img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .speak-card:hover .visual img { transform: scale(1.06); }
+  .speak-card .visual::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(45, 31, 34, 0.35));
+    pointer-events: none;
+  }
+  .speak-card .n {
+    position: absolute; top: 20px; left: 24px;
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-weight: 500; font-size: 42px;
+    color: #fff; line-height: 1;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+  }
+  .speak-card .body {
+    padding: 28px 26px 32px;
+    display: flex; flex-direction: column;
+    flex-grow: 1;
+  }
+  .speak-card h4 {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-weight: 500; font-size: 24px;
+    color: var(--ink); margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .speak-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* Extra „unsicher"-Kachel (ohne Bild, gold) */
+  .speak-card.hint {
+    background: linear-gradient(135deg, var(--bg-warm), var(--bg-soft));
+    border: 1.5px solid var(--gold);
+    padding: 40px 32px;
+    justify-content: center;
+    text-align: center;
+  }
+  .speak-card.hint .icon {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 48px; color: var(--bordeaux); line-height: 1;
+    margin-bottom: 16px;
+  }
+  .speak-card.hint h4 { color: var(--ink); }
+  .speak-card.hint p { color: var(--ink-soft); }
+
+  /* ManyChat visual */
+  .many-visual {
+    display: grid; grid-template-columns: 1fr 40px 1fr;
+    gap: 20px; align-items: center;
+    max-width: 780px; margin: 40px auto 0;
+  }
+  @media (max-width: 700px) { .many-visual { grid-template-columns: 1fr; } .many-arrow { transform: rotate(90deg); } }
+  .many-box {
+    background: var(--card); border: 1px solid var(--line-strong);
+    border-radius: 10px; padding: 22px 20px; text-align: left;
+  }
+  .many-box .kind { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bordeaux); font-weight: 700; margin-bottom: 8px; }
+  .many-box .msg { font-size: 14px; color: var(--ink); line-height: 1.5; font-style: italic; }
+  .many-arrow { text-align: center; color: var(--gold); font-size: 24px; }
+
+  /* Preistafeln */
+  .price-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1000px; margin: 0 auto; }
+  @media (max-width: 700px) { .price-cols { grid-template-columns: 1fr; } }
+  .price-col {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; padding: 40px 36px;
+  }
+  .price-col.reach { background: linear-gradient(135deg, var(--ink), #1a1315); color: var(--bg); border: 0; }
+  .price-col .col-head {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+    font-size: 22px; color: var(--ink); margin-bottom: 4px;
+  }
+  .price-col.reach .col-head { color: var(--bg); }
+  .price-col .col-sub { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+  .price-col.reach .col-sub { color: rgba(251, 242, 237, 0.7); }
+  .price-col .price-row { border-color: var(--line); }
+  .price-col.reach .price-row { border-color: rgba(251, 242, 237, 0.14); }
+  .price-col.reach .price-row .label { color: var(--bg); }
+  .price-col.reach .price-row .price { color: var(--gold); }
+  .price-col .foot {
+    margin-top: 24px; padding-top: 20px; border-top: 1px dashed var(--line);
+    font-size: 12px; color: var(--muted); font-style: italic; line-height: 1.6;
+  }
+  .price-col.reach .foot { border-top-color: rgba(251, 242, 237, 0.14); color: rgba(251, 242, 237, 0.65); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="row">
+    <a href="index.html" class="brand">On Point</a>
+    <ul>
+      <li><a href="warum-onpoint.html">Warum On Point</a></li>
+      <li><a href="social-media.html" class="current">Social Media</a></li>
+      <li><a href="mediendesign.html">Mediendesign</a></li>
+      <li><a href="websites.html">Webdesign</a></li>
+      <li><a href="pakete.html">Pakete</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+    </ul>
+    <a href="#kontakt" class="nav-cta">Beratung</a>
+    <button class="nav-burger" aria-label="Menü" onclick="document.getElementById('mobile-menu').classList.toggle('open'); this.classList.toggle('open');"><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="warum-onpoint.html">Warum On Point</a>
+    <a href="social-media.html" class="current">Social Media</a>
+    <a href="mediendesign.html">Mediendesign</a>
+    <a href="websites.html">Webdesign</a>
+    <a href="pakete.html">Pakete</a>
+    <a href="ueber-mich.html">Über mich</a>
+    <a href="#kontakt" class="mobile-cta">Beratung</a>
+  </div>
+</nav>
+<div class="nav-spacer"></div>
+
+<!-- HERO -->
+<section class="page-hero page-hero-image" style="background-image: linear-gradient(180deg, rgba(45, 31, 34, 0.55), rgba(45, 31, 34, 0.85)), url('img/hero-social-media.jpg'); background-size: cover; background-position: center; color: var(--bg);">
+  <div class="container">
+    <div class="eyebrow reveal" style="color: var(--gold);">Social Media</div>
+    <h1 class="reveal d1" style="color: #fff;">Content, der aus Followern <em style="color: var(--gold);">Kundinnen</em> macht.</h1>
+    <p class="lede reveal d2" style="color: rgba(255, 255, 255, 0.85);">
+      Beiträge, Reels und Stories.
+      <br>Handgemacht und fachlich fundiert.
+      <br><em style="color: var(--gold);">Im Namen Ihrer Marke.</em>
+    </p>
+    <div class="reveal d3" style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+      <a href="pakete.html" class="btn-red">Pakete ansehen</a>
+      <a href="#einzelleistungen" class="btn-outline">Einzelleistungen</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE-STRIP: Micro-USPs -->
+<div class="mini-marquee reveal">
+  <div class="track">
+    <span class="item">Handgemacht</span><span class="sep"></span>
+    <span class="item">Fachlich fundiert</span><span class="sep"></span>
+    <span class="item">ManyChat inklusive</span><span class="sep"></span>
+    <span class="item">Community Management</span><span class="sep"></span>
+    <span class="item">Nur eine Marke pro Branche</span><span class="sep"></span>
+    <span class="item">Handgemacht</span><span class="sep"></span>
+    <span class="item">Fachlich fundiert</span><span class="sep"></span>
+    <span class="item">ManyChat inklusive</span><span class="sep"></span>
+    <span class="item">Community Management</span><span class="sep"></span>
+    <span class="item">Nur eine Marke pro Branche</span><span class="sep"></span>
+  </div>
+</div>
+
+<!-- SPRECH-OPTIONEN -->
+<section class="section" id="formate">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Fünf Formate</div>
+      <h2>Wer spricht in Ihrem <em>Content</em>?</h2>
+      <p>
+        Sie müssen nicht vor die Kamera.
+        <br>Sie können, wenn Sie wollen.
+        <br>Wir wählen zusammen, was zu Ihnen passt.
+      </p>
+    </div>
+    <div class="speak-grid">
+      <div class="speak-card reveal d1">
+        <div class="visual">
+          <img src="img/sprech-sie-kamera.jpg" alt="Sie vor der Kamera">
+          <div class="n">01</div>
+        </div>
+        <div class="body">
+          <h4>Sie vor der Kamera</h4>
+          <p>
+            Ich oder mein Kollege kommen zu Ihnen.
+            <br>Maximal drei Stunden Dreh, kein Skript.
+            <br>Wir fragen wie Kundinnen, nicht wie Regisseure.
+          </p>
+        </div>
+      </div>
+
+      <div class="speak-card reveal d2">
+        <div class="visual">
+          <img src="img/sprech-julia-kamera.jpg" alt="Julia vor der Kamera">
+          <div class="n">02</div>
+        </div>
+        <div class="body">
+          <h4>Julia vor der Kamera</h4>
+          <p>
+            Ich spreche in Ihrem Namen.
+            <br>Für Ratgeber, Reels, Erklär-Videos.
+            <br>Ihre Zielgruppe kennt mich bereits.
+          </p>
+        </div>
+      </div>
+
+      <div class="speak-card reveal d3">
+        <div class="visual">
+          <img src="img/tool-einsprechen.jpg" alt="Voice Over — Tool zum Einsprechen">
+          <div class="n">03</div>
+        </div>
+        <div class="body">
+          <h4>Voice Over</h4>
+          <p>
+            Bilder oder B-Roll, dazu meine Stimme.
+            <br>Anonym, professionell.
+            <br>Ganz ohne Face Cam.
+          </p>
+        </div>
+      </div>
+
+      <div class="speak-card reveal d1">
+        <div class="visual">
+          <img src="img/sprech-werbeposts.jpg" alt="Werbeposts und Text-Karten">
+          <div class="n">04</div>
+        </div>
+        <div class="body">
+          <h4>Text-Karten &amp; Werbeposts</h4>
+          <p>
+            Editorial-Karussells mit Typografie und Bild.
+            <br>Perfekt für Ratgeber, Zitate, Positionierung.
+          </p>
+        </div>
+      </div>
+
+      <div class="speak-card reveal d2">
+        <div class="visual">
+          <img src="img/mental-4.png" alt="Mischung aus allen Formaten">
+          <div class="n">05</div>
+        </div>
+        <div class="body">
+          <h4>Mischung</h4>
+          <p>
+            Häufig die beste Wahl.
+            <br>Reels mit mir, Karussells mit Ihrem Team, Stories mit persönlichen Einblicken.
+          </p>
+        </div>
+      </div>
+
+      <div class="speak-card hint reveal d3">
+        <div class="icon">✦</div>
+        <h4>Noch unsicher?</h4>
+        <p>
+          Im kostenlosen Erstgespräch schauen wir zusammen.
+          <br>Wir finden das Format, das zu Ihrer Marke und Ihrer Zeit passt.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANYCHAT -->
+<section class="section section-dark section-orbs" id="manychat">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Automatisierung</div>
+      <h2>ManyChat.<br>Jede DM wird zur <em>Verkaufschance</em>.</h2>
+      <p>
+        Ich richte Ihnen eine Automation ein, die 24/7 Antworten schickt.
+        <br>Ohne dass Sie einen Finger krümmen müssen.
+      </p>
+    </div>
+    <div class="reveal d1">
+      <div class="many-visual">
+        <div class="many-box" style="background: rgba(251, 242, 237, 0.06); border-color: rgba(197, 164, 109, 0.3); backdrop-filter: blur(6px);">
+          <div class="kind" style="color: var(--gold);">Kommentar auf Beitrag</div>
+          <div class="msg" style="color: var(--bg);">„Wie viel kostet das?"</div>
+        </div>
+        <div class="many-arrow" style="color: var(--gold);">→</div>
+        <div class="many-box" style="background: rgba(251, 242, 237, 0.06); border-color: rgba(197, 164, 109, 0.3); backdrop-filter: blur(6px);">
+          <div class="kind" style="color: var(--gold);">Automatische DM</div>
+          <div class="msg" style="color: var(--bg);">„Hi! Hier alle Infos + Buchungslink…"</div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 44px; max-width: 640px; margin-left: auto; margin-right: auto;">
+        <p style="font-size: 15px; color: rgba(251, 242, 237, 0.75); font-style: italic; line-height: 1.6;">
+          Ohne Ihr Zutun.
+          <br>Kein Ghosting, keine verlorenen Anfragen.
+          <br>Kunden, die um 23 Uhr auf Instagram kommentieren, kriegen sofort die richtige Info.
+        </p>
+        <div style="display: inline-flex; align-items: center; gap: 12px; margin-top: 24px; padding: 12px 22px; background: rgba(197, 164, 109, 0.12); border: 1px solid var(--gold); border-radius: 999px; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 700;">
+          <span class="pulse-dot" style="background: var(--gold); box-shadow: 0 0 0 5px rgba(197, 164, 109, 0.2);"></span>
+          Inklusive bei jedem Retainer
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EINZELLEISTUNGEN -->
+<section class="section" id="einzelleistungen">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Einzelleistungen</div>
+      <h2>Kein Paket? Kein <em>Problem</em>.</h2>
+      <p>Einzelne Beiträge, Reels und Stories.<br>Für Marken, die eine Kampagne oder ein einzelnes Projekt begleiten lassen wollen.</p>
+    </div>
+    <div class="price-cols">
+      <div class="price-col reveal d1">
+        <div class="col-head">Auf Ihrem Kundenkonto</div>
+        <div class="col-sub">Content für Ihren Account. Sie behalten alle Rechte.</div>
+        <div class="price-row"><span class="label">Beitrag</span><span class="price">120 €</span></div>
+        <div class="price-row"><span class="label">Reel <em>+ Videodreh</em></span><span class="price">200 €</span></div>
+        <div class="price-row"><span class="label">Story</span><span class="price">20 €</span></div>
+        <div class="foot">Reel-Preis zzgl. Fahrtkostenpauschale bei Vor-Ort-Dreh.</div>
+      </div>
+      <div class="price-col reach reveal d2">
+        <div class="col-head">Auf @Julia_Bergles</div>
+        <div class="col-sub">Content mit meiner Reichweite. 706k erreichte Konten / Monat.</div>
+        <div class="price-row"><span class="label">Beitrag</span><span class="price">250 €</span></div>
+        <div class="price-row"><span class="label">Reel</span><span class="price">300 €</span></div>
+        <div class="price-row"><span class="label">Story</span><span class="price">50 €</span></div>
+        <div class="foot">Erreicht bis zu 1,77 Mio. Reel-Aufrufe / Monat. 93,8 % nicht-Follower.</div>
+      </div>
+    </div>
+    <p class="reveal" style="text-align: center; margin-top: 40px; font-size: 14px; color: var(--muted); max-width: 640px; margin-left: auto; margin-right: auto;">
+      Für dauerhafte Betreuung schauen Sie sich die <a href="pakete.html" style="color: var(--bordeaux); text-decoration: underline;">Retainer-Pakete</a> an.
+      <br>Oft günstiger pro Beitrag und deutlich strategischer.
+    </p>
+  </div>
+</section>
+
+<!-- REFERENZEN (Social Media) -->
+<section class="section" id="referenzen" style="background: var(--bg-warm);">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Referenzen</div>
+      <h2>Vier Marken.<br>Vier <em>Handschriften</em>.</h2>
+    </div>
+    <div class="ref-editorial">
+      <div class="ref-ed-card reveal d1">
+        <div class="ref-ed-visual"><img src="img/fitness-1.png" alt="Fitnessstudio"></div>
+        <div class="ref-ed-meta">
+          <span class="kind">Beitrag</span>
+          <h4>Fitnessstudio</h4>
+          <span class="sub">Karussell-Kampagne</span>
+        </div>
+      </div>
+      <div class="ref-ed-card reveal d2">
+        <div class="ref-ed-visual"><img src="img/kitchen-1.png" alt="Bruckner Einrichtungshaus"></div>
+        <div class="ref-ed-meta">
+          <span class="kind">Werbegesicht · Reels</span>
+          <h4>Bruckner</h4>
+          <span class="sub">Einrichtungshaus</span>
+        </div>
+      </div>
+      <div class="ref-ed-card reveal d3">
+        <div class="ref-ed-visual"><img src="img/mental-1.png" alt="Nicole Schleer"></div>
+        <div class="ref-ed-meta">
+          <span class="kind">Content · Präsentationen</span>
+          <h4>Nicole Schleer</h4>
+          <span class="sub">Mediale Lebensberatung</span>
+        </div>
+      </div>
+      <div class="ref-ed-card reveal d4">
+        <div class="ref-ed-visual placeholder">
+          <img src="img/ref-yamatogast.jpg" alt="YamatoGast" onerror="this.style.display='none'">
+        </div>
+        <div class="ref-ed-meta">
+          <span class="kind">Collab · Crossposting</span>
+          <h4>YamatoGast</h4>
+          <span class="sub">Reel-Produktion, doppelte Reichweite</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Häufige Fragen</div>
+      <h2>Zu Social Media.<br><em>Klar</em> beantwortet.</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item"><summary>Muss ich vor die Kamera?</summary><p>
+        Nein.
+        <br>Sie können, wenn Sie wollen.
+        <br>Es gibt vier andere Formate: Voice Over, Text-Karten, ich vor der Kamera oder eine Mischung.
+        <br>Wir klären das im Erstgespräch.
+      </p></details>
+      <details class="faq-item"><summary>Was ist der Unterschied zwischen Beitrag und Reel?</summary><p>
+        Beitrag = statisches Format (Foto oder Karussell).
+        <br>Reel = Video, mit Videodreh vor Ort.
+        <br>Reels haben deutlich mehr Reichweite, brauchen aber mehr Vorbereitung.
+      </p></details>
+      <details class="faq-item"><summary>Was ist ManyChat und brauche ich das?</summary><p>
+        ManyChat ist ein Tool, das automatisch DMs verschickt.
+        <br>Beispiel: Ein Kunde kommentiert „INFO", er bekommt sofort deine Preisliste per DM.
+        <br>Ist bei allen Retainer-Paketen inklusive.
+      </p></details>
+      <details class="faq-item"><summary>Wem gehört der produzierte Content?</summary><p>
+        Ihnen.
+        <br>Sie behalten alle Rechte an Fotos, Videos und Captions, die für Ihr Kundenkonto erstellt werden.
+      </p></details>
+      <details class="faq-item"><summary>Wie oft veröffentlichen Sie?</summary><p>
+        Kommt aufs Paket an.
+        <br>Starter: 2 Posts pro Woche.
+        <br>Wachstum: 2 Posts pro Woche + 4 Stories.
+        <br>Signature: maximale Frequenz.
+        <br>Details auf der <a href="pakete.html" style="color: var(--bordeaux); text-decoration: underline;">Pakete-Seite</a>.
+      </p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-block" id="kontakt">
+  <div class="container">
+    <div class="inner reveal">
+      <div class="mark"></div>
+      <h2>Reden wir <em>offen zusammen</em>.</h2>
+      <p>
+        30 Minuten Erstgespräch.
+        <br>Kostenlos und unverbindlich.
+        <br>Wir schauen, ob wir zusammenpassen.
+      </p>
+      <div class="actions">
+        <a href="mailto:julia@juliabergles-agentur.de?subject=Erstgespr%C3%A4ch%20Social%20Media" class="btn-red">Erstgespräch buchen</a>
+        <a href="pakete.html" class="btn-outline">Pakete ansehen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">On Point</div>
+      <div class="tag">Content auf den Punkt gebracht.</div>
+      <div class="adr">Julia Bergles<br>Augsburg + remote<br>julia@juliabergles-agentur.de</div>
+    </div>
+    <div class="footer-col">
+      <h5>Bereiche</h5>
+      <a href="social-media.html">Social Media</a>
+      <a href="mediendesign.html">Mediendesign</a>
+      <a href="websites.html">Webdesign</a>
+      <a href="pakete.html">Pakete</a>
+    </div>
+    <div class="footer-col">
+      <h5>Info</h5>
+      <a href="warum-onpoint.html">Warum On Point</a>
+      <a href="index.html">Startseite</a>
+    </div>
+    <div class="footer-col">
+      <h5>Rechtliches</h5>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+  </div>
+  <div class="footer-xxl">
+    <div class="logo-big">ON<span class="g">·</span>POINT</div>
+    <div class="footer-copy">© 2026 On Point · Julia Bergles · Augsburg</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>
