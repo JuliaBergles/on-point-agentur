@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /angebot.html
+Disallow: /old-index.html
+Disallow: /mealbites.html
+Disallow: /dashboard/
+
+Sitemap: https://juliabergles-agentur.de/sitemap.xml
