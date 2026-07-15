@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>Kooperations-Leitfaden · Julia Bergles · @julia_bergles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=object-sans@300,400,500,600,700&display=swap">
+<style>
+  :root {
+    --bg: #FBF2ED;
+    --bg-warm: #F3D6C6;
+    --card: #ffffff;
+    --ink: #2D1F22;
+    --ink-2: #1a1315;
+    --ink-soft: #4a3236;
+    --muted: #8a6f72;
+    --bordeaux: #8B2E3A;
+    --bordeaux-deep: #6E1F2C;
+    --gold: #C5A46D;
+    --gold-lite: #d5b884;
+    --line: rgba(45, 31, 34, 0.12);
+    --dark-line: rgba(197, 164, 109, 0.28);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #ece4de;
+    color: var(--ink);
+    font-family: 'Object Sans', -apple-system, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    padding: 40px 20px;
+    letter-spacing: 0.005em;
+  }
+  .page {
+    max-width: 210mm;
+    margin: 0 auto 24px;
+    background: var(--bg);
+    color: var(--ink);
+    padding: 0;
+    box-shadow: 0 20px 60px rgba(45, 31, 34, 0.15);
+    page-break-after: always;
+    overflow: hidden;
+    position: relative;
+  }
+  .page:last-child { page-break-after: auto; }
+  .inner { padding: 22mm 20mm 20mm; position: relative; z-index: 2; }
+
+  /* Dark page variant */
+  .page.dark {
+    background: linear-gradient(155deg, var(--ink), var(--ink-2));
+    color: var(--bg);
+  }
+  .page.dark::before {
+    content: ""; position: absolute; top: -80px; right: -80px;
+    width: 340px; height: 340px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(197, 164, 109, 0.28), transparent 65%);
+    filter: blur(50px); pointer-events: none; z-index: 1;
+  }
+  .page.dark::after {
+    content: ""; position: absolute; bottom: -100px; left: -80px;
+    width: 320px; height: 320px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 46, 58, 0.32), transparent 65%);
+    filter: blur(60px); pointer-events: none; z-index: 1;
+  }
+
+  /* Cover */
+  .cover {
+    padding: 40mm 20mm 30mm;
+    min-height: 297mm;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 30mm;
+    align-items: center;
+    position: relative;
+  }
+  .cover::before {
+    content: ""; position: absolute; top: 60px; right: 100px;
+    width: 380px; height: 380px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(197, 164, 109, 0.18), transparent 65%);
+    filter: blur(60px); pointer-events: none;
+  }
+  .cover-content > div { position: relative; z-index: 2; }
+  .cover-kicker {
+    display: inline-block;
+    font-size: 9pt;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--bordeaux);
+    font-weight: 700;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--gold);
+    margin-bottom: 28px;
+  }
+  .cover-title {
+    font-size: 38pt;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--bordeaux);
+    margin-bottom: 22px;
+  }
+  .cover-title strong { color: var(--ink); font-weight: 700; }
+  .cover-title em { color: var(--gold); font-weight: 500; font-style: italic; }
+  .cover-sub {
+    font-size: 13pt;
+    color: var(--ink-soft);
+    line-height: 1.4;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+  .cover-quote {
+    background: var(--card);
+    border-left: 3px solid var(--bordeaux);
+    padding: 20px 24px;
+    font-size: 11pt;
+    color: var(--ink-soft);
+    font-style: italic;
+    line-height: 1.55;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(45, 31, 34, 0.06);
+  }
+  .cover-by {
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 9pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .cover-by strong {
+    color: var(--bordeaux);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 11pt;
+    letter-spacing: 0.2em;
+  }
+  .cover-portrait {
+    position: relative;
+    border-radius: 4px;
+    padding: 10px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-lite));
+    box-shadow: 0 40px 80px rgba(45, 31, 34, 0.28);
+    aspect-ratio: 4/5;
+    overflow: hidden;
+  }
+  .cover-portrait img {
+    width: 100%; height: 100%; object-fit: cover;
+    display: block;
+    border-radius: 2px;
+  }
+
+  /* Sections */
+  .sec-kicker {
+    display: inline-block;
+    font-size: 9pt;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .page.dark .sec-kicker { color: var(--gold); }
+
+  h2.sec {
+    font-size: 28pt;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--bordeaux);
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+  .page.dark h2.sec { color: var(--bg); }
+  h2.sec span { color: var(--ink); font-weight: 500; }
+  .page.dark h2.sec span { color: var(--gold); }
+
+  h3.sub {
+    font-size: 11pt;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--bordeaux);
+    margin: 26px 0 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+  .page.dark h3.sub {
+    color: var(--gold);
+    border-bottom-color: var(--dark-line);
+  }
+
+  p { margin-bottom: 12px; color: var(--ink-soft); font-size: 10.5pt; line-height: 1.7; }
+  .page.dark p { color: rgba(251, 242, 237, 0.82); }
+  strong { color: var(--ink); font-weight: 600; }
+  .page.dark strong { color: var(--bg); }
+  em { color: var(--bordeaux); font-style: italic; }
+  .page.dark em { color: var(--gold); }
+
+  /* Story box */
+  .story-box {
+    background: var(--card);
+    border-left: 3px solid var(--bordeaux);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin: 22px 0;
+    box-shadow: 0 10px 30px rgba(45, 31, 34, 0.05);
+  }
+  .story-box p:last-child { margin-bottom: 0; }
+  .story-box strong { color: var(--bordeaux); font-weight: 700; }
+
+  .story-box.gold {
+    background: linear-gradient(135deg, rgba(197, 164, 109, 0.12), rgba(197, 164, 109, 0.04));
+    border-left-color: var(--gold);
+  }
+  .story-box.gold strong { color: var(--bordeaux); }
+
+  .page.dark .story-box {
+    background: rgba(251, 242, 237, 0.05);
+    border-left-color: var(--gold);
+    box-shadow: none;
+  }
+  .page.dark .story-box p { color: rgba(251, 242, 237, 0.85); }
+  .page.dark .story-box strong { color: var(--gold); }
+
+  /* Story-Split (Bild + Text) */
+  .story-split {
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 26px;
+    align-items: start;
+    margin: 24px 0;
+  }
+  .story-split.right { grid-template-columns: 1.4fr 1fr; }
+  .story-img {
+    aspect-ratio: 4/5;
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 8px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-lite));
+    box-shadow: 0 20px 40px rgba(45, 31, 34, 0.12);
+  }
+  .story-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    display: block;
+    border-radius: 2px;
+  }
+
+  /* Reichweite Grid (nur dark) */
+  .stat-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+    margin: 24px 0;
+  }
+  .stat {
+    background: rgba(251, 242, 237, 0.05);
+    border: 1px solid var(--dark-line);
+    border-radius: 8px;
+    padding: 24px 22px;
+  }
+  .stat .lbl {
+    font-size: 8.5pt;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .stat .num {
+    font-size: 26pt;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat .desc {
+    font-size: 9.5pt;
+    color: rgba(251, 242, 237, 0.7);
+    line-height: 1.4;
+  }
+
+  .demo-row {
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 12px; align-items: center;
+    margin-bottom: 6px;
+  }
+  .demo-label { font-size: 9.5pt; color: rgba(251, 242, 237, 0.8); }
+  .demo-pct {
+    font-size: 12pt; font-weight: 700; color: var(--gold);
+    letter-spacing: -0.01em;
+  }
+  .demo-bar {
+    grid-column: 1 / -1;
+    height: 3px;
+    background: rgba(251, 242, 237, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .demo-bar > div {
+    height: 100%;
+    background: linear-gradient(90deg, var(--bordeaux), var(--gold));
+    border-radius: 2px;
+  }
+
+  /* IG-Handle Link */
+  .ig-handle {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px;
+    background: rgba(139, 46, 58, 0.08);
+    border: 1px solid var(--bordeaux);
+    border-radius: 999px;
+    color: var(--bordeaux);
+    font-size: 10pt;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 4px;
+    margin-bottom: 20px;
+  }
+  .page.dark .ig-handle {
+    background: rgba(197, 164, 109, 0.14);
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* Content-Karten (dunkel als Akzent auf heller Seite) */
+  .content-card {
+    background: linear-gradient(155deg, var(--ink), var(--ink-2));
+    color: var(--bg);
+    padding: 22px 26px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+    page-break-inside: avoid;
+    position: relative;
+    overflow: hidden;
+  }
+  .content-card::before {
+    content: attr(data-n);
+    position: absolute; top: 16px; right: 22px;
+    font-size: 36pt;
+    font-weight: 700;
+    color: rgba(197, 164, 109, 0.14);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .content-card > * { position: relative; z-index: 1; }
+  .content-card .type {
+    display: inline-block;
+    font-size: 8.5pt;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding: 4px 12px;
+    border: 1px solid var(--gold);
+    border-radius: 999px;
+  }
+  .content-card h4 {
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--bg);
+    line-height: 1.2;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+    max-width: 440px;
+  }
+  .content-card p.desc {
+    color: rgba(251, 242, 237, 0.85);
+    font-size: 9.5pt;
+    line-height: 1.55;
+    margin-bottom: 8px;
+    max-width: 500px;
+  }
+  .content-card .meta {
+    font-size: 8.5pt;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-top: 6px;
+  }
+
+  /* Package block */
+  .pkg-block {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 26px 30px;
+    margin: 18px 0;
+    box-shadow: 0 6px 20px rgba(45, 31, 34, 0.05);
+  }
+  .pkg-block h4 {
+    font-size: 11pt;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--bordeaux);
+    margin-bottom: 14px;
+  }
+  .pkg-list {
+    list-style: none; padding: 0;
+  }
+  .pkg-list li {
+    padding: 8px 0 8px 24px;
+    position: relative;
+    border-bottom: 1px dashed var(--line);
+    font-size: 10pt;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .pkg-list li:last-child { border-bottom: 0; }
+  .pkg-list li::before {
+    content: "";
+    position: absolute; left: 0; top: 14px;
+    width: 12px; height: 6px;
+    border-left: 1.5px solid var(--bordeaux);
+    border-bottom: 1.5px solid var(--bordeaux);
+    transform: rotate(-45deg);
+  }
+  .pkg-list li strong { color: var(--bordeaux); font-weight: 600; }
+
+  /* CTA (dark on last page) */
+  .cta-final {
+    background: linear-gradient(135deg, var(--gold), var(--gold-lite));
+    color: var(--ink);
+    padding: 40px 44px;
+    border-radius: 10px;
+    margin-top: 30px;
+    box-shadow: 0 30px 60px rgba(197, 164, 109, 0.35);
+  }
+  .cta-final h3 {
+    font-size: 20pt;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+    line-height: 1.15;
+  }
+  .cta-final p { color: rgba(45, 31, 34, 0.85); font-size: 10.5pt; margin-bottom: 20px; }
+  .cta-final .contact-block {
+    background: var(--ink);
+    padding: 20px 24px;
+    border-radius: 6px;
+    margin-top: 16px;
+  }
+  .cta-final .contact-block .row {
+    display: flex; justify-content: space-between; gap: 20px;
+    padding: 6px 0; font-size: 10pt;
+    border-bottom: 1px dashed rgba(197, 164, 109, 0.14);
+  }
+  .cta-final .contact-block .row:last-child { border-bottom: 0; }
+  .cta-final .contact-block .row .k { color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; font-size: 8.5pt; }
+  .cta-final .contact-block .row .v { color: var(--bg); font-weight: 500; }
+
+  /* Foot */
+  .foot {
+    margin-top: 40px; padding-top: 20px;
+    border-top: 1px solid var(--dark-line);
+    text-align: center;
+    font-size: 9pt;
+    color: rgba(251, 242, 237, 0.6);
+    letter-spacing: 0.05em;
+  }
+  .foot strong { color: var(--gold); font-weight: 700; }
+
+  /* Print */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page {
+      max-width: none; margin: 0;
+      box-shadow: none;
+    }
+    .inner { padding: 20mm 18mm; }
+    .cover { padding: 40mm 18mm 30mm; min-height: 297mm; }
+    .print-hint { display: none !important; }
+    .page { color-adjust: exact; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  .print-hint {
+    position: fixed;
+    top: 24px; right: 24px;
+    background: var(--bordeaux);
+    color: #fff;
+    padding: 14px 22px;
+    border-radius: 999px;
+    font-size: 10pt; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; border: 0;
+    box-shadow: 0 12px 30px rgba(139, 46, 58, 0.4);
+    z-index: 100;
+    font-family: inherit;
+  }
+</style>
+</head>
+<body>
+
+<button class="print-hint" onclick="window.print()">Als PDF drucken →</button>
+
+<!-- ── COVER (hell) ── -->
+<div class="page">
+  <div class="cover">
+    <div class="cover-content">
+      <div class="cover-kicker">Kooperations-Leitfaden · 2026</div>
+      <div class="cover-title"><strong>Meine erste Reise</strong><br>seit <em>zwei Jahren</em>.</div>
+      <div class="cover-sub">Ein Kooperations-Konzept für Hotels und Pensionen, die Menschen mit Unverträglichkeiten wärmstens empfangen wollen.</div>
+      <div class="cover-quote">
+        „Vor einem Jahr wusste ich nicht einmal, ob ich solche Momente jemals wieder erleben werde. Diese Kooperation ist mehr als Content. Sie ist eine echte Geschichte."
+      </div>
+      <div class="cover-by">
+        <strong>Julia Bergles</strong>
+        @julia_bergles · TerraLuna App · On Point
+      </div>
+    </div>
+    <div class="cover-portrait">
+      <img src="img/hero-neu.jpg" alt="Julia Bergles Portrait">
+    </div>
+  </div>
+</div>
+
+<!-- ── SEITE 2: GESCHICHTE (hell) ── -->
+<div class="page">
+  <div class="inner">
+    <div class="sec-kicker" style="color: var(--bordeaux);">Meine Geschichte</div>
+    <h2 class="sec">Warum ich <span>überhaupt</span> schreibe.</h2>
+
+    <p>Bevor ich Ihnen erzähle, was ich für Ihr Hotel plane, möchte ich Ihnen kurz sagen, wer ich bin. Nicht in Zahlen. In echt.</p>
+
+    <div class="story-split">
+      <div class="story-img"><img src="img/portrait-hero.jpg" alt="Julia"></div>
+      <div>
+        <h3 class="sub" style="margin-top: 0;">Zwei Jahre Stillstand</h3>
+        <p>Ich habe Histaminintoleranz. In der schlimmsten Phase kamen Angstzustände, Depressionen und extremes Untergewicht dazu. Mein Darm hat irgendwann komplett gestreikt. Ein Darmverschluss brachte mich an den Punkt, an dem alles auf der Kippe stand.</p>
+        <p>Ich hatte nie Zeit für mich genommen. Immer war ich für andere da. Bis mein Körper mich stoppte.</p>
+      </div>
+    </div>
+
+    <div class="story-box">
+      <p><strong>Zwei Jahre lang bin ich nicht mehr gereist.</strong></p>
+      <p>Angst vor fremdem Essen. Angst vor Zimmern, in denen ich mich nicht sicher fühle. Angst vor Blicken, wenn ich meine Bedürfnisse anspreche.</p>
+      <p>Zeitweise wusste ich nicht einmal, ob ich jemals wieder ein Leben führen kann, das sich normal anfühlt.</p>
+    </div>
+
+    <h3 class="sub">Der Weg zurück</h3>
+    <p>Ich habe angefangen, mir Zeit für mich zu nehmen. Meine Ernährung radikal umgestellt. Auf sanfte Bewegung wie Yoga gesetzt statt auf Leistungsdruck. Mein Nervensystem beruhigt.</p>
+    <p>Heute bin ich in einer Beziehung, die mich trägt. Ich betreue meine eigene TerraLuna App, meine Agentur On Point, meine Community von tausenden Menschen mit ähnlichen Geschichten.</p>
+    <p>Und jetzt bin ich bereit für den nächsten Schritt: Wieder reisen. Zusammen mit meinem Freund. <em>Das ist meine erste Reise seit zwei Jahren.</em></p>
+  </div>
+</div>
+
+<!-- ── SEITE 3: WER ICH BIN (hell) ── -->
+<div class="page">
+  <div class="inner">
+    <div class="sec-kicker">Was ich beruflich mache</div>
+    <h2 class="sec">Content, Community <span>und Marke</span>.</h2>
+
+    <div class="story-split right">
+      <div>
+        <p>Neben der persönlichen Geschichte hier die berufliche Seite. Weil ich weiß, dass Sie beides brauchen um zu entscheiden.</p>
+        <p><strong>Ich bin Social Media Managerin, Mediendesignerin und Webdesignerin.</strong> Das ist mein Beruf, nicht Hobby. Ich weiß aus täglicher Praxis, welche Formate funktionieren, welche Reichweite bringen, welche Menschen bewegen.</p>
+        <p><strong>Content-Creatorin auf Instagram (@julia_bergles)</strong> mit einer Reichweite, die weit über meiner eigenen Community hinausgeht.</p>
+        <p><strong>Ich führe die On Point Agentur</strong> für Social Media, Mediendesign und Webdesign — auch mit anderen Marken.</p>
+        <a href="https://www.instagram.com/julia_bergles/" class="ig-handle">@julia_bergles auf Instagram</a>
+      </div>
+      <div class="story-img"><img src="img/bild-3.jpg" alt="Julia"></div>
+    </div>
+
+    <h3 class="sub">Was das für Sie bedeutet</h3>
+    <p>Sie arbeiten nicht mit einer klassischen Influencerin, die für Views alles teilt. Sie arbeiten mit einer Frau, die aus eigener Erfahrung weiß, wie sich Ihre Zielgruppe fühlt. Und die die Kanäle als Profi beherrscht, um diese Zielgruppe zu erreichen.</p>
+    <p>Meine Followerinnen vertrauen mir, weil ich ehrlich bin. Nicht weil ich alles bewerbe.</p>
+  </div>
+</div>
+
+<!-- ── SEITE 4: TERRALUNA (hell) ── -->
+<div class="page">
+  <div class="inner">
+    <div class="sec-kicker">Meine App</div>
+    <h2 class="sec">TerraLuna <span>App</span>.</h2>
+    <p>Zusätzlich zur Instagram-Reichweite habe ich meine eigene App gebaut. Speziell für Menschen mit Histaminintoleranz. Sie ist im deutschsprachigen Raum einzigartig in dieser Nische.</p>
+
+    <div class="story-split">
+      <div class="story-img"><img src="img/terraluna-1.png" alt="TerraLuna App"></div>
+      <div>
+        <h3 class="sub" style="margin-top: 0;">Was drin steckt</h3>
+        <p><strong>Histaminarme Rezepte</strong> mit Nährwerten, Zubereitungszeit und Zutatenlisten.</p>
+        <p><strong>Tagebuch-Funktion</strong> für Verträglichkeit. Nutzerinnen tracken, was ihnen gut oder schlecht tut.</p>
+        <p><strong>Wissensbereich</strong> zu Histaminintoleranz und Selbsthilfe.</p>
+        <p><strong>Community-Bereich</strong> für Erfahrungsaustausch.</p>
+      </div>
+    </div>
+
+    <div class="story-split right">
+      <div>
+        <h3 class="sub" style="margin-top: 0;">Bereich Reisen (in Vorbereitung)</h3>
+        <p>Ich baue gerade einen neuen Bereich in der App auf: <strong>allergikerfreundliche Reise-Empfehlungen.</strong></p>
+        <p>Hotels und Pensionen, die auf Unverträglichkeiten eingehen, werden dort mit Foto, Beschreibung und direktem Link vorgestellt.</p>
+        <p>Wenn wir zusammenarbeiten, wird Ihr Haus dort mit aufgenommen. Direkter Draht zu einer sehr spezifischen Zielgruppe, die aktiv nach solchen Empfehlungen sucht.</p>
+      </div>
+      <div class="story-img"><img src="img/terraluna-2.png" alt="TerraLuna App Reisen"></div>
+    </div>
+
+    <div class="story-box gold">
+      <p><strong>Was die App für Sie bedeutet:</strong></p>
+      <p>Über Instagram erreiche ich Menschen einmal mit einem Reel. Über die App bleiben sie in Kontakt mit meiner Empfehlung. Wenn sie in einem halben Jahr eine Reise planen und ihre App öffnen, sehen sie Ihr Hotel wieder.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── SEITE 5: REICHWEITE (DARK für Wumms) ── -->
+<div class="page dark">
+  <div class="inner">
+    <div class="sec-kicker">Meine Zahlen</div>
+    <h2 class="sec">Wo Ihr Content <span>ankommt</span>.</h2>
+    <p style="max-width: 500px;">Aktuelle Reichweite auf @julia_bergles, Zeitraum 15. Juni bis 15. Juli 2026:</p>
+
+    <div class="stat-grid">
+      <div class="stat">
+        <div class="lbl">Aufrufe</div>
+        <div class="num">1.393.620</div>
+        <div class="desc">Aufrufe im letzten Monat</div>
+      </div>
+      <div class="stat">
+        <div class="lbl">Erreichte Konten</div>
+        <div class="num">581.274</div>
+        <div class="desc">Einzelne Konten haben Content gesehen</div>
+      </div>
+      <div class="stat">
+        <div class="lbl">Interaktionen</div>
+        <div class="num">22.435</div>
+        <div class="desc">Likes, Kommentare, Shares, Saves</div>
+      </div>
+      <div class="stat">
+        <div class="lbl">Profilaufrufe</div>
+        <div class="num">16.830</div>
+        <div class="desc">Menschen mit aktivem Interesse</div>
+      </div>
+    </div>
+
+    <h3 class="sub">Wer folgt und schaut</h3>
+    <div style="margin-bottom: 20px;">
+      <div class="demo-row"><span class="demo-label">Frauen</span><span class="demo-pct">75,9 %</span></div>
+      <div class="demo-bar"><div style="width: 75.9%;"></div></div>
+      <div class="demo-row"><span class="demo-label">Männer</span><span class="demo-pct">24,1 %</span></div>
+      <div class="demo-bar"><div style="width: 24.1%;"></div></div>
+      <div class="demo-row"><span class="demo-label">25 bis 34 Jahre</span><span class="demo-pct">35,5 %</span></div>
+      <div class="demo-bar"><div style="width: 71%;"></div></div>
+      <div class="demo-row"><span class="demo-label">35 bis 44 Jahre</span><span class="demo-pct">25,2 %</span></div>
+      <div class="demo-bar"><div style="width: 50.4%;"></div></div>
+      <div class="demo-row"><span class="demo-label">Deutschland</span><span class="demo-pct">85,1 %</span></div>
+      <div class="demo-bar"><div style="width: 85.1%;"></div></div>
+      <div class="demo-row"><span class="demo-label">Österreich</span><span class="demo-pct">7,6 %</span></div>
+      <div class="demo-bar"><div style="width: 7.6%;"></div></div>
+    </div>
+
+    <div class="story-box">
+      <p><strong>Über 91 % meiner Reichweite kommt von Nicht-Followern.</strong></p>
+      <p>Der Instagram-Algorithmus verteilt meinen Content organisch an Menschen, die mir noch nicht folgen. Diese Reichweite ist echt und nachhaltig, nicht gekauft und nicht boostet. Und sie wächst.</p>
+    </div>
+
+    <p style="margin-top: 20px; font-size: 9.5pt; color: rgba(251, 242, 237, 0.6); font-style: italic;">Aktuelle Zahlen jederzeit einsehbar unter: agentur.juliabergles.de/reichweite</p>
+  </div>
+</div>
+
+<!-- ── SEITE 6: CONTENT-KONZEPT (hell mit dunklen Karten) ── -->
+<div class="page">
+  <div class="inner">
+    <div class="sec-kicker">Was ich für Ihr Hotel plane</div>
+    <h2 class="sec">Das <span>Content-Konzept</span>.</h2>
+    <p>Kein Werbevideo. Keine gestellte Kampagne. Sondern echte, persönliche Content-Momente, die genau deshalb funktionieren.</p>
+    <p style="font-size: 10pt; color: var(--muted); margin-bottom: 24px;"><em style="color: var(--bordeaux);">Wichtig zu wissen: Ich reise zu zweit an, mit meinem Freund. Das gibt der ganzen Serie noch mehr emotionale Tiefe.</em></p>
+
+    <div class="content-card" data-n="01">
+      <div class="type">Beitrag</div>
+      <h4>Das Hotel, die Umgebung, authentische Fotos</h4>
+      <p class="desc">Editorial Beitrag mit warmen, ehrlichen Aufnahmen. Ihr Haus, die Zimmer, das Frühstück, die Landschaft. Alles authentisch, wie ich es tatsächlich erlebe.</p>
+      <div class="meta">Reichweite: rund 200.000 bis 400.000 Aufrufe</div>
+    </div>
+
+    <div class="content-card" data-n="02">
+      <div class="type">Reel · Persönlich</div>
+      <h4>Wo ich wieder lache</h4>
+      <p class="desc">Das persönliche Reel. Vorher und Nachher. Was zwei Jahre Isolation mit einem Menschen machen. Und was es bedeutet, sich wieder frei zu fühlen. Meine Community wird sich darin wiederfinden.</p>
+      <div class="meta">Reichweite: rund 300.000 bis 600.000 Aufrufe</div>
+    </div>
+
+    <div class="content-card" data-n="03">
+      <div class="type">Reel · Hotel</div>
+      <h4>So sieht Ihr Hotel aus</h4>
+      <p class="desc">Ein Reel, das Ihr Haus in seiner Vielfalt zeigt. Zimmer, Küche, Wellness, Umgebung. Warm gefilmt, klare Botschaft: Hier ist man willkommen.</p>
+      <div class="meta">Reichweite: rund 200.000 bis 400.000 Aufrufe</div>
+    </div>
+
+    <div class="content-card" data-n="04">
+      <div class="type">Reel · Emotion</div>
+      <h4>So kann das Leben nach zwei Jahren Angst aussehen</h4>
+      <p class="desc">Das stärkste Format der Serie. Ein Hotel, das wärmstens empfängt. Das die Probleme versteht. Wo man sich nicht rechtfertigen muss. Für Menschen mit Unverträglichkeiten vielleicht die wichtigste Botschaft überhaupt.</p>
+      <div class="meta">Reichweite: rund 400.000 bis 800.000 Aufrufe (viralstes Format)</div>
+    </div>
+
+    <div class="content-card" data-n="05">
+      <div class="type">Reel · Romantik</div>
+      <h4>Ein romantisches Video mit meinem Freund</h4>
+      <p class="desc">Das Format, das am zuverlässigsten läuft. Bis vor einem Jahr wusste ich nicht einmal, ob ich solche Momente überhaupt noch erleben darf. Ein leiser, warmer Moment zu zweit an einem Ort, an dem wir uns beide wohlfühlen. Ihre Umgebung ist die Bühne.</p>
+      <div class="meta">Reichweite: erfahrungsgemäß 250.000 bis 500.000 Aufrufe</div>
+    </div>
+
+    <div class="content-card" data-n="06">
+      <div class="type">Reel · Bewegung</div>
+      <h4>Grünes und Bewegung sind die beste Medizin</h4>
+      <p class="desc">Ich fahre unglaublich gerne Fahrrad. Das war in meiner schlimmsten Zeit meine mentale Rettung. Wenn Ihre Region sich anbietet (Radweg, Wanderweg, Natur), mache ich ein Reel über Bewegung als natürliche Therapie. Meine Community versteht diese Botschaft sofort.</p>
+      <div class="meta">Reichweite: 200.000 bis 400.000 Aufrufe</div>
+    </div>
+
+    <div class="content-card" data-n="07">
+      <div class="type">Reel · Fitness</div>
+      <h4>Sanfte Übungen für den Bauch zur Beruhigung</h4>
+      <p class="desc">Ein Fitness-Reel mit sanften Übungen für Bauch und Nervensystem. Kein High Intensity. Yoga-nah, für Menschen mit chronischen Beschwerden umsetzbar. Wenn Ihr Hotel einen Yoga-Bereich oder eine passende ruhige Ecke hat, wird das die Bühne.</p>
+      <div class="meta">Reichweite: 150.000 bis 300.000 Aufrufe</div>
+    </div>
+
+    <div class="content-card" data-n="08">
+      <div class="type">Storys · täglich</div>
+      <h4>Der Alltag im Hotel, ganz natürlich</h4>
+      <p class="desc">Über den ganzen Aufenthalt Storys, die einfach zeigen, wie es sich anfühlt. Frühstück, Spaziergänge, Wellness, ruhige Momente. Kein Werbeton. Ein Freundinnen-Bericht aus dem Urlaub.</p>
+      <div class="meta">5 Storys pro Tag, Verlinkung Ihres Accounts, Standort-Tag</div>
+    </div>
+
+    <div class="story-box gold" style="margin-top: 22px;">
+      <p><strong>Zusammengefasst — mein Content-Umfang:</strong></p>
+      <p>Für einen 4-tägigen Aufenthalt plane ich <strong>5 bis 6 Reels, 2 Beiträge und 5 Storys pro Tag</strong>. Das ist mehr Content-Volumen als bei klassischen Influencer-Kooperationen, weil ich aus der Reise wirklich eine Serie mache. Nicht nur einen einzelnen Post.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── SEITE 7: WIRKUNG (hell) ── -->
+<div class="page">
+  <div class="inner">
+    <div class="sec-kicker">Warum das so kraftvoll ist</div>
+    <h2 class="sec">Die <span>Vorher-Nachher</span> Wirkung.</h2>
+
+    <div class="story-split">
+      <div class="story-img"><img src="img/portrait-neu-2.jpg" alt="Julia"></div>
+      <div>
+        <p>Ich zeige in einem der Reels ein Vorher-Nachher-Konzept: Wie sah mein Leben aus in den zwei Jahren, in denen ich nicht reisen konnte. Und wie sieht es jetzt aus, im Moment, in dem ich wieder lachen darf.</p>
+      </div>
+    </div>
+
+    <h3 class="sub">Warum die Community das bewegt</h3>
+    <p>In meiner Zielgruppe (überwiegend Frauen zwischen 25 und 44 mit chronischen Beschwerden) hat fast jede Zweite ähnliche Geschichten. Reise-Angst, Rückzug, Isolation, das Gefühl, überall anecken zu müssen.</p>
+    <p>Wenn ich zeige, dass es Häuser gibt, in denen man einfach nur Gast sein darf, ohne sich rechtfertigen zu müssen, ist das für viele der Impuls, es selbst wieder zu versuchen.</p>
+
+    <div class="story-box">
+      <p><strong>Was das für Ihr Hotel bedeutet:</strong></p>
+      <p>Sie bekommen keine anonyme Influencer-Kampagne. Sie bekommen eine emotionale Geschichte, in der Ihr Haus die tragende Rolle spielt. Menschen erinnern sich an Geschichten. An Werbung nicht.</p>
+      <p>Und diese Geschichte transportiert genau das, was Sie an Ihrer Zielgruppe erreichen wollen: <strong>Vertrauen, Wärme, Sicherheit.</strong></p>
+    </div>
+
+    <h3 class="sub">Was ich nicht mache</h3>
+    <p>Keine gestellten Werbe-Fotos. Keine peinliche Preisungssprache. Keine Skripte, die von einem Marketing-Team abgesegnet werden müssen. Kein Ausverkauf, den meine Community sofort riechen würde.</p>
+    <p>Stattdessen: ehrliche Empfindungen, die ich zum ersten Mal wieder erlebe. Ich weiß noch nicht genau, wie sich alles anfühlen wird, deshalb kann ich Ihnen keine 100-prozentigen Content-Garantien geben. Aber ich verspreche Ihnen eines: <em>Ich werde nur Positives über Sie sagen.</em> Das ist Grundlage der Zusammenarbeit.</p>
+  </div>
+</div>
+
+<!-- ── SEITE 8: RAHMEN (hell) ── -->
+<div class="page">
+  <div class="inner">
+    <div class="sec-kicker">Damit die Kooperation gut läuft</div>
+    <h2 class="sec">Rahmen für einen <span>entspannten Aufenthalt</span>.</h2>
+    <p>Ganz konkret, damit Sie und ich wissen, was wir voneinander erwarten dürfen.</p>
+
+    <div class="pkg-block">
+      <h4>Aufenthalt</h4>
+      <ul class="pkg-list">
+        <li><strong>4 Tage, 3 Nächte</strong> in Ihrem Hotel</li>
+        <li><strong>Wir reisen zu zweit an</strong> — ich und mein Freund. Bitte ein Zimmer für zwei Personen einplanen.</li>
+        <li><strong>Verpflegung nach Möglichkeit im Sinne des Histamin-Leitfadens</strong> — den ich Ihrer Küche gerne vorher zusende.</li>
+        <li><strong>Zugang zu Wellness und Aktivitäten</strong> Ihres Hauses (für Content-Vielfalt)</li>
+        <li><strong>Ruhiges Zimmer</strong> für gute Regeneration</li>
+        <li><strong>Flexibles Check-in und Check-out</strong> wenn möglich</li>
+      </ul>
+    </div>
+
+    <div class="pkg-block">
+      <h4>Finanzielles</h4>
+      <ul class="pkg-list">
+        <li><strong>Kostenlose Übernachtung</strong> im vereinbarten Umfang</li>
+        <li><strong>Anreise übernehme ich selbst</strong> — als mein persönlicher Beitrag zu dieser ersten Zusammenarbeit</li>
+        <li><strong>Keine Zusatzhonorare</strong> für diesen Aufenthalt. Ich starte diese Serie mit ausgewählten Häusern zu fairen Bedingungen.</li>
+      </ul>
+    </div>
+
+    <div class="pkg-block">
+      <h4>Was Sie dafür bekommen</h4>
+      <ul class="pkg-list">
+        <li><strong>2 editorial Beiträge</strong> mit Hotel- und Umgebungs-Aufnahmen</li>
+        <li><strong>5 bis 6 Reels</strong> (Hotel-Präsentation, persönliche Story, Wirkung, romantisches Reel mit Freund, Bewegungs-Reel, Fitness-Reel) — in den ersten 4 Wochen nach Aufenthalt</li>
+        <li><strong>5 Storys pro Tag</strong> während des Aufenthalts</li>
+        <li><strong>Erwähnung in der TerraLuna App</strong> im Bereich Reisen — direkter Draht zu Betroffenen-Community</li>
+        <li><strong>Verlinkung Ihres Instagram-Accounts</strong> in allen Formaten</li>
+        <li><strong>Kennzeichnung als Werbe-Kooperation</strong> (rechtlich sauber)</li>
+      </ul>
+    </div>
+
+    <div class="story-box gold">
+      <p><strong>Ehrlichkeit zum Schluss:</strong></p>
+      <p>Ich verspreche Ihnen keine Buchungszahlen und keine Klick-Garantien. Was ich verspreche: authentische Berichterstattung, geteilte emotionale Momente und eine Reichweite, die für Ihre Nische signifikant ist. Und dass ich Ihre Gastfreundschaft mit meiner Aufmerksamkeit ehre.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── SEITE 9: CTA (DARK für Abschluss-Wumms) ── -->
+<div class="page dark">
+  <div class="inner">
+    <div class="sec-kicker">So geht es weiter</div>
+    <h2 class="sec">Wenn das für Sie <span>passt</span>.</h2>
+    <p style="max-width: 540px; margin-bottom: 24px;">Melden Sie sich einfach. Ich freue mich, mit Ihnen zu sprechen und zu klären, ob das gut zusammenpasst. Kein Verkaufs-Pitch, keine Verpflichtung.</p>
+
+    <div class="cta-final">
+      <h3>Lassen Sie uns kennenlernen.</h3>
+      <p>30 Minuten unverbindlich per Video-Call. Wir schauen, ob wir zusammenpassen.</p>
+
+      <div class="contact-block">
+        <div class="row">
+          <span class="k">Termin buchen</span>
+          <span class="v">calendly.com/julia-bergles/30min</span>
+        </div>
+        <div class="row">
+          <span class="k">E-Mail</span>
+          <span class="v">julia@bergles.net</span>
+        </div>
+        <div class="row">
+          <span class="k">Instagram</span>
+          <span class="v">@julia_bergles</span>
+        </div>
+        <div class="row">
+          <span class="k">Website</span>
+          <span class="v">agentur.juliabergles.de</span>
+        </div>
+        <div class="row">
+          <span class="k">Reichweite</span>
+          <span class="v">agentur.juliabergles.de/reichweite</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      Kooperations-Leitfaden von <strong>Julia Bergles</strong><br>
+      @julia_bergles · TerraLuna App · On Point Agentur<br>
+      Stand: 15. Juli 2026
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
