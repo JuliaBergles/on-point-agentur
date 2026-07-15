@@ -114,12 +114,13 @@ nav.site-nav .row {
   display: inline-block; width: 16px; height: 16px;
   background: var(--bordeaux); border-radius: 50%;
 }
-nav.site-nav ul { display: flex; gap: 32px; list-style: none; }
+nav.site-nav ul { display: flex; gap: 22px; list-style: none; flex-wrap: nowrap; }
 nav.site-nav ul a {
-  font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--ink); font-weight: 500;
   transition: color 0.3s;
   position: relative;
+  white-space: nowrap;
 }
 nav.site-nav ul a:hover { color: var(--bordeaux); }
 nav.site-nav ul a.current { color: var(--bordeaux); }
