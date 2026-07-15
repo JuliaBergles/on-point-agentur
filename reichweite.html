@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index, follow" />
+<title>Reichweite · On Point</title>
+<meta name="description" content="Aktuelle Instagram-Reichweite von Julia Bergles. Über 1,4 Mio. Aufrufe pro Monat, 581k erreichte Konten." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=object-sans@300,400,500,600,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap">
+<link rel="stylesheet" href="css/onpoint.css">
+<style>
+  /* Hero-Zahl */
+  .reach-hero {
+    padding: 180px 0 120px;
+    background: var(--ink);
+    color: var(--bg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .reach-hero::before {
+    content: ""; position: absolute; top: 100px; left: -80px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 46, 58, 0.32), transparent 60%);
+    filter: blur(80px);
+    pointer-events: none;
+    animation: floatA 22s ease-in-out infinite alternate;
+  }
+  .reach-hero::after {
+    content: ""; position: absolute; bottom: -120px; right: -60px;
+    width: 560px; height: 560px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(197, 164, 109, 0.24), transparent 60%);
+    filter: blur(90px);
+    pointer-events: none;
+    animation: floatB 26s ease-in-out infinite alternate;
+  }
+  .reach-hero .container { position: relative; z-index: 1; }
+  .reach-eyebrow {
+    font-size: 10px; letter-spacing: 0.45em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+    margin-bottom: 32px;
+    display: inline-block;
+  }
+  .reach-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: clamp(52px, 8vw, 108px);
+    letter-spacing: -0.03em;
+    line-height: 0.98;
+    color: var(--bg);
+    margin-bottom: 28px;
+  }
+  .reach-hero h1 em { font-style: italic; color: var(--gold); }
+  .reach-hero .period {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 18px; color: rgba(251, 242, 237, 0.7);
+    margin-bottom: 40px;
+  }
+  .reach-hero .huge {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-weight: 500;
+    font-size: clamp(80px, 14vw, 200px);
+    color: var(--gold);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    margin: 24px 0;
+  }
+  .reach-hero .huge-sub {
+    font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(251, 242, 237, 0.75); font-weight: 600;
+  }
+
+  /* Zahlen-Grid */
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  @media (max-width: 900px) { .stats-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 500px) { .stats-grid { grid-template-columns: 1fr; } }
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 40px 28px;
+    text-align: left;
+    transition: transform 0.5s, border-color 0.5s, box-shadow 0.5s;
+  }
+  .stat:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    box-shadow: 0 30px 60px rgba(45, 31, 34, 0.1);
+  }
+  .stat .num {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-weight: 500;
+    font-size: 52px;
+    color: var(--bordeaux);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+  .stat .lbl {
+    font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--muted); font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .stat .desc {
+    font-size: 13px; color: var(--ink-soft); line-height: 1.55;
+  }
+
+  /* Demographie */
+  .demo-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  @media (max-width: 900px) { .demo-grid { grid-template-columns: 1fr; } }
+  .demo-card {
+    background: rgba(251, 242, 237, 0.04);
+    border: 1px solid rgba(197, 164, 109, 0.22);
+    border-radius: 12px;
+    padding: 36px 32px;
+    backdrop-filter: blur(6px);
+  }
+  .demo-card h4 {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+    font-size: 20px; color: var(--bg);
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+  .demo-row {
+    display: grid; grid-template-columns: 1fr auto;
+    align-items: center; gap: 16px;
+    margin-bottom: 14px;
+  }
+  .demo-row .label {
+    font-size: 14px; color: rgba(251, 242, 237, 0.85);
+  }
+  .demo-row .pct {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    color: var(--gold); font-size: 20px; font-weight: 500;
+  }
+  .demo-bar {
+    grid-column: 1 / -1;
+    height: 4px; background: rgba(251, 242, 237, 0.08);
+    border-radius: 2px; overflow: hidden;
+    margin-top: -4px; margin-bottom: 8px;
+  }
+  .demo-bar > div {
+    height: 100%;
+    background: linear-gradient(90deg, var(--bordeaux), var(--gold));
+    border-radius: 2px;
+    transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* PDF-CTA */
+  .pdf-cta {
+    max-width: 780px; margin: 60px auto 0;
+    background: linear-gradient(135deg, var(--bordeaux-deep), var(--bordeaux));
+    border: 1.5px solid var(--gold);
+    border-radius: 16px;
+    padding: 50px 44px;
+    text-align: center;
+    color: var(--bg);
+    position: relative; overflow: hidden;
+  }
+  .pdf-cta::before {
+    content: ""; position: absolute; top: -80px; right: -80px;
+    width: 260px; height: 260px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(197, 164, 109, 0.28), transparent 65%);
+    filter: blur(30px); pointer-events: none;
+  }
+  .pdf-cta > * { position: relative; z-index: 1; }
+  .pdf-cta h3 {
+    font-family: 'Playfair Display', serif; font-weight: 500;
+    font-size: clamp(28px, 3.5vw, 42px);
+    color: #fff; margin-bottom: 14px;
+    line-height: 1.1;
+  }
+  .pdf-cta h3 em { font-style: italic; color: var(--gold); }
+  .pdf-cta p {
+    color: rgba(251, 242, 237, 0.85);
+    font-size: 15px; line-height: 1.65;
+    margin-bottom: 28px;
+    max-width: 480px; margin-left: auto; margin-right: auto;
+  }
+  .pdf-cta .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 18px 32px;
+    background: var(--gold);
+    color: var(--ink);
+    border-radius: 999px;
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    font-weight: 700;
+    transition: all 0.4s;
+    text-decoration: none;
+  }
+  .pdf-cta .btn:hover {
+    background: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="row">
+    <a href="index.html" class="brand">On Point</a>
+    <ul>
+      <li><a href="warum-onpoint.html">Warum On Point</a></li>
+      <li><a href="social-media.html">Social Media</a></li>
+      <li><a href="mediendesign.html">Mediendesign</a></li>
+      <li><a href="websites.html">Webdesign</a></li>
+      <li><a href="pakete.html">Pakete</a></li>
+      <li><a href="reichweite.html" class="current">Reichweite</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+    </ul>
+    <a href="https://calendly.com/julia-bergles/30min" target="_blank" rel="noopener" class="nav-cta">Beratung</a>
+    <button class="nav-burger" aria-label="Menü" onclick="document.getElementById('mobile-menu').classList.toggle('open'); this.classList.toggle('open');"><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="warum-onpoint.html">Warum On Point</a>
+    <a href="social-media.html">Social Media</a>
+    <a href="mediendesign.html">Mediendesign</a>
+    <a href="websites.html">Webdesign</a>
+    <a href="pakete.html">Pakete</a>
+    <a href="reichweite.html" class="current">Reichweite</a>
+    <a href="ueber-mich.html">Über mich</a>
+    <a href="https://calendly.com/julia-bergles/30min" target="_blank" rel="noopener" class="mobile-cta">Beratung</a>
+  </div>
+</nav>
+<div class="nav-spacer"></div>
+
+<!-- HERO -->
+<section class="reach-hero">
+  <div class="container">
+    <div class="reach-eyebrow">Aktuelle Reichweite · @julia_bergles</div>
+    <h1 class="reveal">Meine <em>Reichweite</em>.<br>Ihr Argument.</h1>
+    <div class="period reveal d1">Zeitraum: 15. Juni – 15. Juli 2026</div>
+    <div class="huge reveal d2">1,4&thinsp;Mio.</div>
+    <div class="huge-sub reveal d2">Aufrufe im letzten Monat</div>
+  </div>
+</section>
+
+<!-- ZAHLEN GRID -->
+<section class="section" style="background: var(--bg);">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Alle Kennzahlen</div>
+      <h2>Wo Ihr Content <em>ankommt</em>.</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat reveal d1">
+        <div class="lbl">Aufrufe</div>
+        <div class="num">1,4&thinsp;M</div>
+        <div class="desc">Genau 1.393.620 Aufrufe im letzten Monat.</div>
+      </div>
+      <div class="stat reveal d2">
+        <div class="lbl">Erreichte Konten</div>
+        <div class="num">581k</div>
+        <div class="desc">Genau 581.274 einzelne Konten haben Content gesehen.</div>
+      </div>
+      <div class="stat reveal d3">
+        <div class="lbl">Interaktionen</div>
+        <div class="num">22.435</div>
+        <div class="desc">Likes, Kommentare, Shares und Saves im letzten Monat.</div>
+      </div>
+      <div class="stat reveal d4">
+        <div class="lbl">Profilaufrufe</div>
+        <div class="num">16.830</div>
+        <div class="desc">Menschen, die aktiv auf mein Profil geklickt haben.</div>
+      </div>
+    </div>
+
+    <!-- Follower / Non-Follower -->
+    <div class="reveal" style="max-width: 900px; margin: 60px auto 0; padding: 40px 44px; background: var(--card); border: 1px solid var(--line); border-radius: 14px;">
+      <div style="text-align: center; margin-bottom: 28px;">
+        <div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 8px;">Wer sieht meinen Content</div>
+        <h3 style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 26px; color: var(--ink);">Über <em style="color: var(--bordeaux);">91 %</em> außerhalb meiner eigenen Bubble.</h3>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: center;">
+        <div style="padding: 24px; background: var(--bg); border-radius: 10px;">
+          <div style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--bordeaux); font-size: 44px; line-height: 1; margin-bottom: 6px;">91,6&thinsp;%</div>
+          <div style="font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 600;">Nicht-Follower</div>
+        </div>
+        <div style="padding: 24px; background: var(--bg); border-radius: 10px;">
+          <div style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--ink); font-size: 44px; line-height: 1; margin-bottom: 6px;">8,4&thinsp;%</div>
+          <div style="font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 600;">Follower</div>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 24px; font-size: 14px; color: var(--muted); font-style: italic;">
+        5.675 Follower insgesamt.
+        <br>Der Rest kommt organisch über den Instagram-Algorithmus.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- DEMOGRAPHIE -->
+<section class="section section-dark section-orbs">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Wer folgt mir</div>
+      <h2>Meine <em>Zielgruppe</em>.</h2>
+      <p>
+        Wenn Ihre Marke diese Menschen erreichen will:
+        <br>Wir passen zusammen.
+      </p>
+    </div>
+    <div class="demo-grid">
+
+      <div class="demo-card reveal d1">
+        <h4>Geschlecht</h4>
+        <div class="demo-row">
+          <span class="label">Frauen</span><span class="pct">75,9&thinsp;%</span>
+          <div class="demo-bar"><div style="width: 75.9%;"></div></div>
+        </div>
+        <div class="demo-row">
+          <span class="label">Männer</span><span class="pct">24,1&thinsp;%</span>
+          <div class="demo-bar"><div style="width: 24.1%;"></div></div>
+        </div>
+      </div>
+
+      <div class="demo-card reveal d2">
+        <h4>Alter</h4>
+        <div class="demo-row">
+          <span class="label">25–34 Jahre</span><span class="pct">35,5&thinsp;%</span>
+          <div class="demo-bar"><div style="width: 71%;"></div></div>
+        </div>
+        <div class="demo-row">
+          <span class="label">35–44 Jahre</span><span class="pct">25,2&thinsp;%</span>
+          <div class="demo-bar"><div style="width: 50.4%;"></div></div>
+        </div>
+        <div class="demo-row">
+          <span class="label">Weitere</span><span class="pct">39,3&thinsp;%</span>
+          <div class="demo-bar"><div style="width: 39.3%;"></div></div>
+        </div>
+      </div>
+
+      <div class="demo-card reveal d3">
+        <h4>Land</h4>
+        <div class="demo-row">
+          <span class="label">Deutschland</span><span class="pct">85,1&thinsp;%</span>
+          <div class="demo-bar"><div style="width: 85.1%;"></div></div>
+        </div>
+        <div class="demo-row">
+          <span class="label">Österreich</span><span class="pct">7,6&thinsp;%</span>
+          <div class="demo-bar"><div style="width: 7.6%;"></div></div>
+        </div>
+        <div class="demo-row">
+          <span class="label">Sonstige</span><span class="pct">7,3&thinsp;%</span>
+          <div class="demo-bar"><div style="width: 7.3%;"></div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PDF-CTA -->
+    <div class="pdf-cta reveal">
+      <h3>Vollständige Zahlen als <em>PDF</em>?</h3>
+      <p>
+        Detailliertes Reichweiten-Report mit allen Screenshots aus Instagram Insights.
+        <br>Schicke ich Ihnen gerne per E-Mail.
+      </p>
+      <a href="mailto:julia@bergles.net?subject=Anfrage%20Reichweiten-PDF&body=Hallo%20Julia%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20die%20detaillierten%20Reichweiten-Zahlen%20als%20PDF.%0A%0AK%C3%B6nnen%20Sie%20mir%20diese%20zuschicken%3F%0A%0ADanke%20und%20viele%20Gr%C3%BC%C3%9Fe" class="btn">
+        PDF anfragen
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-block" id="kontakt">
+  <div class="container">
+    <div class="inner reveal">
+      <div class="mark"></div>
+      <h2>Bereit für <em>Reichweite</em>?</h2>
+      <p>
+        30 Minuten Kennenlerngespräch.
+        <br>Kostenlos und unverbindlich.
+        <br>Wir schauen, ob wir zusammenpassen.
+      </p>
+      <div class="actions">
+        <a href="https://calendly.com/julia-bergles/30min" target="_blank" rel="noopener" class="btn-red">Kennenlerngespräch buchen</a>
+        <a href="pakete.html" class="btn-outline">Pakete ansehen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">On Point</div>
+      <div class="tag">Content auf den Punkt gebracht.</div>
+      <div class="adr">Julia Bergles<br>Augsburg + remote<br>julia@bergles.net</div>
+    </div>
+    <div class="footer-col">
+      <h5>Bereiche</h5>
+      <a href="social-media.html">Social Media</a>
+      <a href="mediendesign.html">Mediendesign</a>
+      <a href="websites.html">Webdesign</a>
+      <a href="pakete.html">Pakete</a>
+    </div>
+    <div class="footer-col">
+      <h5>Info</h5>
+      <a href="warum-onpoint.html">Warum On Point</a>
+      <a href="reichweite.html">Reichweite</a>
+      <a href="ueber-mich.html">Über mich</a>
+      <a href="index.html">Startseite</a>
+    </div>
+    <div class="footer-col">
+      <h5>Rechtliches</h5>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+  </div>
+  <div class="footer-xxl">
+    <div class="logo-big">ON<span class="g">·</span>POINT</div>
+    <div class="footer-copy">© 2026 On Point · Julia Bergles · Augsburg</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>
