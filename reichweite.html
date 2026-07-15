@@ -12,11 +12,11 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap">
 <link rel="stylesheet" href="css/onpoint.css">
 <style>
-  /* Hero-Zahl */
+  /* Hero-Zahl (hell + freundlich) */
   .reach-hero {
     padding: 180px 0 120px;
-    background: var(--ink);
-    color: var(--bg);
+    background: var(--bg);
+    color: var(--ink);
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -24,7 +24,7 @@
   .reach-hero::before {
     content: ""; position: absolute; top: 100px; left: -80px;
     width: 500px; height: 500px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(139, 46, 58, 0.32), transparent 60%);
+    background: radial-gradient(circle, rgba(139, 46, 58, 0.14), transparent 60%);
     filter: blur(80px);
     pointer-events: none;
     animation: floatA 22s ease-in-out infinite alternate;
@@ -32,7 +32,7 @@
   .reach-hero::after {
     content: ""; position: absolute; bottom: -120px; right: -60px;
     width: 560px; height: 560px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(197, 164, 109, 0.24), transparent 60%);
+    background: radial-gradient(circle, rgba(197, 164, 109, 0.18), transparent 60%);
     filter: blur(90px);
     pointer-events: none;
     animation: floatB 26s ease-in-out infinite alternate;
@@ -40,7 +40,7 @@
   .reach-hero .container { position: relative; z-index: 1; }
   .reach-eyebrow {
     font-size: 10px; letter-spacing: 0.45em; text-transform: uppercase;
-    color: var(--gold); font-weight: 700;
+    color: var(--bordeaux); font-weight: 700;
     margin-bottom: 32px;
     display: inline-block;
   }
@@ -50,30 +50,30 @@
     font-size: clamp(52px, 8vw, 108px);
     letter-spacing: -0.03em;
     line-height: 0.98;
-    color: var(--bg);
+    color: var(--ink);
     margin-bottom: 28px;
   }
-  .reach-hero h1 em { font-style: italic; color: var(--gold); }
+  .reach-hero h1 em { font-style: italic; color: var(--bordeaux); }
   .reach-hero .period {
     font-family: 'Playfair Display', serif; font-style: italic;
-    font-size: 18px; color: rgba(251, 242, 237, 0.7);
+    font-size: 18px; color: var(--muted);
     margin-bottom: 40px;
   }
   .reach-hero .huge {
     font-family: 'Object Sans', -apple-system, sans-serif;
     font-weight: 700;
     font-size: clamp(64px, 10vw, 148px);
-    color: var(--gold);
+    color: var(--bordeaux);
     line-height: 1;
     letter-spacing: -0.04em;
     margin: 24px 0;
   }
   .reach-hero .huge-sub {
     font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase;
-    color: rgba(251, 242, 237, 0.75); font-weight: 600;
+    color: var(--muted); font-weight: 600;
   }
 
-  /* Zahlen-Grid (dark) */
+  /* Zahlen-Grid (Bordeaux-Boxen auf hellem Grund) */
   .stats-grid {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
     max-width: 1200px; margin: 0 auto;
@@ -81,56 +81,64 @@
   @media (max-width: 900px) { .stats-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 500px) { .stats-grid { grid-template-columns: 1fr; } }
   .stat {
-    background: rgba(251, 242, 237, 0.04);
-    border: 1px solid rgba(197, 164, 109, 0.22);
-    border-radius: 12px;
+    background: linear-gradient(150deg, var(--bordeaux), var(--bordeaux-hi));
+    border-radius: 14px;
     padding: 40px 28px;
     text-align: left;
+    color: #fff;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    backdrop-filter: blur(6px);
+    box-shadow: 0 20px 40px rgba(139, 46, 58, 0.20);
+    position: relative;
+    overflow: hidden;
   }
+  .stat::before {
+    content: ""; position: absolute; top: -40px; right: -40px;
+    width: 140px; height: 140px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(197, 164, 109, 0.35), transparent 65%);
+    filter: blur(30px); pointer-events: none;
+  }
+  .stat > * { position: relative; z-index: 1; }
   .stat:hover {
-    transform: translateY(-6px);
-    border-color: var(--gold);
-    background: rgba(251, 242, 237, 0.07);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(139, 46, 58, 0.32);
+  }
+  .stat .lbl {
+    font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+    margin-bottom: 12px;
   }
   .stat .num {
     font-family: 'Object Sans', -apple-system, sans-serif;
     font-weight: 700;
     font-size: clamp(28px, 3vw, 42px);
-    color: var(--gold);
+    color: #fff;
     line-height: 1;
     letter-spacing: -0.03em;
     margin-bottom: 14px;
   }
-  .stat .lbl {
-    font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
-    color: var(--gold); font-weight: 700;
-    margin-bottom: 10px;
-  }
   .stat .desc {
-    font-size: 13px; color: rgba(251, 242, 237, 0.7); line-height: 1.6;
+    font-size: 13px; color: rgba(255, 255, 255, 0.85); line-height: 1.6;
   }
 
   /* Instagram-Link im Hero */
   .ig-link {
     display: inline-flex; align-items: center; gap: 10px;
-    padding: 12px 22px;
-    background: rgba(197, 164, 109, 0.14);
-    border: 1px solid var(--gold);
+    padding: 14px 24px;
+    background: var(--bordeaux);
+    border: 1px solid var(--bordeaux);
     border-radius: 999px;
-    color: var(--gold);
+    color: #fff;
     font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;
     font-weight: 700;
     transition: all 0.4s;
     margin-top: 8px;
     text-decoration: none;
+    box-shadow: 0 12px 30px rgba(139, 46, 58, 0.25);
   }
   .ig-link:hover {
-    background: var(--gold);
-    color: var(--ink);
-    transform: translateY(-2px);
+    background: var(--bordeaux-hi);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(139, 46, 58, 0.4);
   }
 
   /* Demographie */
@@ -140,15 +148,15 @@
   }
   @media (max-width: 900px) { .demo-grid { grid-template-columns: 1fr; } }
   .demo-card {
-    background: rgba(251, 242, 237, 0.04);
-    border: 1px solid rgba(197, 164, 109, 0.22);
+    background: var(--card);
+    border: 1px solid var(--line);
     border-radius: 12px;
     padding: 36px 32px;
-    backdrop-filter: blur(6px);
+    box-shadow: 0 20px 40px rgba(45, 31, 34, 0.06);
   }
   .demo-card h4 {
     font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
-    font-size: 20px; color: var(--bg);
+    font-size: 20px; color: var(--bordeaux);
     margin-bottom: 24px;
     letter-spacing: -0.01em;
   }
@@ -158,22 +166,23 @@
     margin-bottom: 14px;
   }
   .demo-row .label {
-    font-size: 14px; color: rgba(251, 242, 237, 0.85);
+    font-size: 14px; color: var(--ink-soft);
   }
   .demo-row .pct {
-    font-family: 'Playfair Display', serif; font-style: italic;
-    color: var(--gold); font-size: 20px; font-weight: 500;
+    font-family: 'Object Sans', sans-serif;
+    color: var(--bordeaux); font-size: 18px; font-weight: 700;
+    letter-spacing: -0.02em;
   }
   .demo-bar {
     grid-column: 1 / -1;
-    height: 4px; background: rgba(251, 242, 237, 0.08);
-    border-radius: 2px; overflow: hidden;
+    height: 5px; background: var(--bg);
+    border-radius: 3px; overflow: hidden;
     margin-top: -4px; margin-bottom: 8px;
   }
   .demo-bar > div {
     height: 100%;
     background: linear-gradient(90deg, var(--bordeaux), var(--gold));
-    border-radius: 2px;
+    border-radius: 3px;
     transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -271,8 +280,8 @@
   </div>
 </section>
 
-<!-- ZAHLEN GRID (dark) -->
-<section class="section section-dark section-orbs">
+<!-- ZAHLEN GRID (hell mit Bordeaux-Boxen) -->
+<section class="section" style="background: var(--bg-warm);">
   <div class="container">
     <div class="section-header reveal">
       <div class="eyebrow">Alle Kennzahlen</div>
@@ -301,23 +310,23 @@
       </div>
     </div>
 
-    <!-- Follower / Non-Follower (dark) -->
-    <div class="reveal" style="max-width: 900px; margin: 60px auto 0; padding: 44px 44px; background: rgba(251, 242, 237, 0.04); border: 1px solid rgba(197, 164, 109, 0.28); border-radius: 14px; backdrop-filter: blur(6px);">
+    <!-- Follower / Non-Follower (hell mit Bordeaux-Boxen) -->
+    <div class="reveal" style="max-width: 900px; margin: 60px auto 0; padding: 44px 44px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 20px 40px rgba(45, 31, 34, 0.06);">
       <div style="text-align: center; margin-bottom: 32px;">
-        <div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 12px;">Wer sieht meinen Content</div>
-        <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 28px; color: var(--bg); letter-spacing: -0.01em;">Über <em style="font-style: italic; color: var(--gold);">91 %</em> außerhalb meiner eigenen Bubble.</h3>
+        <div style="font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--bordeaux); font-weight: 700; margin-bottom: 12px;">Wer sieht meinen Content</div>
+        <h3 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 28px; color: var(--ink); letter-spacing: -0.01em;">Über <em style="font-style: italic; color: var(--bordeaux);">91 %</em> außerhalb meiner eigenen Bubble.</h3>
       </div>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: center;">
-        <div style="padding: 28px 24px; background: rgba(251, 242, 237, 0.05); border-radius: 10px; border: 1px solid rgba(197, 164, 109, 0.18);">
-          <div style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold); font-size: 52px; line-height: 1; margin-bottom: 8px; font-weight: 500;">91,6&thinsp;%</div>
-          <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(251, 242, 237, 0.7); font-weight: 700;">Nicht-Follower</div>
+        <div style="padding: 28px 24px; background: linear-gradient(150deg, var(--bordeaux), var(--bordeaux-hi)); border-radius: 10px; color: #fff; box-shadow: 0 12px 30px rgba(139, 46, 58, 0.2);">
+          <div style="font-family: 'Object Sans', sans-serif; color: #fff; font-size: 46px; line-height: 1; margin-bottom: 10px; font-weight: 700; letter-spacing: -0.03em;">91,6&thinsp;%</div>
+          <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 700;">Nicht-Follower</div>
         </div>
-        <div style="padding: 28px 24px; background: rgba(251, 242, 237, 0.05); border-radius: 10px; border: 1px solid rgba(197, 164, 109, 0.18);">
-          <div style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--bg); font-size: 52px; line-height: 1; margin-bottom: 8px; font-weight: 500;">8,4&thinsp;%</div>
-          <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(251, 242, 237, 0.7); font-weight: 700;">Follower</div>
+        <div style="padding: 28px 24px; background: var(--bg-warm); border-radius: 10px; border: 1px solid var(--line);">
+          <div style="font-family: 'Object Sans', sans-serif; color: var(--ink); font-size: 46px; line-height: 1; margin-bottom: 10px; font-weight: 700; letter-spacing: -0.03em;">8,4&thinsp;%</div>
+          <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 700;">Follower</div>
         </div>
       </div>
-      <p style="text-align: center; margin-top: 28px; font-size: 14px; color: rgba(251, 242, 237, 0.65); font-style: italic;">
+      <p style="text-align: center; margin-top: 28px; font-size: 14px; color: var(--muted); font-style: italic;">
         5.675 Follower insgesamt.
         <br>Der Rest kommt organisch über den Instagram-Algorithmus.
       </p>
@@ -325,12 +334,12 @@
   </div>
 </section>
 
-<!-- DEMOGRAPHIE -->
-<section class="section section-dark section-orbs">
+<!-- DEMOGRAPHIE (hell) -->
+<section class="section" style="background: var(--bg);">
   <div class="container">
     <div class="section-header reveal">
-      <div class="eyebrow">Wer folgt mir</div>
-      <h2>Meine <em>Zielgruppe</em>.</h2>
+      <div class="eyebrow" style="color: var(--bordeaux);">Wer folgt mir</div>
+      <h2 style="color: var(--ink);">Meine <em style="color: var(--bordeaux);">Zielgruppe</em>.</h2>
       <p>
         Wenn Ihre Marke diese Menschen erreichen will:
         <br>Wir passen zusammen.
