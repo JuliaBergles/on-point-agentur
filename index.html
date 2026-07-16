@@ -606,11 +606,11 @@
   .features-lede { font-size: 17px; color: rgba(251, 242, 237, 0.7); line-height: 1.6; max-width: 620px; margin: 0 auto; }
 
   .features-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
     max-width: 1200px; margin: 0 auto;
     position: relative;
   }
-  @media (max-width: 900px) { .features-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 1100px) { .features-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 600px) { .features-grid { grid-template-columns: 1fr; } }
 
   .feature-card {
@@ -685,7 +685,7 @@
     max-width: 1100px; margin: 0 auto;
     background: var(--card);
     border-radius: 12px;
-    padding: 60px 50px;
+    padding: 40px 36px;
     border: 1px solid var(--line);
   }
   @media (max-width: 700px) { .port-inner { padding: 40px 24px; } }
@@ -965,38 +965,13 @@
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/><circle cx="12" cy="12" r="10"/></svg>
 </button>
 
-<!-- VIELLEICHT KENNST DU MICH AUCH AUS -->
-<section class="press">
-  <div class="container">
-    <div class="press-header reveal">Vielleicht kennst du mich auch aus</div>
-    <div class="press-logos reveal d1">
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
-        <span class="press-logo serif">TerraLuna</span>
-        <span style="font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 500;">App-Entwicklerin</span>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
-        <span class="press-logo">Bruckner</span>
-        <span style="font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 500;">Einrichtungshaus</span>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
-        <span class="press-logo bold">nicole schleer</span>
-        <span style="font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 500;">Mediale Lebensberatung</span>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
-        <span class="press-logo serif">Theresa Ross</span>
-        <span style="font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 500;">Gesundheitsberatung</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 6 BAUSTEINE -->
+<!-- 4 BAUSTEINE -->
 <section class="features" id="features">
   <div class="container">
     <div class="features-header reveal">
       <span class="features-eyebrow">Was Sie bekommen</span>
       <h2>Nicht nur <em>Content</em>.<br />Sondern Ergebnisse.</h2>
-      <p class="features-lede">Sechs Bausteine. Ein Ziel: Menschen, die Ihre Marke buchen. Nicht nur liken.</p>
+      <p class="features-lede">Vier Bausteine. Ein Ziel: Menschen, die Ihre Marke buchen.</p>
       <div style="margin-top: 40px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
         <a href="pakete.html" style="display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; background: var(--bordeaux); color: #fff; border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; box-shadow: 0 20px 40px rgba(139, 46, 58, 0.3); transition: all 0.4s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">Pakete ansehen <span style="font-size: 16px;">→</span></a>
         <a href="pakete.html#prozess" style="display: inline-flex; align-items: center; gap: 12px; padding: 18px 32px; background: transparent; color: var(--bg); border: 1.5px solid rgba(251, 242, 237, 0.35); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.4s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='var(--gold)'; this.style.color='var(--gold)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(251, 242, 237, 0.35)'; this.style.color='var(--bg)'">So starten wir <span style="font-size: 16px;">→</span></a>
@@ -1026,31 +1001,17 @@
       </div>
 
       <div class="feature-card reveal d2">
-        <div class="feature-badge">Für Sie: kein Stress</div>
-        <h3>Community im Namen Ihrer Marke</h3>
-        <p>Ich beantworte Kommentare und DMs. In Ihrem Namen, in Ihrem Ton. Aktive Community statt totes Profil.</p>
-        <a href="warum-onpoint.html" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">Was mich besonders macht <span>✦</span></a>
-      </div>
-
-      <div class="feature-card reveal d3">
-        <div class="feature-badge">Insider-Wissen</div>
-        <h3>Fachliche Ansprache</h3>
-        <p>Captions mit echtem Wissen. Sauber recherchiert, aus Erfahrung heraus. Kein KI-Bla.</p>
-        <a href="warum-onpoint.html" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">Was mich besonders macht <span>✦</span></a>
-      </div>
-
-      <div class="feature-card reveal d3">
         <div class="feature-badge">Reach-Boost</div>
         <h3>Zugang zu meiner Community</h3>
-        <p>Ausgewählte Beiträge auf @Julia_Bergles. Bis 1,77 Mio. Aufrufe pro Monat. Echte Zielgruppe.</p>
-        <a href="warum-onpoint.html#reichweite" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">Reichweite ansehen <span>→</span></a>
+        <p>Ausgewählte Beiträge auf @julia_bergles. 1.393.620 Aufrufe pro Monat. Echte Zielgruppe.</p>
+        <a href="reichweite.html" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">Reichweite ansehen <span>→</span></a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- WÄHLE DEINE BRANCHE (Chips) -->
-<section style="padding: 160px 0; background: var(--bg);" id="branchen">
+<section style="padding: 100px 0; background: var(--bg);" id="branchen">
   <div class="container">
     <div class="reveal" style="text-align: center; margin-bottom: 80px; max-width: 900px; margin-left: auto; margin-right: auto;">
       <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 24px; display: inline-block;">Für wen</span>
@@ -1102,7 +1063,7 @@
     <div class="reveal d2" style="max-width: 1100px; margin: 0 auto;">
       <!-- Panel: Fitness -->
       <div class="branche-panel active" data-panel="fitness">
-        <div style="background: linear-gradient(135deg, var(--ink), #1a1315); color: var(--bg); border-radius: 16px; padding: 60px 50px; overflow: hidden; position: relative;">
+        <div style="background: linear-gradient(135deg, var(--ink), #1a1315); color: var(--bg); border-radius: 16px; padding: 40px 36px; overflow: hidden; position: relative;">
           <div style="position: absolute; top: 30px; right: 30px; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 180px; color: rgba(197, 164, 109, 0.08); line-height: 1; pointer-events: none;">N°01</div>
           <div style="position: relative; z-index: 2;">
             <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
@@ -1124,7 +1085,7 @@
 
       <!-- Panel: Einrichtung / Bruckner -->
       <div class="branche-panel" data-panel="einrichtung">
-        <div style="background: var(--card); border-radius: 16px; padding: 60px 50px; border: 1px solid var(--line);">
+        <div style="background: var(--card); border-radius: 16px; padding: 40px 36px; border: 1px solid var(--line);">
           <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
             <div style="height: 1px; width: 50px; background: var(--gold);"></div>
             <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); font-weight: 600;">Editorial · Einrichtungshaus Bruckner</span>
@@ -1146,7 +1107,7 @@
 
       <!-- Panel: Mediale Beratung -->
       <div class="branche-panel" data-panel="mental">
-        <div style="background: linear-gradient(135deg, var(--bg), var(--bg-warm)); border-radius: 16px; padding: 60px 50px; border: 1px solid var(--line);">
+        <div style="background: linear-gradient(135deg, var(--bg), var(--bg-warm)); border-radius: 16px; padding: 40px 36px; border: 1px solid var(--line);">
           <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
             <div style="height: 1px; width: 50px; background: var(--bordeaux);"></div>
             <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--bordeaux); font-weight: 600;">Editorial · Mediale Lebensberatung</span>
@@ -1170,7 +1131,7 @@
 
       <!-- Panel: Rezepte -->
       <div class="branche-panel" data-panel="rezepte">
-        <div style="background: linear-gradient(135deg, var(--bg-warm), var(--bg-soft)); border-radius: 16px; padding: 60px 50px;">
+        <div style="background: linear-gradient(135deg, var(--bg-warm), var(--bg-soft)); border-radius: 16px; padding: 40px 36px;">
           <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
             <div style="height: 1px; width: 50px; background: var(--bordeaux);"></div>
             <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--bordeaux); font-weight: 600;">Editorial · Rezept-Fotografie</span>
@@ -1192,7 +1153,7 @@
 
       <!-- Panel: Gesundheit & Ernährung -->
       <div class="branche-panel" data-panel="ernaehrung">
-        <div style="background: var(--card); border-radius: 16px; padding: 60px 50px; border: 1px solid var(--line);">
+        <div style="background: var(--card); border-radius: 16px; padding: 40px 36px; border: 1px solid var(--line);">
           <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
             <div style="height: 1px; width: 50px; background: var(--gold);"></div>
             <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); font-weight: 600;">Editorial · Gesundheit &amp; Ernährung</span>
