@@ -1,183 +1,214 @@
-# On Point — Website Context
+# On Point Kontext
 
-> Alle Entscheidungen, Vorlieben und offenen Punkte für die Agentur-Website.
-> Bei jeder Änderung: erst hier reinschauen, damit wir nicht im Kreis laufen.
+Kompakter Ueberblick fuer Website, Design, Konditionen und offene Punkte.
+Bei jeder Sitzung zuerst hier reinschauen.
 
----
-
-## Marke
-
-- **Name:** On Point.
-- **Kern-Positionierung:** ⚠️ **NEU!** — Wir verkaufen **Kunden-Gewinnung**, nicht Content. Der Nutzen ist „mehr zahlende Kundinnen für Ihre Health-Marke" — nicht „hübsche Kacheln".
-- **USP:** Handgemacht. Fachlich fundiert. **Von einer Betroffenen für Marken, die verstanden werden wollen.**
-- **Anti-KI:** Kern-Botschaft ist NICHT „keine ChatGPT-Captions", sondern „echtes Erfahrungswissen von einer Betroffenen". Wenn ich (Claude) Copy schreibe, dann NUR auf Fakten basiert die verifiziert sind (HIT, TerraLuna, Fachabitur). Keine erfundenen Zitate, keine erfundenen Kundenstories.
-- **Zielgruppen:** Unverträglichkeits-Marken, Frauen-Gesundheit, Ernährungsberaterinnen, Fitness, Supplemente, Naturkosmetik
-- **Standort:** Augsburg, deutschlandweit remote, Videodreh vor Ort in Bayern
-- **Domain:** juliabergles-agentur.de
+Ersetzt die vorige Version (Petrol/Champagner/Inter, alte Preise) vollstaendig.
+Aktueller Stand: Juli 2026.
 
 ---
 
-## Referenz-Style
+## Julia
 
-**Vorbild:** [MymiaPage](https://www.mymiapage.de/)
+- Julia Bergles, 20 Jahre, aus Wehringen bei Augsburg
+- Rollen: Social Media Managerin, Mediendesignerin, Webdesignerin
+- Agentur: On Point
+- Instagram: @julia_bergles
+- App-Projekt: TerraLuna (ganzheitlich fuer Frauen mit chronischen Beschwerden. Histamin, Reizdarm, Zoeliakie, Fructose, Laktose, Zyklus, Allergien. Reisen-Bereich aktiv)
+- Persoenliche Geschichte: Darmverschluss, 2 Jahre Isolation, Fahrrad als mentale Rettung. Nur teilen wenn passend, sonst zurueckhaltend
+- Kontakt: julia@bergles.net, https://calendly.com/julia-bergles/30min, +49 1511 8515 394
 
-Von Mia übernommen: heller Off-White-Hintergrund, Sans-Serif, Ruhe, Portrait prominent, klare Section-Trennung, Testimonials, FAQ, Newsletter.
+## Team
 
-**Nicht** übernommen: Rot (wegen Konkurrenz), Coaching-Fokus (On Point ist B2B-Agentur).
-
----
-
-## Design-Vorlieben (bestätigt / abgelehnt)
-
-### Was Julia **NICHT** mag
-- ❌ Zu dunkler Hintergrund (Espresso allein)
-- ❌ Fraunces Serif als Font
-- ❌ Kupfer-Ton (zu warm-orange, wirkt fast wie Terrakotta)
-- ❌ Salbeigrün als Akzent
-- ❌ Reine Malaga/Wein-Farbwelt
-- ❌ Zu emotional-weicher Ton (weichspüler-Sätze)
-- ❌ Selfies überall — B2B braucht Werk-Fokus
-- ❌ **Erfundene Testimonials / KI-generierte Kundenzitate**
-- ❌ **Copy über Content-Details** — nicht „ich mache Kacheln", sondern „ich hole dir Kunden"
-
-### Was Julia **möchte**
-- ✅ Hellerer Hintergrund (Off-White, Cream)
-- ✅ MymiaPage-artiger Aufbau + Ruhe
-- ✅ Mehr Bewegung — Shimmer, sanfte Übergänge, überlappende Cards, Marquee-Bänder
-- ✅ Farbliche Eye-Catcher (aber nicht Rot)
-- ✅ Aktuelle Farbwelt: **Petrol-Blau (#1e4d55) + Champagner-Gold (#c9a96e)**
-- ✅ Transparente Elemente (Glasmorphism, backdrop-blur)
-- ✅ Glänzende / Gradient-Schrift (metallic-Effekt auf ausgewählten Wörtern)
-- ✅ Bilder von Julia prominent (Portraits)
-- ✅ Beispiel-Beiträge zeigen (aktuell Küchen-Serie + Videos)
-- ✅ Handy-Mockups mit echten Videos, autoplay im Loop
-- ✅ Weniger Text, mehr Show-don't-tell
-- ✅ Wirkung: **edel & ruhig**, high-end-studio, **sehr professionell**
-- ✅ Sachlich-selbstbewusster Ton: „Zahlen sprechen lauter als Slogans"
-- ✅ **Kunden-Gewinnung als Verkaufsargument** — nicht Content
+- Julia macht Social Media (Konzept, Dreh, Sprache), Mediendesign (Konzept), Webdesign
+- Cutter/Schnitt wird abgegeben
+- Fuer Mediendesign ggf. Studenten hinzugezogen
+- Kein "wir/Team" so tun als waeren sie viele. Ehrlich als kleine Struktur auftreten
 
 ---
 
-## Preise (Stand: aktuell — Julia bestätigt)
+## Website On Point
 
-| Angebot | Preis | Umfang |
-|---|---|---|
-| **Einzelbeitrag** | **150 €** | 1 Beitrag inkl. Caption |
-| **Starter** | **850 €**/Monat | 2 Beiträge + 1 Reel + 1 Videodreh + ManyChat + Community-Mgmt |
-| **Wachstum** | **1.490 €**/Monat | 6 Beiträge + 2 Reels + 2 Videodrehs + ManyChat + Strategie-Call |
-| **Skalierung** | **2.490 €**/Monat | 10 Beiträge + 4 Reels + wöchentlicher Videodreh + Full-Service |
+### Seitenstruktur
 
-Alle Preise + MwSt. Kündigungsfrist 1 Monat.
+- `index.html` — Startseite. Hero mit Julia-Bild, Auswahl-Modal "Weswegen sind Sie hier?", 4 Bausteine, Branchen, Ueber Julia, Testimonial
+- `warum-onpoint.html` — 3 Versprechen. Nebenkosten, Ohne Drehbuch, Nur eine Marke pro Branche
+- `social-media.html` — Beitrag 220 EUR, Reel 250 EUR, Story 50 EUR. Sprech-Optionen mit Bildern
+- `mediendesign.html` — Visitenkarten, Print/Flyer, Workbooks/E-Books/Praesentationen, Logo/CD
+- `websites.html` — 80 EUR/h. Landing 400 bis 640 EUR. Uebliche Website ca. 1.120 EUR. Komplex 1.760 bis 2.560 EUR
+- `pakete.html` — Retainer als Accordion. Wachstum als Empfehlung. Prozess "So starten wir"
+- `reichweite.html` — aktuelle Instagram-Zahlen (heller Look, Bordeaux-Boxen)
+- `hotel-guide.html` — private Landing (noindex/nofollow, robots.txt disallow), Hybrid Design hell mit dunklen Akzenten
 
-**Business-Logik hinter Preisen:**
-- 100 € pro Einzelbeitrag wäre zu billig → wirkt unprofessionell + Marge zu niedrig.
-- 850 € Starter ist ein Türöffner-Preis (Videodreh allein wäre normalerweise 1490 €). Kann später auf 1.190 € erhöht werden. Bis dahin: "Einführungspreis, gilt für die ersten 5 Kundinnen".
-- Nicht 16 Beiträge/Monat für 850 € anbieten — 40 Std. Arbeit → nicht nachhaltig.
+### Design System
 
----
+- Farben:
+  - `--bordeaux: #8B2E3A`
+  - `--bordeaux-deep: dunkler Bordeaux fuer Backgrounds`
+  - `--gold: #C5A46D`
+  - `--off-white: #FBF2ED`
+  - `--ink: #2D1F22`
+- Schriften: Playfair Display (Serif Headlines) + Object Sans (Sans, Body und Zahlen)
+- Shared Styles: `css/onpoint.css` fuer neue Seiten, teils inline styles auf Startseite
+- Look: dark editorial mit hellen Sektionen im Wechsel, klare Kontraste
 
-## Farbwelt
+### Design-Regeln
 
-```
-BACKGROUND
---bg:          #faf7f2   (warmes Off-White)
---bg-alt:      #f2ebe0   (Cream für Section-Wechsel)
---card:        #ffffff
+- Sektionen nicht starr wirken lassen. Klare Background-Wechsel und spuerbare Motion
+- Zahlen NIEMALS in Playfair-Italic (schlecht lesbar). Immer Object Sans Bold
+- Kein "6 von 8 Bildern" pro Panel. Kompakt halten
+- Bordeaux dominant, Gold als Akzent
+- Hero-Bilder gross und ruhig, keine ueberladenen Overlays
 
-TEXT
---ink:         #1a1a1a
---ink-soft:    #333333
---muted:       #6b6b6b
+### Text-Regeln
 
-AKZENT 1: PETROL
---petrol:      #1e4d55
---petrol-hi:   #2a6771
---petrol-deep: #0e3239
+- Keine Bindestriche als Separator (weder — noch – als Trenner). Stattdessen Punkt, Komma oder neue Zeile
+- Jeder Satz auf neue Zeile (bei Fliesstexten mit `<br>` trennen)
+- Zahlen sauber schreiben, nicht verschnoerkeln
+- Keine Werbe-Phrasen wie "Kein Verkaufs-Pitch" oder "Ihr Argument". Direkt zur Sache
+- Konditionen und Preise klar zeigen, nicht verstecken
 
-AKZENT 2: CHAMPAGNER
---champ:       #c9a96e
---champ-hi:   #dcc088
-```
+### Was Julia NICHT will
 
----
-
-## Fonts
-
-- **Body + Headlines:** Inter (300–900)
-- **Kein Serif** — Fraunces abgelehnt
-- Glanz-Effekt: CSS-Gradient auf einzelnen Wörtern (`.glossy` und `.glossy-petrol` classes)
-
----
-
-## Reichweite (Zahlen für Case Study)
-
-Stand Mai/Juni 2026:
-- **706.099** erreichte Konten / Monat
-- **1.769.403** Reel-Aufrufe / Monat (**93,8 %** Nicht-Follower)
-- **26.754** Profilaufrufe / Monat
-- **79,2 %** Nicht-Follower-Interaktion
-- Zielgruppe: **76 %** weiblich, **18–25** primär, **86,6 %** DEU
-- Accounts: **@Julia_Bergles**, **@Smacado_**
+- Alte Petrol/Champagner-Palette (ersetzt durch Bordeaux/Gold)
+- Fraunces und Inter (ersetzt durch Playfair und Object Sans)
+- Marquee-Baender und iPhone-Mockups (weg, wirkt unruhig)
+- Zu volle Sektionen
+- Erfundene Zitate und Testimonials
+- Kupfer, Salbeigruen, reines Rot
 
 ---
 
-## Über Julia (für Bio)
+## Deployment
 
-- **Alter:** 20 (auf Site NICHT erwähnen)
-- **Ausbildung:** Fachabitur Gestaltung
-- **Selbständig seit:** 2024 (direkt nach Fachabitur)
-- **Standort:** Augsburg
-- **Eigene Marken:**
-  - **TerraLuna-App** (erste deutsche App für Frauen mit HIT + Zyklus-Ernährung)
-  - Personal Brand @Julia_Bergles / @Smacado_
-- **Selbst betroffen von:** Histaminintoleranz (das ist der USP-Kern für die neue Positionierung)
-- **Tools:** Adobe Creative Suite, Figma, CapCut Pro, Canva Pro
+- Repo: `https://github.com/JuliaBergles/on-point-agentur`
+- `agentur.juliabergles.de` auf GitHub Pages (CNAME auf juliabergles.github.io)
+- `juliabergles-onpoint.de` auf Cloudflare Workers Static Assets
+  - `wrangler.toml` und `.assetsignore` schliessen `.git`, `dashboard/`, `Hotel-Guide/`, `On-Point-Bilder/` aus
+  - Grund: .git-Ordner (96 MiB) sprengt Cloudflare 25 MiB Limit
+- Nameserver bei Cloudflare: `keenan.ns.cloudflare.com`, `tia.ns.cloudflare.com`
+- Visitenkarten mit `www.agentur.juliabergles.de`. DNS-Record dafuer setzen falls neu
 
 ---
 
-## Bilder & Videos (im `img/` Ordner)
+## Konditionen
 
-### Portraits (Julia)
-- `portrait-hero.jpg` — Hero (weißes Top, freundlicher Blick)
-- `portrait-about.jpg` — Über mich
-- Weitere IMG_*.jpg als Reserve
+### Social Media (Einzelbuchung)
 
-### Content-Beispiele
-- `kitchen-1.png` bis `kitchen-6.png` — Küchen-Serie (Möbel-Marke, editorial style)
+- Beitrag: 220 EUR
+- Reel: 250 EUR
+- Story: 50 EUR
 
-### Videos (aktuell MOV, für Deploy noch konvertieren)
-- `video-1.mov` (12 MB)
-- `video-2.mov` (21 MB)
-- `video-3.mov` (21 MB)
-- Ein weiteres Video (58 MB) liegt noch im Original-Ordner, aber zu groß für Web
+### Webdesign
 
----
+- Stundensatz: 80 EUR/h
+- Landing Page: 5 bis 8 h (400 bis 640 EUR)
+- Uebliche Website: ca. 14 h (rund 1.120 EUR, inkl. Astro-Setup)
+- Komplex: 22 bis 32 h (1.760 bis 2.560 EUR)
 
-## Was Julia auf der Site selbst noch ergänzen muss
+### Kilometer
 
-- **Anti-KI Story:** Eigene Betroffenen-Story reinschreiben (aktuell im HTML als Kommentar-Platzhalter markiert). Was Julia selbst erlebt hat mit generischem Content, warum sie On Point macht.
-- **Testimonials:** Kommen wenn echte Kundinnen da sind. Aktuell auf Site: "Referenzen aus laufenden Projekten folgen" statt erfundene Zitate.
-- **Echte Case Studies:** TerraLuna ist die einzige echte Referenz aktuell — weitere ergänzen sobald da.
+- Ab 20 km von Wehringen: 0,30 EUR/km
 
----
+### Retainer
 
-## To-Do / Offen
+- 3 Monate Mindestlaufzeit, 1 Monat Kuendigung
+- Preisanpassung nach 8 Monaten
+- Freigabe innerhalb 24 h, 1 Follow-up inklusive
+- Referenznutzung durch Julia erlaubt
 
-- [ ] **Videos konvertieren** (MOV → MP4) für Live-Deploy (aktuell funktioniert es auf Julia's Mac im Safari/Chrome)
-- [ ] **Julias eigene Story** in Anti-KI-Section einbauen — Julia schreibt selbst
-- [ ] **Echte Testimonials** sobald Kunden da sind
-- [ ] **Kontaktformular** statt nur mailto (Formspree oder ähnlich)
-- [ ] **Cal.com / Kalender-Widget** für Termine
-- [ ] **Impressum + Datenschutz** — für Live-Deploy Pflicht
-- [ ] **Domain deployen** (juliabergles-agentur.de) via Netlify / Vercel
+Alle Preise zzgl. MwSt.
 
 ---
 
-## Prinzipien für Änderungen
+## Reichweite (Case Study Zahlen)
 
-1. **CONTEXT.md ist die Wahrheit.** Bei jeder neuen Sitzung erst hier reinschauen.
-2. **Keine erfundenen Zitate / Testimonials / Kundenstories.**
-3. **Fokus bleibt: Kunden-Gewinnung, nicht Content-Produktion.**
-4. **Kein Kupfer / Kein Rot / Kein Fraunces.**
-5. **Referenz bleibt MymiaPage.**
-6. **Weniger Text ist mehr.**
+Stand aktuell:
+- 1.393.620 Aufrufe / Monat
+- 581.274 erreichte Konten
+- 22.435 Interaktionen
+- 16.830 Profilaufrufe
+- 5.675 Follower gesamt
+- 91,6 Prozent Nicht-Follower Reichweite
+- Demografie: 75,9 Prozent Frauen, 24,1 Prozent Maenner
+- Alter: 25-34 (35,5 Prozent), 35-44 (25,2 Prozent)
+- Land: DE 85,1 Prozent, AT 7,6 Prozent
+- Accounts: @julia_bergles, @Smacado_
+
+---
+
+## Kundenprojekte
+
+- **relax Fitness und Vital Lounge e.K.** (Daniel Hartmann). Retainer laeuft, Vertragsentwurf existiert auf Desktop (`Vertrag-relax-Fitness.html`)
+- **Hotel-Kooperationen**. Anreise gratis, kein Cash-Honorar bei Erst-Kooperation. Guide fuer Hotels als HTML (Desktop `/Hotel-Guide/`)
+  - Angeschrieben: Panorama Hotel Niedermair, Partschins (Familie Kuen)
+- **Kooperations-Anfragen an Marken**. Periodenunterwaesche (MyMense, Selenacare, Ooia), allergikerfreundliche Kleidung (Dilling). Mail-Vorlagen auf Desktop `/Kooperations-Mails/`
+
+---
+
+## Externe Tools
+
+- Calendly (Standard, 30 Min Kennenlerngespraech): https://calendly.com/julia-bergles/30min
+- Google Search Console: HTML-Tag Verifizierung, Sitemap.xml und robots.txt vorhanden
+- IONOS: DNS-Verwaltung fuer juliabergles.de Subdomains
+- Cloudflare: Nameserver und Workers-Hosting fuer juliabergles-onpoint.de
+- GitHub Pages: Hosting fuer agentur.juliabergles.de
+
+---
+
+## Standard-Stack fuer Kunden-Websites
+
+Fuer NEUE Kundenprojekte (nicht On Point selbst):
+
+- Astro als Framework
+- Decap CMS fuer Kunden-Redaktion
+- Vercel oder Netlify als Hosting
+- Kunden-Ownership: Domain, Code, Hosting im Kunden-Account
+- Kein Lock-in, alles gehoert dem Kunden
+
+---
+
+## Offene Todos
+
+- Kooperations-Mails an MyMense und Selenacare senden
+- Mail an Familie Kuen (Panorama Hotel Niedermair) senden
+- SSL/HTTPS auf agentur.juliabergles.de pruefen (falls noch offen)
+- Google Search Console fuer juliabergles-onpoint.de: Property anlegen und Sitemap einreichen
+- Cloudflare Pages Custom Domain fuer juliabergles-onpoint.de und www abschliessen
+- Optional: Redirect agentur.juliabergles.de nach juliabergles-onpoint.de
+
+---
+
+## Naechstes Projekt: Dashboard On Point
+
+- Eigenes Tool fuer Julias Agentur-Betrieb
+- Noch keine konkreten Specs
+- Im neuen Chat starten (nicht hier weiter)
+- Vor Implementation klaeren:
+  1. Was soll das Dashboard koennen (Kunden, Rechnungen, Content-Kalender, KPIs, Termine)
+  2. Fuer wen (nur Julia oder auch Kunden-Login)
+  3. Wo hosten (Cloudflare, Vercel, Supabase)
+  4. Datenspeicher (Datenbank oder erstmal Frontend-Skizze)
+- Design-Sprache muss zur Website passen: Bordeaux/Gold/Off-white/Ink, Playfair und Object Sans, dark editorial
+
+---
+
+## Arbeitsweise (aus CLAUDE.md)
+
+- Sauber und strukturiert, kein Quick-and-Dirty
+- Bestehenden Code erst verstehen bevor geaendert wird
+- Gute UX mitdenken
+- Langfristig sinnvoll bauen, keine kurzfristigen Hacks
+- Aenderungen klein und nachvollziehbar
+- Bei Unklarheiten nachfragen statt raten
+- Tests und Dokumentation gehoeren dazu
+
+---
+
+## Prinzipien fuer Aenderungen
+
+1. CONTEXT.md ist die Wahrheit. Bei jeder neuen Sitzung erst hier reinschauen.
+2. Keine erfundenen Zitate oder Testimonials.
+3. Fokus bleibt: Kunden-Gewinnung, nicht Content-Produktion.
+4. Kein Kupfer, kein reines Rot, kein Fraunces.
+5. Weniger Text ist mehr.
