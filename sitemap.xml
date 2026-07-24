@@ -1,52 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://juliabergles-agentur.de/</loc>
+    <loc>https://www.agentur.juliabergles.de/</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://juliabergles-agentur.de/warum-onpoint.html</loc>
+    <loc>https://www.agentur.juliabergles.de/warum-onpoint.html</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://juliabergles-agentur.de/social-media.html</loc>
+    <loc>https://www.agentur.juliabergles.de/social-media.html</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://juliabergles-agentur.de/mediendesign.html</loc>
+    <loc>https://www.agentur.juliabergles.de/mediendesign.html</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://juliabergles-agentur.de/websites.html</loc>
+    <loc>https://www.agentur.juliabergles.de/websites.html</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://juliabergles-agentur.de/pakete.html</loc>
+    <loc>https://www.agentur.juliabergles.de/pakete.html</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://juliabergles-agentur.de/ueber-mich.html</loc>
+    <loc>https://www.agentur.juliabergles.de/reichweite.html</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://juliabergles-agentur.de/impressum.html</loc>
+    <loc>https://www.agentur.juliabergles.de/ueber-mich.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.agentur.juliabergles.de/impressum.html</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://juliabergles-agentur.de/datenschutz.html</loc>
+    <loc>https://www.agentur.juliabergles.de/datenschutz.html</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://juliabergles-agentur.de/agb.html</loc>
+    <loc>https://www.agentur.juliabergles.de/agb.html</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
