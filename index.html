@@ -986,7 +986,12 @@
     visibility: hidden;
   }
 
-  /* Ein Stage-Container mit fließenden Farb-Transitions */
+  /* Stage-Container für Cross-Slide zwischen Wörtern */
+  .lo-stage-wrap {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
   .lo-stage {
     position: absolute;
     inset: 0;
@@ -998,6 +1003,19 @@
     will-change: transform, background-color, color;
     transition: background-color 0.45s cubic-bezier(0.4, 0, 0.2, 1),
                 color 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  /* Slide-States: leaving = wischt nach links raus, incoming = startet rechts, entering = wischt nach mitte */
+  .lo-stage.leaving {
+    transform: translateX(-100%);
+    transition: transform 0.55s cubic-bezier(0.7, 0, 0.3, 1);
+  }
+  .lo-stage.incoming {
+    transform: translateX(100%);
+    transition: none;
+  }
+  .lo-stage.entering {
+    transform: translateX(0);
+    transition: transform 0.55s cubic-bezier(0.7, 0, 0.3, 1);
   }
   .lo-stage.hide { opacity: 0; visibility: hidden; transition: opacity 0.5s, visibility 0s linear 0.5s; }
 
@@ -1357,13 +1375,15 @@
     <span class="dot"></span>
   </div>
 
-  <!-- STATE-MACHINE: 1 Container, Text + Farben werden gewechselt (nahtlos) -->
-  <div class="lo-stage state-1a" id="lo-stage">
-    <span class="kicker" id="lo-kicker">N°01</span>
-    <span class="brand-mark">On Point Studios</span>
-    <div class="lo-wordstack">
-      <h1 class="lo-word" id="lo-word">Innovation.</h1>
-      <p class="lo-sub" id="lo-sub">Kunden-Dashboard statt WhatsApp-Chaos.</p>
+  <!-- STAGE-WRAP: zwei Stages können gleichzeitig existieren (Cross-Slide) -->
+  <div class="lo-stage-wrap" id="lo-stage-wrap">
+    <div class="lo-stage state-1a" data-current>
+      <span class="kicker">N°01</span>
+      <span class="brand-mark">On Point Studios</span>
+      <div class="lo-wordstack">
+        <h1 class="lo-word">Innovation.</h1>
+        <p class="lo-sub">Kunden-Dashboard statt WhatsApp-Chaos.</p>
+      </div>
     </div>
   </div>
 
@@ -1407,10 +1427,7 @@
 <script>
 (function () {
   var overlay = document.getElementById('landing-overlay');
-  var stage = document.getElementById('lo-stage');
-  var kicker = document.getElementById('lo-kicker');
-  var wordEl = document.getElementById('lo-word');
-  var subEl = document.getElementById('lo-sub');
+  var stageWrap = document.getElementById('lo-stage-wrap');
   var choiceSlide = overlay.querySelector('.slide-choice');
   var dots = document.querySelectorAll('#lo-progress .dot');
   var skipBtn = document.getElementById('lo-skip');
@@ -1428,53 +1445,60 @@
     { cls: 'state-3b', kicker: 'N°03', word: 'Kein Aufwand.',  sub: 'Ich filme, schneide, poste.' }
   ];
   var TOTAL_STATES = STATES.length;
-  var SLIDE_MS = 900; // 900ms pro State — flotter, weniger warten
+  var SLIDE_MS = 950; // pro State
 
   document.documentElement.classList.add('overlay-open');
   document.body.classList.add('overlay-open');
 
+  function getCurrentStage() {
+    return stageWrap.querySelector('.lo-stage[data-current]');
+  }
+
+  function buildStage(s) {
+    var st = document.createElement('div');
+    st.className = 'lo-stage ' + s.cls;
+    st.innerHTML =
+      '<span class="kicker">' + s.kicker + '</span>' +
+      '<span class="brand-mark">On Point Studios</span>' +
+      '<div class="lo-wordstack">' +
+        '<h1 class="lo-word">' + s.word + '</h1>' +
+        '<p class="lo-sub">' + s.sub + '</p>' +
+      '</div>';
+    return st;
+  }
+
   function applyState(idx) {
     var s = STATES[idx];
-    var prevWord = wordEl.textContent;
-    var newWord = s.word;
-    var wordChanges = prevWord !== newWord;
-
-    function swapStateClass() {
-      STATES.forEach(function (st) { stage.classList.remove(st.cls); });
-      stage.classList.add(s.cls);
-      kicker.textContent = s.kicker;
-    }
+    var currentStage = getCurrentStage();
+    var currentWord = currentStage.querySelector('.lo-word').textContent;
+    var wordChanges = currentWord !== s.word;
 
     if (wordChanges) {
-      // Wort-Wechsel: Stage instant nach links weg + unsichtbar, State-Snap, dann von links reinschieben
-      stage.style.transition = 'none';
-      stage.style.opacity = '0';
-      stage.style.transform = 'translateX(-100%)';
-      // State + Text komplett wechseln während unsichtbar
-      swapStateClass();
-      wordEl.textContent = newWord;
-      subEl.textContent = s.sub;
-      wordEl.classList.remove('fading');
-      subEl.classList.remove('fading');
-      void stage.offsetHeight; // force reflow
+      // Cross-Slide: neuer Stage von rechts, alter wischt nach links, gleichzeitig
+      var newStage = buildStage(s);
+      newStage.classList.add('incoming');
+      stageWrap.appendChild(newStage);
 
-      // Nächster Frame: sichtbar machen und von links nach Mitte sliden
       requestAnimationFrame(function () {
-        stage.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.7, 0.3, 1), opacity 0.3s ease';
-        stage.style.transform = 'translateX(0)';
-        stage.style.opacity = '1';
+        currentStage.classList.add('leaving');
+        currentStage.removeAttribute('data-current');
+        newStage.classList.remove('incoming');
+        newStage.classList.add('entering');
+        newStage.setAttribute('data-current', '');
+
         setTimeout(function () {
-          // Transition zurück auf Default für weichen Invert-Wechsel innerhalb Wort
-          stage.style.transition = '';
-        }, 520);
+          if (currentStage.parentNode) currentStage.parentNode.removeChild(currentStage);
+          newStage.classList.remove('entering');
+        }, 600);
       });
     } else {
-      // Farb-Wechsel innerhalb eines Wort-Paars: sanft mit CSS-transition (invert-Effekt)
-      swapStateClass();
-      subEl.textContent = s.sub;
+      // Invert-Wechsel innerhalb eines Worts: gleiche Stage, State-Klasse wechseln (CSS-transition fadet Farben)
+      STATES.forEach(function (st) { currentStage.classList.remove(st.cls); });
+      currentStage.classList.add(s.cls);
+      currentStage.querySelector('.kicker').textContent = s.kicker;
     }
 
-    // Progress: 3 Dots (1 pro Wort), gefüllt wenn Wort abgeschlossen
+    // Progress-Dots
     var wordIdx = Math.floor(idx / 2);
     dots.forEach(function (d, i) {
       d.classList.toggle('done', i < wordIdx);
@@ -1482,7 +1506,8 @@
   }
 
   function showChoice() {
-    stage.classList.add('hide');
+    var st = getCurrentStage();
+    if (st) st.classList.add('hide');
     choiceSlide.classList.add('active');
     progress.classList.add('hide');
     skipBtn.classList.add('hide');
@@ -1517,7 +1542,6 @@
   });
 
   // Start
-  applyState(0);
   timer = setTimeout(next, SLIDE_MS);
 })();
 </script>
