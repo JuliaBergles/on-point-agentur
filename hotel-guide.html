@@ -18,12 +18,12 @@
     --ink-2: #1a1315;
     --ink-soft: #4a3236;
     --muted: #8a6f72;
-    --bordeaux: #8B2E3A;
-    --bordeaux-deep: #6E1F2C;
-    --gold: #C5A46D;
-    --gold-lite: #d5b884;
+    --bordeaux: #430a14;
+    --bordeaux-deep: #2d0508;
+    --gold: #ff9c6d;
+    --gold-lite: #ffb08a;
     --line: rgba(45, 31, 34, 0.12);
-    --dark-line: rgba(197, 164, 109, 0.28);
+    --dark-line: rgba(255, 156, 109, 0.28);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -58,13 +58,13 @@
   .page.dark::before {
     content: ""; position: absolute; top: -80px; right: -80px;
     width: 340px; height: 340px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(197, 164, 109, 0.28), transparent 65%);
+    background: radial-gradient(circle, rgba(255, 156, 109, 0.28), transparent 65%);
     filter: blur(50px); pointer-events: none; z-index: 1;
   }
   .page.dark::after {
     content: ""; position: absolute; bottom: -100px; left: -80px;
     width: 320px; height: 320px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(139, 46, 58, 0.32), transparent 65%);
+    background: radial-gradient(circle, rgba(67, 10, 20, 0.32), transparent 65%);
     filter: blur(60px); pointer-events: none; z-index: 1;
   }
 
@@ -81,7 +81,7 @@
   .cover::before {
     content: ""; position: absolute; top: 60px; right: 100px;
     width: 380px; height: 380px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(197, 164, 109, 0.18), transparent 65%);
+    background: radial-gradient(circle, rgba(255, 156, 109, 0.18), transparent 65%);
     filter: blur(60px); pointer-events: none;
   }
   .cover-content > div { position: relative; z-index: 2; }
@@ -215,7 +215,7 @@
   .story-box strong { color: var(--bordeaux); font-weight: 700; }
 
   .story-box.gold {
-    background: linear-gradient(135deg, rgba(197, 164, 109, 0.12), rgba(197, 164, 109, 0.04));
+    background: linear-gradient(135deg, rgba(255, 156, 109, 0.12), rgba(255, 156, 109, 0.04));
     border-left-color: var(--gold);
   }
   .story-box.gold strong { color: var(--bordeaux); }
@@ -310,7 +310,7 @@
   .ig-handle {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 10px 18px;
-    background: rgba(139, 46, 58, 0.08);
+    background: rgba(67, 10, 20, 0.08);
     border: 1px solid var(--bordeaux);
     border-radius: 999px;
     color: var(--bordeaux);
@@ -323,7 +323,7 @@
     margin-bottom: 20px;
   }
   .page.dark .ig-handle {
-    background: rgba(197, 164, 109, 0.14);
+    background: rgba(255, 156, 109, 0.14);
     border-color: var(--gold);
     color: var(--gold);
   }
@@ -344,7 +344,7 @@
     position: absolute; top: 16px; right: 22px;
     font-size: 36pt;
     font-weight: 700;
-    color: rgba(197, 164, 109, 0.14);
+    color: rgba(255, 156, 109, 0.14);
     line-height: 1;
     letter-spacing: -0.03em;
   }
@@ -432,7 +432,7 @@
     padding: 40px 44px;
     border-radius: 10px;
     margin-top: 30px;
-    box-shadow: 0 30px 60px rgba(197, 164, 109, 0.35);
+    box-shadow: 0 30px 60px rgba(255, 156, 109, 0.35);
   }
   .cta-final h3 {
     font-size: 20pt;
@@ -452,7 +452,7 @@
   .cta-final .contact-block .row {
     display: flex; justify-content: space-between; gap: 20px;
     padding: 6px 0; font-size: 10pt;
-    border-bottom: 1px dashed rgba(197, 164, 109, 0.14);
+    border-bottom: 1px dashed rgba(255, 156, 109, 0.14);
   }
   .cta-final .contact-block .row:last-child { border-bottom: 0; }
   .cta-final .contact-block .row .k { color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; font-size: 8.5pt; }
@@ -491,7 +491,7 @@
     font-size: 10pt; font-weight: 700;
     letter-spacing: 0.1em; text-transform: uppercase;
     cursor: pointer; border: 0;
-    box-shadow: 0 12px 30px rgba(139, 46, 58, 0.4);
+    box-shadow: 0 12px 30px rgba(67, 10, 20, 0.4);
     z-index: 100;
     font-family: inherit;
   }

@@ -19,11 +19,11 @@
     --ink: #2D1F22;
     --ink-soft: #4a3236;
     --muted: #8a6f72;
-    --bordeaux: #8B2E3A;
-    --bordeaux-hi: #A5384A;
-    --bordeaux-deep: #6E1F2C;
-    --gold: #C5A46D;
-    --gold-hi: #d5b884;
+    --bordeaux: #430a14;
+    --bordeaux-hi: #c74873;
+    --bordeaux-deep: #2d0508;
+    --gold: #ff9c6d;
+    --gold-hi: #ffb08a;
     --line: rgba(45, 31, 34, 0.08);
     --line-strong: rgba(45, 31, 34, 0.18);
   }
@@ -117,7 +117,7 @@
     font-family: 'Object Sans', sans-serif;
     font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
     cursor: pointer; transition: all 0.4s;
-    box-shadow: 0 20px 40px rgba(139, 46, 58, 0.35);
+    box-shadow: 0 20px 40px rgba(67, 10, 20, 0.35);
     display: inline-block;
   }
   .btn-red:hover { background: var(--bordeaux-hi); transform: translateY(-3px); }
@@ -171,13 +171,13 @@
   .anders::before {
     content: ""; position: absolute; top: -200px; right: -200px;
     width: 500px; height: 500px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(197, 164, 109, 0.12), transparent 70%);
+    background: radial-gradient(circle, rgba(255, 156, 109, 0.12), transparent 70%);
     pointer-events: none;
   }
   .anders::after {
     content: ""; position: absolute; bottom: -200px; left: -200px;
     width: 500px; height: 500px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(139, 46, 58, 0.15), transparent 70%);
+    background: radial-gradient(circle, rgba(67, 10, 20, 0.15), transparent 70%);
     pointer-events: none;
   }
   .anders .container { position: relative; }
@@ -203,7 +203,7 @@
     background: rgba(251, 242, 237, 0.04);
     padding: 40px 32px;
     border-radius: 6px;
-    border: 1px solid rgba(197, 164, 109, 0.2);
+    border: 1px solid rgba(255, 156, 109, 0.2);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     backdrop-filter: blur(6px);
   }
@@ -260,7 +260,7 @@
   .fragen-a em { font-style: italic; color: var(--bordeaux); }
   .fragen-body { font-size: 15px; color: var(--ink-soft); line-height: 1.7; margin-top: 12px; }
   .fragen-card.dark {
-    background: var(--ink); color: var(--bg); border: 1px solid rgba(197, 164, 109, 0.25);
+    background: var(--ink); color: var(--bg); border: 1px solid rgba(255, 156, 109, 0.25);
   }
   .fragen-card.dark .fragen-q { color: rgba(251, 242, 237, 0.65); }
   .fragen-card.dark .fragen-num { color: var(--gold); }
@@ -298,8 +298,8 @@
 
   /* REICHWEITE */
   .reichweite { padding: 140px 0; background: var(--ink); color: var(--bg); position: relative; overflow: hidden; }
-  .reichweite::before { content: ""; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(197, 164, 109, 0.15), transparent 70%); }
-  .reichweite::after { content: ""; position: absolute; bottom: -100px; left: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(139, 46, 58, 0.15), transparent 70%); }
+  .reichweite::before { content: ""; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 156, 109, 0.15), transparent 70%); }
+  .reichweite::after { content: ""; position: absolute; bottom: -100px; left: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(67, 10, 20, 0.15), transparent 70%); }
   .reichweite .container { position: relative; }
   .reichweite-header { text-align: center; margin-bottom: 80px; max-width: 900px; margin-left: auto; margin-right: auto; }
   .reichweite-header .eyebrow { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 24px; display: inline-block; }
@@ -308,7 +308,7 @@
   .reichweite-header p { font-size: 17px; color: rgba(251, 242, 237, 0.65); line-height: 1.6; }
   .rw-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 0 auto; }
   @media (max-width: 900px) { .rw-grid { grid-template-columns: 1fr; } }
-  .rw-card { padding: 40px 32px; background: rgba(251, 242, 237, 0.04); border: 1px solid rgba(197, 164, 109, 0.2); border-radius: 8px; }
+  .rw-card { padding: 40px 32px; background: rgba(251, 242, 237, 0.04); border: 1px solid rgba(255, 156, 109, 0.2); border-radius: 8px; }
   .rw-num { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--gold); font-size: 52px; line-height: 1; margin-bottom: 12px; }
   .rw-card h4 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--bg); font-size: 22px; margin-bottom: 10px; letter-spacing: -0.01em; }
   .rw-card p { font-size: 14px; color: rgba(251, 242, 237, 0.7); line-height: 1.6; }
@@ -325,7 +325,7 @@
   .bonus-card {
     background: linear-gradient(135deg, var(--bordeaux), var(--bordeaux-hi)); color: #fff;
     border-radius: 12px; padding: 44px 40px;
-    box-shadow: 0 20px 50px rgba(139, 46, 58, 0.25);
+    box-shadow: 0 20px 50px rgba(67, 10, 20, 0.25);
   }
   .bonus-card .tag { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 14px; }
   .bonus-card h3 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 30px; color: #fff; margin-bottom: 14px; letter-spacing: -0.01em; }
@@ -338,7 +338,7 @@
   .cta p { font-size: 18px; color: rgba(251, 242, 237, 0.65); max-width: 620px; margin: 0 auto 48px; line-height: 1.55; }
 
   /* FOOTER */
-  footer { background: var(--ink); color: rgba(251, 242, 237, 0.6); padding: 60px 0 30px; border-top: 1px solid rgba(197, 164, 109, 0.15); }
+  footer { background: var(--ink); color: rgba(251, 242, 237, 0.6); padding: 60px 0 30px; border-top: 1px solid rgba(255, 156, 109, 0.15); }
   footer .row { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
   footer p { font-size: 12px; letter-spacing: 0.15em; color: rgba(251, 242, 237, 0.4); }
   footer a { font-size: 12px; letter-spacing: 0.15em; color: var(--bg); transition: color 0.3s; }
@@ -653,7 +653,7 @@
   <div class="container">
     <h2 class="reveal">Reden wir <em>offen zusammen</em>.</h2>
     <p class="reveal d1">Zwanzig Minuten Erstgespräch, kostenlos und unverbindlich. Wir schauen gemeinsam was ihr wirklich braucht und ich zeige euch wie ich arbeite. Den Preis für die Zusammenarbeit besprechen wir im selben Call, sobald ich euren Umfang und eure Ziele kenne.</p>
-    <a href="mailto:julia@bergles.net?subject=MealBites%20Creator%20in%20Residence" class="btn-red reveal d2" style="box-shadow: 0 20px 40px rgba(139, 46, 58, 0.5);">Erstgespräch anfragen <span>→</span></a>
+    <a href="mailto:julia@bergles.net?subject=MealBites%20Creator%20in%20Residence" class="btn-red reveal d2" style="box-shadow: 0 20px 40px rgba(67, 10, 20, 0.5);">Erstgespräch anfragen <span>→</span></a>
   </div>
 </section>
 
