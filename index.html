@@ -963,7 +963,7 @@
   </div>
 </nav>
 
-<!-- LANDING OVERLAY — 5 Wörter auto durchspielen, dann Wahl -->
+<!-- LANDING OVERLAY — Nahtloser Farbwechsel-State-Machine -->
 <style>
   html.overlay-open, body.overlay-open { overflow: hidden !important; height: 100vh; }
   .site-hidden { visibility: hidden; }
@@ -974,6 +974,7 @@
     z-index: 9999;
     overflow: hidden;
     transition: opacity 0.7s ease, visibility 0s linear 0.7s;
+    background: #2D1F22;
   }
   #landing-overlay.done {
     opacity: 0;
@@ -981,6 +982,31 @@
     visibility: hidden;
   }
 
+  /* Ein Stage-Container mit fließenden Farb-Transitions */
+  .lo-stage {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .lo-stage.hide { opacity: 0; visibility: hidden; transition: opacity 0.5s, visibility 0s linear 0.5s; }
+
+  /* State-Klassen: BG + Text-Color — pro Wort ein Paar (a=schwarz-BG, b=farbig-BG) */
+  /* Innovation → Pink */
+  .lo-stage.state-1a { background: #2D1F22; color: #c74873; }
+  .lo-stage.state-1b { background: #c74873; color: #2D1F22; }
+  /* Sichtbarkeit → Mint */
+  .lo-stage.state-2a { background: #2D1F22; color: #e7fffe; }
+  .lo-stage.state-2b { background: #e7fffe; color: #2D1F22; }
+  /* Ohne KI → Orange */
+  .lo-stage.state-3a { background: #2D1F22; color: #ff9c6d; }
+  .lo-stage.state-3b { background: #ff9c6d; color: #2D1F22; }
+
+  /* Legacy .lo-slide (nur noch für Choice-Sektion) */
   .lo-slide {
     position: absolute;
     inset: 0;
@@ -1022,23 +1048,43 @@
     .lo-slide .brand-mark { right: 24px; }
   }
 
+  .lo-wordstack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 100%;
+  }
   .lo-word {
-    font-family: 'Clash Display', 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: clamp(56px, 18vw, 260px);
-    line-height: 0.9;
-    letter-spacing: -0.05em;
+    font-family: 'Anton', 'Clash Display', 'Space Grotesk', sans-serif;
+    font-weight: 400; /* Anton hat nur 400, wirkt sehr fett */
+    font-size: clamp(64px, 15vw, 200px);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
     text-transform: uppercase;
     text-align: center;
     margin: 0;
     max-width: 100%;
-    word-break: break-word;
-    -webkit-text-stroke: 2px currentColor;
-    text-shadow: 0 0 0 currentColor;
+    white-space: nowrap; /* damit Wörter in eine Zeile passen */
+    transition: opacity 0.25s ease;
   }
   @media (max-width: 700px) {
-    .lo-word { -webkit-text-stroke: 1.2px currentColor; }
+    .lo-word { font-size: clamp(48px, 15vw, 110px); }
+    .lo-wordstack { gap: 14px; }
   }
+  .lo-word.fading { opacity: 0.1; }
+  .lo-sub {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(14px, 1.4vw, 18px);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-align: center;
+    opacity: 0.85;
+    max-width: 480px;
+    line-height: 1.4;
+    transition: opacity 0.25s ease;
+  }
+  .lo-sub.fading { opacity: 0; }
 
   /* Farb-Kombis pro Slide — 3 Wörter × 2 (invertiert) = 6 Slides */
   .lo-slide.slide-1 { background: #2D1F22; color: #ff9c6d; } /* Sichtbarkeit — Schwarz · Orange */
@@ -1301,40 +1347,14 @@
     <span class="dot"></span>
   </div>
 
-  <div class="lo-slide slide-1 active" data-slide="0">
-    <span class="kicker">N°01</span>
+  <!-- STATE-MACHINE: 1 Container, Text + Farben werden gewechselt (nahtlos) -->
+  <div class="lo-stage state-1a" id="lo-stage">
+    <span class="kicker" id="lo-kicker">N°01</span>
     <span class="brand-mark">On Point Studios</span>
-    <h1 class="lo-word">Sichtbarkeit.</h1>
-  </div>
-
-  <div class="lo-slide slide-2" data-slide="1">
-    <span class="kicker">N°01</span>
-    <span class="brand-mark">On Point Studios</span>
-    <h1 class="lo-word">Sichtbarkeit.</h1>
-  </div>
-
-  <div class="lo-slide slide-3" data-slide="2">
-    <span class="kicker">N°02</span>
-    <span class="brand-mark">On Point Studios</span>
-    <h1 class="lo-word">Professionell.</h1>
-  </div>
-
-  <div class="lo-slide slide-4" data-slide="3">
-    <span class="kicker">N°02</span>
-    <span class="brand-mark">On Point Studios</span>
-    <h1 class="lo-word">Professionell.</h1>
-  </div>
-
-  <div class="lo-slide slide-5" data-slide="4">
-    <span class="kicker">N°03</span>
-    <span class="brand-mark">On Point Studios</span>
-    <h1 class="lo-word">Kein Aufwand.</h1>
-  </div>
-
-  <div class="lo-slide slide-6" data-slide="5">
-    <span class="kicker">N°03</span>
-    <span class="brand-mark">On Point Studios</span>
-    <h1 class="lo-word">Kein Aufwand.</h1>
+    <div class="lo-wordstack">
+      <h1 class="lo-word" id="lo-word">Innovation.</h1>
+      <p class="lo-sub" id="lo-sub">Kunden-Dashboard statt WhatsApp-Chaos.</p>
+    </div>
   </div>
 
   <div class="lo-slide slide-choice" data-slide="6">
@@ -1377,40 +1397,82 @@
 <script>
 (function () {
   var overlay = document.getElementById('landing-overlay');
-  var slides = overlay.querySelectorAll('.lo-slide');
+  var stage = document.getElementById('lo-stage');
+  var kicker = document.getElementById('lo-kicker');
+  var wordEl = document.getElementById('lo-word');
+  var subEl = document.getElementById('lo-sub');
+  var choiceSlide = overlay.querySelector('.slide-choice');
   var dots = document.querySelectorAll('#lo-progress .dot');
   var skipBtn = document.getElementById('lo-skip');
   var progress = document.getElementById('lo-progress');
-  var current = 0;
   var timer;
-  var CHOICE_IDX = 6;
-  var SLIDE_MS = 1200; // 1.2s pro Slide
+  var current = 0;
+
+  // 6 States: pro Wort 2 (a = schwarz+farbig, b = farbig+schwarz)
+  var STATES = [
+    { cls: 'state-1a', kicker: 'N°01', word: 'Innovation.',   sub: 'Kunden-Dashboard statt WhatsApp-Chaos.' },
+    { cls: 'state-1b', kicker: 'N°01', word: 'Innovation.',   sub: 'Kunden-Dashboard statt WhatsApp-Chaos.' },
+    { cls: 'state-2a', kicker: 'N°02', word: 'Sichtbarkeit.', sub: '1,4 Millionen Impressionen im Monat.' },
+    { cls: 'state-2b', kicker: 'N°02', word: 'Sichtbarkeit.', sub: '1,4 Millionen Impressionen im Monat.' },
+    { cls: 'state-3a', kicker: 'N°03', word: 'Ohne KI.',      sub: 'Handgemacht. Wirkt professionell.' },
+    { cls: 'state-3b', kicker: 'N°03', word: 'Ohne KI.',      sub: 'Handgemacht. Wirkt professionell.' }
+  ];
+  var TOTAL_STATES = STATES.length;
+  var SLIDE_MS = 1400; // 1.4s pro State — angenehm fließend
 
   document.documentElement.classList.add('overlay-open');
   document.body.classList.add('overlay-open');
 
-  function showSlide(idx) {
-    slides.forEach(function (s, i) {
-      s.classList.toggle('active', i === idx);
-    });
-    // Progress: 3 Dots für 3 Wörter (jedes Wort hat 2 Slides)
-    var wordIdx = Math.min(Math.floor(idx / 2), 3);
+  function applyState(idx) {
+    var s = STATES[idx];
+    var prevWord = wordEl.textContent;
+    var newWord = s.word;
+    var wordChanges = prevWord !== newWord;
+
+    // Farb-State immer wechseln (nahtlos via CSS transition)
+    STATES.forEach(function (st) { stage.classList.remove(st.cls); });
+    stage.classList.add(s.cls);
+
+    // Kicker sofort aktualisieren
+    kicker.textContent = s.kicker;
+
+    // Wenn Wort wechselt: kurzer fade auf Text
+    if (wordChanges) {
+      wordEl.classList.add('fading');
+      subEl.classList.add('fading');
+      setTimeout(function () {
+        wordEl.textContent = newWord;
+        subEl.textContent = s.sub;
+        wordEl.classList.remove('fading');
+        subEl.classList.remove('fading');
+      }, 220);
+    } else {
+      // Sub bleibt gleich innerhalb eines Wort-Paars — kein Fade nötig
+      subEl.textContent = s.sub;
+    }
+
+    // Progress: 3 Dots (1 pro Wort), gefüllt wenn Wort abgeschlossen
+    var wordIdx = Math.floor(idx / 2);
     dots.forEach(function (d, i) {
       d.classList.toggle('done', i < wordIdx);
     });
-    if (idx === CHOICE_IDX) {
-      progress.classList.add('hide');
-      skipBtn.classList.add('hide');
-    }
+  }
+
+  function showChoice() {
+    stage.classList.add('hide');
+    choiceSlide.classList.add('active');
+    progress.classList.add('hide');
+    skipBtn.classList.add('hide');
   }
 
   function next() {
     current++;
-    if (current > CHOICE_IDX) return;
-    showSlide(current);
-    if (current < CHOICE_IDX) {
-      timer = setTimeout(next, SLIDE_MS);
+    if (current >= TOTAL_STATES) {
+      showChoice();
+      return;
     }
+    applyState(current);
+    timer = setTimeout(next, SLIDE_MS);
   }
 
   function closeOverlay() {
@@ -1419,13 +1481,10 @@
     document.body.classList.remove('overlay-open');
   }
 
-  function jumpToChoice() {
+  skipBtn.addEventListener('click', function () {
     clearTimeout(timer);
-    current = CHOICE_IDX;
-    showSlide(current);
-  }
-
-  skipBtn.addEventListener('click', jumpToChoice);
+    showChoice();
+  });
 
   overlay.querySelectorAll('[data-explore]').forEach(function (el) {
     el.addEventListener('click', function (e) {
@@ -1434,6 +1493,8 @@
     });
   });
 
+  // Start
+  applyState(0);
   timer = setTimeout(next, SLIDE_MS);
 })();
 </script>
