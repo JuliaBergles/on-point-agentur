@@ -1104,23 +1104,30 @@
     background: #fff;
     border: 1.5px solid var(--line);
     border-radius: 14px;
-    padding: 36px 28px 32px;
+    padding: 40px 28px 32px;
     text-align: left;
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex; flex-direction: column;
     min-height: 260px;
     position: relative;
+    overflow: hidden;
+  }
+  .help-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: currentColor;
   }
   .help-card:hover {
     transform: translateY(-8px);
-    border-color: var(--bordeaux);
-    box-shadow: 0 30px 60px rgba(45, 31, 34, 0.10);
+    box-shadow: 0 30px 60px rgba(45, 31, 34, 0.12);
   }
   .help-card .num {
     font-family: 'Playfair Display', serif;
     font-style: italic; font-weight: 500;
     font-size: 42px; line-height: 1;
-    color: var(--gold);
+    color: currentColor;
     margin-bottom: 20px;
     letter-spacing: -0.02em;
   }
@@ -1128,7 +1135,7 @@
     font-family: 'Playfair Display', serif;
     font-weight: 500; font-style: italic;
     font-size: 26px;
-    color: var(--ink);
+    color: var(--ink) !important;
     margin-bottom: 10px;
     line-height: 1.1;
     letter-spacing: -0.01em;
@@ -1144,20 +1151,20 @@
     font-family: 'Space Grotesk', sans-serif;
     font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
     font-weight: 700;
-    color: var(--bordeaux);
+    color: currentColor;
     display: inline-flex; align-items: center; gap: 8px;
     transition: gap 0.3s;
   }
   .help-card:hover .arrow { gap: 12px; }
-  .help-card.warm {
-    background: linear-gradient(135deg, #430a14, #2d0508);
-    border-color: #430a14;
-    color: #e7fffe;
-  }
-  .help-card.warm .num { color: #ff9c6d; }
-  .help-card.warm h3 { color: #e7fffe; }
-  .help-card.warm p { color: rgba(231, 255, 254, 0.75); }
-  .help-card.warm .arrow { color: #ff9c6d; }
+  /* Farb-Varianten pro Card — passend zu den 4 Signature-Wörtern */
+  .help-card.c-orange { color: #ff9c6d; border-color: rgba(255, 156, 109, 0.35); }
+  .help-card.c-orange:hover { border-color: #ff9c6d; }
+  .help-card.c-red    { color: #430a14; border-color: rgba(67, 10, 20, 0.25); }
+  .help-card.c-red:hover    { border-color: #430a14; }
+  .help-card.c-pink   { color: #c74873; border-color: rgba(199, 72, 115, 0.30); }
+  .help-card.c-pink:hover   { border-color: #c74873; }
+  .help-card.c-blue   { color: #7993ae; border-color: rgba(121, 147, 174, 0.35); }
+  .help-card.c-blue:hover   { border-color: #7993ae; }
 </style>
 
 <section class="hero-signature">
@@ -1188,25 +1195,25 @@
     <p class="eyebrow">Wobei kann ich dir helfen?</p>
     <h2>Wähl, wo du <em>anfangen</em> willst.</h2>
     <div class="help-grid">
-      <a href="social-media.html" class="help-card">
+      <a href="social-media.html" class="help-card c-orange">
         <span class="num">01</span>
         <h3>Social Media</h3>
         <p>Ich komme, filme, schneide und poste. Direkt aus deinem Instagram.</p>
         <span class="arrow">Ansehen →</span>
       </a>
-      <a href="websites.html" class="help-card">
+      <a href="websites.html" class="help-card c-red">
         <span class="num">02</span>
         <h3>Website</h3>
         <p>Handgemacht, mobil optimiert, ohne Baukasten. Vom Konzept bis Launch.</p>
         <span class="arrow">Ansehen →</span>
       </a>
-      <a href="mediendesign.html" class="help-card">
+      <a href="mediendesign.html" class="help-card c-pink">
         <span class="num">03</span>
         <h3>Print & Design</h3>
         <p>Flyer, Visitenkarten, Logo, Layout. Editorial, ohne KI, handgemacht.</p>
         <span class="arrow">Ansehen →</span>
       </a>
-      <a href="pakete.html" class="help-card warm">
+      <a href="pakete.html" class="help-card c-blue">
         <span class="num">04</span>
         <h3>Ich will alles sehen</h3>
         <p>Alle Pakete auf einen Blick — und was am besten zu dir passt.</p>
