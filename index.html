@@ -1415,7 +1415,7 @@
     { cls: 'state-3b', kicker: 'N°03', word: 'Kein Aufwand.',  sub: 'Ich filme, schneide, poste.' }
   ];
   var TOTAL_STATES = STATES.length;
-  var SLIDE_MS = 1400; // 1.4s pro State — angenehm fließend
+  var SLIDE_MS = 900; // 900ms pro State — flotter, weniger warten
 
   document.documentElement.classList.add('overlay-open');
   document.body.classList.add('overlay-open');
@@ -1433,22 +1433,26 @@
     }
 
     if (wordChanges) {
-      // Wort-Wechsel: Text komplett verstecken, Farben instant snappen, dann neuer Text einfaden
-      wordEl.classList.add('fading');
-      subEl.classList.add('fading');
+      // Wort-Wechsel: ganzer Stage fadet kurz aus, Farben snappen komplett, dann fadet Stage mit neuem Wort ein
+      stage.style.transition = 'opacity 0.16s ease';
+      stage.style.opacity = '0';
       setTimeout(function () {
+        // Im unsichtbaren Zustand: Farben und Text snappen
         stage.style.transition = 'none';
         swapStateClass();
         wordEl.textContent = newWord;
         subEl.textContent = s.sub;
+        wordEl.classList.remove('fading');
+        subEl.classList.remove('fading');
         void stage.offsetHeight; // force reflow
-        // Text sofort updaten, dann kurz warten bevor wieder eingefadet wird
+        // Wieder einfaden mit neuem Content + neuen Farben
+        stage.style.transition = 'opacity 0.22s ease';
+        stage.style.opacity = '1';
         setTimeout(function () {
+          // Transition zurücksetzen für Invert-Wechsel innerhalb Wort
           stage.style.transition = '';
-          wordEl.classList.remove('fading');
-          subEl.classList.remove('fading');
-        }, 60);
-      }, 200);
+        }, 240);
+      }, 180);
     } else {
       // Farb-Wechsel innerhalb eines Wort-Paars: sanft mit CSS-transition (invert-Effekt)
       swapStateClass();
