@@ -1176,8 +1176,6 @@
   @media (max-width: 420px)  { .choice-grid-lo { grid-template-columns: 1fr; } }
 
   .choice-card-lo {
-    background: #fff;
-    border: 1px solid rgba(67, 10, 20, 0.10);
     border-radius: 12px;
     padding: 28px 20px 24px;
     text-align: left;
@@ -1186,53 +1184,43 @@
     display: flex; flex-direction: column;
     position: relative;
     overflow: hidden;
-    min-height: 200px;
-    color: #430a14; /* Weinrot als Anker */
-  }
-  .choice-card-lo::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 32px; height: 32px;
-    background: currentColor;
-    opacity: 0.15;
-    border-radius: 0 0 12px 0;
+    min-height: 210px;
   }
   .choice-card-lo:hover {
-    transform: translateY(-4px);
-    border-color: currentColor;
-    box-shadow: 0 20px 40px rgba(67, 10, 20, 0.08);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(45, 31, 34, 0.18);
   }
-  .choice-card-lo:hover::before { opacity: 0.35; }
   .choice-card-lo .n {
-    font-family: 'Clash Display', 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: 22px;
-    color: currentColor;
-    margin: 4px 0 14px;
+    font-family: 'Anton', 'Space Grotesk', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 26px;
+    color: inherit;
+    margin: 0 0 14px;
     opacity: 0.85;
   }
   .choice-card-lo h3 {
-    font-family: 'Clash Display', 'Space Grotesk', sans-serif !important;
-    font-weight: 700 !important;
-    font-size: 17px;
-    color: #430a14 !important;
+    font-family: 'Anton', 'Space Grotesk', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 22px;
+    color: inherit !important;
     margin: 0 0 8px;
-    line-height: 1.15;
+    line-height: 1.05;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
   }
   .choice-card-lo p {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 12.5px;
-    color: #6b5459;
     line-height: 1.5;
     flex-grow: 1;
+    opacity: 0.85;
   }
-  /* Alle Cards in warmen Rot/Kupfer-Tönen — dezent variiert */
-  .choice-card-lo.tone-1 { color: #430a14; } /* Weinrot */
-  .choice-card-lo.tone-2 { color: #8B2E3A; } /* Bordeaux */
-  .choice-card-lo.tone-3 { color: #C77A4A; } /* Kupfer */
-  .choice-card-lo.tone-4 { color: #B87333; } /* Bronze */
-  .choice-card-lo.tone-5 { color: #6E1F2C; } /* Dunkel-Weinrot */
+  /* Cards mit den Signature-Farben als BG */
+  .choice-card-lo.c-orange { background: #ff9c6d; color: #2D1F22; }
+  .choice-card-lo.c-red    { background: #430a14; color: #ff9c6d; }
+  .choice-card-lo.c-pink   { background: #c74873; color: #2D1F22; }
+  .choice-card-lo.c-blue   { background: #7993ae; color: #FBF2ED; }
+  .choice-card-lo.c-ink    { background: #2D1F22; color: #e7fffe; }
 
   /* ─── Wobei kann ich dir helfen? ─── */
   .help-choice {
