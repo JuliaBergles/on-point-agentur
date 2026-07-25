@@ -978,7 +978,7 @@
     z-index: 9999;
     overflow: hidden;
     transition: opacity 0.7s ease, visibility 0s linear 0.7s;
-    background: #430a14; /* Weinrot als Default-BG statt Schwarz */
+    background: #2D1F22;
   }
   #landing-overlay.done {
     opacity: 0;
@@ -999,18 +999,17 @@
   }
   .lo-stage.hide { opacity: 0; visibility: hidden; transition: opacity 0.5s, visibility 0s linear 0.5s; }
 
-  /* State-Klassen: KEIN Schwarz mehr — Weinrot #430a14 ersetzt Ink als dunkler Kontrast.
-     Der invertierte Farbwechsel-Effekt pro Wort bleibt, aber zwischen den Wörtern
-     fließt nur zwischen den 5 Farben (Pink, Mint, Orange, Weinrot). */
-  /* Innovation: Pink ↔ Weinrot */
-  .lo-stage.state-1a { background: #c74873; color: #430a14; }
-  .lo-stage.state-1b { background: #430a14; color: #c74873; }
-  /* Sichtbarkeit: Mint ↔ Weinrot */
-  .lo-stage.state-2a { background: #e7fffe; color: #430a14; }
-  .lo-stage.state-2b { background: #430a14; color: #e7fffe; }
-  /* Ohne KI: Orange ↔ Weinrot */
-  .lo-stage.state-3a { background: #ff9c6d; color: #430a14; }
-  .lo-stage.state-3b { background: #430a14; color: #ff9c6d; }
+  /* Invertierter Wechsel pro Wort: Schwarz+Farbe ↔ Farbe+Schwarz.
+     Wort-Übergang: JS schaltet transition kurz aus → Farben snap, Text fadet. */
+  /* Innovation: Schwarz ↔ Pink */
+  .lo-stage.state-1a { background: #2D1F22; color: #c74873; }
+  .lo-stage.state-1b { background: #c74873; color: #2D1F22; }
+  /* Sichtbarkeit: Schwarz ↔ Mint */
+  .lo-stage.state-2a { background: #2D1F22; color: #e7fffe; }
+  .lo-stage.state-2b { background: #e7fffe; color: #2D1F22; }
+  /* Kein Aufwand: Schwarz ↔ Orange */
+  .lo-stage.state-3a { background: #2D1F22; color: #ff9c6d; }
+  .lo-stage.state-3b { background: #ff9c6d; color: #2D1F22; }
 
   /* Legacy .lo-slide (nur noch für Choice-Sektion) */
   .lo-slide {
