@@ -995,16 +995,18 @@
   }
   .lo-stage.hide { opacity: 0; visibility: hidden; transition: opacity 0.5s, visibility 0s linear 0.5s; }
 
-  /* State-Klassen: BG + Text-Color — pro Wort ein Paar (a=schwarz-BG, b=farbig-BG) */
-  /* Innovation → Pink */
+  /* State-Klassen: BG + Text-Color — Reihenfolge vermeidet schwarze Zwischen-Blinks
+     zwischen den Wörtern. Zwischen 1b→2a und 2b→3a bleibt eine der beiden
+     Farben (BG oder Text) konstant, sodass der Übergang fließt. */
+  /* Innovation → Pink: schwarz+pink → pink+schwarz */
   .lo-stage.state-1a { background: #2D1F22; color: #c74873; }
   .lo-stage.state-1b { background: #c74873; color: #2D1F22; }
-  /* Sichtbarkeit → Mint */
-  .lo-stage.state-2a { background: #2D1F22; color: #e7fffe; }
-  .lo-stage.state-2b { background: #e7fffe; color: #2D1F22; }
-  /* Ohne KI → Orange */
-  .lo-stage.state-3a { background: #2D1F22; color: #ff9c6d; }
-  .lo-stage.state-3b { background: #ff9c6d; color: #2D1F22; }
+  /* Sichtbarkeit → Mint: mint+schwarz → schwarz+mint (Übergang 1b→2a: nur BG wechselt Pink→Mint) */
+  .lo-stage.state-2a { background: #e7fffe; color: #2D1F22; }
+  .lo-stage.state-2b { background: #2D1F22; color: #e7fffe; }
+  /* Ohne KI → Orange: orange+schwarz → schwarz+orange (Übergang 2b→3a: BG schwarz→orange, Text mint→schwarz gleichzeitig) */
+  .lo-stage.state-3a { background: #ff9c6d; color: #2D1F22; }
+  .lo-stage.state-3b { background: #2D1F22; color: #ff9c6d; }
 
   /* Legacy .lo-slide (nur noch für Choice-Sektion) */
   .lo-slide {
@@ -1498,6 +1500,23 @@
   timer = setTimeout(next, SLIDE_MS);
 })();
 </script>
+
+<!-- HERO — Editorial mit Bild (nach dem Landing-Overlay) -->
+<section class="hero">
+  <div class="hero-bg"><img src="img/bild-3.jpg" alt="Julia Bergles" /></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal">On Point Studios</div>
+    <h1 class="reveal d1">Mehr Kunden.<br />Nicht nur mehr <span class="circle-italic white">Likes</span>.</h1>
+    <p class="hero-sub reveal d2">
+      Aus Followern werden Kundinnen.
+      <br><span style="color: var(--gold); font-family: 'Anton', 'Space Grotesk', sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Handgemacht. Fachlich fundiert.</span>
+    </p>
+    <div class="hero-buttons reveal d3">
+      <a href="anfrage.html" class="btn-red">Angebot anfragen</a>
+      <a href="#help-choice" class="btn-outline-white">Arbeiten ansehen</a>
+    </div>
+  </div>
+</section>
 
 <!-- Wobei kann ich dir helfen? -->
 <section class="help-choice" id="help-choice">
