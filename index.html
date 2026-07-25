@@ -1225,7 +1225,8 @@
   /* ─── Wobei kann ich dir helfen? ─── */
   .help-choice {
     padding: 120px 40px;
-    background: var(--bg);
+    background: #2D1F22;
+    color: #FBF2ED;
   }
   @media (max-width: 700px) { .help-choice { padding: 80px 24px; } }
   .help-choice .container { max-width: 1200px; margin: 0 auto; }
@@ -1233,22 +1234,23 @@
     font-family: 'Space Grotesk', 'Object Sans', sans-serif;
     font-weight: 600; font-size: 11px;
     letter-spacing: 0.32em; text-transform: uppercase;
-    color: var(--bordeaux);
+    color: #ff9c6d;
     margin-bottom: 20px;
   }
   .help-choice h2 {
-    font-family: 'Anton', 'Space Grotesk', sans-serif;
-    font-weight: 500;
-    font-size: clamp(38px, 5.5vw, 68px);
-    line-height: 1.05;
-    letter-spacing: -0.025em;
-    color: var(--ink);
+    font-family: 'Anton', 'Space Grotesk', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: clamp(42px, 6vw, 78px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    color: #FBF2ED !important;
     margin-bottom: 60px;
-    max-width: 800px;
+    max-width: 900px;
+    text-transform: uppercase;
   }
   .help-choice h2 em {
     font-style: normal;
-    color: var(--bordeaux);
+    color: #ff9c6d;
   }
   .help-grid {
     display: grid;
@@ -1259,8 +1261,6 @@
   @media (max-width: 720px)  { .help-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 480px)  { .help-grid { grid-template-columns: 1fr; } }
   .help-card {
-    background: #fff;
-    border: 1.5px solid var(--line);
     border-radius: 14px;
     padding: 40px 28px 32px;
     text-align: left;
@@ -1270,61 +1270,53 @@
     position: relative;
     overflow: hidden;
   }
-  .help-card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 6px;
-    background: currentColor;
-  }
   .help-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 30px 60px rgba(45, 31, 34, 0.12);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
   }
   .help-card .num {
-    font-family: 'Anton', 'Space Grotesk', sans-serif;
-    font-style: normal; font-weight: 500;
-    font-size: 42px; line-height: 1;
-    color: currentColor;
+    font-family: 'Anton', 'Space Grotesk', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 44px; line-height: 1;
+    color: inherit;
     margin-bottom: 20px;
     letter-spacing: -0.02em;
+    opacity: 0.85;
   }
   .help-card h3 {
-    font-family: 'Anton', 'Space Grotesk', sans-serif;
-    font-weight: 500; font-style: normal;
-    font-size: 26px;
-    color: var(--ink) !important;
+    font-family: 'Anton', 'Space Grotesk', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 30px;
+    color: inherit !important;
     margin-bottom: 10px;
-    line-height: 1.1;
+    line-height: 1.05;
     letter-spacing: -0.01em;
+    text-transform: uppercase;
   }
   .help-card p {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 14px;
-    color: var(--muted);
     line-height: 1.55;
     flex-grow: 1;
     margin-bottom: 20px;
+    opacity: 0.85;
   }
   .help-card .arrow {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
     font-weight: 700;
-    color: currentColor;
+    color: inherit;
     display: inline-flex; align-items: center; gap: 8px;
     transition: gap 0.3s;
+    opacity: 0.9;
   }
-  .help-card:hover .arrow { gap: 12px; }
-  /* Farb-Varianten pro Card — passend zu den 4 Signature-Wörtern */
-  .help-card.c-orange { color: #ff9c6d; border-color: rgba(255, 156, 109, 0.35); }
-  .help-card.c-orange:hover { border-color: #ff9c6d; }
-  .help-card.c-red    { color: #430a14; border-color: rgba(67, 10, 20, 0.25); }
-  .help-card.c-red:hover    { border-color: #430a14; }
-  .help-card.c-pink   { color: #c74873; border-color: rgba(199, 72, 115, 0.30); }
-  .help-card.c-pink:hover   { border-color: #c74873; }
-  .help-card.c-blue   { color: #7993ae; border-color: rgba(121, 147, 174, 0.35); }
-  .help-card.c-blue:hover   { border-color: #7993ae; }
-  .help-card.c-ink    { color: #2D1F22; border-color: rgba(45, 31, 34, 0.25); }
-  .help-card.c-ink:hover    { border-color: #2D1F22; }
+  .help-card:hover .arrow { gap: 14px; opacity: 1; }
+  /* Farb-Varianten: jede Card VOLL in Signature-Farbe, Text als Kontrast */
+  .help-card.c-orange { background: #ff9c6d; color: #2D1F22; }
+  .help-card.c-red    { background: #430a14; color: #ff9c6d; }
+  .help-card.c-pink   { background: #c74873; color: #2D1F22; }
+  .help-card.c-blue   { background: #7993ae; color: #FBF2ED; }
+  .help-card.c-ink    { background: #e7fffe; color: #2D1F22; }
 </style>
 
 <!-- HERO — Intro + 5 Panel-Sektionen -->
