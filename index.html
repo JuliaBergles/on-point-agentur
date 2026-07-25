@@ -1075,11 +1075,13 @@
     transition: opacity 0.25s ease;
   }
   @media (max-width: 700px) {
-    .lo-word { font-size: clamp(42px, 13vw, 90px); line-height: 1.02; }
-    .lo-wordstack { gap: 14px; }
+    .lo-word { font-size: clamp(44px, 13vw, 88px); line-height: 1.02; }
+    .lo-wordstack { gap: 12px; padding: 0 16px; }
+    .lo-sub { font-size: 13px; }
   }
   @media (max-width: 400px) {
-    .lo-word { font-size: 40px; }
+    .lo-word { font-size: 42px; }
+    .lo-sub { font-size: 12px; }
   }
   .lo-word.fading { opacity: 0; }
   .lo-sub {
@@ -1516,11 +1518,7 @@
   <div class="hero-content">
     <div class="hero-eyebrow reveal">On Point Studios</div>
     <h1 class="reveal d1">Mehr Kunden.<br />Nicht nur mehr <span class="circle-italic white">Likes</span>.</h1>
-    <p class="hero-sub reveal d2">
-      Aus Followern werden Kundinnen.
-      <br><span style="color: var(--gold); font-family: 'Anton', 'Space Grotesk', sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Handgemacht. Fachlich fundiert.</span>
-    </p>
-    <div class="hero-buttons reveal d3">
+    <div class="hero-buttons reveal d3" style="margin-top: 40px;">
       <a href="anfrage.html" class="btn-red">Angebot anfragen</a>
       <a href="#help-choice" class="btn-outline-white">Arbeiten ansehen</a>
     </div>
