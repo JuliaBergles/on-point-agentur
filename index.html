@@ -1151,12 +1151,21 @@
   /* Choice-Slide — dezent in Rot/Kupfer für Fragebogen-Feeling */
   .lo-slide.slide-choice {
     background: linear-gradient(180deg, #FBF2ED 0%, #F3D6C6 100%);
+    align-items: flex-start !important;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
   }
   .choice-inner {
     max-width: 1100px;
     width: 100%;
     text-align: center;
     padding: 40px 20px;
+  }
+  @media (max-width: 700px) {
+    .lo-slide.slide-choice { padding-top: 80px !important; padding-bottom: 40px !important; }
+    .choice-inner { padding: 20px 12px; }
   }
   .choice-inner h2 {
     font-family: 'Clash Display', 'Space Grotesk', sans-serif !important;
@@ -1437,27 +1446,28 @@
     }
 
     if (wordChanges) {
-      // Wort-Wechsel: Stage wischt nach links raus → State + Text wechseln (rechts, unsichtbar) → wischt von rechts wieder rein
-      stage.style.transition = 'transform 0.38s cubic-bezier(0.7, 0, 0.3, 1)';
-      stage.style.transform = 'translateX(-105%)';
-      setTimeout(function () {
-        // Rechts außerhalb positionieren, State wechseln
-        stage.style.transition = 'none';
-        stage.style.transform = 'translateX(105%)';
-        swapStateClass();
-        wordEl.textContent = newWord;
-        subEl.textContent = s.sub;
-        wordEl.classList.remove('fading');
-        subEl.classList.remove('fading');
-        void stage.offsetHeight; // force reflow
-        // Von rechts wieder reinwischen
-        stage.style.transition = 'transform 0.42s cubic-bezier(0.2, 0.7, 0.3, 1)';
+      // Wort-Wechsel: Stage instant nach links weg + unsichtbar, State-Snap, dann von links reinschieben
+      stage.style.transition = 'none';
+      stage.style.opacity = '0';
+      stage.style.transform = 'translateX(-100%)';
+      // State + Text komplett wechseln während unsichtbar
+      swapStateClass();
+      wordEl.textContent = newWord;
+      subEl.textContent = s.sub;
+      wordEl.classList.remove('fading');
+      subEl.classList.remove('fading');
+      void stage.offsetHeight; // force reflow
+
+      // Nächster Frame: sichtbar machen und von links nach Mitte sliden
+      requestAnimationFrame(function () {
+        stage.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.7, 0.3, 1), opacity 0.3s ease';
         stage.style.transform = 'translateX(0)';
+        stage.style.opacity = '1';
         setTimeout(function () {
-          // Transition zurücksetzen für Invert-Wechsel innerhalb Wort
+          // Transition zurück auf Default für weichen Invert-Wechsel innerhalb Wort
           stage.style.transition = '';
-        }, 460);
-      }, 400);
+        }, 520);
+      });
     } else {
       // Farb-Wechsel innerhalb eines Wort-Paars: sanft mit CSS-transition (invert-Effekt)
       swapStateClass();
