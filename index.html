@@ -1079,7 +1079,7 @@
   @media (max-width: 400px) {
     .lo-word { font-size: 40px; }
   }
-  .lo-word.fading { opacity: 0.1; }
+  .lo-word.fading { opacity: 0; }
   .lo-sub {
     font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(14px, 1.4vw, 18px);
@@ -1089,7 +1089,7 @@
     opacity: 0.85;
     max-width: 480px;
     line-height: 1.4;
-    transition: opacity 0.25s ease;
+    transition: opacity 0.2s ease;
   }
   .lo-sub.fading { opacity: 0; }
 
@@ -1433,7 +1433,7 @@
     }
 
     if (wordChanges) {
-      // Wort-Wechsel: Text ausfaden, Farben instant (kein Mid-Transition-Farbmatsch), dann einfaden
+      // Wort-Wechsel: Text komplett verstecken, Farben instant snappen, dann neuer Text einfaden
       wordEl.classList.add('fading');
       subEl.classList.add('fading');
       setTimeout(function () {
@@ -1442,10 +1442,13 @@
         wordEl.textContent = newWord;
         subEl.textContent = s.sub;
         void stage.offsetHeight; // force reflow
-        stage.style.transition = '';
-        wordEl.classList.remove('fading');
-        subEl.classList.remove('fading');
-      }, 220);
+        // Text sofort updaten, dann kurz warten bevor wieder eingefadet wird
+        setTimeout(function () {
+          stage.style.transition = '';
+          wordEl.classList.remove('fading');
+          subEl.classList.remove('fading');
+        }, 60);
+      }, 200);
     } else {
       // Farb-Wechsel innerhalb eines Wort-Paars: sanft mit CSS-transition (invert-Effekt)
       swapStateClass();
