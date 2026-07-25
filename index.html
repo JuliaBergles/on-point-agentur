@@ -105,31 +105,31 @@
   @media (max-width: 700px) { .container { padding: 0 24px; } }
 
   h1, h2 {
-    font-family: 'Space Grotesk', 'Object Sans', sans-serif !important;
+    font-family: 'Clash Display', 'Space Grotesk', 'Object Sans', sans-serif !important;
     font-weight: 700 !important;
     letter-spacing: -0.03em;
-    line-height: 1.05;
+    line-height: 1.02;
     color: var(--ink);
   }
   h3, h4 {
-    font-family: 'Space Grotesk', 'Object Sans', sans-serif !important;
+    font-family: 'Clash Display', 'Space Grotesk', 'Object Sans', sans-serif !important;
     font-weight: 600 !important;
     letter-spacing: -0.02em;
   }
-  /* Playfair bleibt für Editorial-Akzente (kursive Highlights, Signatur-Elemente) */
+  /* .serif genutzt Clash Display statt Playfair (Julia mag kein Serif) */
   .serif {
-    font-family: 'Playfair Display', serif;
-    font-weight: 500;
+    font-family: 'Clash Display', 'Space Grotesk', sans-serif;
+    font-weight: 600;
     font-style: normal;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
     color: var(--ink);
   }
 
-  /* Circle-Italic (Editorial-Signature, gängiges Muster) */
+  /* Circle-Signature (ohne kursiv) */
   .circle-italic {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Clash Display', 'Space Grotesk', sans-serif;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     position: relative;
     display: inline-block;
     padding: 0 12px;
@@ -963,130 +963,142 @@
   </div>
 </nav>
 
-<!-- HERO — Signature-Wörter Editorial -->
+<!-- HERO — 5 Vollflächen-Sektionen mit Signature-Wörtern (EMM-Style) -->
 <style>
-  .hero-signature {
-    background: #e7fffe;
-    padding: 160px 40px 100px;
+  .signature-hero-stack {
+    padding-top: 80px; /* Platz für Fixed-Nav */
+  }
+  .word-panel {
+    min-height: 62vh;
+    padding: 80px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     overflow: hidden;
   }
-  @media (max-width: 700px) { .hero-signature { padding: 140px 24px 70px; } }
-  .hero-signature::before {
-    content: ""; position: absolute; top: 40px; left: -100px;
-    width: 320px; height: 320px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 156, 109, 0.25), transparent 65%);
-    filter: blur(60px); pointer-events: none;
+  @media (max-width: 700px) {
+    .word-panel { min-height: 46vh; padding: 60px 24px; }
+    .signature-hero-stack { padding-top: 70px; }
   }
-  .hero-signature::after {
-    content: ""; position: absolute; bottom: -80px; right: -60px;
-    width: 400px; height: 400px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(199, 72, 115, 0.18), transparent 65%);
-    filter: blur(70px); pointer-events: none;
+  .word-panel .word {
+    font-family: 'Clash Display', 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(64px, 15vw, 220px);
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
   }
-  .hero-signature .container { position: relative; z-index: 1; }
-  .hero-signature .eyebrow {
-    font-family: 'Space Grotesk', 'Object Sans', sans-serif;
-    font-weight: 600; font-size: 11px;
-    letter-spacing: 0.32em; text-transform: uppercase;
+  .word-panel .kicker {
+    position: absolute;
+    top: 32px; left: 40px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.55;
+  }
+  @media (max-width: 700px) {
+    .word-panel .kicker { top: 20px; left: 24px; font-size: 10px; }
+  }
+  .word-panel .note {
+    position: absolute;
+    bottom: 32px; right: 40px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    max-width: 260px;
+    text-align: right;
+    opacity: 0.75;
+  }
+  @media (max-width: 700px) {
+    .word-panel .note { bottom: 20px; right: 24px; font-size: 11px; max-width: 200px; }
+  }
+  /* Panel-Farb-Kombis */
+  .panel-1 { background: #c74873; color: #2D1F22; } /* Pink · Schwarz */
+  .panel-1 .kicker, .panel-1 .note { color: #2D1F22; }
+  .panel-2 { background: #ff9c6d; color: #2D1F22; } /* Orange · Schwarz */
+  .panel-2 .kicker, .panel-2 .note { color: #2D1F22; }
+  .panel-3 { background: #430a14; color: #ff9c6d; } /* Weinrot · Orange */
+  .panel-3 .kicker, .panel-3 .note { color: #ff9c6d; opacity: 0.7; }
+  .panel-4 { background: #7993ae; color: #FBF2ED; } /* Blau · Cream */
+  .panel-4 .kicker, .panel-4 .note { color: #FBF2ED; opacity: 0.8; }
+  .panel-5 { background: #2D1F22; color: #ff9c6d; } /* Ink · Orange */
+  .panel-5 .kicker, .panel-5 .note { color: #ff9c6d; opacity: 0.7; }
+
+  /* Intro-Panel oben mit Kurz-Pitch + CTA */
+  .hero-intro {
+    padding: 140px 40px 60px;
+    background: #FBF2ED;
+    text-align: center;
+  }
+  @media (max-width: 700px) { .hero-intro { padding: 120px 24px 40px; } }
+  .hero-intro .eyebrow {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
     color: #430a14;
-    margin-bottom: 60px;
+    font-weight: 600;
+    margin-bottom: 24px;
     display: inline-flex; align-items: center; gap: 14px;
   }
-  .hero-signature .eyebrow::before {
+  .hero-intro .eyebrow::before, .hero-intro .eyebrow::after {
     content: ""; width: 40px; height: 1.5px; background: #430a14;
   }
-  .hero-signature .signature-stack {
-    display: flex; flex-direction: column;
-    gap: 8px;
-    margin: 0 0 56px;
+  .hero-intro h1 {
+    font-family: 'Clash Display', 'Space Grotesk', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: clamp(36px, 5.5vw, 66px);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: #2D1F22;
+    margin: 0 auto 22px;
+    max-width: 820px;
   }
-  .hero-signature .signature-word {
-    font-family: 'Space Grotesk', 'Neue Montreal', sans-serif;
-    font-weight: 700;
-    font-size: clamp(56px, 11vw, 156px);
-    line-height: 0.94;
-    letter-spacing: -0.045em;
-    display: block;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: wordFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  .hero-signature .signature-word.w1 { color: #ff9c6d; animation-delay: 0.25s; }
-  .hero-signature .signature-word.w2 { color: #430a14; animation-delay: 0.85s; }
-  .hero-signature .signature-word.w3 { color: #c74873; animation-delay: 1.45s; }
-  .hero-signature .signature-word.w4 { color: #7993ae; animation-delay: 2.05s; }
-
-  @keyframes wordFadeUp {
-    0%   { opacity: 0; transform: translateY(30px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-signature .eyebrow {
-    opacity: 0;
-    animation: wordFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: 0s;
-  }
-  .hero-signature .signature-sub {
-    opacity: 0;
-    animation: wordFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: 2.65s;
-  }
-  .hero-signature .signature-actions {
-    opacity: 0;
-    animation: wordFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: 3.0s;
-  }
-
-  .hero-signature .signature-sub {
-    font-family: 'Object Sans', sans-serif;
-    font-size: 18px;
+  .hero-intro .lede {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px;
     line-height: 1.55;
-    color: #430a14;
-    max-width: 620px;
-    margin-bottom: 44px;
+    color: #6b5459;
+    max-width: 580px;
+    margin: 0 auto 36px;
   }
-  .hero-signature .signature-sub em {
-    font-family: 'Playfair Display', serif;
-    font-style: normal;
-    color: #c74873;
-    font-weight: 500;
+  .hero-intro .cta-row {
+    display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center;
   }
-  .hero-signature .signature-actions {
-    display: flex; gap: 14px; flex-wrap: wrap;
-  }
-  .hero-signature .btn-primary {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 18px 34px;
+  .hero-intro .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 16px 30px;
     background: #430a14;
     color: #e7fffe;
     border-radius: 999px;
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 13px; font-weight: 600;
+    font-size: 12px; font-weight: 600;
     letter-spacing: 0.14em; text-transform: uppercase;
     transition: all 0.35s;
-    box-shadow: 0 16px 32px rgba(67, 10, 20, 0.25);
   }
-  .hero-signature .btn-primary:hover {
+  .hero-intro .btn-primary:hover {
     background: #c74873;
-    transform: translateY(-3px);
-    box-shadow: 0 22px 44px rgba(199, 72, 115, 0.35);
+    transform: translateY(-2px);
   }
-  .hero-signature .btn-secondary {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 18px 34px;
+  .hero-intro .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 16px 30px;
     background: transparent;
     color: #430a14;
     border: 1.5px solid #430a14;
     border-radius: 999px;
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 13px; font-weight: 600;
+    font-size: 12px; font-weight: 600;
     letter-spacing: 0.14em; text-transform: uppercase;
     transition: all 0.35s;
   }
-  .hero-signature .btn-secondary:hover {
-    background: #430a14;
-    color: #e7fffe;
+  .hero-intro .btn-secondary:hover {
+    background: #430a14; color: #e7fffe;
   }
 
   /* ─── Wobei kann ich dir helfen? ─── */
@@ -1194,25 +1206,44 @@
   .help-card.c-ink:hover    { border-color: #2D1F22; }
 </style>
 
-<section class="hero-signature">
-  <div class="container">
-    <div class="eyebrow reveal">On Point Studios · Wehringen bei Augsburg</div>
-    <div class="signature-stack">
-      <span class="signature-word w1 reveal">Sichtbarkeit.</span>
-      <span class="signature-word w2 reveal d1">Ohne KI.</span>
-      <span class="signature-word w3 reveal d2">Professionell.</span>
-      <span class="signature-word w4 reveal d3">Ohne Aufwand.</span>
-    </div>
-    <p class="signature-sub reveal d3">
-      Alle paar Wochen komme ich zum Filmen.
-      Danach läuft dein Instagram wie von allein — direkt aus deinem Account,
-      <em>nicht aus einem Zwischentool.</em>
-      Du sagst nur ja.
-    </p>
-    <div class="signature-actions reveal d3">
-      <a href="anfrage.html" class="btn-primary">Angebot anfragen →</a>
-      <a href="#help-choice" class="btn-secondary">So arbeite ich</a>
-    </div>
+<!-- HERO — Intro + 5 Panel-Sektionen -->
+<section class="hero-intro">
+  <p class="eyebrow">On Point Studios · Wehringen bei Augsburg</p>
+  <h1>Du sagst nur ja. Ich mach den Rest.</h1>
+  <p class="lede">
+    Alle paar Wochen komme ich zum Filmen. Danach läuft dein Instagram wie von allein — direkt aus deinem Account, nicht aus einem Zwischentool.
+  </p>
+  <div class="cta-row">
+    <a href="anfrage.html" class="btn-primary">Angebot anfragen →</a>
+    <a href="#help-choice" class="btn-secondary">So arbeite ich</a>
+  </div>
+</section>
+
+<section class="signature-hero-stack">
+  <div class="word-panel panel-1">
+    <span class="kicker">N°01</span>
+    <h2 class="word">Innovation.</h2>
+    <p class="note">Kunden-Dashboard statt WhatsApp-Chaos.</p>
+  </div>
+  <div class="word-panel panel-2">
+    <span class="kicker">N°02</span>
+    <h2 class="word">Sichtbarkeit.</h2>
+    <p class="note">1,4 Mio+ Impressionen pro Monat.</p>
+  </div>
+  <div class="word-panel panel-3">
+    <span class="kicker">N°03</span>
+    <h2 class="word">Individualität.</h2>
+    <p class="note">Handgemacht statt austauschbar.</p>
+  </div>
+  <div class="word-panel panel-4">
+    <span class="kicker">N°04</span>
+    <h2 class="word">Ohne Aufwand.</h2>
+    <p class="note">Du sagst nur ja. Alles läuft über mich.</p>
+  </div>
+  <div class="word-panel panel-5">
+    <span class="kicker">N°05</span>
+    <h2 class="word">Ohne KI.</h2>
+    <p class="note">Wirkt schäbig. Ich mach das selbst.</p>
   </div>
 </section>
 
