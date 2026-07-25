@@ -1408,12 +1408,12 @@
 
   // 6 States: pro Wort 2 (a = schwarz+farbig, b = farbig+schwarz)
   var STATES = [
-    { cls: 'state-1a', kicker: 'N°01', word: 'Innovation.',   sub: 'Kunden-Dashboard statt WhatsApp-Chaos.' },
-    { cls: 'state-1b', kicker: 'N°01', word: 'Innovation.',   sub: 'Kunden-Dashboard statt WhatsApp-Chaos.' },
-    { cls: 'state-2a', kicker: 'N°02', word: 'Sichtbarkeit.', sub: '1,4 Millionen Impressionen im Monat.' },
-    { cls: 'state-2b', kicker: 'N°02', word: 'Sichtbarkeit.', sub: '1,4 Millionen Impressionen im Monat.' },
-    { cls: 'state-3a', kicker: 'N°03', word: 'Ohne KI.',      sub: 'Handgemacht. Wirkt professionell.' },
-    { cls: 'state-3b', kicker: 'N°03', word: 'Ohne KI.',      sub: 'Handgemacht. Wirkt professionell.' }
+    { cls: 'state-1a', kicker: 'N°01', word: 'Innovation.',    sub: 'Kunden-Dashboard statt WhatsApp-Chaos.' },
+    { cls: 'state-1b', kicker: 'N°01', word: 'Innovation.',    sub: 'Kunden-Dashboard statt WhatsApp-Chaos.' },
+    { cls: 'state-2a', kicker: 'N°02', word: 'Sichtbarkeit.',  sub: '1,4 Millionen Impressionen im Monat.' },
+    { cls: 'state-2b', kicker: 'N°02', word: 'Sichtbarkeit.',  sub: '1,4 Millionen Impressionen im Monat.' },
+    { cls: 'state-3a', kicker: 'N°03', word: 'Kein Aufwand.',  sub: 'Ich filme, schneide, poste.' },
+    { cls: 'state-3b', kicker: 'N°03', word: 'Kein Aufwand.',  sub: 'Ich filme, schneide, poste.' }
   ];
   var TOTAL_STATES = STATES.length;
   var SLIDE_MS = 1400; // 1.4s pro State — angenehm fließend
@@ -1427,25 +1427,29 @@
     var newWord = s.word;
     var wordChanges = prevWord !== newWord;
 
-    // Farb-State immer wechseln (nahtlos via CSS transition)
-    STATES.forEach(function (st) { stage.classList.remove(st.cls); });
-    stage.classList.add(s.cls);
+    function swapStateClass() {
+      STATES.forEach(function (st) { stage.classList.remove(st.cls); });
+      stage.classList.add(s.cls);
+      kicker.textContent = s.kicker;
+    }
 
-    // Kicker sofort aktualisieren
-    kicker.textContent = s.kicker;
-
-    // Wenn Wort wechselt: kurzer fade auf Text
     if (wordChanges) {
+      // Wort-Wechsel: Text ausfaden, Farben instant (kein Mid-Transition-Farbmatsch), dann einfaden
       wordEl.classList.add('fading');
       subEl.classList.add('fading');
       setTimeout(function () {
+        stage.style.transition = 'none';
+        swapStateClass();
         wordEl.textContent = newWord;
         subEl.textContent = s.sub;
+        void stage.offsetHeight; // force reflow
+        stage.style.transition = '';
         wordEl.classList.remove('fading');
         subEl.classList.remove('fading');
       }, 220);
     } else {
-      // Sub bleibt gleich innerhalb eines Wort-Paars — kein Fade nötig
+      // Farb-Wechsel innerhalb eines Wort-Paars: sanft mit CSS-transition (invert-Effekt)
+      swapStateClass();
       subEl.textContent = s.sub;
     }
 
