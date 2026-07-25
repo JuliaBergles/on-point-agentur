@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index, follow" />
+<title>Anfrage · On Point Studios</title>
+<meta name="description" content="Erzähl mir kurz was du brauchst — ich melde mich innerhalb von 24 Stunden mit deinem persönlichen Angebot." />
+<link rel="canonical" href="https://www.agentur.juliabergles.de/anfrage.html" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.agentur.juliabergles.de/anfrage.html" />
+<meta property="og:title" content="Anfrage · On Point Studios" />
+<meta property="og:description" content="Erzähl mir kurz was du brauchst. Ich melde mich in 24 Stunden mit deinem persönlichen Angebot." />
+<meta property="og:image" content="https://www.agentur.juliabergles.de/img/bild-2.jpg" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:site_name" content="On Point" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=object-sans@300,400,500,600,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap">
+<link rel="stylesheet" href="css/onpoint.css">
+
+<style>
+  .anfrage-hero {
+    padding: 160px 0 80px;
+    background: var(--bg);
+    color: var(--ink);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .anfrage-hero::before {
+    content: ""; position: absolute; top: 60px; left: -80px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 46, 58, 0.14), transparent 60%);
+    filter: blur(80px); pointer-events: none;
+  }
+  .anfrage-hero::after {
+    content: ""; position: absolute; bottom: -100px; right: -80px;
+    width: 460px; height: 460px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(197, 164, 109, 0.18), transparent 60%);
+    filter: blur(90px); pointer-events: none;
+  }
+  .anfrage-hero .container { position: relative; z-index: 1; }
+  .anfrage-hero .eyebrow {
+    font-size: 10px; letter-spacing: 0.45em; text-transform: uppercase;
+    color: var(--bordeaux); font-weight: 700;
+    margin-bottom: 28px; display: inline-block;
+  }
+  .anfrage-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: clamp(40px, 6vw, 76px);
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+  .anfrage-hero h1 em { font-style: italic; color: var(--bordeaux); }
+  .anfrage-hero .lede {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  /* Form */
+  .form-section { padding: 60px 0 120px; background: var(--bg); }
+  .form-card {
+    max-width: 720px; margin: 0 auto;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 48px 44px;
+    box-shadow: 0 30px 80px rgba(45, 31, 34, 0.06);
+  }
+  @media (max-width: 700px) { .form-card { padding: 32px 24px; border-radius: 14px; } }
+
+  .form-block { margin-bottom: 36px; }
+  .form-block:last-of-type { margin-bottom: 0; }
+  .form-block .q-num {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    color: var(--gold); font-size: 22px;
+    margin-right: 8px; letter-spacing: -0.02em;
+  }
+  .form-block .q-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 500;
+    color: var(--ink); line-height: 1.25;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .form-block .q-hint {
+    font-size: 13px; color: var(--muted); line-height: 1.55;
+    margin-top: -8px; margin-bottom: 16px;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .options label {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 18px;
+    background: var(--bg);
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    font-size: 15px; color: var(--ink);
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+  .options label:hover { border-color: var(--bordeaux); background: rgba(139, 46, 58, 0.04); }
+  .options input[type="checkbox"],
+  .options input[type="radio"] {
+    accent-color: var(--bordeaux);
+    width: 18px; height: 18px;
+    flex-shrink: 0;
+  }
+  .options input:checked + span { font-weight: 600; }
+
+  .input-text,
+  .input-textarea {
+    width: 100%;
+    padding: 14px 18px;
+    background: var(--bg);
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    font-family: 'Object Sans', sans-serif;
+    font-size: 15px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.25s;
+  }
+  .input-text:focus,
+  .input-textarea:focus { border-color: var(--bordeaux); }
+  .input-textarea { resize: vertical; min-height: 90px; line-height: 1.6; }
+
+  .row-2 {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  }
+  @media (max-width: 600px) { .row-2 { grid-template-columns: 1fr; } }
+
+  .submit-row {
+    margin-top: 44px;
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+  }
+  .btn-submit {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 36px;
+    background: var(--bordeaux);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    font-family: 'Object Sans', sans-serif;
+    font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 12px 30px rgba(139, 46, 58, 0.25);
+  }
+  .btn-submit:hover { background: var(--bordeaux-hi); transform: translateY(-2px); box-shadow: 0 16px 36px rgba(139, 46, 58, 0.35); }
+  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .submit-note {
+    font-size: 12px; color: var(--muted); text-align: center;
+    line-height: 1.55; max-width: 400px;
+  }
+
+  /* Success State */
+  .success-state {
+    display: none;
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .success-state.show { display: block; }
+  .form-content.hidden { display: none; }
+  .success-state .eyebrow {
+    font-size: 10px; letter-spacing: 0.45em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+    margin-bottom: 24px; display: inline-block;
+  }
+  .success-state h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: clamp(32px, 4vw, 44px);
+    color: var(--ink);
+    margin-bottom: 18px;
+    line-height: 1.15;
+  }
+  .success-state h2 em { font-style: italic; color: var(--bordeaux); }
+  .success-state p {
+    font-size: 16px; color: var(--muted);
+    max-width: 460px; margin: 0 auto 8px;
+    line-height: 1.65;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="row">
+    <a href="index.html" class="brand">On Point</a>
+    <ul>
+      <li><a href="warum-onpoint.html">Warum On Point</a></li>
+      <li><a href="social-media.html">Social Media</a></li>
+      <li><a href="mediendesign.html">Mediendesign</a></li>
+      <li><a href="websites.html">Webdesign</a></li>
+      <li><a href="pakete.html">Pakete</a></li>
+      <li><a href="reichweite.html">Reichweite</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+    </ul>
+    <a href="anfrage.html" class="nav-cta">Beratung</a>
+    <button class="nav-burger" aria-label="Menü" onclick="document.getElementById('mobile-menu').classList.toggle('open'); this.classList.toggle('open');"><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="warum-onpoint.html">Warum On Point</a>
+    <a href="social-media.html">Social Media</a>
+    <a href="mediendesign.html">Mediendesign</a>
+    <a href="websites.html">Webdesign</a>
+    <a href="pakete.html">Pakete</a>
+    <a href="reichweite.html">Reichweite</a>
+    <a href="ueber-mich.html">Über mich</a>
+    <a href="anfrage.html" class="mobile-cta">Beratung</a>
+  </div>
+</nav>
+<div class="nav-spacer"></div>
+
+<section class="anfrage-hero">
+  <div class="container">
+    <p class="eyebrow">Kennenlernen</p>
+    <h1>Erzähl mir kurz, <em>was du brauchst</em>.</h1>
+    <p class="lede">
+      Sieben Fragen, drei Minuten, danach schicke ich dir innerhalb von 24 Stunden ein persönliches Angebot per Mail. Kein automatischer Trichter, kein Vertriebsteam. Ich lese jede Antwort selbst.
+    </p>
+  </div>
+</section>
+
+<section class="form-section">
+  <div class="container">
+    <div class="form-card">
+
+      <div class="form-content" id="form-content">
+        <form id="anfrage-form" action="https://formspree.io/f/meeyplow" method="POST">
+
+          <!-- Frage 1 -->
+          <div class="form-block">
+            <p class="q-label"><span class="q-num">01</span> Was für Content stellst du dir vor?</p>
+            <p class="q-hint">Mehrfachauswahl möglich.</p>
+            <div class="options">
+              <label><input type="checkbox" name="content_type" value="Reels"><span>Reels</span></label>
+              <label><input type="checkbox" name="content_type" value="Beiträge"><span>Beiträge</span></label>
+              <label><input type="checkbox" name="content_type" value="Stories"><span>Stories</span></label>
+              <label><input type="checkbox" name="content_type" value="Weiß ich noch nicht"><span>Weiß ich noch nicht — berate mich</span></label>
+            </div>
+          </div>
+
+          <!-- Frage 2 -->
+          <div class="form-block">
+            <p class="q-label"><span class="q-num">02</span> Bist du selbst vor der Kamera?</p>
+            <div class="options">
+              <label><input type="radio" name="on_camera" value="Ja, gerne"><span>Ja, gerne</span></label>
+              <label><input type="radio" name="on_camera" value="Nein, lieber nicht"><span>Nein, lieber nicht</span></label>
+              <label><input type="radio" name="on_camera" value="Manchmal"><span>Manchmal, wenn's passt</span></label>
+              <label><input type="radio" name="on_camera" value="Weiß ich noch nicht"><span>Weiß ich noch nicht</span></label>
+            </div>
+          </div>
+
+          <!-- Frage 3 -->
+          <div class="form-block">
+            <p class="q-label"><span class="q-num">03</span> Sollst du selbst sprechen?</p>
+            <p class="q-hint">Voiceover oder vor Kamera.</p>
+            <div class="options">
+              <label><input type="radio" name="speaks" value="Ja"><span>Ja</span></label>
+              <label><input type="radio" name="speaks" value="Nein, lieber Textoverlay"><span>Nein, lieber Textoverlay oder Musik</span></label>
+              <label><input type="radio" name="speaks" value="Weiß ich noch nicht"><span>Weiß ich noch nicht</span></label>
+            </div>
+          </div>
+
+          <!-- Frage 4 -->
+          <div class="form-block">
+            <p class="q-label"><span class="q-num">04</span> Wie oft möchtest du posten?</p>
+            <div class="options">
+              <label><input type="radio" name="frequency" value="1–2× pro Woche"><span>1–2× pro Woche</span></label>
+              <label><input type="radio" name="frequency" value="3–4× pro Woche"><span>3–4× pro Woche</span></label>
+              <label><input type="radio" name="frequency" value="5+ pro Woche"><span>5+ pro Woche</span></label>
+              <label><input type="radio" name="frequency" value="Weiß ich noch nicht"><span>Weiß ich noch nicht</span></label>
+            </div>
+          </div>
+
+          <!-- Frage 5 -->
+          <div class="form-block">
+            <p class="q-label"><span class="q-num">05</span> In welcher Branche bist du?</p>
+            <input type="text" name="industry" class="input-text" placeholder="z. B. Interior Design, Gastronomie, Coaching, Fitnessstudio …" required />
+          </div>
+
+          <!-- Frage 6 -->
+          <div class="form-block">
+            <p class="q-label"><span class="q-num">06</span> Wo willst du in einem Jahr stehen?</p>
+            <p class="q-hint">Kurz, ehrlich. Ein Satz reicht.</p>
+            <textarea name="goal" class="input-textarea" placeholder="z. B. Mehr sichtbar in meiner Region, oder: Endlich weg vom WhatsApp-Chaos, oder …" rows="3"></textarea>
+          </div>
+
+          <!-- Frage 7 — Kontakt -->
+          <div class="form-block">
+            <p class="q-label"><span class="q-num">07</span> Wie erreiche ich dich?</p>
+            <div class="row-2">
+              <input type="text" name="name" class="input-text" placeholder="Dein Name" required />
+              <input type="email" name="email" class="input-text" placeholder="E-Mail" required />
+            </div>
+            <input type="text" name="company" class="input-text" placeholder="Firma / Marke (optional)" style="margin-top: 14px;" />
+            <input type="tel" name="phone" class="input-text" placeholder="Telefon (optional, falls du das lieber magst)" style="margin-top: 14px;" />
+          </div>
+
+          <!-- Honeypot Anti-Spam -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <div class="submit-row">
+            <button type="submit" class="btn-submit" id="submit-btn">Anfrage senden</button>
+            <p class="submit-note">Ich melde mich innerhalb von 24 Stunden mit deinem persönlichen Angebot. Deine Daten bleiben bei mir und werden nicht weitergegeben.</p>
+          </div>
+        </form>
+      </div>
+
+      <div class="success-state" id="success-state">
+        <p class="eyebrow">Danke</p>
+        <h2>Deine Anfrage ist <em>angekommen</em>.</h2>
+        <p>Ich lese sie in Ruhe durch und schreibe dir innerhalb von 24 Stunden.</p>
+        <p style="margin-top: 24px; font-family: 'Playfair Display', serif; font-style: italic; color: var(--bordeaux); font-size: 18px;">— Julia</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('anfrage-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const formContent = document.getElementById('form-content');
+  const successState = document.getElementById('success-state');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Wird gesendet …';
+
+    const data = new FormData(form);
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        formContent.classList.add('hidden');
+        successState.classList.add('show');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        throw new Error('Fehler beim Senden');
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Nochmal versuchen';
+      alert('Da ist etwas schiefgelaufen. Bitte versuch es nochmal, oder schreib mir direkt an julia@bergles.net.');
+    }
+  });
+</script>
+
+</body>
+</html>
