@@ -977,8 +977,8 @@
     inset: 0;
     z-index: 9999;
     overflow: hidden;
-    transition: opacity 0.7s ease, visibility 0s linear 0.7s;
-    background: #2D1F22;
+    transition: opacity 0.7s ease, visibility 0s linear 0.7s, background-color 0.3s ease;
+    background: #FBF2ED;
   }
   #landing-overlay.done {
     opacity: 0;
@@ -994,8 +994,10 @@
     align-items: center;
     justify-content: center;
     padding: 40px;
-    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(0);
+    will-change: transform, background-color, color;
+    transition: background-color 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.45s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .lo-stage.hide { opacity: 0; visibility: hidden; transition: opacity 0.5s, visibility 0s linear 0.5s; }
 
@@ -1433,26 +1435,27 @@
     }
 
     if (wordChanges) {
-      // Wort-Wechsel: ganzer Stage fadet kurz aus, Farben snappen komplett, dann fadet Stage mit neuem Wort ein
-      stage.style.transition = 'opacity 0.16s ease';
-      stage.style.opacity = '0';
+      // Wort-Wechsel: Stage wischt nach links raus → State + Text wechseln (rechts, unsichtbar) → wischt von rechts wieder rein
+      stage.style.transition = 'transform 0.38s cubic-bezier(0.7, 0, 0.3, 1)';
+      stage.style.transform = 'translateX(-105%)';
       setTimeout(function () {
-        // Im unsichtbaren Zustand: Farben und Text snappen
+        // Rechts außerhalb positionieren, State wechseln
         stage.style.transition = 'none';
+        stage.style.transform = 'translateX(105%)';
         swapStateClass();
         wordEl.textContent = newWord;
         subEl.textContent = s.sub;
         wordEl.classList.remove('fading');
         subEl.classList.remove('fading');
         void stage.offsetHeight; // force reflow
-        // Wieder einfaden mit neuem Content + neuen Farben
-        stage.style.transition = 'opacity 0.22s ease';
-        stage.style.opacity = '1';
+        // Von rechts wieder reinwischen
+        stage.style.transition = 'transform 0.42s cubic-bezier(0.2, 0.7, 0.3, 1)';
+        stage.style.transform = 'translateX(0)';
         setTimeout(function () {
           // Transition zurücksetzen für Invert-Wechsel innerhalb Wort
           stage.style.transition = '';
-        }, 240);
-      }, 180);
+        }, 460);
+      }, 400);
     } else {
       // Farb-Wechsel innerhalb eines Wort-Paars: sanft mit CSS-transition (invert-Effekt)
       swapStateClass();
