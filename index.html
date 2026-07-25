@@ -60,11 +60,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=object-sans@300,400,500,600,700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap">
 <style>
   :root {
     --bg: #FBF2ED;
     --bg-warm: #F3D6C6;
     --bg-soft: #E8D0BE;
+    --bg-mint: #e7fffe;
     --card: #ffffff;
 
     --ink: #2D1F22;
@@ -72,15 +74,19 @@
     --muted: #8a6f72;
     --muted-lite: #b09a9c;
 
-    --bordeaux: #8B2E3A;
-    --bordeaux-hi: #A5384A;
-    --bordeaux-deep: #6E1F2C;
+    --bordeaux: #430a14;
+    --bordeaux-hi: #c74873;
+    --bordeaux-deep: #2d0508;
 
-    --gold: #C5A46D;
-    --gold-hi: #d5b884;
+    --pink: #c74873;
+    --blue: #7993ae;
+    --orange: #ff9c6d;
 
-    --line: rgba(45, 31, 34, 0.08);
-    --line-strong: rgba(45, 31, 34, 0.18);
+    --gold: #ff9c6d;
+    --gold-hi: #ffb08a;
+
+    --line: rgba(67, 10, 20, 0.10);
+    --line-strong: rgba(67, 10, 20, 0.22);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -98,17 +104,25 @@
   .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
   @media (max-width: 700px) { .container { padding: 0 24px; } }
 
-  h1, h2, .serif {
-    font-family: 'Playfair Display', serif;
-    font-weight: 500;
-    letter-spacing: -0.015em;
-    line-height: 1.02;
+  h1, h2 {
+    font-family: 'Space Grotesk', 'Object Sans', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
     color: var(--ink);
   }
   h3, h4 {
-    font-family: 'Object Sans', sans-serif;
-    font-weight: 600;
-    letter-spacing: -0.005em;
+    font-family: 'Space Grotesk', 'Object Sans', sans-serif !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.02em;
+  }
+  /* Playfair bleibt für Editorial-Akzente (kursive Highlights, Signatur-Elemente) */
+  .serif {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: -0.015em;
+    color: var(--ink);
   }
 
   /* Circle-Italic (Editorial-Signature, gängiges Muster) */
@@ -949,71 +963,258 @@
   </div>
 </nav>
 
-<!-- HERO — Editorial mit Julia-Bild -->
-<section class="hero">
-  <div class="hero-bg"><img src="img/bild-3.jpg" alt="Julia Bergles" /></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow reveal">Content auf den Punkt gebracht</div>
-    <h1 class="reveal d1">Mehr Kunden.<br />Nicht nur mehr <span class="circle-italic white">Likes</span>.</h1>
-    <p class="hero-sub reveal d2">
-      On Point macht aus Followern Kundinnen.
-      <br>Für Marken, die echten Content wollen.
-      <br><span style="color: var(--gold); font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px;">Handgemacht, fachlich fundiert.</span>
+<!-- HERO — Signature-Wörter Editorial -->
+<style>
+  .hero-signature {
+    background: #e7fffe;
+    padding: 160px 40px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  @media (max-width: 700px) { .hero-signature { padding: 140px 24px 70px; } }
+  .hero-signature::before {
+    content: ""; position: absolute; top: 40px; left: -100px;
+    width: 320px; height: 320px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 156, 109, 0.25), transparent 65%);
+    filter: blur(60px); pointer-events: none;
+  }
+  .hero-signature::after {
+    content: ""; position: absolute; bottom: -80px; right: -60px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(199, 72, 115, 0.18), transparent 65%);
+    filter: blur(70px); pointer-events: none;
+  }
+  .hero-signature .container { position: relative; z-index: 1; }
+  .hero-signature .eyebrow {
+    font-family: 'Space Grotesk', 'Object Sans', sans-serif;
+    font-weight: 600; font-size: 11px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: #430a14;
+    margin-bottom: 60px;
+    display: inline-flex; align-items: center; gap: 14px;
+  }
+  .hero-signature .eyebrow::before {
+    content: ""; width: 40px; height: 1.5px; background: #430a14;
+  }
+  .hero-signature .signature-stack {
+    display: flex; flex-direction: column;
+    gap: 8px;
+    margin: 0 0 56px;
+  }
+  .hero-signature .signature-word {
+    font-family: 'Space Grotesk', 'Neue Montreal', sans-serif;
+    font-weight: 700;
+    font-size: clamp(56px, 11vw, 156px);
+    line-height: 0.94;
+    letter-spacing: -0.045em;
+    display: block;
+  }
+  .hero-signature .signature-word.w1 { color: #ff9c6d; }
+  .hero-signature .signature-word.w2 { color: #430a14; }
+  .hero-signature .signature-word.w3 { color: #c74873; }
+  .hero-signature .signature-word.w4 { color: #7993ae; }
+
+  .hero-signature .signature-sub {
+    font-family: 'Object Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.55;
+    color: #430a14;
+    max-width: 620px;
+    margin-bottom: 44px;
+  }
+  .hero-signature .signature-sub em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #c74873;
+    font-weight: 500;
+  }
+  .hero-signature .signature-actions {
+    display: flex; gap: 14px; flex-wrap: wrap;
+  }
+  .hero-signature .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 18px 34px;
+    background: #430a14;
+    color: #e7fffe;
+    border-radius: 999px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    transition: all 0.35s;
+    box-shadow: 0 16px 32px rgba(67, 10, 20, 0.25);
+  }
+  .hero-signature .btn-primary:hover {
+    background: #c74873;
+    transform: translateY(-3px);
+    box-shadow: 0 22px 44px rgba(199, 72, 115, 0.35);
+  }
+  .hero-signature .btn-secondary {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 18px 34px;
+    background: transparent;
+    color: #430a14;
+    border: 1.5px solid #430a14;
+    border-radius: 999px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    transition: all 0.35s;
+  }
+  .hero-signature .btn-secondary:hover {
+    background: #430a14;
+    color: #e7fffe;
+  }
+
+  /* ─── Wobei kann ich dir helfen? ─── */
+  .help-choice {
+    padding: 120px 40px;
+    background: var(--bg);
+  }
+  @media (max-width: 700px) { .help-choice { padding: 80px 24px; } }
+  .help-choice .container { max-width: 1200px; margin: 0 auto; }
+  .help-choice .eyebrow {
+    font-family: 'Space Grotesk', 'Object Sans', sans-serif;
+    font-weight: 600; font-size: 11px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--bordeaux);
+    margin-bottom: 20px;
+  }
+  .help-choice h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: clamp(38px, 5.5vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 60px;
+    max-width: 800px;
+  }
+  .help-choice h2 em {
+    font-style: italic;
+    color: var(--bordeaux);
+  }
+  .help-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 980px) { .help-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .help-grid { grid-template-columns: 1fr; } }
+  .help-card {
+    background: #fff;
+    border: 1.5px solid var(--line);
+    border-radius: 14px;
+    padding: 36px 28px 32px;
+    text-align: left;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex; flex-direction: column;
+    min-height: 260px;
+    position: relative;
+  }
+  .help-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--bordeaux);
+    box-shadow: 0 30px 60px rgba(45, 31, 34, 0.10);
+  }
+  .help-card .num {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-weight: 500;
+    font-size: 42px; line-height: 1;
+    color: var(--gold);
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  .help-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500; font-style: italic;
+    font-size: 26px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .help-card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.55;
+    flex-grow: 1;
+    margin-bottom: 20px;
+  }
+  .help-card .arrow {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 700;
+    color: var(--bordeaux);
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: gap 0.3s;
+  }
+  .help-card:hover .arrow { gap: 12px; }
+  .help-card.warm {
+    background: linear-gradient(135deg, #430a14, #6E1F2C);
+    border-color: #430a14;
+    color: #e7fffe;
+  }
+  .help-card.warm .num { color: #ff9c6d; }
+  .help-card.warm h3 { color: #e7fffe; }
+  .help-card.warm p { color: rgba(231, 255, 254, 0.75); }
+  .help-card.warm .arrow { color: #ff9c6d; }
+</style>
+
+<section class="hero-signature">
+  <div class="container">
+    <div class="eyebrow reveal">On Point Studios · Wehringen bei Augsburg</div>
+    <div class="signature-stack">
+      <span class="signature-word w1 reveal">Sichtbarkeit.</span>
+      <span class="signature-word w2 reveal d1">Ohne KI.</span>
+      <span class="signature-word w3 reveal d2">Professionell.</span>
+      <span class="signature-word w4 reveal d3">Ohne Aufwand.</span>
+    </div>
+    <p class="signature-sub reveal d3">
+      Alle paar Wochen komme ich zum Filmen.
+      Danach läuft dein Instagram wie von allein — direkt aus deinem Account,
+      <em>nicht aus einem Zwischentool.</em>
+      Du sagst nur ja.
     </p>
-    <div class="hero-buttons reveal d3">
-      <a href="https://calendly.com/julia-bergles/30min" target="_blank" rel="noopener" class="btn-red">Kennenlerngespräch buchen</a>
-      <a href="#branchen" class="btn-outline-white">Arbeiten ansehen</a>
+    <div class="signature-actions reveal d3">
+      <a href="anfrage.html" class="btn-primary">Angebot anfragen →</a>
+      <a href="#help-choice" class="btn-secondary">So arbeite ich</a>
     </div>
   </div>
 </section>
 
-<!-- FLOATING AUSWAHL MODAL -->
-<div id="choice-modal" class="choice-modal" role="dialog" aria-label="Auswahl">
-  <button class="choice-close" aria-label="Schließen" onclick="closeChoiceModal()">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-  </button>
-  <div class="choice-modal-eyebrow">Weswegen sind Sie hier?</div>
-  <div class="choice-modal-h">Wo darf ich Sie <em>unterstützen</em>?</div>
-  <div class="choice-modal-grid">
-    <a href="social-media.html" class="cm-card">
-      <span class="cm-n">01</span>
-      <span class="cm-body">
-        <span class="cm-h">Social Media</span>
-        <span class="cm-sub">Aus Followern Kundinnen.</span>
-      </span>
-      <span class="cm-arrow">→</span>
-    </a>
-    <a href="mediendesign.html" class="cm-card">
-      <span class="cm-n">02</span>
-      <span class="cm-body">
-        <span class="cm-h">Mediendesign</span>
-        <span class="cm-sub">Print, Logo, Layout.</span>
-      </span>
-      <span class="cm-arrow">→</span>
-    </a>
-    <a href="websites.html" class="cm-card">
-      <span class="cm-n">03</span>
-      <span class="cm-body">
-        <span class="cm-h">Webdesign</span>
-        <span class="cm-sub">Websites, die verkaufen.</span>
-      </span>
-      <span class="cm-arrow">→</span>
-    </a>
-    <a href="warum-onpoint.html" class="cm-card cm-warm">
-      <span class="cm-n">04</span>
-      <span class="cm-body">
-        <span class="cm-h">Ich weiß noch nicht</span>
-        <span class="cm-sub">Über On Point.</span>
-      </span>
-      <span class="cm-arrow">→</span>
-    </a>
+<!-- Wobei kann ich dir helfen? -->
+<section class="help-choice" id="help-choice">
+  <div class="container">
+    <p class="eyebrow">Wobei kann ich dir helfen?</p>
+    <h2>Wähl, wo du <em>anfangen</em> willst.</h2>
+    <div class="help-grid">
+      <a href="social-media.html" class="help-card">
+        <span class="num">01</span>
+        <h3>Social Media</h3>
+        <p>Ich komme, filme, schneide und poste. Direkt aus deinem Instagram.</p>
+        <span class="arrow">Ansehen →</span>
+      </a>
+      <a href="websites.html" class="help-card">
+        <span class="num">02</span>
+        <h3>Website</h3>
+        <p>Handgemacht, mobil optimiert, ohne Baukasten. Vom Konzept bis Launch.</p>
+        <span class="arrow">Ansehen →</span>
+      </a>
+      <a href="mediendesign.html" class="help-card">
+        <span class="num">03</span>
+        <h3>Print & Design</h3>
+        <p>Flyer, Visitenkarten, Logo, Layout. Editorial, ohne KI, handgemacht.</p>
+        <span class="arrow">Ansehen →</span>
+      </a>
+      <a href="pakete.html" class="help-card warm">
+        <span class="num">04</span>
+        <h3>Ich will alles sehen</h3>
+        <p>Alle Pakete auf einen Blick — und was am besten zu dir passt.</p>
+        <span class="arrow">Ansehen →</span>
+      </a>
+    </div>
   </div>
-</div>
-
-<button id="choice-reopen" class="choice-reopen" aria-label="Auswahl öffnen" onclick="openChoiceModal()" style="display: none;">
-  <span class="pulse"></span>
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/><circle cx="12" cy="12" r="10"/></svg>
-</button>
+</section>
 
 <!-- 4 BAUSTEINE -->
 <section class="features" id="features">

@@ -239,10 +239,22 @@
       <div class="form-content" id="form-content">
         <form id="anfrage-form" action="https://formspree.io/f/meeyplow" method="POST">
 
-          <!-- Frage 1 -->
+          <!-- Frage 1 — Services -->
           <div class="form-block">
-            <p class="q-label"><span class="q-num">01</span> Was für Content stellst du dir vor?</p>
+            <p class="q-label"><span class="q-num">01</span> Wobei kann ich dir helfen?</p>
             <p class="q-hint">Mehrfachauswahl möglich.</p>
+            <div class="options">
+              <label><input type="checkbox" name="service" value="Social Media"><span>Social Media (Reels, Beiträge, Stories)</span></label>
+              <label><input type="checkbox" name="service" value="Website"><span>Website</span></label>
+              <label><input type="checkbox" name="service" value="Flyer & Visitenkarten"><span>Flyer, Visitenkarten & Print</span></label>
+              <label><input type="checkbox" name="service" value="Alles zusammen"><span>Am liebsten alles aus einer Hand</span></label>
+            </div>
+          </div>
+
+          <!-- Frage 2 — Content-Type (nur relevant wenn Social Media) -->
+          <div class="form-block">
+            <p class="q-label"><span class="q-num">02</span> Was für Content stellst du dir vor?</p>
+            <p class="q-hint">Nur wenn Social Media relevant ist — sonst überspringen.</p>
             <div class="options">
               <label><input type="checkbox" name="content_type" value="Reels"><span>Reels</span></label>
               <label><input type="checkbox" name="content_type" value="Beiträge"><span>Beiträge</span></label>
@@ -251,9 +263,9 @@
             </div>
           </div>
 
-          <!-- Frage 2 -->
+          <!-- Frage 3 -->
           <div class="form-block">
-            <p class="q-label"><span class="q-num">02</span> Bist du selbst vor der Kamera?</p>
+            <p class="q-label"><span class="q-num">03</span> Bist du selbst vor der Kamera?</p>
             <div class="options">
               <label><input type="radio" name="on_camera" value="Ja, gerne"><span>Ja, gerne</span></label>
               <label><input type="radio" name="on_camera" value="Nein, lieber nicht"><span>Nein, lieber nicht</span></label>
@@ -262,9 +274,9 @@
             </div>
           </div>
 
-          <!-- Frage 3 -->
+          <!-- Frage 4 -->
           <div class="form-block">
-            <p class="q-label"><span class="q-num">03</span> Sollst du selbst sprechen?</p>
+            <p class="q-label"><span class="q-num">04</span> Sollst du selbst sprechen?</p>
             <p class="q-hint">Voiceover oder vor Kamera.</p>
             <div class="options">
               <label><input type="radio" name="speaks" value="Ja"><span>Ja</span></label>
@@ -273,9 +285,9 @@
             </div>
           </div>
 
-          <!-- Frage 4 -->
+          <!-- Frage 5 -->
           <div class="form-block">
-            <p class="q-label"><span class="q-num">04</span> Wie oft möchtest du posten?</p>
+            <p class="q-label"><span class="q-num">05</span> Wie oft möchtest du posten?</p>
             <div class="options">
               <label><input type="radio" name="frequency" value="1–2× pro Woche"><span>1–2× pro Woche</span></label>
               <label><input type="radio" name="frequency" value="3–4× pro Woche"><span>3–4× pro Woche</span></label>
@@ -284,22 +296,22 @@
             </div>
           </div>
 
-          <!-- Frage 5 -->
+          <!-- Frage 6 -->
           <div class="form-block">
-            <p class="q-label"><span class="q-num">05</span> In welcher Branche bist du?</p>
+            <p class="q-label"><span class="q-num">06</span> In welcher Branche bist du?</p>
             <input type="text" name="industry" class="input-text" placeholder="z. B. Interior Design, Gastronomie, Coaching, Fitnessstudio …" required />
           </div>
 
-          <!-- Frage 6 -->
+          <!-- Frage 7 -->
           <div class="form-block">
-            <p class="q-label"><span class="q-num">06</span> Wo willst du in einem Jahr stehen?</p>
+            <p class="q-label"><span class="q-num">07</span> Wo willst du in einem Jahr stehen?</p>
             <p class="q-hint">Kurz, ehrlich. Ein Satz reicht.</p>
             <textarea name="goal" class="input-textarea" placeholder="z. B. Mehr sichtbar in meiner Region, oder: Endlich weg vom WhatsApp-Chaos, oder …" rows="3"></textarea>
           </div>
 
-          <!-- Frage 7 — Kontakt -->
+          <!-- Frage 8 — Kontakt -->
           <div class="form-block">
-            <p class="q-label"><span class="q-num">07</span> Wie erreiche ich dich?</p>
+            <p class="q-label"><span class="q-num">08</span> Wie erreiche ich dich?</p>
             <div class="row-2">
               <input type="text" name="name" class="input-text" placeholder="Dein Name" required />
               <input type="email" name="email" class="input-text" placeholder="E-Mail" required />
