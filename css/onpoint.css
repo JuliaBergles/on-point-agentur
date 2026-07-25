@@ -63,12 +63,14 @@ h3, h4 {
   font-weight: 600 !important;
   letter-spacing: -0.02em;
 }
-/* .serif behält Playfair — für einzelne Editorial-Akzente (kursive Highlights) */
+/* Kursiv global deaktiviert — Julia mag keine kursive Schrift */
+em, i, .serif {
+  font-style: normal !important;
+}
 .serif {
-  font-family: 'Playfair Display', serif;
-  font-weight: 500;
-  font-style: italic;
-  letter-spacing: -0.015em;
+  font-family: 'Space Grotesk', 'Object Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   color: var(--ink);
 }
 

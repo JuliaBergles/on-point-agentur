@@ -55,7 +55,7 @@
 
   .circle-italic {
     font-family: 'Playfair Display', serif;
-    font-style: italic; font-weight: 400;
+    font-style: normal; font-weight: 400;
     position: relative; display: inline-block;
     padding: 0 12px;
   }
@@ -192,7 +192,7 @@
     font-weight: 400;
     color: var(--bg);
   }
-  .anders-header h2 em { font-style: italic; color: var(--gold); }
+  .anders-header h2 em { font-style: normal; color: var(--gold); }
   .anders-grid {
     display: grid; grid-template-columns: repeat(4, 1fr);
     gap: 24px; max-width: 1200px; margin: 0 auto;
@@ -214,12 +214,12 @@
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
   }
   .anders-num {
-    font-family: 'Playfair Display', serif; font-style: italic;
+    font-family: 'Playfair Display', serif; font-style: normal;
     color: var(--gold); font-size: 15px; letter-spacing: 0.2em;
     margin-bottom: 20px; display: block;
   }
   .anders-card h3 {
-    font-family: 'Playfair Display', serif; font-style: italic;
+    font-family: 'Playfair Display', serif; font-style: normal;
     font-weight: 500; font-size: 24px;
     color: var(--bg); margin-bottom: 12px; letter-spacing: -0.01em;
     line-height: 1.2;
@@ -244,7 +244,7 @@
   }
   .fragen-card:hover { border-color: var(--bordeaux); box-shadow: 0 20px 40px rgba(45, 31, 34, 0.08); }
   .fragen-num {
-    font-family: 'Playfair Display', serif; font-style: italic;
+    font-family: 'Playfair Display', serif; font-style: normal;
     font-weight: 500; color: var(--bordeaux);
     font-size: 32px; line-height: 1;
   }
@@ -257,7 +257,7 @@
     font-size: 26px; color: var(--ink); line-height: 1.15;
     letter-spacing: -0.01em;
   }
-  .fragen-a em { font-style: italic; color: var(--bordeaux); }
+  .fragen-a em { font-style: normal; color: var(--bordeaux); }
   .fragen-body { font-size: 15px; color: var(--ink-soft); line-height: 1.7; margin-top: 12px; }
   .fragen-card.dark {
     background: var(--ink); color: var(--bg); border: 1px solid rgba(255, 156, 109, 0.25);
@@ -291,7 +291,7 @@
     font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--bordeaux); font-weight: 700; margin-bottom: 12px;
   }
-  .hook { background: var(--bg); border-left: 3px solid var(--bordeaux); padding: 12px 16px; margin-bottom: 10px; font-size: 15px; font-style: italic; color: var(--ink); line-height: 1.5; }
+  .hook { background: var(--bg); border-left: 3px solid var(--bordeaux); padding: 12px 16px; margin-bottom: 10px; font-size: 15px; font-style: normal; color: var(--ink); line-height: 1.5; }
   @media (max-width: 600px) {
     .fragen-card { grid-template-columns: 1fr; gap: 12px; }
   }
@@ -304,13 +304,13 @@
   .reichweite-header { text-align: center; margin-bottom: 80px; max-width: 900px; margin-left: auto; margin-right: auto; }
   .reichweite-header .eyebrow { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 24px; display: inline-block; }
   .reichweite-header h2 { font-size: clamp(40px, 5.5vw, 80px); font-weight: 400; color: var(--bg); line-height: 1.05; margin-bottom: 24px; }
-  .reichweite-header h2 em { font-style: italic; color: var(--gold); }
+  .reichweite-header h2 em { font-style: normal; color: var(--gold); }
   .reichweite-header p { font-size: 17px; color: rgba(251, 242, 237, 0.65); line-height: 1.6; }
   .rw-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 0 auto; }
   @media (max-width: 900px) { .rw-grid { grid-template-columns: 1fr; } }
   .rw-card { padding: 40px 32px; background: rgba(251, 242, 237, 0.04); border: 1px solid rgba(255, 156, 109, 0.2); border-radius: 8px; }
-  .rw-num { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--gold); font-size: 52px; line-height: 1; margin-bottom: 12px; }
-  .rw-card h4 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; color: var(--bg); font-size: 22px; margin-bottom: 10px; letter-spacing: -0.01em; }
+  .rw-num { font-family: 'Playfair Display', serif; font-style: normal; font-weight: 500; color: var(--gold); font-size: 52px; line-height: 1; margin-bottom: 12px; }
+  .rw-card h4 { font-family: 'Playfair Display', serif; font-style: normal; font-weight: 500; color: var(--bg); font-size: 22px; margin-bottom: 10px; letter-spacing: -0.01em; }
   .rw-card p { font-size: 14px; color: rgba(251, 242, 237, 0.7); line-height: 1.6; }
 
   /* BONUS: Podcast + Co-Produkt */
@@ -318,7 +318,7 @@
   .bonus-header { text-align: center; margin-bottom: 70px; max-width: 900px; margin-left: auto; margin-right: auto; }
   .bonus-header .eyebrow { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--bordeaux); font-weight: 600; margin-bottom: 20px; display: inline-block; }
   .bonus-header h2 { font-size: clamp(40px, 5.5vw, 76px); font-weight: 400; margin-bottom: 16px; }
-  .bonus-header h2 em { font-style: italic; color: var(--bordeaux); }
+  .bonus-header h2 em { font-style: normal; color: var(--bordeaux); }
   .bonus-header p { font-size: 16px; color: var(--muted); }
   .bonus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1000px; margin: 0 auto; }
   @media (max-width: 800px) { .bonus-grid { grid-template-columns: 1fr; } }
@@ -328,13 +328,13 @@
     box-shadow: 0 20px 50px rgba(67, 10, 20, 0.25);
   }
   .bonus-card .tag { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 14px; }
-  .bonus-card h3 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 30px; color: #fff; margin-bottom: 14px; letter-spacing: -0.01em; }
+  .bonus-card h3 { font-family: 'Playfair Display', serif; font-style: normal; font-weight: 500; font-size: 30px; color: #fff; margin-bottom: 14px; letter-spacing: -0.01em; }
   .bonus-card p { font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.7; }
 
   /* CTA */
   .cta { padding: 160px 0; background: var(--ink); color: var(--bg); text-align: center; }
   .cta h2 { color: var(--bg); font-size: clamp(44px, 7vw, 100px); font-weight: 400; margin-bottom: 24px; }
-  .cta h2 em { font-style: italic; color: var(--gold); }
+  .cta h2 em { font-style: normal; color: var(--gold); }
   .cta p { font-size: 18px; color: rgba(251, 242, 237, 0.65); max-width: 620px; margin: 0 auto 48px; line-height: 1.55; }
 
   /* FOOTER */
