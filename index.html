@@ -502,11 +502,15 @@
 
   /* ─── HERO Full-Bleed ─── */
   .hero {
-    height: 100vh; min-height: 700px;
+    min-height: 620px;
+    height: auto;
     position: relative; overflow: hidden;
     display: flex; align-items: center; justify-content: center;
     text-align: center;
-    padding: 100px 40px 40px;
+    padding: 120px 40px 80px;
+  }
+  @media (max-width: 700px) {
+    .hero { min-height: 520px; padding: 90px 24px 60px; }
   }
   .hero-bg { position: absolute; inset: 0; z-index: 1; }
   .hero-bg img {
@@ -1060,19 +1064,21 @@
   .lo-word {
     font-family: 'Anton', 'Clash Display', 'Space Grotesk', sans-serif;
     font-weight: 400; /* Anton hat nur 400, wirkt sehr fett */
-    font-size: clamp(64px, 15vw, 200px);
+    font-size: clamp(56px, 14vw, 200px);
     line-height: 0.95;
     letter-spacing: -0.01em;
     text-transform: uppercase;
     text-align: center;
     margin: 0;
     max-width: 100%;
-    white-space: nowrap; /* damit Wörter in eine Zeile passen */
     transition: opacity 0.25s ease;
   }
   @media (max-width: 700px) {
-    .lo-word { font-size: clamp(48px, 15vw, 110px); }
+    .lo-word { font-size: clamp(42px, 13vw, 90px); line-height: 1.02; }
     .lo-wordstack { gap: 14px; }
+  }
+  @media (max-width: 400px) {
+    .lo-word { font-size: 40px; }
   }
   .lo-word.fading { opacity: 0.1; }
   .lo-sub {
@@ -1177,14 +1183,19 @@
 
   .choice-card-lo {
     border-radius: 12px;
-    padding: 28px 20px 24px;
+    padding: 24px 18px 20px;
     text-align: left;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex; flex-direction: column;
     position: relative;
     overflow: hidden;
-    min-height: 210px;
+    min-height: 180px;
+  }
+  @media (max-width: 700px) {
+    .choice-card-lo { min-height: 150px; padding: 22px 16px 18px; }
+    .choice-card-lo h3 { font-size: 20px !important; }
+    .choice-card-lo .n { font-size: 22px; margin-bottom: 10px; }
   }
   .choice-card-lo:hover {
     transform: translateY(-6px);
@@ -1262,13 +1273,18 @@
   @media (max-width: 480px)  { .help-grid { grid-template-columns: 1fr; } }
   .help-card {
     border-radius: 14px;
-    padding: 40px 28px 32px;
+    padding: 32px 24px 26px;
     text-align: left;
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex; flex-direction: column;
-    min-height: 260px;
+    min-height: 220px;
     position: relative;
     overflow: hidden;
+  }
+  @media (max-width: 700px) {
+    .help-card { min-height: 180px; padding: 26px 22px 22px; }
+    .help-card h3 { font-size: 26px !important; }
+    .help-card .num { font-size: 38px; margin-bottom: 14px; }
   }
   .help-card:hover {
     transform: translateY(-8px);
