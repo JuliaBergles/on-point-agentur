@@ -95,7 +95,7 @@
   }
   nav ul { display: flex; gap: 42px; list-style: none; }
   nav ul a {
-    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    font-size: 12px; letter-spacing: 0.12em; text-transform: none;
     color: var(--ink); font-weight: 500;
     transition: color 0.3s;
   }
@@ -104,7 +104,7 @@
     padding: 13px 26px;
     background: var(--bordeaux); color: #fff;
     border-radius: 999px;
-    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: none;
     font-weight: 500; transition: all 0.4s;
   }
   .nav-cta:hover { background: var(--bordeaux-hi); }
@@ -115,7 +115,7 @@
     background: var(--bordeaux); color: #fff;
     border: 0; border-radius: 999px;
     font-family: 'Object Sans', sans-serif;
-    font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: none;
     cursor: pointer; transition: all 0.4s;
     box-shadow: 0 20px 40px rgba(67, 10, 20, 0.35);
     display: inline-block;
@@ -127,7 +127,7 @@
     background: transparent; color: var(--ink);
     border: 1.5px solid var(--line-strong); border-radius: 999px;
     font-family: 'Object Sans', sans-serif;
-    font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: none;
     cursor: pointer; transition: all 0.4s;
     display: inline-block;
   }
@@ -140,7 +140,7 @@
     position: relative;
   }
   .hero-eyebrow {
-    font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.4em; text-transform: none;
     color: var(--muted); font-weight: 500; margin-bottom: 36px;
     display: inline-flex; align-items: center; gap: 20px;
   }
@@ -183,7 +183,7 @@
   .anders .container { position: relative; }
   .anders-header { text-align: center; margin-bottom: 80px; }
   .anders-eyebrow {
-    font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.35em; text-transform: none;
     color: var(--gold); font-weight: 500;
     margin-bottom: 24px; display: inline-block;
   }
@@ -230,7 +230,7 @@
   .fragen { padding: 160px 0; background: var(--bg); }
   .fragen-header { text-align: center; margin-bottom: 80px; max-width: 900px; margin-left: auto; margin-right: auto; }
   .fragen-header .eyebrow {
-    font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.35em; text-transform: none;
     color: var(--muted); font-weight: 500; margin-bottom: 24px; display: inline-block;
   }
   .fragen-header h2 { font-size: clamp(44px, 6vw, 88px); font-weight: 400; margin-bottom: 20px; }
@@ -249,7 +249,7 @@
     font-size: 32px; line-height: 1;
   }
   .fragen-q {
-    font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;
+    font-size: 12px; letter-spacing: 0.15em; text-transform: none;
     color: var(--muted); font-weight: 600; margin-bottom: 10px;
   }
   .fragen-a {
@@ -288,7 +288,7 @@
   .hooks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px; }
   @media (max-width: 700px) { .hooks-grid { grid-template-columns: 1fr; } }
   .hook-group-title {
-    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: none;
     color: var(--bordeaux); font-weight: 700; margin-bottom: 12px;
   }
   .hook { background: var(--bg); border-left: 3px solid var(--bordeaux); padding: 12px 16px; margin-bottom: 10px; font-size: 15px; font-style: normal; color: var(--ink); line-height: 1.5; }
@@ -302,7 +302,7 @@
   .reichweite::after { content: ""; position: absolute; bottom: -100px; left: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(67, 10, 20, 0.15), transparent 70%); }
   .reichweite .container { position: relative; }
   .reichweite-header { text-align: center; margin-bottom: 80px; max-width: 900px; margin-left: auto; margin-right: auto; }
-  .reichweite-header .eyebrow { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 24px; display: inline-block; }
+  .reichweite-header .eyebrow { font-size: 11px; letter-spacing: 0.35em; text-transform: none; color: var(--gold); font-weight: 500; margin-bottom: 24px; display: inline-block; }
   .reichweite-header h2 { font-size: clamp(40px, 5.5vw, 80px); font-weight: 400; color: var(--bg); line-height: 1.05; margin-bottom: 24px; }
   .reichweite-header h2 em { font-style: normal; color: var(--gold); }
   .reichweite-header p { font-size: 17px; color: rgba(251, 242, 237, 0.65); line-height: 1.6; }
@@ -316,7 +316,7 @@
   /* BONUS: Podcast + Co-Produkt */
   .bonus { padding: 140px 0; background: linear-gradient(180deg, var(--bg), var(--bg-warm)); }
   .bonus-header { text-align: center; margin-bottom: 70px; max-width: 900px; margin-left: auto; margin-right: auto; }
-  .bonus-header .eyebrow { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--bordeaux); font-weight: 600; margin-bottom: 20px; display: inline-block; }
+  .bonus-header .eyebrow { font-size: 11px; letter-spacing: 0.35em; text-transform: none; color: var(--bordeaux); font-weight: 600; margin-bottom: 20px; display: inline-block; }
   .bonus-header h2 { font-size: clamp(40px, 5.5vw, 76px); font-weight: 400; margin-bottom: 16px; }
   .bonus-header h2 em { font-style: normal; color: var(--bordeaux); }
   .bonus-header p { font-size: 16px; color: var(--muted); }
@@ -327,7 +327,7 @@
     border-radius: 12px; padding: 44px 40px;
     box-shadow: 0 20px 50px rgba(67, 10, 20, 0.25);
   }
-  .bonus-card .tag { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 14px; }
+  .bonus-card .tag { font-size: 10px; letter-spacing: 0.25em; text-transform: none; color: var(--gold); font-weight: 700; margin-bottom: 14px; }
   .bonus-card h3 { font-family: 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; font-weight: 900; font-size: 30px; color: #fff; margin-bottom: 14px; letter-spacing: -0.01em; }
   .bonus-card p { font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.7; }
 
@@ -552,11 +552,11 @@
           <div class="fragen-q">Umfang &amp; Honorar</div>
           <div class="fragen-a"><em>Das besprechen wir am liebsten im Call</em>, sobald ich weiß was und wie viel ihr posten möchtet.</div>
           <div class="highlight-box">
-            <strong style="color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-size: 11px;">Mein Vorschlag für einen schnellen Start</strong><br /><br />
+            <strong style="color: var(--gold); letter-spacing: 0.1em; text-transform: none; font-size: 11px;">Mein Vorschlag für einen schnellen Start</strong><br /><br />
             Ihr solltet zu Beginn möglichst regelmäßig posten, damit euer Kanal Fahrt aufnimmt. Mein Vorschlag wäre <strong style="color: #fff;">drei Beiträge und drei Reels pro Woche</strong>, verteilt auf sechs Tage. Diese Frequenz funktioniert am Anfang am zuverlässigsten. Der Algorithmus versteht schnell was ihr macht und die Community gewöhnt sich an einen festen Rhythmus, den sie wiedererkennt.
           </div>
           <div class="highlight-box" style="margin-top: 12px;">
-            <strong style="color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-size: 11px;">Was immer mitläuft</strong><br /><br />
+            <strong style="color: var(--gold); letter-spacing: 0.1em; text-transform: none; font-size: 11px;">Was immer mitläuft</strong><br /><br />
             Bei allem was ich für euch mache, wird die Community aktiv eingebunden. Ich arbeite mit Frage-Storys, UGC-Aufrufen, Community-Reposts und Formaten wie „Was esst ihr heute?". Kein Beitrag geht raus, ohne dass die Zielgruppe zu Wort kommt. Genau das ist der Grund, warum Content bei mir tatsächlich performt und nicht nur erscheint.
           </div>
           <div class="fragen-body" style="margin-top: 20px; font-size: 13px;">Ich rechne gemäß § 19 UStG als Kleinunternehmerin ab und alle Tools wie Canva Pro, CapCut Pro, Claude und ChatGPT laufen über meine Lizenzen. <strong style="color: #fff;">Den konkreten Preis lege ich mit euch im Erstgespräch fest.</strong></div>

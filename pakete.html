@@ -96,7 +96,7 @@
   .brand::before { content: ""; display: inline-block; width: 14px; height: 14px; background: var(--bordeaux); border-radius: 50%; }
   nav ul { display: flex; gap: 22px; list-style: none; flex-wrap: nowrap; }
   nav ul a {
-    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: none;
     color: var(--ink); font-weight: 500; transition: color 0.3s;
     white-space: nowrap;
   }
@@ -108,7 +108,7 @@
     background: transparent; color: var(--bordeaux);
     border: 1.5px solid var(--bordeaux);
     border-radius: 999px;
-    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: none;
     font-weight: 600; transition: all 0.3s;
     display: inline-flex; align-items: center; gap: 6px;
   }
@@ -118,7 +118,7 @@
     padding: 11px 22px;
     background: var(--ink); color: var(--bg);
     border-radius: 999px;
-    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: none;
     font-weight: 500; transition: all 0.4s;
   }
   .nav-cta:hover { background: var(--bordeaux); }
@@ -130,7 +130,7 @@
     background: var(--bordeaux); color: #fff;
     border: 0; border-radius: 999px;
     font-family: 'Object Sans', sans-serif;
-    font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: none;
     cursor: pointer; transition: all 0.4s;
     box-shadow: 0 20px 40px rgba(67, 10, 20, 0.35);
     display: inline-block;
@@ -141,7 +141,7 @@
     background: transparent; color: var(--ink);
     border: 1.5px solid var(--line-strong); border-radius: 999px;
     font-family: 'Object Sans', sans-serif;
-    font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: none;
     cursor: pointer; transition: all 0.4s;
     display: inline-block;
   }
@@ -150,7 +150,7 @@
   /* HERO */
   .hero { padding: 180px 0 80px; text-align: center; position: relative; }
   .hero-eyebrow {
-    font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.4em; text-transform: none;
     color: var(--muted); font-weight: 500; margin-bottom: 30px;
     display: inline-flex; align-items: center; gap: 20px;
   }
@@ -178,7 +178,7 @@
     margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid rgba(255, 156, 109, 0.3);
   }
   .benefit-eyebrow {
-    font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+    font-size: 11px; letter-spacing: 0.3em; text-transform: none;
     color: var(--gold); font-weight: 700;
   }
   .benefit h2 {
@@ -215,7 +215,7 @@
   /* PAKETE */
   .packages { padding: 120px 0; }
   .packages-header { text-align: center; margin-bottom: 60px; max-width: 900px; margin-left: auto; margin-right: auto; }
-  .packages-header .eyebrow { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 24px; display: inline-block; }
+  .packages-header .eyebrow { font-size: 11px; letter-spacing: 0.35em; text-transform: none; color: var(--muted); font-weight: 500; margin-bottom: 24px; display: inline-block; }
   .packages-header h2 { font-size: clamp(40px, 5.5vw, 76px); font-weight: 400; margin-bottom: 20px; }
   .packages-header h2 em { font-style: normal; color: var(--bordeaux); }
   .packages-header p { font-size: 16px; color: var(--muted); }
@@ -226,7 +226,7 @@
   .pkg { background: var(--card); padding: 48px 40px; border-radius: 8px; border: 1px solid var(--line); position: relative; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
   .pkg:hover { transform: translateY(-6px); box-shadow: 0 30px 60px rgba(45, 31, 34, 0.12); }
   .pkg.featured { background: linear-gradient(180deg, rgba(67, 10, 20, 0.05), var(--card)); border: 2px solid var(--bordeaux); box-shadow: 0 20px 50px rgba(67, 10, 20, 0.15); }
-  .pkg.featured::before { content: "Beliebteste Wahl"; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--bordeaux); color: #fff; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; padding: 8px 18px; border-radius: 999px; }
+  .pkg.featured::before { content: "Beliebteste Wahl"; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--bordeaux); color: #fff; font-size: 11px; letter-spacing: 0.2em; text-transform: none; font-weight: 600; padding: 8px 18px; border-radius: 999px; }
   .pkg-name { font-family: 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; font-weight: 900; font-size: 32px; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.01em; }
   .pkg-tag { font-size: 13px; color: var(--muted); margin-bottom: 32px; }
   .pkg-price { font-family: 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; font-weight: 900; font-size: 32px; color: var(--bordeaux); line-height: 1; margin-bottom: 6px; }
@@ -246,7 +246,7 @@
     padding: 20px 40px;
     background: transparent; color: var(--gold);
     border: 1.5px solid var(--gold); border-radius: 999px;
-    font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: none;
     display: inline-flex; align-items: center; gap: 10px;
     transition: all 0.4s;
   }
@@ -290,7 +290,7 @@
 <section class="hero" style="background-image: linear-gradient(180deg, rgba(45, 31, 34, 0.50), rgba(45, 31, 34, 0.75)), url('img/hero-pakete.jpg'); background-size: 125%; background-position: center 40%; color: var(--bg);">
   <div class="container">
     <div class="hero-eyebrow reveal" style="color: var(--gold);">Retainer-Pakete</div>
-    <h1 class="reveal d1" style="color: #fff; font-family: 'Rubik', 'Space Grotesk', sans-serif !important; font-weight: 900 !important; text-transform: uppercase; letter-spacing: -0.025em; line-height: 1;">Feste <span class="circle-italic" style="color: var(--gold); border-color: var(--gold); font-family: 'Rubik', 'Space Grotesk', sans-serif;">Betreuung</span>.<br>Volle Reichweite.</h1>
+    <h1 class="reveal d1" style="color: #fff; font-family: 'Rubik', 'Space Grotesk', sans-serif !important; font-weight: 900 !important; text-transform: none; letter-spacing: -0.025em; line-height: 1;">Feste <span class="circle-italic" style="color: var(--gold); border-color: var(--gold); font-family: 'Rubik', 'Space Grotesk', sans-serif;">Betreuung</span>.<br>Volle Reichweite.</h1>
     <p class="hero-sub reveal d2" style="color: rgba(255, 255, 255, 0.85);">
       Monatliche Rundum-Betreuung Ihrer Social-Media-Präsenz.
       <br>Individuell abgestimmt, mit einem Monat Kündigungsfrist.
@@ -388,7 +388,7 @@
       }
       .sorglos-head { position: relative; z-index: 1; margin-bottom: 44px; text-align: center; }
       .sorglos-eyebrow {
-        font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase;
+        font-size: 10px; letter-spacing: 0.35em; text-transform: none;
         color: var(--gold); font-weight: 700; margin-bottom: 18px; display: inline-block;
       }
       .sorglos-h {
@@ -505,7 +505,7 @@
         display: flex; flex-direction: column; gap: 4px;
       }
       .p-step .p-kicker {
-        font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+        font-size: 10px; letter-spacing: 0.25em; text-transform: none;
         color: var(--bordeaux); font-weight: 700;
       }
       .p-step .p-h {
@@ -626,7 +626,7 @@
         background: var(--gold);
         color: var(--ink);
         border-radius: 999px;
-        font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+        font-size: 10px; letter-spacing: 0.2em; text-transform: none;
         font-weight: 700;
         z-index: 3;
       }
@@ -649,7 +649,7 @@
         line-height: 1; letter-spacing: -0.02em;
       }
       .pkg-tag {
-        font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+        font-size: 11px; letter-spacing: 0.2em; text-transform: none;
         color: rgba(251, 242, 237, 0.65);
         font-weight: 600;
       }
@@ -670,7 +670,7 @@
         border: 1.5px solid var(--gold);
         border-radius: 999px;
         color: var(--gold);
-        font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+        font-size: 11px; letter-spacing: 0.2em; text-transform: none;
         font-weight: 700;
         white-space: nowrap;
         transition: all 0.4s;
@@ -728,7 +728,7 @@
         background: var(--gold);
         color: var(--ink);
         border-radius: 999px;
-        font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+        font-size: 12px; letter-spacing: 0.2em; text-transform: none;
         font-weight: 700;
         transition: all 0.4s;
         text-decoration: none;
@@ -864,7 +864,7 @@
   <div style="position: absolute; bottom: -150px; right: -150px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(67, 10, 20, 0.22), transparent 70%); pointer-events: none;"></div>
   <div class="container" style="position: relative;">
     <div class="reveal" style="text-align: center; margin-bottom: 70px; max-width: 900px; margin-left: auto; margin-right: auto;">
-      <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 20px; display: inline-block;">Zubuchbare Extras</span>
+      <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: none; color: var(--gold); font-weight: 600; margin-bottom: 20px; display: inline-block;">Zubuchbare Extras</span>
       <h3 style="font-family: 'Rubik', 'Space Grotesk', sans-serif; font-weight: 900; font-size: clamp(32px, 4vw, 66px); margin-bottom: 16px; color: var(--bg); letter-spacing: -0.01em;">Meine <span style="font-style: normal; color: var(--gold);">Reichweite</span> als Add-On.</h3>
       <p style="font-size: 16px; color: rgba(251, 242, 237, 0.7); max-width: 620px; margin: 0 auto; line-height: 1.6;">Kombinierbar mit jedem Paket. Buchbar ab Monat 2, wenn wir uns eingespielt haben.</p>
     </div>
@@ -872,26 +872,26 @@
       <div class="reveal d1" style="background: rgba(251, 242, 237, 0.04); backdrop-filter: blur(8px); border: 1px solid var(--gold); border-radius: 12px; padding: 44px 36px; text-align: left; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);">
         <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 20px;">
           <div style="width: 42px; height: 42px; border-radius: 50%; background: var(--gold); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; font-family: 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; font-weight: 600; font-size: 18px;">A</div>
-          <span style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 700;">Add-On A</span>
+          <span style="font-size: 10px; letter-spacing: 0.25em; text-transform: none; color: var(--gold); font-weight: 700;">Add-On A</span>
         </div>
         <h4 style="font-family: 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; font-weight: 900; font-size: 28px; color: var(--bg); margin-bottom: 12px; letter-spacing: -0.01em;">Cross-Posting</h4>
         <p style="font-size: 14px; color: rgba(251, 242, 237, 0.7); line-height: 1.65; margin-bottom: 24px;"><strong style="color: var(--gold);">2 Beiträge + 1 Story</strong> pro Monat auf <strong style="color: var(--gold);">@Julia_Bergles</strong>. Bis zu 1,77 Mio. Aufrufe / Monat. Zielgruppe: Frauen im Gesundheitsbereich.</p>
         <div style="border-top: 1px solid rgba(255, 156, 109, 0.25); padding-top: 20px; display: flex; justify-content: space-between; align-items: baseline;">
           <div style="font-family: 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; font-weight: 900; font-size: 32px; color: var(--gold); line-height: 1;">550&nbsp;€<span style="font-size: 14px; color: rgba(251, 242, 237, 0.6); font-family: 'Object Sans', sans-serif; font-style: normal; font-weight: 400;">&nbsp;/&nbsp;Monat</span></div>
-          <span style="font-size: 11px; color: rgba(251, 242, 237, 0.6); letter-spacing: 0.15em; text-transform: uppercase;">2 Posts + 1 Story</span>
+          <span style="font-size: 11px; color: rgba(251, 242, 237, 0.6); letter-spacing: 0.15em; text-transform: none;">2 Posts + 1 Story</span>
         </div>
       </div>
 
       <div class="reveal d2" style="background: rgba(251, 242, 237, 0.04); backdrop-filter: blur(8px); border: 1px solid var(--gold); border-radius: 12px; padding: 44px 36px; text-align: left; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);">
         <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 20px;">
           <div style="width: 42px; height: 42px; border-radius: 50%; background: var(--gold); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; font-family: 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; font-weight: 600; font-size: 18px;">B</div>
-          <span style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 700;">Add-On B</span>
+          <span style="font-size: 10px; letter-spacing: 0.25em; text-transform: none; color: var(--gold); font-weight: 700;">Add-On B</span>
         </div>
         <h4 style="font-family: 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; font-weight: 900; font-size: 28px; color: var(--bg); margin-bottom: 12px; letter-spacing: -0.01em;">Erwähnung in TerraLuna-App</h4>
         <p style="font-size: 14px; color: rgba(251, 242, 237, 0.7); line-height: 1.65; margin-bottom: 24px;">Ihre Marke wird in meiner <strong style="color: var(--gold);">TerraLuna-App</strong> platziert — warme, gesundheitsaffine Nutzerinnen, die aktiv Empfehlungen suchen.</p>
         <div style="border-top: 1px solid rgba(255, 156, 109, 0.25); padding-top: 20px; display: flex; justify-content: space-between; align-items: baseline;">
           <div style="font-family: 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; font-weight: 900; font-size: 26px; color: var(--gold); line-height: 1;">Preis auf Anfrage</div>
-          <span style="font-size: 11px; color: rgba(251, 242, 237, 0.6); letter-spacing: 0.15em; text-transform: uppercase;">Feste Platzierung</span>
+          <span style="font-size: 11px; color: rgba(251, 242, 237, 0.6); letter-spacing: 0.15em; text-transform: none;">Feste Platzierung</span>
         </div>
       </div>
     </div>
@@ -904,7 +904,7 @@
 <section id="prozess" style="padding: 140px 0; background: var(--bg); position: relative; overflow: hidden;">
   <div class="container">
     <div class="reveal" style="text-align: center; margin-bottom: 80px; max-width: 900px; margin-left: auto; margin-right: auto;">
-      <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 24px; display: inline-block;">Der Ablauf</span>
+      <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: none; color: var(--muted); font-weight: 500; margin-bottom: 24px; display: inline-block;">Der Ablauf</span>
       <h2 style="font-size: clamp(40px, 5.5vw, 76px); font-weight: 400; color: var(--ink); margin-bottom: 20px;">So <em style="font-style: normal; color: var(--bordeaux);">starten</em> wir.</h2>
       <p style="font-size: 16px; color: var(--muted); line-height: 1.6;">Vom ersten Kontakt bis zum ersten veröffentlichten Beitrag — transparent, ohne versteckte Schritte.</p>
     </div>
@@ -1024,7 +1024,7 @@
 <section id="faq" style="padding: 140px 0; background: var(--bg-warm);">
   <div class="container">
     <div class="reveal" style="text-align: center; margin-bottom: 60px; max-width: 900px; margin-left: auto; margin-right: auto;">
-      <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 24px; display: inline-block;">Häufige Fragen · Retainer</span>
+      <span style="font-size: 11px; letter-spacing: 0.35em; text-transform: none; color: var(--muted); font-weight: 500; margin-bottom: 24px; display: inline-block;">Häufige Fragen · Retainer</span>
       <h2 style="font-size: clamp(38px, 5vw, 68px); font-weight: 400; color: var(--ink);">Was Kundinnen <span class="circle-italic">fragen</span>.</h2>
     </div>
     <div class="reveal d1" style="max-width: 800px; margin: 0 auto;">
