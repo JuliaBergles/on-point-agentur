@@ -1045,7 +1045,8 @@
   }
   .lo-slide.active { opacity: 1; pointer-events: auto; }
 
-  .lo-slide .kicker {
+  .lo-slide .kicker,
+  .lo-stage .kicker {
     position: absolute;
     top: 32px; left: 40px;
     font-family: 'Space Grotesk', sans-serif;
@@ -1053,9 +1054,10 @@
     letter-spacing: 0.28em;
     text-transform: uppercase;
     font-weight: 600;
-    opacity: 0.55;
+    opacity: 0.65;
   }
-  .lo-slide .brand-mark {
+  .lo-slide .brand-mark,
+  .lo-stage .brand-mark {
     position: absolute;
     top: 32px; right: 40px;
     font-family: 'Space Grotesk', sans-serif;
@@ -1063,14 +1065,22 @@
     letter-spacing: 0.28em;
     text-transform: uppercase;
     font-weight: 600;
-    opacity: 0.55;
+    opacity: 0.65;
   }
   @media (max-width: 700px) {
-    .lo-slide .kicker, .lo-slide .brand-mark {
-      top: 24px; font-size: 10px;
+    /* Handy: Kicker + Brand-Mark oben zentriert nebeneinander, "N°01 · On Point" statt getrennt */
+    .lo-slide .kicker, .lo-stage .kicker {
+      top: 20px; left: 50%; transform: translateX(-50%);
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 10px;
     }
-    .lo-slide .kicker { left: 24px; }
-    .lo-slide .brand-mark { right: 24px; }
+    .lo-slide .kicker::after, .lo-stage .kicker::after {
+      content: "·  On Point";
+      opacity: 0.9;
+    }
+    .lo-slide .brand-mark, .lo-stage .brand-mark { display: none; }
+    /* Slide-Padding reduzieren damit Wörter mehr Platz haben */
+    .lo-slide, .lo-stage { padding: 60px 12px 40px !important; }
   }
 
   .lo-wordstack {
@@ -1554,47 +1564,7 @@
     <h1 class="reveal d1">Mehr Kunden.<br />Nicht nur mehr <span class="circle-italic white">Likes</span>.</h1>
     <div class="hero-buttons reveal d3" style="margin-top: 40px;">
       <a href="anfrage.html" class="btn-red">Angebot anfragen</a>
-      <a href="#help-choice" class="btn-outline-white">Arbeiten ansehen</a>
-    </div>
-  </div>
-</section>
-
-<!-- Wobei kann ich dir helfen? -->
-<section class="help-choice" id="help-choice">
-  <div class="container">
-    <p class="eyebrow">Wobei kann ich dir helfen?</p>
-    <h2>Wähl, wo du <em>anfangen</em> willst.</h2>
-    <div class="help-grid">
-      <a href="social-media.html" class="help-card c-orange">
-        <span class="num">01</span>
-        <h3>Social Media</h3>
-        <p>Ich komme, filme, schneide und poste. Direkt aus deinem Instagram.</p>
-        <span class="arrow">Ansehen →</span>
-      </a>
-      <a href="websites.html" class="help-card c-pink">
-        <span class="num">02</span>
-        <h3>Webdesign</h3>
-        <p>Handgemacht, mobil optimiert, ohne Baukasten. Vom Konzept bis Launch.</p>
-        <span class="arrow">Ansehen →</span>
-      </a>
-      <a href="mediendesign.html" class="help-card c-red">
-        <span class="num">03</span>
-        <h3>Mediendesign</h3>
-        <p>Flyer, Visitenkarten, Logo, Layout. Editorial, ohne KI, handgemacht.</p>
-        <span class="arrow">Ansehen →</span>
-      </a>
-      <a href="pakete.html" class="help-card c-blue">
-        <span class="num">04</span>
-        <h3>Erst mal stöbern</h3>
-        <p>Alle Pakete und Preise auf einen Blick — schau in Ruhe rum.</p>
-        <span class="arrow">Ansehen →</span>
-      </a>
-      <a href="ueber-mich.html" class="help-card c-ink">
-        <span class="num">05</span>
-        <h3>Über Julia erfahren</h3>
-        <p>Wer ich bin, was mich antreibt und warum ich das mache.</p>
-        <span class="arrow">Ansehen →</span>
-      </a>
+      <a href="#features" class="btn-outline-white">Arbeiten ansehen</a>
     </div>
   </div>
 </section>
