@@ -640,11 +640,11 @@
   }
   .marquee-card img, .marquee-card video { width: 100%; height: 100%; object-fit: cover; }
 
-  /* ─── 6 BAUSTEINE (Dark Luxury) ─── */
+  /* ─── 4 BAUSTEINE (Hell + freundlich) ─── */
   .features {
     padding: 160px 0;
-    background: var(--ink);
-    color: var(--bg);
+    background: var(--bg);
+    color: var(--ink);
     position: relative;
     overflow: hidden;
   }
@@ -663,17 +663,17 @@
   .features-header { text-align: center; margin-bottom: 90px; max-width: 900px; margin-left: auto; margin-right: auto; position: relative; }
   .features-eyebrow {
     font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase;
-    color: var(--gold); font-weight: 500;
+    color: var(--bordeaux); font-weight: 700;
     margin-bottom: 24px; display: inline-block;
   }
   .features-header h2 {
     font-size: clamp(44px, 6vw, 88px);
-    font-weight: 400;
+    font-weight: 400 !important;
     margin-bottom: 24px;
-    color: var(--bg);
+    color: var(--ink);
   }
-  .features-header h2 em { font-style: normal; color: var(--gold); }
-  .features-lede { font-size: 17px; color: rgba(251, 242, 237, 0.7); line-height: 1.6; max-width: 620px; margin: 0 auto; }
+  .features-header h2 em { font-style: normal; color: var(--bordeaux); }
+  .features-lede { font-size: 17px; color: var(--muted); line-height: 1.6; max-width: 620px; margin: 0 auto; }
 
   .features-grid {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
@@ -684,34 +684,34 @@
   @media (max-width: 600px) { .features-grid { grid-template-columns: 1fr; } }
 
   .feature-card {
-    background: rgba(251, 242, 237, 0.04);
+    background: #fff;
     padding: 44px 36px;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 156, 109, 0.2);
+    border-radius: 14px;
+    border: 1.5px solid rgba(67, 10, 20, 0.10);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    backdrop-filter: blur(6px);
   }
   .feature-card:hover {
     transform: translateY(-6px);
-    background: rgba(251, 242, 237, 0.06);
-    border-color: var(--gold);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+    border-color: var(--bordeaux);
+    box-shadow: 0 30px 60px rgba(45, 31, 34, 0.10);
   }
   .feature-badge {
     display: inline-block;
     font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--gold); font-weight: 700;
+    color: var(--bordeaux); font-weight: 700;
     margin-bottom: 20px;
   }
   .feature-card h3 {
-    font-family: 'Anton', 'Space Grotesk', sans-serif; font-style: normal; font-weight: 500;
-    font-size: 26px; color: var(--bg);
+    font-family: 'Anton', 'Space Grotesk', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 28px; color: var(--ink) !important;
     margin-bottom: 14px;
     letter-spacing: -0.01em;
-    line-height: 1.15;
+    line-height: 1.05;
+    text-transform: uppercase;
   }
   .feature-card p {
-    font-size: 14px; color: rgba(251, 242, 237, 0.65); line-height: 1.65;
+    font-size: 14px; color: var(--muted); line-height: 1.65;
   }
 
   /* ─── PORTFOLIO Tab-System (Wähle deine Welt) ─── */
@@ -1598,15 +1598,13 @@
 
       <div class="feature-card reveal d2">
         <div class="feature-badge">Vor Ort</div>
-        <h3>Videodreh bei Ihnen</h3>
-        <p>Ich komme zu Ihnen. Echte Bilder, echter Praxis-Alltag. Das, was Kunden Vertrauen gibt.</p>
+        <h3>Videodreh bei dir</h3>
         <a href="pakete.html#prozess" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">So läuft's ab <span>→</span></a>
       </div>
 
       <div class="feature-card reveal d2">
         <div class="feature-badge">Reach-Boost</div>
         <h3>Zugang zu meiner Community</h3>
-        <p>Ausgewählte Beiträge auf @julia_bergles. 1.393.620 Aufrufe pro Monat. Echte Zielgruppe.</p>
         <a href="reichweite.html" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">Reichweite ansehen <span>→</span></a>
       </div>
     </div>
@@ -1781,47 +1779,6 @@
   </div>
 </section>
 
-<!-- ÜBER JULIA -->
-<section class="mentor" id="mentor">
-  <div class="container">
-    <div class="mentor-inner">
-      <div class="mentor-portrait reveal"><img src="img/hero-neu.jpg" alt="Julia Bergles" /></div>
-      <div class="mentor-content reveal d2">
-        <div class="mentor-eyebrow">Wer ich bin</div>
-        <h2>Julia als deine <em>Partnerin</em>.</h2>
-        <p>Fachabitur Gestaltung. Seit 2024 selbständige Social Media Managerin. Gründerin und Entwicklerin der TerraLuna-App — der ersten deutschen App speziell für Frauen mit Histaminintoleranz und zyklusbezogenen Ernährungsbedürfnissen.</p>
-        <p>Ich baue Content, der zu 93,8 % außerhalb der eigenen Bubble ankommt. Weil ich Marken von zwei Seiten kenne — als Gründerin, die selbst Kundinnen gewinnen muss, und als Designerin, die weiß, wie Content aussehen muss, damit er nicht scrollt.</p>
-        <ul style="list-style: none; padding: 0; margin: 32px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px;">
-          <li style="display: flex; gap: 12px; align-items: center; font-size: 15px; color: var(--ink); font-weight: 500;">
-            <span style="width: 24px; height: 24px; border-radius: 50%; background: var(--bordeaux); flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </span>
-            Fachabitur Gestaltung
-          </li>
-          <li style="display: flex; gap: 12px; align-items: center; font-size: 15px; color: var(--ink); font-weight: 500;">
-            <span style="width: 24px; height: 24px; border-radius: 50%; background: var(--bordeaux); flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </span>
-            Seit 2024 selbständig
-          </li>
-          <li style="display: flex; gap: 12px; align-items: center; font-size: 15px; color: var(--ink); font-weight: 500;">
-            <span style="width: 24px; height: 24px; border-radius: 50%; background: var(--bordeaux); flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </span>
-            TerraLuna-Gründerin
-          </li>
-          <li style="display: flex; gap: 12px; align-items: center; font-size: 15px; color: var(--ink); font-weight: 500;">
-            <span style="width: 24px; height: 24px; border-radius: 50%; background: var(--bordeaux); flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </span>
-            Selbst betroffen
-          </li>
-        </ul>
-        <a href="https://calendly.com/julia-bergles/30min" target="_blank" rel="noopener" class="btn-red">Kennenlerngespräch buchen</a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- RESULTS -->
 <!-- EHRLICHE STIMMEN (Testimonial · Dark Bordeaux) -->
