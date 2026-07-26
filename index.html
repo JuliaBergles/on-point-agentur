@@ -1163,10 +1163,10 @@
   .lo-slide.slide-choice { background: #FBF2ED; color: #2D1F22; }
   .lo-slide .kicker, .lo-slide .brand-mark { color: currentColor; }
 
-  /* Progress-Punkte unten — 3 Punkte pro Wort */
+  /* Progress-Punkte über dem Skip-Button */
   .lo-progress {
     position: fixed;
-    bottom: 24px;
+    bottom: 76px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -1182,17 +1182,18 @@
   }
   .lo-progress .dot.done { background: rgba(255, 255, 255, 0.9); width: 24px; border-radius: 3px; }
 
-  /* Skip-Button oben rechts */
+  /* Skip-Button unten mittig */
   .lo-skip {
     position: fixed;
-    top: 24px; right: 24px;
+    bottom: 24px; left: 50%;
+    transform: translateX(-50%);
     z-index: 10001;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
     color: currentColor;
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 999px;
-    padding: 8px 16px;
+    padding: 10px 22px;
     font-family: 'Space Grotesk', sans-serif;
     font-size: 11px;
     letter-spacing: 0.15em;
