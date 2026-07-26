@@ -1689,11 +1689,161 @@
   </div>
 </section>
 
-<!-- Branchen — einzeiler statt Chip-Sektion -->
-<section style="padding: 80px 40px; background: var(--bg); text-align: center;">
+<!-- Branchen — Beispiele aus meiner Arbeit -->
+<section style="padding: 100px 40px 80px; background: var(--bg);">
   <div class="container">
-    <p style="font-family: 'Rubik', 'Space Grotesk', sans-serif; font-size: 11px; letter-spacing: 0.35em; text-transform: none; color: var(--bordeaux); font-weight: 700; margin-bottom: 18px;">Für wen</p>
-    <h2 style="font-size: clamp(30px, 4vw, 52px); color: var(--ink); margin: 0;">Ich arbeite in jeder Branche.</h2>
+    <div class="reveal" style="text-align: center; margin-bottom: 60px; max-width: 900px; margin-left: auto; margin-right: auto;">
+      <p style="font-family: 'Rubik', 'Space Grotesk', sans-serif; font-size: 12px; letter-spacing: 0.02em; color: var(--bordeaux); font-weight: 700; margin-bottom: 18px;">Für wen</p>
+      <h2 style="font-size: clamp(36px, 5vw, 68px); color: var(--ink); margin: 0 0 16px;">Wähl deine Branche.</h2>
+      <p style="font-size: 16px; color: var(--muted); margin: 0;">Beispiele aus meiner Arbeit — ich arbeite in jeder Branche.</p>
+    </div>
+
+    <style>
+      .branche-tab {
+        padding: 12px 22px;
+        background: transparent;
+        border: 1.5px solid var(--line-strong);
+        border-radius: 999px;
+        font-family: 'Rubik', 'Space Grotesk', sans-serif;
+        font-size: 14px; font-weight: 500; letter-spacing: 0;
+        color: var(--ink); cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .branche-tab:hover { border-color: var(--bordeaux); color: var(--bordeaux); }
+      .branche-tab.active {
+        background: var(--bordeaux); color: #fff; border-color: var(--bordeaux);
+      }
+      .branche-panel { display: none; animation: brancheFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+      .branche-panel.active { display: block; }
+      @keyframes brancheFadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+      .branche-panel-inner {
+        background: var(--card); border-radius: 16px; padding: 40px 36px; border: 1px solid var(--line);
+      }
+      .branche-panel-inner.dark {
+        background: var(--bordeaux); border-color: rgba(255, 156, 109, 0.28); color: var(--bg);
+      }
+      .branche-panel-inner h3 {
+        font-size: clamp(28px, 3.8vw, 44px);
+        margin-bottom: 14px;
+        color: inherit;
+      }
+      .branche-panel-inner .lede {
+        font-size: 15px; line-height: 1.6; max-width: 560px;
+        margin-bottom: 28px;
+        color: inherit; opacity: 0.75;
+      }
+      .branche-panel-inner .kicker {
+        font-family: 'Rubik', 'Space Grotesk', sans-serif;
+        font-size: 12px; letter-spacing: 0.02em; font-weight: 600;
+        color: var(--bordeaux); margin-bottom: 12px;
+      }
+      .branche-panel-inner.dark .kicker { color: var(--gold); }
+      .branche-grid {
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+      }
+      @media (max-width: 700px) {
+        .branche-grid { grid-template-columns: repeat(2, 1fr); }
+        .branche-panel-inner { padding: 28px 20px; }
+      }
+      .branche-grid img {
+        width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 8px; display: block;
+      }
+      .branche-grid.two { grid-template-columns: 1fr 1fr; }
+    </style>
+
+    <!-- Tab Buttons -->
+    <div class="reveal d1" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 40px;">
+      <button class="branche-tab active" onclick="switchBranche(this, 'fitness')">Fitness</button>
+      <button class="branche-tab" onclick="switchBranche(this, 'einrichtung')">Einrichtung & Möbel</button>
+      <button class="branche-tab" onclick="switchBranche(this, 'mental')">Mediale Beratung</button>
+      <button class="branche-tab" onclick="switchBranche(this, 'rezepte')">Rezepte</button>
+      <button class="branche-tab" onclick="switchBranche(this, 'ernaehrung')">Gesundheit & Ernährung</button>
+    </div>
+
+    <div class="reveal d2" style="max-width: 1100px; margin: 0 auto;">
+      <!-- Fitness -->
+      <div class="branche-panel active" data-panel="fitness">
+        <div class="branche-panel-inner dark">
+          <div class="kicker">Fitnessstudio</div>
+          <h3>Bold. Klar. Ohne Bla.</h3>
+          <p class="lede">Karussell-Serie für ein Fitnessstudio. Problem, Lösung, Call-to-Action. Content, der Anmeldungen bringt.</p>
+          <div class="branche-grid two">
+            <img src="img/fitness-1.png" alt="Fitnessstudio Beitrag 1">
+            <img src="img/fitness-2.png" alt="Fitnessstudio Beitrag 2">
+          </div>
+        </div>
+      </div>
+
+      <!-- Einrichtung -->
+      <div class="branche-panel" data-panel="einrichtung">
+        <div class="branche-panel-inner">
+          <div class="kicker">Einrichtungshaus Bruckner</div>
+          <h3>Elegant. Warm. Editorial.</h3>
+          <p class="lede">Sechsteilige Karussell-Serie im Editorial-Look. Zeigt, wie ruhig und ausdrucksstark Content sein kann.</p>
+          <div class="branche-grid">
+            <img src="img/kitchen-1.png" alt="Kitchen 1">
+            <img src="img/kitchen-2.png" alt="Kitchen 2">
+            <img src="img/kitchen-3.png" alt="Kitchen 3">
+            <img src="img/kitchen-4.png" alt="Kitchen 4">
+            <img src="img/kitchen-5.png" alt="Kitchen 5">
+            <img src="img/kitchen-6.png" alt="Kitchen 6">
+          </div>
+        </div>
+      </div>
+
+      <!-- Mediale Beratung -->
+      <div class="branche-panel" data-panel="mental">
+        <div class="branche-panel-inner">
+          <div class="kicker">Mediale Lebensberatung</div>
+          <h3>Sanft. Klar. Verbunden.</h3>
+          <p class="lede">Content für mediale Lebensberatung, Coaches und mentale Gesundheitspraxen — mit Ruhe, Klarheit und Tiefe.</p>
+          <div class="branche-grid">
+            <img src="img/mental-1.png" alt="">
+            <img src="img/mental-2.png" alt="">
+            <img src="img/mental-3.png" alt="">
+            <img src="img/mental-4.png" alt="">
+            <img src="img/mental-5.png" alt="">
+            <img src="img/mental-6.png" alt="">
+          </div>
+        </div>
+      </div>
+
+      <!-- Rezepte -->
+      <div class="branche-panel" data-panel="rezepte">
+        <div class="branche-panel-inner">
+          <div class="kicker">Rezept-Fotografie</div>
+          <h3>Warm. Handgemacht. Appetitanregend.</h3>
+          <p class="lede">Rezept-Content für Ernährungsberaterinnen und Food-Marken. Alles selbst gebacken, fotografiert, geschnitten.</p>
+          <div class="branche-grid">
+            <img src="img/recipe-1386.jpg" alt="">
+            <img src="img/recipe-1399.jpg" alt="">
+            <img src="img/recipe-2359.jpg" alt="">
+            <img src="img/rezept-1.png" alt="">
+            <img src="img/rezept-2.png" alt="">
+            <img src="img/rezept-3.png" alt="">
+          </div>
+        </div>
+      </div>
+
+      <!-- Gesundheit & Ernährung -->
+      <div class="branche-panel" data-panel="ernaehrung">
+        <div class="branche-panel-inner">
+          <div class="kicker">Gesundheit & Ernährung — TerraLuna</div>
+          <h3>Fachlich. Empathisch. Aus Erfahrung.</h3>
+          <p class="lede">Content aus meiner eigenen Marke TerraLuna — für Frauen mit Histaminintoleranz, Darmproblemen und Zyklus-Themen.</p>
+          <div class="branche-grid">
+            <img src="img/idea-1.png" alt="">
+            <img src="img/idea-2.png" alt="">
+            <img src="img/idea-3.png" alt="">
+            <img src="img/idea-4.png" alt="">
+            <img src="img/idea-5.png" alt="">
+            <img src="img/idea-6.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="reveal" style="text-align: center; margin-top: 40px; font-size: 14px; color: var(--muted);">Nur eine Marke pro Branche und Region — ich mache keinen Content für deine direkte Konkurrenz.</p>
   </div>
 </section>
 
