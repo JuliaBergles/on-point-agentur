@@ -76,7 +76,7 @@ em, i, .serif {
 
 /* Circle-Italic (Editorial-Signature) */
 .circle-italic {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Rubik', 'Space Grotesk', sans-serif;
   font-style: italic;
   font-weight: 400;
   position: relative;
@@ -121,7 +121,7 @@ nav.site-nav .row {
   gap: 24px;
 }
 .brand {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Rubik', 'Space Grotesk', sans-serif;
   font-weight: 500; font-size: 26px;
   color: var(--ink); letter-spacing: -0.02em;
   display: flex; align-items: center; gap: 8px;
@@ -479,7 +479,7 @@ nav.site-nav ul a.current::after {
 }
 .ref-ed-visual.placeholder::before {
   content: "Bild folgt";
-  font-family: 'Playfair Display', serif; font-style: italic;
+  font-family: 'Rubik', 'Space Grotesk', sans-serif; font-style: italic;
   color: var(--muted); font-size: 15px;
   position: relative; z-index: 2;
 }
@@ -495,7 +495,7 @@ nav.site-nav ul a.current::after {
   margin-bottom: 10px; display: block;
 }
 .ref-ed-meta h4 {
-  font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+  font-family: 'Rubik', 'Space Grotesk', sans-serif; font-style: italic; font-weight: 500;
   font-size: clamp(28px, 3vw, 40px);
   color: #fff; line-height: 1.05;
   letter-spacing: -0.01em;
@@ -552,7 +552,7 @@ nav.site-nav ul a.current::after {
   margin-bottom: 16px;
 }
 .card h3 {
-  font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+  font-family: 'Rubik', 'Space Grotesk', sans-serif; font-style: italic; font-weight: 500;
   font-size: 24px; margin-bottom: 12px; letter-spacing: -0.01em; line-height: 1.15;
   color: var(--ink);
 }
@@ -583,7 +583,7 @@ nav.site-nav ul a.current::after {
 .price-row:last-child { border-bottom: 0; }
 .price-row .label { font-size: 15px; color: var(--ink); font-weight: 500; }
 .price-row .price {
-  font-family: 'Playfair Display', serif; font-weight: 500;
+  font-family: 'Rubik', 'Space Grotesk', sans-serif; font-weight: 500;
   font-size: 22px; color: var(--bordeaux);
   white-space: nowrap;
 }
@@ -607,7 +607,7 @@ nav.site-nav ul a.current::after {
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary::after {
   content: "+";
-  font-family: 'Playfair Display', serif;
+  font-family: 'Rubik', 'Space Grotesk', sans-serif;
   font-size: 32px; color: var(--bordeaux); font-weight: 400;
   transition: transform 0.3s;
 }
@@ -639,7 +639,7 @@ nav.site-nav ul a.current::after {
   content: "Bild folgt";
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Playfair Display', serif; font-style: italic;
+  font-family: 'Rubik', 'Space Grotesk', sans-serif; font-style: italic;
   color: var(--muted); font-size: 14px;
 }
 .ref-card .meta { padding: 20px 22px; }
@@ -649,7 +649,7 @@ nav.site-nav ul a.current::after {
   margin-bottom: 6px;
 }
 .ref-card .meta h4 {
-  font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+  font-family: 'Rubik', 'Space Grotesk', sans-serif; font-style: italic; font-weight: 500;
   font-size: 18px; color: var(--ink);
 }
 
@@ -680,11 +680,11 @@ footer.site-footer { background: var(--ink); color: rgba(251, 242, 237, 0.6); pa
 @media (max-width: 500px) { .footer-top { grid-template-columns: 1fr; } }
 .footer-brand { color: var(--bg); }
 .footer-brand .logo {
-  font-family: 'Playfair Display', serif; font-weight: 500;
+  font-family: 'Rubik', 'Space Grotesk', sans-serif; font-weight: 500;
   font-size: 32px; margin-bottom: 12px;
 }
 .footer-brand .tag {
-  font-family: 'Playfair Display', serif; font-style: italic;
+  font-family: 'Rubik', 'Space Grotesk', sans-serif; font-style: italic;
   font-size: 15px; color: var(--gold); margin-bottom: 18px;
 }
 .footer-brand .adr { font-size: 13px; color: rgba(251, 242, 237, 0.55); line-height: 1.7; }
@@ -701,7 +701,7 @@ footer.site-footer { background: var(--ink); color: rgba(251, 242, 237, 0.6); pa
 .footer-col a:hover { color: var(--gold); }
 .footer-xxl { text-align: center; padding: 20px; border-top: 1px solid rgba(251, 242, 237, 0.08); margin-top: 40px; }
 .footer-xxl .logo-big {
-  font-family: 'Playfair Display', serif; font-weight: 500;
+  font-family: 'Rubik', 'Space Grotesk', sans-serif; font-weight: 500;
   font-size: clamp(60px, 14vw, 180px);
   color: var(--bg); letter-spacing: -0.03em; line-height: 0.85;
 }
