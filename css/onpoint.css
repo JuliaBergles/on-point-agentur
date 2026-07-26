@@ -181,9 +181,9 @@ nav.site-nav .drop-menu a.all {
 }
 .nav-login:hover { border-color: var(--bordeaux); color: var(--bordeaux); }
 nav.site-nav ul a {
-  font-family: 'Rubik', 'Space Grotesk', sans-serif;
-  font-size: 15px; letter-spacing: 0; text-transform: none;
-  color: var(--ink); font-weight: 500;
+  font-family: 'Rubik', 'Space Grotesk', sans-serif !important;
+  font-size: 15px; letter-spacing: -0.01em; text-transform: none;
+  color: var(--ink); font-weight: 700;
   transition: color 0.3s;
   position: relative;
   white-space: nowrap;
