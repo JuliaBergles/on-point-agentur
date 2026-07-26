@@ -197,7 +197,7 @@ nav.site-nav ul a.current::after {
 }
 .nav-cta {
   padding: 13px 26px;
-  background: var(--ink); color: var(--bg);
+  background: var(--bordeaux); color: var(--bg);
   border-radius: 999px;
   font-family: 'Rubik', 'Space Grotesk', sans-serif;
   font-size: 14px; letter-spacing: 0; text-transform: none;
@@ -219,11 +219,11 @@ nav.site-nav ul a.current::after {
 }
 .nav-burger span {
   display: block; width: 16px; height: 1.5px;
-  background: var(--ink); position: relative;
+  background: var(--bordeaux); position: relative;
 }
 .nav-burger span::before, .nav-burger span::after {
   content: ""; position: absolute; left: 0; width: 16px; height: 1.5px;
-  background: var(--ink); transition: transform 0.3s;
+  background: var(--bordeaux); transition: transform 0.3s;
 }
 .nav-burger span::before { top: -5px; }
 .nav-burger span::after  { top:  5px; }
@@ -263,7 +263,7 @@ nav.site-nav ul a.current::after {
     display: inline-block;
     margin-top: 20px;
     padding: 14px 28px;
-    background: var(--ink); color: var(--bg);
+    background: var(--bordeaux); color: var(--bg);
     border-radius: 999px;
     font-size: 11px; letter-spacing: 0.12em; text-transform: none;
     font-weight: 500;
@@ -511,7 +511,7 @@ nav.site-nav ul a.current::after {
 /* ─── SECTIONS ─── */
 .section { padding: 90px 0; }
 @media (max-width: 700px) { .section { padding: 60px 0; } }
-.section-dark { background: var(--ink); color: var(--bg); }
+.section-dark { background: var(--bordeaux); color: var(--bg); }
 .section-dark h2, .section-dark h3 { color: var(--bg); }
 .section-warm { background: var(--bg-warm); }
 
@@ -673,7 +673,7 @@ nav.site-nav ul a.current::after {
 .cta-block .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
 /* ─── FOOTER ─── */
-footer.site-footer { background: var(--ink); color: rgba(251, 242, 237, 0.6); padding: 80px 0 40px; }
+footer.site-footer { background: var(--bordeaux); color: rgba(251, 242, 237, 0.6); padding: 80px 0 40px; }
 .footer-top {
   max-width: 1200px; margin: 0 auto 80px; padding: 0 40px;
   display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px;
