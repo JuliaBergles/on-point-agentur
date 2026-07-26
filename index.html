@@ -1513,23 +1513,27 @@
     var wordChanges = currentWord !== s.word;
 
     if (wordChanges) {
-      // Cross-Slide: neuer Stage von rechts, alter wischt nach links, gleichzeitig
-      var newStage = buildStage(s);
-      newStage.classList.add('incoming');
-      stageWrap.appendChild(newStage);
+      // Wort statisch: nur Text-Content wechseln, kein Stage-Slide.
+      // Wort snapt in 100ms, dann Sub fliegt neu ein.
+      var wordEl = currentStage.querySelector('.lo-word');
+      var subEl = currentStage.querySelector('.lo-sub');
+      var kickerEl = currentStage.querySelector('.kicker');
 
-      requestAnimationFrame(function () {
-        currentStage.classList.add('leaving');
-        currentStage.removeAttribute('data-current');
-        newStage.classList.remove('incoming');
-        newStage.classList.add('entering');
-        newStage.setAttribute('data-current', '');
+      wordEl.style.opacity = '0';
+      setTimeout(function () {
+        // Farben snappen (State-Klasse wechseln)
+        STATES.forEach(function (st) { currentStage.classList.remove(st.cls); });
+        currentStage.classList.add(s.cls);
+        kickerEl.textContent = s.kicker;
+        wordEl.textContent = s.word;
+        wordEl.style.opacity = '1';
 
-        setTimeout(function () {
-          if (currentStage.parentNode) currentStage.parentNode.removeChild(currentStage);
-          newStage.classList.remove('entering');
-        }, 600);
-      });
+        // Sub: Animation restart (fliegt neu von links ein)
+        subEl.textContent = s.sub;
+        subEl.style.animation = 'none';
+        void subEl.offsetHeight;
+        subEl.style.animation = '';
+      }, 100);
     } else {
       // Invert-Wechsel innerhalb eines Worts: gleiche Stage, State-Klasse wechseln (CSS-transition fadet Farben)
       STATES.forEach(function (st) { currentStage.classList.remove(st.cls); });
