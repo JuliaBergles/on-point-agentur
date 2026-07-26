@@ -688,28 +688,44 @@
     background: #fff;
     padding: 44px 36px;
     border-radius: 14px;
-    border: 1.5px solid rgba(67, 10, 20, 0.10);
+    border: 1.5px solid currentColor;
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  .feature-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: currentColor;
   }
   .feature-card:hover {
     transform: translateY(-6px);
-    border-color: var(--bordeaux);
-    box-shadow: 0 30px 60px rgba(45, 31, 34, 0.10);
+    box-shadow: 0 30px 60px rgba(45, 31, 34, 0.15);
   }
+  /* Farb-Varianten pro Card */
+  .feature-card.fc-orange { color: #ff9c6d; }
+  .feature-card.fc-pink   { color: #c74873; }
+  .feature-card.fc-red    { color: #430a14; }
+  .feature-card.fc-blue   { color: #7993ae; }
   .feature-badge {
     display: inline-block;
     font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--bordeaux); font-weight: 700;
+    color: currentColor; font-weight: 700;
     margin-bottom: 20px;
+    margin-top: 8px;
+    opacity: 0.85;
   }
   .feature-card h3 {
     font-family: 'Anton', 'Space Grotesk', sans-serif !important;
     font-weight: 400 !important;
-    font-size: 28px; color: var(--ink) !important;
+    font-size: 30px; color: currentColor !important;
     margin-bottom: 14px;
     letter-spacing: -0.01em;
-    line-height: 1.05;
+    line-height: 1.02;
     text-transform: uppercase;
+    -webkit-text-stroke: 1px currentColor;
   }
   .feature-card p {
     font-size: 14px; color: var(--muted); line-height: 1.65;
@@ -1585,28 +1601,28 @@
     </div>
 
     <div class="features-grid">
-      <div class="feature-card reveal d1">
+      <div class="feature-card fc-orange reveal d1">
         <div class="feature-badge">Neu-Anfragen</div>
         <h3>Sichtbarkeit, die anfragt</h3>
-        <a href="pakete.html" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">Pakete ansehen <span>→</span></a>
+        <a href="pakete.html" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: inherit; border: 1.5px solid currentColor; border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='#ff9c6d'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='inherit'">Pakete ansehen <span>→</span></a>
       </div>
 
-      <div class="feature-card reveal d1">
+      <div class="feature-card fc-pink reveal d1">
         <div class="feature-badge">Automation</div>
         <h3>ManyChat-Automation</h3>
-        <a href="social-media.html#manychat" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">So funktioniert's <span>→</span></a>
+        <a href="social-media.html#manychat" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: inherit; border: 1.5px solid currentColor; border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='#c74873'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='inherit'">So funktioniert's <span>→</span></a>
       </div>
 
-      <div class="feature-card reveal d2">
+      <div class="feature-card fc-red reveal d2">
         <div class="feature-badge">Vor Ort</div>
         <h3>Videodreh bei dir</h3>
-        <a href="pakete.html#prozess" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">So läuft's ab <span>→</span></a>
+        <a href="pakete.html#prozess" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: inherit; border: 1.5px solid currentColor; border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='#430a14'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='inherit'">So läuft's ab <span>→</span></a>
       </div>
 
-      <div class="feature-card reveal d2">
+      <div class="feature-card fc-blue reveal d2">
         <div class="feature-badge">Reach-Boost</div>
         <h3>Zugang zu meiner Community</h3>
-        <a href="reichweite.html" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)'">Reichweite ansehen <span>→</span></a>
+        <a href="reichweite.html" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 18px; background: transparent; color: inherit; border: 1.5px solid currentColor; border-radius: 999px; font-family: 'Object Sans', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.background='#7993ae'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='inherit'">Reichweite ansehen <span>→</span></a>
       </div>
     </div>
   </div>
