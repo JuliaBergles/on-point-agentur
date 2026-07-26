@@ -105,27 +105,19 @@
   @media (max-width: 700px) { .container { padding: 0 24px; } }
 
   h1, h2 {
-    font-family: 'Anton', 'Space Grotesk', 'Object Sans', sans-serif !important;
-    font-weight: 400 !important;
-    letter-spacing: -0.01em;
-    line-height: 0.98;
+    font-family: 'Bricolage Grotesque', 'Space Grotesk', 'Object Sans', sans-serif !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.03em;
+    line-height: 1;
     color: var(--ink);
     text-transform: uppercase;
-    -webkit-text-stroke: 3px currentColor;
-    paint-order: stroke fill;
   }
   h3, h4 {
-    font-family: 'Anton', 'Space Grotesk', 'Object Sans', sans-serif !important;
-    font-weight: 400 !important;
-    letter-spacing: -0.01em;
-    line-height: 0.98;
+    font-family: 'Bricolage Grotesque', 'Space Grotesk', 'Object Sans', sans-serif !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
     text-transform: uppercase;
-    -webkit-text-stroke: 2px currentColor;
-    paint-order: stroke fill;
-  }
-  @media (max-width: 700px) {
-    h1, h2 { -webkit-text-stroke: 2px currentColor; }
-    h3, h4 { -webkit-text-stroke: 1.2px currentColor; }
   }
   /* .serif genutzt Clash Display statt Playfair (Julia mag kein Serif) */
   .serif {
@@ -1121,20 +1113,16 @@
     max-width: 100%;
   }
   .lo-word {
-    font-family: 'Anton', 'Clash Display', 'Space Grotesk', sans-serif;
-    font-weight: 400;
+    font-family: 'Bricolage Grotesque', 'Space Grotesk', sans-serif;
+    font-weight: 800;
     font-size: clamp(56px, 14vw, 200px);
     line-height: 0.95;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.035em;
     text-transform: uppercase;
     text-align: center;
     margin: 0;
     max-width: 100%;
     transition: opacity 0.25s ease;
-    -webkit-text-stroke: 3px currentColor;
-  }
-  @media (max-width: 700px) {
-    .lo-word { -webkit-text-stroke: 2px currentColor; }
   }
   @media (max-width: 700px) {
     .lo-word { font-size: clamp(44px, 13vw, 88px); line-height: 1.02; }
