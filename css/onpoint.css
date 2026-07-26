@@ -61,7 +61,7 @@ h1, h2, h3, h4 {
   letter-spacing: -0.025em;
   line-height: 1.05;
   color: var(--ink);
-  text-transform: uppercase;
+  text-transform: none;
 }
 /* Kursiv global deaktiviert — Julia mag keine kursive Schrift */
 em, i, .serif {

@@ -1056,6 +1056,8 @@
   /* Sichtbarkeit: Cream ↔ Weinrot (Mint zu hell auf Cream, Weinrot als Anker) */
   .lo-stage.state-2a { background: #FBF2ED; color: #430a14; }
   .lo-stage.state-2b { background: #430a14; color: #ffffff; }
+  .lo-stage.state-2b .lo-word,
+  .lo-stage.state-2b .lo-sub { color: #ffffff; }
   /* Null Aufwand: Cream ↔ Orange */
   .lo-stage.state-3a { background: #FBF2ED; color: #ff9c6d; }
   .lo-stage.state-3b { background: #ff9c6d; color: #430a14; }
@@ -1125,7 +1127,7 @@
     font-size: clamp(40px, 8.5vw, 110px);
     line-height: 1;
     letter-spacing: -0.025em;
-    text-transform: uppercase;
+    text-transform: none;
     text-align: center;
     margin: 0;
     max-width: 100%;
@@ -1292,7 +1294,7 @@
     color: inherit !important;
     margin: 0 0 8px;
     line-height: 1.05;
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: -0.01em;
   }
   .choice-card-lo p {
