@@ -1155,7 +1155,7 @@
     opacity: 0;
     transform: translateX(-24px);
     animation: subSlideIn 0.55s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
-    animation-delay: 0.5s;
+    animation-delay: 0.3s;
   }
   @keyframes subSlideIn {
     to { opacity: 0.85; transform: translateX(0); }
@@ -1508,7 +1508,7 @@
     { cls: 'state-3b', kicker: 'N°03', word: 'Null Aufwand.',  sub: 'Ich filme, schneide, poste.' }
   ];
   var TOTAL_STATES = STATES.length;
-  var SLIDE_MS = 1900; // pro State — genug Zeit um den Untertitel zu lesen
+  var SLIDE_MS = 1400; // pro State — etwas schneller (vorher 1900)
 
   document.documentElement.classList.add('overlay-open');
   document.body.classList.add('overlay-open');
