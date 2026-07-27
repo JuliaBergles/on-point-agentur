@@ -11,19 +11,19 @@
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=object-sans@300,400,500,600,700&display=swap">
 <style>
   :root {
-    --bg: #F6EEDF;
-    --bg-warm: #EADBC1;
+    --bg: #FBF2ED;
+    --bg-warm: #F3D6C6;
     --card: #ffffff;
     --ink: #2D1F22;
     --ink-2: #1a1315;
     --ink-soft: #4a3236;
     --muted: #8a6f72;
-    --bordeaux: #6B1A26;
-    --bordeaux-deep: #4A0F1A;
-    --gold: #E88A5F;
-    --gold-lite: #F0A17C;
+    --bordeaux: #430a14;
+    --bordeaux-deep: #2d0508;
+    --gold: #ff9c6d;
+    --gold-lite: #ffb08a;
     --line: rgba(45, 31, 34, 0.12);
-    --dark-line: rgba(232, 138, 95, 0.28);
+    --dark-line: rgba(255, 156, 109, 0.28);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -58,13 +58,13 @@
   .page.dark::before {
     content: ""; position: absolute; top: -80px; right: -80px;
     width: 340px; height: 340px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(232, 138, 95, 0.28), transparent 65%);
+    background: radial-gradient(circle, rgba(255, 156, 109, 0.28), transparent 65%);
     filter: blur(50px); pointer-events: none; z-index: 1;
   }
   .page.dark::after {
     content: ""; position: absolute; bottom: -100px; left: -80px;
     width: 320px; height: 320px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(107, 26, 38, 0.32), transparent 65%);
+    background: radial-gradient(circle, rgba(67, 10, 20, 0.32), transparent 65%);
     filter: blur(60px); pointer-events: none; z-index: 1;
   }
 
@@ -81,7 +81,7 @@
   .cover::before {
     content: ""; position: absolute; top: 60px; right: 100px;
     width: 380px; height: 380px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(232, 138, 95, 0.18), transparent 65%);
+    background: radial-gradient(circle, rgba(255, 156, 109, 0.18), transparent 65%);
     filter: blur(60px); pointer-events: none;
   }
   .cover-content > div { position: relative; z-index: 2; }
@@ -196,7 +196,7 @@
   }
 
   p { margin-bottom: 12px; color: var(--ink-soft); font-size: 10.5pt; line-height: 1.7; }
-  .page.dark p { color: rgba(246, 238, 223, 0.82); }
+  .page.dark p { color: rgba(251, 242, 237, 0.82); }
   strong { color: var(--ink); font-weight: 600; }
   .page.dark strong { color: var(--bg); }
   em { color: var(--bordeaux); font-style: normal; }
@@ -215,17 +215,17 @@
   .story-box strong { color: var(--bordeaux); font-weight: 700; }
 
   .story-box.gold {
-    background: linear-gradient(135deg, rgba(232, 138, 95, 0.12), rgba(232, 138, 95, 0.04));
+    background: linear-gradient(135deg, rgba(255, 156, 109, 0.12), rgba(255, 156, 109, 0.04));
     border-left-color: var(--gold);
   }
   .story-box.gold strong { color: var(--bordeaux); }
 
   .page.dark .story-box {
-    background: rgba(246, 238, 223, 0.05);
+    background: rgba(251, 242, 237, 0.05);
     border-left-color: var(--gold);
     box-shadow: none;
   }
-  .page.dark .story-box p { color: rgba(246, 238, 223, 0.85); }
+  .page.dark .story-box p { color: rgba(251, 242, 237, 0.85); }
   .page.dark .story-box strong { color: var(--gold); }
 
   /* Story-Split (Bild + Text) */
@@ -255,7 +255,7 @@
     margin: 24px 0;
   }
   .stat {
-    background: rgba(246, 238, 223, 0.05);
+    background: rgba(251, 242, 237, 0.05);
     border: 1px solid var(--dark-line);
     border-radius: 8px;
     padding: 24px 22px;
@@ -278,7 +278,7 @@
   }
   .stat .desc {
     font-size: 9.5pt;
-    color: rgba(246, 238, 223, 0.7);
+    color: rgba(251, 242, 237, 0.7);
     line-height: 1.4;
   }
 
@@ -287,7 +287,7 @@
     gap: 12px; align-items: center;
     margin-bottom: 6px;
   }
-  .demo-label { font-size: 9.5pt; color: rgba(246, 238, 223, 0.8); }
+  .demo-label { font-size: 9.5pt; color: rgba(251, 242, 237, 0.8); }
   .demo-pct {
     font-size: 12pt; font-weight: 700; color: var(--gold);
     letter-spacing: -0.01em;
@@ -295,7 +295,7 @@
   .demo-bar {
     grid-column: 1 / -1;
     height: 3px;
-    background: rgba(246, 238, 223, 0.1);
+    background: rgba(251, 242, 237, 0.1);
     border-radius: 2px;
     overflow: hidden;
     margin-bottom: 10px;
@@ -310,7 +310,7 @@
   .ig-handle {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 10px 18px;
-    background: rgba(107, 26, 38, 0.08);
+    background: rgba(67, 10, 20, 0.08);
     border: 1px solid var(--bordeaux);
     border-radius: 999px;
     color: var(--bordeaux);
@@ -323,7 +323,7 @@
     margin-bottom: 20px;
   }
   .page.dark .ig-handle {
-    background: rgba(232, 138, 95, 0.14);
+    background: rgba(255, 156, 109, 0.14);
     border-color: var(--gold);
     color: var(--gold);
   }
@@ -344,7 +344,7 @@
     position: absolute; top: 16px; right: 22px;
     font-size: 36pt;
     font-weight: 700;
-    color: rgba(232, 138, 95, 0.14);
+    color: rgba(255, 156, 109, 0.14);
     line-height: 1;
     letter-spacing: -0.03em;
   }
@@ -371,7 +371,7 @@
     max-width: 440px;
   }
   .content-card p.desc {
-    color: rgba(246, 238, 223, 0.85);
+    color: rgba(251, 242, 237, 0.85);
     font-size: 9.5pt;
     line-height: 1.55;
     margin-bottom: 8px;
@@ -432,7 +432,7 @@
     padding: 40px 44px;
     border-radius: 10px;
     margin-top: 30px;
-    box-shadow: 0 30px 60px rgba(232, 138, 95, 0.35);
+    box-shadow: 0 30px 60px rgba(255, 156, 109, 0.35);
   }
   .cta-final h3 {
     font-size: 20pt;
@@ -452,7 +452,7 @@
   .cta-final .contact-block .row {
     display: flex; justify-content: space-between; gap: 20px;
     padding: 6px 0; font-size: 10pt;
-    border-bottom: 1px dashed rgba(232, 138, 95, 0.14);
+    border-bottom: 1px dashed rgba(255, 156, 109, 0.14);
   }
   .cta-final .contact-block .row:last-child { border-bottom: 0; }
   .cta-final .contact-block .row .k { color: var(--gold); font-weight: 700; text-transform: none; letter-spacing: 0.15em; font-size: 8.5pt; }
@@ -464,7 +464,7 @@
     border-top: 1px solid var(--dark-line);
     text-align: center;
     font-size: 9pt;
-    color: rgba(246, 238, 223, 0.6);
+    color: rgba(251, 242, 237, 0.6);
     letter-spacing: 0.05em;
   }
   .foot strong { color: var(--gold); font-weight: 700; }
@@ -491,7 +491,7 @@
     font-size: 10pt; font-weight: 700;
     letter-spacing: 0.1em; text-transform: none;
     cursor: pointer; border: 0;
-    box-shadow: 0 12px 30px rgba(107, 26, 38, 0.4);
+    box-shadow: 0 12px 30px rgba(67, 10, 20, 0.4);
     z-index: 100;
     font-family: inherit;
   }
@@ -661,7 +661,7 @@
       <p>Der Instagram-Algorithmus verteilt meinen Content organisch an Menschen, die mir noch nicht folgen. Diese Reichweite ist echt und nachhaltig, nicht gekauft und nicht boostet. Und sie wächst.</p>
     </div>
 
-    <p style="margin-top: 20px; font-size: 9.5pt; color: rgba(246, 238, 223, 0.6); font-style: normal;">Aktuelle Zahlen jederzeit einsehbar unter: agentur.juliabergles.de/reichweite</p>
+    <p style="margin-top: 20px; font-size: 9.5pt; color: rgba(251, 242, 237, 0.6); font-style: normal;">Aktuelle Zahlen jederzeit einsehbar unter: agentur.juliabergles.de/reichweite</p>
   </div>
 </div>
 
