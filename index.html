@@ -1216,9 +1216,9 @@
   .lo-skip:hover { background: rgba(255, 255, 255, 0.3); }
   .lo-skip.hide { display: none; }
 
-  /* Choice-Slide — Glut im Hintergrund, warm-dunkles Overlay */
+  /* Choice-Slide — Glut im Hintergrund, sanfteres Overlay */
   .lo-slide.slide-choice {
-    background-image: linear-gradient(180deg, rgba(26, 5, 8, 0.75), rgba(26, 5, 8, 0.88)), url('img/glut.jpg');
+    background-image: linear-gradient(180deg, rgba(26, 5, 8, 0.42), rgba(26, 5, 8, 0.65)), url('img/glut.jpg');
     background-size: cover;
     background-position: center;
     align-items: flex-start !important;
@@ -1263,6 +1263,15 @@
     font-style: normal;
     font-weight: 700;
     color: #C5A46D;
+  }
+  .choice-payoff .cta-sub {
+    font-family: 'Rubik', 'Space Grotesk', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: clamp(13px, 1.4vw, 16px);
+    line-height: 1.6;
+    color: rgba(251, 242, 237, 0.82);
+    margin: 0 0 26px;
   }
   .choice-socials {
     display: inline-flex;
@@ -1550,6 +1559,7 @@
 
       <div class="choice-payoff">
         <p class="cta-line"><strong>Anzünden.</strong> Bevor es zu spät ist.</p>
+        <p class="cta-sub">Dein Marketing. Deine Marke. Deine Sichtbarkeit.<br>Glut wird nicht von allein wieder Feuer.</p>
         <div class="choice-socials">
           <a href="https://www.instagram.com/onpoint_agentur/" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
