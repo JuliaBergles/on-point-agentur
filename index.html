@@ -1050,24 +1050,84 @@
   }
   .lo-stage.hide { opacity: 0; visibility: hidden; transition: opacity 0.5s, visibility 0s linear 0.5s; }
 
-  /* Heller invertierter Wechsel pro Wort — Cream + Farbe ↔ Farbe + Weinrot.
-     Weinrot bleibt als Anker (Brand), keine schwarze Sektion mehr. */
-  /* Innovation: Cream ↔ Pink */
-  .lo-stage.state-1a { background: #FBF2ED; color: #c74873; }
-  .lo-stage.state-1b { background: #c74873; color: #FBF2ED; }
-  /* Sichtbarkeit: Cream ↔ Weinrot (Mint zu hell auf Cream, Weinrot als Anker) */
-  .lo-stage.state-2a { background: #FBF2ED; color: #430a14; }
-  .lo-stage.state-2b { background: #430a14; color: #ffffff; }
+  /* Jeder State hat sein Bild + passende Farbwelt */
+
+  /* GLUT — glühende Kohle als Hintergrund */
+  .lo-stage.state-1a,
+  .lo-stage.state-1b {
+    background-image: linear-gradient(135deg, rgba(67, 10, 20, 0.60), rgba(26, 5, 8, 0.55)), url('img/glut.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .lo-stage.state-1a .lo-word,
+  .lo-stage.state-1a .lo-sub { color: #ffd6a8; text-shadow: 0 2px 24px rgba(0,0,0,0.6); }
+  .lo-stage.state-1b { background-image: linear-gradient(135deg, rgba(67, 10, 20, 0.35), rgba(26, 5, 8, 0.30)), url('img/glut.jpg'); }
+  .lo-stage.state-1b .lo-word,
+  .lo-stage.state-1b .lo-sub { color: #FBF2ED; text-shadow: 0 2px 24px rgba(0,0,0,0.75); }
+
+  /* PUNKT — einzelner glühender Punkt zentral */
+  .lo-stage.state-2a,
+  .lo-stage.state-2b {
+    background: #1a0508;
+    position: relative;
+    overflow: hidden;
+  }
+  .lo-stage.state-2a::before,
+  .lo-stage.state-2b::before {
+    content: "";
+    position: absolute;
+    top: 22%; left: 50%;
+    transform: translateX(-50%);
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffb078 0%, #ff7040 35%, #a02818 60%, transparent 78%);
+    box-shadow:
+      0 0 80px rgba(255, 156, 109, 0.6),
+      0 0 160px rgba(197, 60, 30, 0.3);
+    animation: pulseDot 3.4s ease-in-out infinite;
+    z-index: 0;
+    filter: blur(1px);
+  }
+  @keyframes pulseDot {
+    0%, 100% { opacity: 0.85; transform: translateX(-50%) scale(1); }
+    50%      { opacity: 1;    transform: translateX(-50%) scale(1.08); }
+  }
+  .lo-stage.state-2a .lo-wordstack,
+  .lo-stage.state-2b .lo-wordstack { position: relative; z-index: 2; }
+  .lo-stage.state-2a .lo-word,
+  .lo-stage.state-2a .lo-sub { color: #FBF2ED; }
   .lo-stage.state-2b .lo-word,
-  .lo-stage.state-2b .lo-sub { color: #ffffff; }
-  /* Null Aufwand: Cream ↔ Orange */
-  .lo-stage.state-3a { background: #FBF2ED; color: #ff9c6d; }
-  .lo-stage.state-3b { background: #ff9c6d; color: #430a14; }
-  /* Dein Timing: Bordeaux ↔ Gold — brand-Auflösung */
-  .lo-stage.state-4a { background: #430a14; color: #C5A46D; }
+  .lo-stage.state-2b .lo-sub { color: #C5A46D; }
+
+  /* ZU SPÄT — Uhr als Silhouette dahinter */
+  .lo-stage.state-3a,
+  .lo-stage.state-3b {
+    background: #1a0508;
+    background-image:
+      radial-gradient(ellipse at center, rgba(197, 60, 30, 0.18) 0%, transparent 55%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='90' fill='none' stroke='%23C5A46D' stroke-width='1' opacity='0.55'/><circle cx='100' cy='100' r='80' fill='none' stroke='%23C5A46D' stroke-width='0.5' opacity='0.35'/><g stroke='%23C5A46D' stroke-width='2' stroke-linecap='round' opacity='0.85'><line x1='100' y1='100' x2='100' y2='40'/><line x1='100' y1='100' x2='150' y2='100'/></g><circle cx='100' cy='100' r='3' fill='%23C5A46D' opacity='0.85'/><g stroke='%23C5A46D' stroke-width='1.5' stroke-linecap='round' opacity='0.5'><line x1='100' y1='10' x2='100' y2='22'/><line x1='190' y1='100' x2='178' y2='100'/><line x1='100' y1='190' x2='100' y2='178'/><line x1='10' y1='100' x2='22' y2='100'/></g></svg>");
+    background-size: cover, min(60vh, 60vw);
+    background-position: center, center 30%;
+    background-repeat: no-repeat, no-repeat;
+    position: relative;
+  }
+  .lo-stage.state-3a .lo-word,
+  .lo-stage.state-3a .lo-sub { color: #ff9c6d; }
+  .lo-stage.state-3b .lo-word,
+  .lo-stage.state-3b .lo-sub { color: #C5A46D; }
+
+  /* DEIN TIMING — Julia-Portrait, mystisch getönt */
+  .lo-stage.state-4a,
+  .lo-stage.state-4b {
+    background-image: linear-gradient(180deg, rgba(67, 10, 20, 0.72), rgba(26, 5, 8, 0.85)), url('img/bild-3.jpg');
+    background-size: cover;
+    background-position: center 20%;
+  }
   .lo-stage.state-4a .lo-word,
-  .lo-stage.state-4a .lo-sub { color: #C5A46D; }
-  .lo-stage.state-4b { background: #C5A46D; color: #430a14; }
+  .lo-stage.state-4a .lo-sub { color: #C5A46D; text-shadow: 0 2px 24px rgba(0,0,0,0.7); }
+  .lo-stage.state-4b { background-image: linear-gradient(180deg, rgba(197, 164, 109, 0.55), rgba(67, 10, 20, 0.80)), url('img/bild-3.jpg'); }
+  .lo-stage.state-4b .lo-word,
+  .lo-stage.state-4b .lo-sub { color: #FBF2ED; text-shadow: 0 2px 24px rgba(0,0,0,0.65); }
 
   /* Legacy .lo-slide (nur noch für Choice-Sektion) */
   .lo-slide {
