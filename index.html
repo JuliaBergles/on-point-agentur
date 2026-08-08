@@ -1216,9 +1216,9 @@
   .lo-skip:hover { background: rgba(255, 255, 255, 0.3); }
   .lo-skip.hide { display: none; }
 
-  /* Choice-Slide — Bild-Header wie Mediendesign (dunkler Bordeaux-Overlay über Foto) */
+  /* Choice-Slide — Glut im Hintergrund, warm-dunkles Overlay */
   .lo-slide.slide-choice {
-    background-image: linear-gradient(180deg, rgba(67, 10, 20, 0.88), rgba(67, 10, 20, 0.95)), url('img/bild-2.jpg');
+    background-image: linear-gradient(180deg, rgba(26, 5, 8, 0.75), rgba(26, 5, 8, 0.88)), url('img/glut.jpg');
     background-size: cover;
     background-position: center;
     align-items: flex-start !important;
@@ -1228,7 +1228,7 @@
     padding-bottom: 60px !important;
   }
   .choice-inner {
-    max-width: 1100px;
+    max-width: 1280px;
     width: 100%;
     text-align: center;
     padding: 40px 20px;
@@ -1237,6 +1237,62 @@
     .lo-slide.slide-choice { padding-top: 80px !important; padding-bottom: 40px !important; }
     .choice-inner { padding: 20px 12px; }
   }
+  .choice-tagline {
+    font-family: 'Rubik', 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    color: rgba(197, 164, 109, 0.85);
+    margin: 8px 0 24px;
+  }
+  .choice-payoff {
+    margin: 44px auto 0;
+    max-width: 640px;
+    text-align: center;
+  }
+  .choice-payoff .cta-line {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(20px, 2.6vw, 30px);
+    line-height: 1.3;
+    color: #FBF2ED;
+    margin: 0 0 22px;
+  }
+  .choice-payoff .cta-line strong {
+    font-style: normal;
+    font-weight: 700;
+    color: #C5A46D;
+  }
+  .choice-socials {
+    display: inline-flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .choice-socials a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    background: rgba(251, 242, 237, 0.08);
+    border: 1px solid rgba(197, 164, 109, 0.35);
+    color: #FBF2ED;
+    border-radius: 999px;
+    font-family: 'Rubik', 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: all 0.35s;
+  }
+  .choice-socials a:hover {
+    background: rgba(197, 164, 109, 0.2);
+    border-color: #C5A46D;
+    color: #C5A46D;
+    transform: translateY(-2px);
+  }
+  .choice-socials svg { width: 14px; height: 14px; }
   .choice-inner h2 {
     font-family: 'Rubik', 'Space Grotesk', sans-serif !important;
     font-weight: 900 !important;
@@ -1458,6 +1514,7 @@
     <div class="choice-inner">
       <h2>Wobei kann ich dir helfen?</h2>
       <p class="sub">Wähl, wo du anfangen willst.</p>
+      <p class="choice-tagline">Social Media · Videos · Fotos · Design · Auf den Punkt gebracht.</p>
       <div class="choice-grid-lo">
         <a href="social-media.html" class="choice-card-lo c-orange">
           <span class="n">01</span>
@@ -1489,6 +1546,20 @@
           <h3>Video &amp; Foto</h3>
           <p>Für Hochzeit, Geburtstag, Baby Shower, Firmenfeier. Jeder Anlass willkommen.</p>
         </a>
+      </div>
+
+      <div class="choice-payoff">
+        <p class="cta-line"><strong>Anzünden.</strong> Bevor es zu spät ist.</p>
+        <div class="choice-socials">
+          <a href="https://www.instagram.com/onpoint_agentur/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @onpoint_agentur
+          </a>
+          <a href="https://www.instagram.com/julia_bergles/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @julia_bergles
+          </a>
+        </div>
       </div>
     </div>
   </div>
