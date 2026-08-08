@@ -9,6 +9,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+/* Body-Schrift: Quicksand überall — Überschriften behalten Playfair/Rubik */
+body, p, li, blockquote, cite, small, label, input, textarea, select, button,
+.lede, .sub, .kicker, .brand-mark, .lo-sub, .cta-sub, .cta-kicker,
+.showcase-meta .kind, .showcase-meta .sub,
+.leistung p, .anlass-chip, .anlaesse span,
+.faq-item summary, .faq-item p,
+.footer-nav a, .footer-col a, .footer-copy, .footer-brand .tag, .footer-brand .adr {
+  font-family: 'Quicksand', 'Rubik', 'Space Grotesk', -apple-system, sans-serif;
+}
 
 :root {
   --bg: #FBF2ED;
