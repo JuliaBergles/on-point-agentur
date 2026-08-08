@@ -1065,10 +1065,10 @@
   .lo-stage.state-1b .lo-word,
   .lo-stage.state-1b .lo-sub { color: #FBF2ED; text-shadow: 0 2px 24px rgba(0,0,0,0.75); }
 
-  /* PUNKT — einzelner glühender Punkt zentral */
+  /* PUNKT — TerraLuna Vollmond als Bild-Element */
   .lo-stage.state-2a,
   .lo-stage.state-2b {
-    background: #1a0508;
+    background: #430a14;
     position: relative;
     overflow: hidden;
   }
@@ -1076,28 +1076,34 @@
   .lo-stage.state-2b::before {
     content: "";
     position: absolute;
-    top: 22%; left: 50%;
+    top: 8%; left: 50%;
     transform: translateX(-50%);
-    width: 140px; height: 140px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #ffb078 0%, #ff7040 35%, #a02818 60%, transparent 78%);
-    box-shadow:
-      0 0 80px rgba(255, 156, 109, 0.6),
-      0 0 160px rgba(197, 60, 30, 0.3);
-    animation: pulseDot 3.4s ease-in-out infinite;
+    width: min(46vh, 46vw); height: min(46vh, 46vw);
+    background: url('img/terraluna-mond.png') center/contain no-repeat;
+    filter: drop-shadow(0 0 40px rgba(197, 164, 109, 0.55));
+    animation: pulseMoon 6s ease-in-out infinite;
     z-index: 0;
-    filter: blur(1px);
   }
-  @keyframes pulseDot {
-    0%, 100% { opacity: 0.85; transform: translateX(-50%) scale(1); }
-    50%      { opacity: 1;    transform: translateX(-50%) scale(1.08); }
+  @keyframes pulseMoon {
+    0%, 100% { opacity: 0.92; transform: translateX(-50%) scale(1); }
+    50%      { opacity: 1;    transform: translateX(-50%) scale(1.02); }
   }
   .lo-stage.state-2a .lo-wordstack,
-  .lo-stage.state-2b .lo-wordstack { position: relative; z-index: 2; }
+  .lo-stage.state-2b .lo-wordstack {
+    position: relative;
+    z-index: 2;
+    margin-top: 42vh;
+  }
+  @media (max-width: 700px) {
+    .lo-stage.state-2a::before,
+    .lo-stage.state-2b::before { top: 6%; width: min(52vh, 68vw); height: min(52vh, 68vw); }
+    .lo-stage.state-2a .lo-wordstack,
+    .lo-stage.state-2b .lo-wordstack { margin-top: 44vh; }
+  }
   .lo-stage.state-2a .lo-word,
-  .lo-stage.state-2a .lo-sub { color: #FBF2ED; }
+  .lo-stage.state-2a .lo-sub { color: #C5A46D; text-shadow: 0 2px 20px rgba(0,0,0,0.6); }
   .lo-stage.state-2b .lo-word,
-  .lo-stage.state-2b .lo-sub { color: #C5A46D; }
+  .lo-stage.state-2b .lo-sub { color: #FBF2ED; text-shadow: 0 2px 20px rgba(0,0,0,0.6); }
 
   /* ZU SPÄT — Uhr als Silhouette dahinter */
   .lo-stage.state-3a,
