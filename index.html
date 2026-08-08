@@ -1063,6 +1063,11 @@
   /* Null Aufwand: Cream ↔ Orange */
   .lo-stage.state-3a { background: #FBF2ED; color: #ff9c6d; }
   .lo-stage.state-3b { background: #ff9c6d; color: #430a14; }
+  /* Dein Timing: Bordeaux ↔ Gold — brand-Auflösung */
+  .lo-stage.state-4a { background: #430a14; color: #C5A46D; }
+  .lo-stage.state-4a .lo-word,
+  .lo-stage.state-4a .lo-sub { color: #C5A46D; }
+  .lo-stage.state-4b { background: #C5A46D; color: #430a14; }
 
   /* Legacy .lo-slide (nur noch für Choice-Sektion) */
   .lo-slide {
@@ -1249,6 +1254,15 @@
     margin: 44px auto 0;
     max-width: 640px;
     text-align: center;
+  }
+  .choice-payoff .cta-kicker {
+    font-family: 'Rubik', 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    color: #C5A46D;
+    text-transform: uppercase;
+    margin: 0 0 18px;
   }
   .choice-payoff .cta-line {
     font-family: 'Playfair Display', serif;
@@ -1558,6 +1572,7 @@
       </div>
 
       <div class="choice-payoff">
+        <p class="cta-kicker">Dein Timing entscheidet.</p>
         <p class="cta-line"><strong>Anzünden.</strong> Bevor es zu spät ist.</p>
         <p class="cta-sub">Dein Marketing. Deine Marke. Deine Sichtbarkeit.<br>Glut wird nicht von allein wieder Feuer.</p>
         <div class="choice-socials">
@@ -1588,12 +1603,14 @@
 
   // 6 States: pro Wort 2 (a = schwarz+farbig, b = farbig+schwarz)
   var STATES = [
-    { cls: 'state-1a', kicker: 'N°01', word: 'Glut.',      sub: 'Deine Marke glüht noch.' },
-    { cls: 'state-1b', kicker: 'N°01', word: 'Glut.',      sub: 'Deine Marke glüht noch.' },
-    { cls: 'state-2a', kicker: 'N°02', word: 'Punkt.',     sub: 'Nur wer ihn trifft, wird gesehen.' },
-    { cls: 'state-2b', kicker: 'N°02', word: 'Punkt.',     sub: 'Nur wer ihn trifft, wird gesehen.' },
-    { cls: 'state-3a', kicker: 'N°03', word: 'Zu spät.',   sub: 'Wenn du zögerst, greift die Konkurrenz zu.' },
-    { cls: 'state-3b', kicker: 'N°03', word: 'Zu spät.',   sub: 'Wenn du zögerst, greift die Konkurrenz zu.' }
+    { cls: 'state-1a', kicker: 'N°01', word: 'Glut.',           sub: 'Deine Marke glüht noch.' },
+    { cls: 'state-1b', kicker: 'N°01', word: 'Glut.',           sub: 'Deine Marke glüht noch.' },
+    { cls: 'state-2a', kicker: 'N°02', word: 'Punkt.',          sub: 'Nur wer ihn trifft, wird gesehen.' },
+    { cls: 'state-2b', kicker: 'N°02', word: 'Punkt.',          sub: 'Nur wer ihn trifft, wird gesehen.' },
+    { cls: 'state-3a', kicker: 'N°03', word: 'Zu spät.',        sub: 'Wenn du zögerst, greift die Konkurrenz zu.' },
+    { cls: 'state-3b', kicker: 'N°03', word: 'Zu spät.',        sub: 'Wenn du zögerst, greift die Konkurrenz zu.' },
+    { cls: 'state-4a', kicker: 'N°04', word: 'Dein Timing.',    sub: 'Entscheidet alles.' },
+    { cls: 'state-4b', kicker: 'N°04', word: 'Dein Timing.',    sub: 'Entscheidet alles.' }
   ];
   var TOTAL_STATES = STATES.length;
   var SLIDE_MS = 1400; // pro State — etwas schneller (vorher 1900)
