@@ -1065,10 +1065,17 @@
   .lo-stage.state-1b .lo-word,
   .lo-stage.state-1b .lo-sub { color: #FBF2ED; text-shadow: 0 2px 24px rgba(0,0,0,0.75); }
 
-  /* PUNKT — TerraLuna Vollmond als Bild-Element */
+  /* PUNKT — Mystischer Vollmond als Backdrop (CSS-generiert), Text mittig darüber */
   .lo-stage.state-2a,
   .lo-stage.state-2b {
-    background: #430a14;
+    background:
+      radial-gradient(ellipse at 15% 20%, rgba(197, 164, 109, 0.08), transparent 40%),
+      radial-gradient(ellipse at 85% 80%, rgba(197, 164, 109, 0.06), transparent 45%),
+      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.03) 0.5px, transparent 1px),
+      radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.04) 0.5px, transparent 1px),
+      radial-gradient(circle at 60% 85%, rgba(255, 255, 255, 0.03) 0.5px, transparent 1px),
+      #0a0510;
+    background-size: auto, auto, 400px 300px, 500px 400px, 600px 500px, auto;
     position: relative;
     overflow: hidden;
   }
@@ -1076,34 +1083,53 @@
   .lo-stage.state-2b::before {
     content: "";
     position: absolute;
-    top: 8%; left: 50%;
-    transform: translateX(-50%);
-    width: min(46vh, 46vw); height: min(46vh, 46vw);
-    background: url('img/terraluna-mond.png') center/contain no-repeat;
-    filter: drop-shadow(0 0 40px rgba(197, 164, 109, 0.55));
-    animation: pulseMoon 6s ease-in-out infinite;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(65vmin, 60vh);
+    height: min(65vmin, 60vh);
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 38% 32%, #f8ecd6 0%, #e0c9a3 30%, #b19878 65%, #6b5a3d 90%, #3a2f1e 100%);
+    box-shadow:
+      inset -30px -40px 90px rgba(20, 10, 5, 0.55),
+      inset 20px 25px 60px rgba(255, 240, 210, 0.15),
+      0 0 120px rgba(255, 220, 170, 0.28),
+      0 0 240px rgba(197, 164, 109, 0.14);
     z-index: 0;
+    opacity: 0.88;
+    animation: moonBreath 10s ease-in-out infinite;
   }
-  @keyframes pulseMoon {
-    0%, 100% { opacity: 0.92; transform: translateX(-50%) scale(1); }
-    50%      { opacity: 1;    transform: translateX(-50%) scale(1.02); }
+  .lo-stage.state-2a::after,
+  .lo-stage.state-2b::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(65vmin, 60vh);
+    height: min(65vmin, 60vh);
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 25% 30%, rgba(50, 35, 20, 0.35) 1%, transparent 3%),
+      radial-gradient(circle at 62% 42%, rgba(50, 35, 20, 0.25) 1.2%, transparent 3.5%),
+      radial-gradient(circle at 45% 65%, rgba(50, 35, 20, 0.3) 0.8%, transparent 2.5%),
+      radial-gradient(circle at 70% 68%, rgba(50, 35, 20, 0.2) 0.6%, transparent 2%);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.7;
+  }
+  @keyframes moonBreath {
+    0%, 100% { opacity: 0.82; }
+    50%      { opacity: 0.95; }
   }
   .lo-stage.state-2a .lo-wordstack,
   .lo-stage.state-2b .lo-wordstack {
     position: relative;
     z-index: 2;
-    margin-top: 42vh;
-  }
-  @media (max-width: 700px) {
-    .lo-stage.state-2a::before,
-    .lo-stage.state-2b::before { top: 6%; width: min(52vh, 68vw); height: min(52vh, 68vw); }
-    .lo-stage.state-2a .lo-wordstack,
-    .lo-stage.state-2b .lo-wordstack { margin-top: 44vh; }
   }
   .lo-stage.state-2a .lo-word,
-  .lo-stage.state-2a .lo-sub { color: #C5A46D; text-shadow: 0 2px 20px rgba(0,0,0,0.6); }
+  .lo-stage.state-2a .lo-sub { color: #FBF2ED; text-shadow: 0 2px 24px rgba(0,0,0,0.85), 0 0 8px rgba(0,0,0,0.8); }
   .lo-stage.state-2b .lo-word,
-  .lo-stage.state-2b .lo-sub { color: #FBF2ED; text-shadow: 0 2px 20px rgba(0,0,0,0.6); }
+  .lo-stage.state-2b .lo-sub { color: #C5A46D; text-shadow: 0 2px 24px rgba(0,0,0,0.85), 0 0 8px rgba(0,0,0,0.8); }
 
   /* ZU SPÄT — Uhr als Silhouette dahinter */
   .lo-stage.state-3a,
