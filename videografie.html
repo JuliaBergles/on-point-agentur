@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index, follow" />
+<title>Videografie · Videos, Fotos & Karten für Events von On Point</title>
+<meta name="description" content="Videografie für Hochzeiten, Geburtstage, Feiern und Events. Videos und Schnappschüsse als Hauptleistung, Fotos immer dabei. Dazu Einladungskarten, Dankeskarten und Fotoalben. Julia Bergles aus Wehringen bei Augsburg." />
+<link rel="canonical" href="https://www.agentur.juliabergles.de/videografie.html" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.agentur.juliabergles.de/videografie.html" />
+<meta property="og:title" content="Videografie · Videos, Fotos & Karten für Events" />
+<meta property="og:description" content="Videos, Fotos, Einladungskarten, Dankeskarten und Fotoalben. Für Hochzeiten, Geburtstage und Feiern." />
+<meta property="og:image" content="https://www.agentur.juliabergles.de/img/bild-2.jpg" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:site_name" content="On Point" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=object-sans@300,400,500,600,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap">
+<link rel="stylesheet" href="css/onpoint.css">
+<style>
+  /* Leistungen (dark editorial) */
+  .leistung-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; }
+  @media (max-width: 1050px) { .leistung-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 500px) { .leistung-grid { grid-template-columns: 1fr; } }
+  .leistung {
+    background: rgba(251, 242, 237, 0.04);
+    border: 1px solid rgba(255, 156, 109, 0.22);
+    border-radius: 12px;
+    padding: 32px 28px;
+    text-align: left;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(6px);
+    position: relative;
+    overflow: hidden;
+  }
+  .leistung::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(255, 156, 109, 0.08));
+    opacity: 0; transition: opacity 0.6s; pointer-events: none;
+  }
+  .leistung:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    background: rgba(251, 242, 237, 0.06);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  }
+  .leistung:hover::before { opacity: 1; }
+  .leistung .icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: rgba(255, 156, 109, 0.14);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--gold); margin-bottom: 18px;
+  }
+  .leistung h4 {
+    font-family: 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; font-weight: 900;
+    font-size: 22px; color: var(--bg); margin-bottom: 12px;
+    line-height: 1.15; letter-spacing: -0.01em;
+  }
+  .leistung p { font-size: 14px; color: rgba(251, 242, 237, 0.65); line-height: 1.6; }
+  .leistung .preis-hint {
+    display: block; margin-top: 14px; padding-top: 14px;
+    border-top: 1px solid rgba(255, 156, 109, 0.15);
+    font-size: 12px; color: var(--gold); letter-spacing: 0.05em;
+  }
+
+  /* Referenzen — Video-Showcase */
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  @media (max-width: 720px) { .showcase-grid { grid-template-columns: 1fr; } }
+  .showcase-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(45, 31, 34, 0.08);
+    transition: transform 0.4s;
+  }
+  .showcase-card:hover { transform: translateY(-6px); }
+  .showcase-media {
+    aspect-ratio: 16/10;
+    background: #2D1F22;
+    overflow: hidden;
+    position: relative;
+  }
+  .showcase-media video,
+  .showcase-media img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .showcase-meta {
+    padding: 20px 24px;
+  }
+  .showcase-meta .kind {
+    display: block;
+    font-family: 'Rubik', 'Space Grotesk', sans-serif;
+    font-size: 11px; letter-spacing: 0.18em;
+    color: var(--gold); font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .showcase-meta h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; color: var(--ink);
+    margin: 0 0 6px;
+    line-height: 1.2;
+  }
+  .showcase-meta .sub {
+    font-size: 14px; color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* Preis-Block hell */
+  .preis-block {
+    max-width: 800px;
+    margin: 40px auto 0;
+    padding: 48px 40px;
+    background: linear-gradient(135deg, rgba(139, 46, 58, 0.06), rgba(197, 164, 109, 0.10));
+    border: 1.5px solid var(--gold);
+    border-radius: 16px;
+    text-align: center;
+  }
+  .preis-block .eyebrow {
+    font-family: 'Rubik', 'Space Grotesk', sans-serif;
+    font-size: 11px; letter-spacing: 0.28em;
+    color: var(--bordeaux); font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .preis-row {
+    display: flex; gap: 60px; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .preis-item .zahl {
+    font-family: 'Rubik', 'Space Grotesk', sans-serif;
+    font-style: normal; font-weight: 900;
+    font-size: 48px; color: var(--bordeaux);
+    line-height: 1;
+  }
+  .preis-item .zahl small {
+    font-size: 18px; color: var(--muted); font-weight: 500;
+  }
+  .preis-item .label {
+    font-family: 'Rubik', 'Space Grotesk', sans-serif;
+    font-size: 13px; color: var(--muted);
+    margin-top: 8px;
+  }
+  .preis-block .hint {
+    font-size: 14px; color: var(--muted);
+    line-height: 1.6; margin-top: 16px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="row">
+    <a href="index.html" class="brand">On Point</a>
+    <ul>
+      <li><a href="warum-onpoint.html">Warum On Point</a></li>
+      <li><a href="social-media.html">Social Media</a></li>
+      <li><a href="mediendesign.html">Mediendesign</a></li>
+      <li><a href="videografie.html" class="current">Videografie</a></li>
+      <li><a href="websites.html">Webdesign</a></li>
+      <li><a href="reichweite.html">Reichweite</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+    </ul>
+    <a href="#kontakt" class="nav-cta">Beratung</a>
+    <button class="nav-burger" aria-label="Menü" onclick="document.getElementById('mobile-menu').classList.toggle('open'); this.classList.toggle('open');"><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="warum-onpoint.html">Warum On Point</a>
+    <a href="social-media.html">Social Media</a>
+    <a href="mediendesign.html">Mediendesign</a>
+    <a href="videografie.html" class="current">Videografie</a>
+    <a href="websites.html">Webdesign</a>
+    <a href="reichweite.html">Reichweite</a>
+    <a href="ueber-mich.html">Über mich</a>
+    <a href="#kontakt" class="mobile-cta">Beratung</a>
+  </div>
+</nav>
+<div class="nav-spacer"></div>
+
+<section class="page-hero page-hero-image" style="background: linear-gradient(135deg, #430a14 0%, #8B2E3A 60%, #C5A46D 130%); color: var(--bg);">
+  <div class="container">
+    <div class="eyebrow reveal" style="color: var(--gold);">Videografie</div>
+    <h1 class="reveal d1" style="color: #fff;">Momente, die <em style="color: var(--gold);">bleiben</em>.</h1>
+    <p class="lede reveal d2" style="color: rgba(255, 255, 255, 0.88);">
+      Videos und Fotos für Hochzeit, Geburtstag, Feier.
+      <br>Dazu Einladungskarten, Dankeskarten und Fotoalben.
+      <br><em style="color: var(--gold);">Echte Momente, kein Hochglanz-Stellen.</em>
+    </p>
+    <div class="reveal d3" style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+      <a href="#kontakt" class="btn-red">Anfrage stellen</a>
+      <a href="#beispiele" class="btn-outline">Beispiele ansehen</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE-STRIP -->
+<div class="mini-marquee reveal">
+  <div class="track">
+    <span class="item">Hochzeit</span><span class="sep"></span>
+    <span class="item">Geburtstag</span><span class="sep"></span>
+    <span class="item">Firmenfeier</span><span class="sep"></span>
+    <span class="item">Standesamt</span><span class="sep"></span>
+    <span class="item">Verlobung</span><span class="sep"></span>
+    <span class="item">Taufe</span><span class="sep"></span>
+    <span class="item">Familienfeier</span><span class="sep"></span>
+    <span class="item">Event</span><span class="sep"></span>
+    <span class="item">Weihnachtsfeier</span><span class="sep"></span>
+    <span class="item">Jubiläum</span><span class="sep"></span>
+    <span class="item">Party</span><span class="sep"></span>
+    <span class="item">Einladungskarten</span><span class="sep"></span>
+    <span class="item">Dankeskarten</span><span class="sep"></span>
+    <span class="item">Fotoalben</span><span class="sep"></span>
+    <span class="item">Hochzeit</span><span class="sep"></span>
+    <span class="item">Geburtstag</span><span class="sep"></span>
+    <span class="item">Firmenfeier</span><span class="sep"></span>
+    <span class="item">Weihnachtsfeier</span><span class="sep"></span>
+  </div>
+</div>
+
+<!-- LEISTUNGEN (dark) -->
+<section class="section section-dark section-orbs">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Leistungen</div>
+      <h2>Was ich <em>festhalte</em>.</h2>
+      <p>
+        Videos und Schnappschüsse als Hauptleistung.
+        <br>Fotos sind immer dabei.
+        <br>Auf Wunsch dazu Karten und Fotoalben.
+      </p>
+    </div>
+    <div class="leistung-grid">
+      <div class="leistung reveal d1">
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
+        <h4>Videos &amp; Schnappschüsse</h4>
+        <p>
+          Schöne Aufnahmen von deinem Tag.
+          <br>Echte Momente, keine gestellten Szenen.
+          <br>Danach geschnitten zu einem Video, das du immer wieder ansehen willst.
+        </p>
+        <span class="preis-hint">70 €/h Dreh · 70 €/h Schnitt</span>
+      </div>
+      <div class="leistung reveal d2">
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+        <h4>Fotos</h4>
+        <p>
+          Fotos sind sowieso mit dabei.
+          <br>Keine professionelle Fotografin.
+          <br>Aber wenn du schöne Erinnerungsbilder willst, mach ich die gern.
+        </p>
+        <span class="preis-hint">Nach Absprache</span>
+      </div>
+      <div class="leistung reveal d3">
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg></div>
+        <h4>Einladungs- &amp; Dankeskarten</h4>
+        <p>
+          Individuelle Einladungen zu deinem Anlass.
+          <br>Nach der Feier: Dankeskarten mit Foto oder Video-Ausschnitt.
+          <br>Passend zum Stil deiner Feier.
+        </p>
+        <span class="preis-hint">Preis auf Anfrage</span>
+      </div>
+      <div class="leistung reveal d4">
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v16"/></svg></div>
+        <h4>Fotoalben</h4>
+        <p>
+          Gedrucktes Album mit den schönsten Bildern deines Events.
+          <br>Layout und Auswahl übernehme ich.
+          <br>Du sagst mir, was dir wichtig ist.
+        </p>
+        <span class="preis-hint">Preis auf Anfrage</span>
+      </div>
+    </div>
+
+    <div class="preis-block reveal">
+      <div class="eyebrow">Video · Preise</div>
+      <div class="preis-row">
+        <div class="preis-item">
+          <div class="zahl">70 €<small> / Stunde</small></div>
+          <div class="label">Dreh vor Ort</div>
+        </div>
+        <div class="preis-item">
+          <div class="zahl">70 €<small> / Stunde</small></div>
+          <div class="label">Schnitt &amp; Bearbeitung</div>
+        </div>
+      </div>
+      <p class="hint">
+        Alle weiteren Leistungen (Fotos, Karten, Fotoalben) auf Anfrage.
+        <br>Anfahrt ab 20 km ab Wehringen: 0,30 €/km.
+        <br>Alle Preise zzgl. MwSt.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENZEN / BEISPIELE -->
+<section class="section" id="beispiele" style="background: var(--bg-warm);">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Beispiele</div>
+      <h2>Aus meiner <em>Arbeit</em>.</h2>
+      <p>
+        Ausschnitte aus privaten Feiern und Firmen-Events.
+        <br>Immer nur mit Freigabe der Gäste.
+      </p>
+    </div>
+    <div class="showcase-grid">
+      <div class="showcase-card reveal d1">
+        <div class="showcase-media">
+          <video src="img/videografie/copy_0CF5C65C-10C3-42CC-858E-279212BE985C.MOV" controls muted playsinline preload="metadata"></video>
+        </div>
+        <div class="showcase-meta">
+          <span class="kind">Video · Private Geburtstagsparty</span>
+          <h4>Geburtstag</h4>
+          <span class="sub">Aufnahmen von einer privaten Feier.</span>
+        </div>
+      </div>
+      <div class="showcase-card reveal d2">
+        <div class="showcase-media">
+          <video src="img/videografie/copy_2956F52A-A640-46F4-ACAE-598D93CDCCCB.MOV" controls muted playsinline preload="metadata"></video>
+        </div>
+        <div class="showcase-meta">
+          <span class="kind">Video · Gym</span>
+          <h4>Fitness &amp; Bewegung</h4>
+          <span class="sub">Content-Aufnahmen für ein Fitnessstudio.</span>
+        </div>
+      </div>
+      <div class="showcase-card reveal d3">
+        <div class="showcase-media">
+          <video src="img/videografie/copy_A4222132-1370-4988-8C16-D82A93A41FAE.MOV" controls muted playsinline preload="metadata"></video>
+        </div>
+        <div class="showcase-meta">
+          <span class="kind">Video · Gym</span>
+          <h4>Fitness &amp; Bewegung</h4>
+          <span class="sub">Weitere Sequenzen aus dem Fitness-Dreh.</span>
+        </div>
+      </div>
+      <div class="showcase-card reveal d4">
+        <div class="showcase-media">
+          <img src="img/videografie/Weihnachtskarte-Lebkuchenhaus.png" alt="Weihnachtskarte Lebkuchenhaus">
+        </div>
+        <div class="showcase-meta">
+          <span class="kind">Karte · Weihnachten</span>
+          <h4>Weihnachtskarte Lebkuchenhaus</h4>
+          <span class="sub">Individuelles Karten-Design zur Weihnachtszeit.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Häufige Fragen</div>
+      <h2>Zu Videografie.<br><em>Klar</em> beantwortet.</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item"><summary>Wie viele Stunden buche ich ungefähr?</summary><p>
+        Kleine Feier: 2 bis 4 Stunden Dreh.
+        <br>Hochzeit ab Vorbereitung bis Tanz: 6 bis 10 Stunden.
+        <br>Firmen-Event nach Ablauf.
+        <br>Schnitt ist meist 1,5 bis 2 mal so lang wie der Dreh.
+      </p></details>
+      <details class="faq-item"><summary>Bekomme ich auch Fotos?</summary><p>
+        Ja.
+        <br>Fotos sind bei jedem Auftrag mit dabei.
+        <br>Ich bin keine professionelle Fotografin, aber die Bilder werden schön.
+      </p></details>
+      <details class="faq-item"><summary>Kann ich auch nur eine Karte bestellen?</summary><p>
+        Ja.
+        <br>Einladungskarten, Dankeskarten und Fotoalben gehen auch ohne Dreh.
+        <br>Preis nach Umfang.
+      </p></details>
+      <details class="faq-item"><summary>Wie lange dauert der Schnitt?</summary><p>
+        Kurze Videos: ein bis zwei Wochen.
+        <br>Hochzeitsvideos: zwei bis vier Wochen.
+        <br>Bei viel Material kann es auch länger dauern.
+      </p></details>
+      <details class="faq-item"><summary>Wie bekomme ich das fertige Video?</summary><p>
+        Als Download-Link.
+        <br>Auf Wunsch auch auf USB-Stick oder zusätzlich als kurze Version für Social Media.
+      </p></details>
+      <details class="faq-item"><summary>Was ist mit Fahrtkosten?</summary><p>
+        Bis 20 km ab Wehringen ohne Aufpreis.
+        <br>Darüber hinaus 0,30 €/km.
+      </p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-block" id="kontakt">
+  <div class="container">
+    <div class="inner reveal">
+      <div class="mark"></div>
+      <h2>Reden wir <em>offen zusammen</em>.</h2>
+      <p>
+        30 Minuten Kennenlerngespräch.
+        <br>Kostenlos und unverbindlich.
+        <br>Danach: klarer Kostenvoranschlag.
+      </p>
+      <div class="actions">
+        <a href="https://calendly.com/julia-bergles/30min" target="_blank" rel="noopener" class="btn-red">Termin buchen</a>
+        <a href="anfrage.html" class="btn-outline">Angebot anfragen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">On Point</div>
+      <div class="tag">Content auf den Punkt gebracht.</div>
+      <div class="adr">Julia Bergles<br>Augsburg + remote<br>julia@bergles.net</div>
+    </div>
+    <div class="footer-col">
+      <h5>Bereiche</h5>
+      <a href="social-media.html">Social Media</a>
+      <a href="mediendesign.html">Mediendesign</a>
+      <a href="videografie.html">Videografie</a>
+      <a href="websites.html">Webdesign</a>
+    </div>
+    <div class="footer-col">
+      <h5>Info</h5>
+      <a href="warum-onpoint.html">Warum On Point</a>
+      <a href="index.html">Startseite</a>
+    </div>
+    <div class="footer-col">
+      <h5>Rechtliches</h5>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 On Point · Julia Bergles</div>
+</footer>
+
+</body>
+</html>
