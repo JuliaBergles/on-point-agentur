@@ -1633,6 +1633,202 @@
   </div>
 </section>
 
+<!-- BRAND-STORY — Solange es noch glüht -->
+<style>
+  .brand-ember {
+    position: relative;
+    padding: 160px 40px 140px;
+    background: #1a0508;
+    color: #FBF2ED;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  @media (max-width: 700px) { .brand-ember { padding: 100px 24px 90px; } }
+  .brand-ember::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 22% 40%, rgba(255, 120, 40, 0.55), transparent 42%),
+      radial-gradient(circle at 78% 60%, rgba(197, 60, 30, 0.45), transparent 48%),
+      radial-gradient(circle at 50% 85%, rgba(255, 160, 80, 0.32), transparent 55%),
+      radial-gradient(circle at 65% 20%, rgba(197, 164, 109, 0.22), transparent 40%);
+    filter: blur(20px);
+    animation: emberPulse 8s ease-in-out infinite;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .brand-ember::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(26, 5, 8, 0.6) 90%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  @keyframes emberPulse {
+    0%, 100% { opacity: 0.85; transform: scale(1); }
+    50%      { opacity: 1;    transform: scale(1.05); }
+  }
+  .brand-ember-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .brand-ember .whisper {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(18px, 2vw, 24px);
+    color: rgba(255, 220, 180, 0.85);
+    letter-spacing: 0.02em;
+    margin: 0 0 32px;
+  }
+  .brand-ember h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: clamp(72px, 12vw, 180px);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    color: #FBF2ED;
+    margin: 0 0 20px;
+  }
+  .brand-ember h2 .dot {
+    color: #C5A46D;
+  }
+  .brand-ember .brand-sub {
+    font-family: 'Rubik', 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    color: rgba(197, 164, 109, 0.85);
+    font-weight: 600;
+    margin: 0 0 70px;
+  }
+  .metaphor-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin: 0 auto 80px;
+    max-width: 1000px;
+    text-align: left;
+  }
+  @media (max-width: 900px) { .metaphor-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .metaphor-grid { grid-template-columns: 1fr; } }
+  .metaphor-item {
+    padding: 28px 22px;
+    background: rgba(251, 242, 237, 0.04);
+    border: 1px solid rgba(197, 164, 109, 0.25);
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+    transition: all 0.4s;
+  }
+  .metaphor-item:hover {
+    border-color: rgba(197, 164, 109, 0.6);
+    background: rgba(251, 242, 237, 0.06);
+    transform: translateY(-4px);
+  }
+  .metaphor-item .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: rgba(197, 164, 109, 0.15);
+    color: #C5A46D;
+    font-family: 'Rubik', 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  .metaphor-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: #FBF2ED;
+    margin: 0 0 10px;
+    line-height: 1.1;
+  }
+  .metaphor-item p {
+    font-family: 'Rubik', 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(251, 242, 237, 0.72);
+    margin: 0;
+  }
+  .brand-ember .payoff {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: clamp(26px, 3.5vw, 42px);
+    line-height: 1.2;
+    color: #FBF2ED;
+    max-width: 720px;
+    margin: 0 auto 36px;
+  }
+  .brand-ember .payoff strong {
+    font-style: normal;
+    font-weight: 700;
+    color: #C5A46D;
+  }
+  .brand-ember .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 36px;
+    background: #C5A46D;
+    color: #1a0508;
+    border-radius: 999px;
+    font-family: 'Rubik', 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-decoration: none;
+    transition: transform 0.35s, box-shadow 0.35s;
+    box-shadow: 0 16px 32px rgba(197, 164, 109, 0.28);
+  }
+  .brand-ember .cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 22px 44px rgba(197, 164, 109, 0.4);
+  }
+</style>
+<section class="brand-ember">
+  <div class="brand-ember-inner">
+    <p class="whisper reveal">Solange es noch glüht.</p>
+    <h2 class="reveal d1">AUF<span class="dot">.</span><br>DEN<span class="dot">.</span><br>PUNKT<span class="dot">.</span></h2>
+    <p class="brand-sub reveal d2">Marketing. Fotos. Videos. Design. Auf den Punkt gebracht.</p>
+
+    <div class="metaphor-grid">
+      <div class="metaphor-item reveal d1">
+        <div class="num">01</div>
+        <h4>Timing</h4>
+        <p>Der Moment vergeht, wenn du zögerst.</p>
+      </div>
+      <div class="metaphor-item reveal d2">
+        <div class="num">02</div>
+        <h4>Wärme</h4>
+        <p>Bordeaux und Gold. Warm, editorial, kein KI-Standard.</p>
+      </div>
+      <div class="metaphor-item reveal d3">
+        <div class="num">03</div>
+        <h4>Handwerk</h4>
+        <p>Präzise wissen, wann wieder anfachen.</p>
+      </div>
+      <div class="metaphor-item reveal d4">
+        <div class="num">04</div>
+        <h4>Der Punkt</h4>
+        <p>Die Kohle. Der richtige Moment. Das Wortspiel.</p>
+      </div>
+    </div>
+
+    <p class="payoff reveal">
+      <strong>Zünde es wieder an.</strong>
+      <br>Bevor du den Punkt verpasst.
+    </p>
+    <a href="anfrage.html" class="cta-btn reveal d1">Jetzt anfragen →</a>
+  </div>
+</section>
+
 <!-- 4 BAUSTEINE -->
 <section class="features" id="features">
   <div class="container">
