@@ -33,17 +33,17 @@ body, p, li, blockquote, cite, small, label, input, textarea, select, button,
   --muted: #8a6f72;
   --muted-lite: #b09a9c;
 
-  /* Palette: warmes Beige-Weiß als Basis, Bordeaux + Gold als Akzente (kein Pink mehr) */
-  --bordeaux: #6b1e2c;
-  --bordeaux-hi: #8a3040;
-  --bordeaux-deep: #430a14;
+  /* Neue Palette: Weinrot als Primär, Pink als Hover, Blau als Kontrast, Orange als Akzent */
+  --bordeaux: #430a14;
+  --bordeaux-hi: #c74873;
+  --bordeaux-deep: #2d0508;
 
-  --pink: #b8894f;
+  --pink: #c74873;
   --blue: #7993ae;
-  --orange: #c48b6c;
+  --orange: #ff9c6d;
 
-  --gold: #c48b6c;
-  --gold-hi: #d4a58a;
+  --gold: #ff9c6d;
+  --gold-hi: #ffb08a;
 
   --line: rgba(67, 10, 20, 0.10);
   --line-strong: rgba(67, 10, 20, 0.22);

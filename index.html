@@ -74,16 +74,16 @@
     --muted: #8a6f72;
     --muted-lite: #b09a9c;
 
-    --bordeaux: #6b1e2c;
-    --bordeaux-hi: #8a3040;
-    --bordeaux-deep: #430a14;
+    --bordeaux: #430a14;
+    --bordeaux-hi: #c74873;
+    --bordeaux-deep: #2d0508;
 
-    --pink: #b8894f;
+    --pink: #c74873;
     --blue: #7993ae;
-    --orange: #c48b6c;
+    --orange: #ff9c6d;
 
-    --gold: #c48b6c;
-    --gold-hi: #d4a58a;
+    --gold: #ff9c6d;
+    --gold-hi: #ffb08a;
 
     --line: rgba(67, 10, 20, 0.10);
     --line-strong: rgba(67, 10, 20, 0.22);
@@ -105,7 +105,7 @@
   @media (max-width: 700px) { .container { padding: 0 24px; } }
 
   h1, h2 {
-    font-family: 'Rubik', 'Space Grotesk', sans-serif !important;
+    font-family: 'Rubik', 'Space Grotesk', 'Object Sans', sans-serif !important;
     font-weight: 900 !important;
     letter-spacing: -0.025em;
     line-height: 1;
@@ -113,7 +113,7 @@
     text-transform: none;
   }
   h3, h4 {
-    font-family: 'Rubik', 'Space Grotesk', sans-serif !important;
+    font-family: 'Rubik', 'Space Grotesk', 'Object Sans', sans-serif !important;
     font-weight: 900 !important;
     letter-spacing: -0.02em;
     line-height: 1.05;
@@ -544,7 +544,7 @@
   }
   .hero h1 {
     color: #fff;
-    font-family: 'Rubik', 'Space Grotesk', sans-serif !important;
+    font-family: 'Rubik', 'Space Grotesk', 'Object Sans', sans-serif !important;
     font-size: clamp(52px, 8vw, 108px);
     font-weight: 900;
     line-height: 1;
@@ -1031,85 +1031,136 @@
     align-items: center;
     justify-content: center;
     padding: 40px;
-    opacity: 1;
-    will-change: opacity, background-color, color;
-    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(0);
+    will-change: transform, background-color, color;
+    transition: background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  /* Cross-Fade zwischen Bühnen: neue Bühne startet unsichtbar, alte fadet raus */
-  .lo-stage.incoming { opacity: 0; }
-  .lo-stage.hide { opacity: 0; visibility: hidden; transition: opacity 0.6s, visibility 0s linear 0.6s; }
+  /* Slide-States: alter wischt nach LINKS raus, neuer kommt von RECHTS (Bewegung nach rechts) */
+  .lo-stage.leaving {
+    transform: translateX(-100%);
+    transition: transform 0.55s cubic-bezier(0.7, 0, 0.3, 1);
+  }
+  .lo-stage.incoming {
+    transform: translateX(100%);
+    transition: none;
+  }
+  .lo-stage.entering {
+    transform: translateX(0);
+    transition: transform 0.55s cubic-bezier(0.7, 0, 0.3, 1);
+  }
+  .lo-stage.hide { opacity: 0; visibility: hidden; transition: opacity 0.5s, visibility 0s linear 0.5s; }
 
-  /* Alle 4 States: warmes Weißbeige mit Gold-Glanz — Rot/Gold nur als Akzent */
-  .lo-stage.state-1a {
-    background:
-      radial-gradient(ellipse at 20% 30%, rgba(196, 139, 108, 0.28), transparent 55%),
-      radial-gradient(ellipse at 80% 70%, rgba(255, 220, 180, 0.35), transparent 55%),
-      linear-gradient(160deg, #FBF2ED 0%, #f5e5d4 60%, #eed6bd 100%);
-    position: relative;
-    overflow: hidden;
-  }
-  .lo-stage.state-2a {
-    background:
-      radial-gradient(ellipse at 30% 25%, rgba(196, 139, 108, 0.32), transparent 55%),
-      radial-gradient(ellipse at 75% 80%, rgba(212, 165, 138, 0.25), transparent 55%),
-      linear-gradient(160deg, #FBF2ED 0%, #f0e0cc 100%);
-    position: relative;
-    overflow: hidden;
-  }
-  .lo-stage.state-3a {
-    background:
-      radial-gradient(ellipse at 70% 20%, rgba(196, 139, 108, 0.30), transparent 55%),
-      radial-gradient(ellipse at 20% 75%, rgba(255, 220, 180, 0.30), transparent 55%),
-      linear-gradient(200deg, #FBF2ED 0%, #f3e5d5 60%, #ebd6c2 100%);
-    position: relative;
-    overflow: hidden;
-  }
-  .lo-stage.state-4a {
-    background:
-      radial-gradient(ellipse at 50% 30%, rgba(107, 30, 44, 0.14), transparent 50%),
-      radial-gradient(ellipse at 30% 80%, rgba(196, 139, 108, 0.32), transparent 55%),
-      linear-gradient(180deg, #FBF2ED 0%, #ede0cc 100%);
-    position: relative;
-    overflow: hidden;
-  }
+  /* Jeder State hat sein Bild + passende Farbwelt */
 
-  /* Gold-Glanz Sweep — läuft leicht durch alle States */
-  .lo-stage.state-1a::before,
+  /* GLUT — glühende Kohle als Hintergrund */
+  .lo-stage.state-1a,
+  .lo-stage.state-1b {
+    background-image: linear-gradient(135deg, rgba(67, 10, 20, 0.60), rgba(26, 5, 8, 0.55)), url('img/glut.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .lo-stage.state-1a .lo-word,
+  .lo-stage.state-1a .lo-sub { color: #ffd6a8; text-shadow: 0 2px 24px rgba(0,0,0,0.6); }
+  .lo-stage.state-1b { background-image: linear-gradient(135deg, rgba(67, 10, 20, 0.35), rgba(26, 5, 8, 0.30)), url('img/glut.jpg'); }
+  .lo-stage.state-1b .lo-word,
+  .lo-stage.state-1b .lo-sub { color: #FBF2ED; text-shadow: 0 2px 24px rgba(0,0,0,0.75); }
+
+  /* PUNKT — Mystischer Vollmond als Backdrop (CSS-generiert), Text mittig darüber */
+  .lo-stage.state-2a,
+  .lo-stage.state-2b {
+    background:
+      radial-gradient(ellipse at 15% 20%, rgba(197, 164, 109, 0.08), transparent 40%),
+      radial-gradient(ellipse at 85% 80%, rgba(197, 164, 109, 0.06), transparent 45%),
+      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.03) 0.5px, transparent 1px),
+      radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.04) 0.5px, transparent 1px),
+      radial-gradient(circle at 60% 85%, rgba(255, 255, 255, 0.03) 0.5px, transparent 1px),
+      #0a0510;
+    background-size: auto, auto, 400px 300px, 500px 400px, 600px 500px, auto;
+    position: relative;
+    overflow: hidden;
+  }
   .lo-stage.state-2a::before,
-  .lo-stage.state-3a::before,
-  .lo-stage.state-4a::before {
+  .lo-stage.state-2b::before {
     content: "";
-    position: absolute; inset: 0;
-    background: linear-gradient(115deg,
-      transparent 25%,
-      rgba(255, 240, 210, 0.40) 45%,
-      rgba(196, 139, 108, 0.12) 55%,
-      transparent 78%);
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(90vmin, 92vh);
+    height: min(90vmin, 92vh);
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 38% 32%, #f8ecd6 0%, #e0c9a3 30%, #b19878 65%, #6b5a3d 90%, #3a2f1e 100%);
+    box-shadow:
+      inset -40px -60px 130px rgba(20, 10, 5, 0.6),
+      inset 25px 35px 90px rgba(255, 240, 210, 0.18),
+      0 0 180px rgba(255, 220, 170, 0.35),
+      0 0 320px rgba(197, 164, 109, 0.2);
+    z-index: 0;
+    opacity: 0.9;
+    animation: moonBreath 10s ease-in-out infinite;
+  }
+  .lo-stage.state-2a::after,
+  .lo-stage.state-2b::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(90vmin, 92vh);
+    height: min(90vmin, 92vh);
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 25% 30%, rgba(50, 35, 20, 0.35) 1%, transparent 3%),
+      radial-gradient(circle at 62% 42%, rgba(50, 35, 20, 0.25) 1.2%, transparent 3.5%),
+      radial-gradient(circle at 45% 65%, rgba(50, 35, 20, 0.3) 0.8%, transparent 2.5%),
+      radial-gradient(circle at 70% 68%, rgba(50, 35, 20, 0.2) 0.6%, transparent 2%);
     pointer-events: none;
-    animation: goldShine 16s ease-in-out infinite;
+    z-index: 0;
+    opacity: 0.7;
   }
-  @keyframes goldShine {
-    0%, 100% { transform: translateX(-18%); opacity: 0.55; }
-    50%      { transform: translateX(18%);  opacity: 0.9; }
+  @keyframes moonBreath {
+    0%, 100% { opacity: 0.82; }
+    50%      { opacity: 0.95; }
   }
-
-  /* Text mittig, dunkles Ink/Bordeaux — klar lesbar auf hellem Grund */
-  .lo-stage.state-1a .lo-wordstack, .lo-stage.state-2a .lo-wordstack,
-  .lo-stage.state-3a .lo-wordstack, .lo-stage.state-4a .lo-wordstack {
+  .lo-stage.state-2a .lo-wordstack,
+  .lo-stage.state-2b .lo-wordstack {
     position: relative;
-    z-index: 10;
+    z-index: 2;
   }
-  .lo-stage.state-1a .lo-word, .lo-stage.state-2a .lo-word,
-  .lo-stage.state-3a .lo-word, .lo-stage.state-4a .lo-word {
-    color: var(--ink);
-    text-shadow: 0 2px 12px rgba(255, 240, 210, 0.5);
+  .lo-stage.state-2a .lo-word,
+  .lo-stage.state-2a .lo-sub { color: #FBF2ED; text-shadow: 0 2px 24px rgba(0,0,0,0.85), 0 0 8px rgba(0,0,0,0.8); }
+  .lo-stage.state-2b .lo-word,
+  .lo-stage.state-2b .lo-sub { color: #C5A46D; text-shadow: 0 2px 24px rgba(0,0,0,0.85), 0 0 8px rgba(0,0,0,0.8); }
+
+  /* ZU SPÄT — große Uhr mittig als Bild-Element */
+  .lo-stage.state-3a,
+  .lo-stage.state-3b {
+    background: #1a0508;
+    background-image:
+      radial-gradient(ellipse at center, rgba(197, 60, 30, 0.22) 0%, transparent 55%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='94' fill='none' stroke='%23C5A46D' stroke-width='1.2' opacity='0.65'/><circle cx='100' cy='100' r='84' fill='none' stroke='%23C5A46D' stroke-width='0.6' opacity='0.4'/><g stroke='%23C5A46D' stroke-width='2.5' stroke-linecap='round' opacity='0.9'><line x1='100' y1='100' x2='100' y2='35'/><line x1='100' y1='100' x2='155' y2='100'/></g><circle cx='100' cy='100' r='3.5' fill='%23C5A46D' opacity='0.9'/><g stroke='%23C5A46D' stroke-width='1.8' stroke-linecap='round' opacity='0.6'><line x1='100' y1='8' x2='100' y2='22'/><line x1='192' y1='100' x2='178' y2='100'/><line x1='100' y1='192' x2='100' y2='178'/><line x1='8' y1='100' x2='22' y2='100'/></g><g stroke='%23C5A46D' stroke-width='1' stroke-linecap='round' opacity='0.35'><line x1='150' y1='27' x2='146' y2='34'/><line x1='173' y1='50' x2='166' y2='54'/><line x1='173' y1='150' x2='166' y2='146'/><line x1='150' y1='173' x2='146' y2='166'/><line x1='50' y1='173' x2='54' y2='166'/><line x1='27' y1='150' x2='34' y2='146'/><line x1='27' y1='50' x2='34' y2='54'/><line x1='50' y1='27' x2='54' y2='34'/></g></svg>");
+    background-size: cover, min(88vmin, 90vh);
+    background-position: center, center center;
+    background-repeat: no-repeat, no-repeat;
+    position: relative;
   }
-  .lo-stage.state-1a .lo-sub, .lo-stage.state-2a .lo-sub,
-  .lo-stage.state-3a .lo-sub, .lo-stage.state-4a .lo-sub {
-    color: var(--bordeaux);
-    text-shadow: 0 1px 6px rgba(255, 240, 210, 0.5);
+  .lo-stage.state-3a .lo-word,
+  .lo-stage.state-3a .lo-sub { color: #ff9c6d; }
+  .lo-stage.state-3b .lo-word,
+  .lo-stage.state-3b .lo-sub { color: #C5A46D; }
+
+  /* DEIN TIMING — Julia-Portrait, mystisch getönt */
+  .lo-stage.state-4a,
+  .lo-stage.state-4b {
+    background-image: linear-gradient(180deg, rgba(67, 10, 20, 0.72), rgba(26, 5, 8, 0.85)), url('img/bild-3.jpg');
+    background-size: cover;
+    background-position: center 20%;
   }
+  .lo-stage.state-4a .lo-word,
+  .lo-stage.state-4a .lo-sub { color: #C5A46D; text-shadow: 0 2px 24px rgba(0,0,0,0.7); }
+  .lo-stage.state-4b { background-image: linear-gradient(180deg, rgba(197, 164, 109, 0.55), rgba(67, 10, 20, 0.80)), url('img/bild-3.jpg'); }
+  .lo-stage.state-4b .lo-word,
+  .lo-stage.state-4b .lo-sub { color: #FBF2ED; text-shadow: 0 2px 24px rgba(0,0,0,0.65); }
 
   /* Legacy .lo-slide (nur noch für Choice-Sektion) */
   .lo-slide {
@@ -1172,11 +1223,10 @@
   }
   .lo-word {
     font-family: 'Rubik', 'Space Grotesk', sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    font-size: clamp(46px, 9vw, 120px);
+    font-weight: 900;
+    font-size: clamp(40px, 8.5vw, 110px);
     line-height: 1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
     text-transform: none;
     text-align: center;
     margin: 0;
@@ -1195,12 +1245,11 @@
   .lo-word.fading { opacity: 0; }
   .lo-sub {
     font-family: 'Rubik', 'Space Grotesk', sans-serif;
-    font-style: italic;
-    font-size: clamp(15px, 1.6vw, 20px);
-    font-weight: 400;
-    letter-spacing: 0.01em;
+    font-size: clamp(14px, 1.4vw, 18px);
+    font-weight: 500;
+    letter-spacing: 0.02em;
     text-align: center;
-    max-width: 520px;
+    max-width: 480px;
     line-height: 1.4;
     /* Sub kommt später mit einem kleinen Delay hinter dem Wort rein */
     opacity: 0;
@@ -1237,21 +1286,21 @@
   .lo-progress.hide { opacity: 0; pointer-events: none; }
   .lo-progress .dot {
     width: 6px; height: 6px; border-radius: 50%;
-    background: rgba(67, 10, 20, 0.25);
+    background: rgba(255, 255, 255, 0.4);
     transition: all 0.4s;
   }
-  .lo-progress .dot.done { background: var(--bordeaux); width: 24px; border-radius: 3px; }
+  .lo-progress .dot.done { background: rgba(255, 255, 255, 0.9); width: 24px; border-radius: 3px; }
 
-  /* Skip-Button unten mittig — dunkel auf hell */
+  /* Skip-Button unten mittig */
   .lo-skip {
     position: fixed;
     bottom: 24px; left: 50%;
     transform: translateX(-50%);
     z-index: 10001;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
-    color: var(--bordeaux);
-    border: 1.5px solid rgba(107, 30, 44, 0.25);
+    color: currentColor;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 999px;
     padding: 10px 22px;
     font-family: 'Rubik', 'Space Grotesk', sans-serif;
@@ -1262,34 +1311,20 @@
     cursor: pointer;
     transition: all 0.3s;
   }
-  .lo-skip:hover { background: var(--bordeaux); color: #fff; border-color: var(--bordeaux); }
+  .lo-skip:hover { background: rgba(255, 255, 255, 0.3); }
   .lo-skip.hide { display: none; }
 
-  /* Choice-Slide — helles Weißbeige mit Gold-Glanz */
+  /* Choice-Slide — Glut kommt richtig durch, nur oben etwas Overlay für Text */
   .lo-slide.slide-choice {
-    background:
-      radial-gradient(ellipse at 20% 25%, rgba(196, 139, 108, 0.28), transparent 55%),
-      radial-gradient(ellipse at 80% 75%, rgba(255, 220, 180, 0.32), transparent 55%),
-      linear-gradient(160deg, #FBF2ED 0%, #f3e5d5 55%, #ecd8c4 100%) !important;
+    background-image: linear-gradient(180deg, rgba(26, 5, 8, 0.55) 0%, rgba(26, 5, 8, 0.22) 40%, rgba(26, 5, 8, 0.50) 100%), url('img/glut.jpg');
+    background-size: cover;
+    background-position: center;
     align-items: flex-start !important;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     padding-top: 60px !important;
     padding-bottom: 60px !important;
-    position: relative;
   }
-  .lo-slide.slide-choice::after {
-    content: "";
-    position: absolute; inset: 0;
-    background: linear-gradient(115deg,
-      transparent 25%,
-      rgba(255, 240, 210, 0.42) 45%,
-      rgba(196, 139, 108, 0.14) 55%,
-      transparent 78%);
-    pointer-events: none;
-    animation: goldShine 16s ease-in-out infinite;
-  }
-  .lo-slide.slide-choice .choice-inner { position: relative; z-index: 2; }
   .choice-inner {
     max-width: 1280px;
     width: 100%;
@@ -1305,7 +1340,7 @@
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.28em;
-    color: var(--bordeaux);
+    color: rgba(197, 164, 109, 0.85);
     margin: 8px 0 24px;
   }
   .choice-payoff {
@@ -1318,23 +1353,23 @@
     font-weight: 700;
     font-size: 12px;
     letter-spacing: 0.32em;
-    color: var(--bordeaux);
+    color: #C5A46D;
     text-transform: uppercase;
     margin: 0 0 18px;
   }
   .choice-payoff .cta-line {
-    font-family: 'Rubik', 'Space Grotesk', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: clamp(22px, 2.8vw, 32px);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(20px, 2.6vw, 30px);
     line-height: 1.3;
-    color: var(--ink);
+    color: #FBF2ED;
     margin: 0 0 22px;
   }
   .choice-payoff .cta-line strong {
     font-style: normal;
-    font-weight: 900;
-    color: var(--bordeaux);
+    font-weight: 700;
+    color: #C5A46D;
   }
   .choice-payoff .cta-sub {
     font-family: 'Rubik', 'Space Grotesk', sans-serif;
@@ -1342,7 +1377,7 @@
     font-weight: 500;
     font-size: clamp(13px, 1.4vw, 16px);
     line-height: 1.6;
-    color: var(--ink-soft);
+    color: rgba(251, 242, 237, 0.82);
     margin: 0 0 26px;
   }
   .choice-socials {
@@ -1356,9 +1391,9 @@
     align-items: center;
     gap: 8px;
     padding: 12px 22px;
-    background: rgba(255, 255, 255, 0.6);
-    border: 1.5px solid rgba(107, 30, 44, 0.2);
-    color: var(--ink);
+    background: rgba(251, 242, 237, 0.08);
+    border: 1px solid rgba(197, 164, 109, 0.35);
+    color: #FBF2ED;
     border-radius: 999px;
     font-family: 'Rubik', 'Space Grotesk', sans-serif;
     font-size: 12px;
@@ -1368,33 +1403,25 @@
     transition: all 0.35s;
   }
   .choice-socials a:hover {
-    background: var(--bordeaux);
-    border-color: var(--bordeaux);
-    color: #fff;
+    background: rgba(197, 164, 109, 0.2);
+    border-color: #C5A46D;
+    color: #C5A46D;
     transform: translateY(-2px);
   }
   .choice-socials svg { width: 14px; height: 14px; }
   .choice-inner h2 {
     font-family: 'Rubik', 'Space Grotesk', sans-serif !important;
     font-weight: 900 !important;
-    font-style: normal;
-    font-size: clamp(38px, 5vw, 62px);
-    line-height: 1.08;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin: 0 0 14px;
-  }
-  .choice-inner h2 em {
-    font-style: normal;
-    color: var(--bordeaux);
-    font-weight: 900;
+    font-size: clamp(34px, 4.5vw, 54px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #FBF2ED;
+    margin: 0 0 12px;
   }
   .choice-inner .sub {
     font-family: 'Rubik', 'Space Grotesk', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: clamp(15px, 1.4vw, 18px);
-    color: var(--ink-soft);
+    font-size: 15px;
+    color: rgba(255, 156, 109, 0.9);
     margin-bottom: 40px;
   }
   .choice-grid-lo {
@@ -1430,23 +1457,21 @@
   }
   .choice-card-lo .n {
     font-family: 'Rubik', 'Space Grotesk', sans-serif !important;
-    font-weight: 500 !important;
-    font-style: italic;
-    font-size: 30px;
+    font-weight: 900 !important;
+    font-size: 26px;
     color: inherit;
     margin: 0 0 14px;
     opacity: 0.85;
-    letter-spacing: -0.01em;
   }
   .choice-card-lo h3 {
     font-family: 'Rubik', 'Space Grotesk', sans-serif !important;
-    font-weight: 500 !important;
-    font-size: 24px;
+    font-weight: 900 !important;
+    font-size: 22px;
     color: inherit !important;
-    margin: 0 0 10px;
-    line-height: 1.1;
+    margin: 0 0 8px;
+    line-height: 1.05;
     text-transform: none;
-    letter-spacing: -0.005em;
+    letter-spacing: -0.01em;
   }
   .choice-card-lo p {
     font-family: 'Rubik', 'Space Grotesk', sans-serif;
@@ -1455,48 +1480,25 @@
     flex-grow: 1;
     opacity: 0.85;
   }
-  /* Alle Cards: weißes Beige mit Bordeaux-Text und Gold-Akzent */
+  /* Alle Cards einheitlich: Bordeaux mit Gold — ruhig und markig */
   .choice-card-lo.c-orange,
   .choice-card-lo.c-red,
   .choice-card-lo.c-pink,
   .choice-card-lo.c-blue,
   .choice-card-lo.c-ink {
-    background: linear-gradient(145deg, #ffffff 0%, #f8ecdf 100%);
-    color: var(--ink);
-    border: 1px solid rgba(196, 139, 108, 0.35);
-    box-shadow: 0 6px 18px rgba(45, 31, 34, 0.06);
-    position: relative;
-    overflow: hidden;
-  }
-  .choice-card-lo.c-orange::after,
-  .choice-card-lo.c-red::after,
-  .choice-card-lo.c-pink::after,
-  .choice-card-lo.c-blue::after,
-  .choice-card-lo.c-ink::after {
-    content: "";
-    position: absolute; inset: 0;
-    background: linear-gradient(120deg, transparent 30%, rgba(255, 240, 210, 0.5) 50%, transparent 70%);
-    transform: translateX(-100%);
-    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
+    background: #430a14;
+    color: #ff9c6d;
+    border: 1px solid rgba(255, 156, 109, 0.32);
   }
   .choice-card-lo.c-orange:hover,
   .choice-card-lo.c-red:hover,
   .choice-card-lo.c-pink:hover,
   .choice-card-lo.c-blue:hover,
   .choice-card-lo.c-ink:hover {
-    border-color: var(--gold);
-    background: linear-gradient(145deg, #ffffff 0%, #f4e5d5 100%);
-    box-shadow: 0 20px 40px rgba(196, 139, 108, 0.22);
+    border-color: #ff9c6d;
+    background: #5a1220;
   }
-  .choice-card-lo.c-orange:hover::after,
-  .choice-card-lo.c-red:hover::after,
-  .choice-card-lo.c-pink:hover::after,
-  .choice-card-lo.c-blue:hover::after,
-  .choice-card-lo.c-ink:hover::after { transform: translateX(100%); }
-  .choice-card-lo .n { color: var(--gold); }
-  .choice-card-lo h3 { color: var(--ink); }
-  .choice-card-lo p { color: var(--ink-soft); }
+  .choice-card-lo p { color: rgba(255, 156, 109, 0.75); }
 
   /* ─── Wobei kann ich dir helfen? ─── */
   .help-choice {
@@ -1608,7 +1610,6 @@
     <span class="dot"></span>
     <span class="dot"></span>
     <span class="dot"></span>
-    <span class="dot"></span>
   </div>
 
   <!-- STAGE-WRAP: zwei Stages können gleichzeitig existieren (Cross-Slide) -->
@@ -1627,7 +1628,7 @@
     <span class="kicker">Auswahl</span>
     <span class="brand-mark">On Point Studios</span>
     <div class="choice-inner">
-      <h2>Wobei kann ich dir <em>helfen</em>?</h2>
+      <h2>Wobei kann ich dir helfen?</h2>
       <p class="sub">Wähl, wo du anfangen willst.</p>
       <p class="choice-tagline">Social Media · Videos · Fotos · Design · Auf den Punkt gebracht.</p>
       <div class="choice-grid-lo">
@@ -1693,16 +1694,19 @@
   var timer;
   var current = 0;
 
-  // 4 Wörter, ein State pro Wort — kein Invert-Blinken mehr, nur Cross-Fade zwischen Wörtern
+  // 6 States: pro Wort 2 (a = schwarz+farbig, b = farbig+schwarz)
   var STATES = [
-    { cls: 'state-1a', kicker: 'N°01', word: 'Glut.',        sub: 'Deine Marke glüht noch.' },
-    { cls: 'state-2a', kicker: 'N°02', word: 'Punkt.',       sub: 'Nur wer ihn trifft, wird gesehen.' },
-    { cls: 'state-3a', kicker: 'N°03', word: 'Zu spät.',     sub: 'Wenn du zögerst, greift die Konkurrenz zu.' },
-    { cls: 'state-4a', kicker: 'N°04', word: 'Dein Timing.', sub: 'Entscheidet alles.' }
+    { cls: 'state-1a', kicker: 'N°01', word: 'Glut.',           sub: 'Deine Marke glüht noch.' },
+    { cls: 'state-1b', kicker: 'N°01', word: 'Glut.',           sub: 'Deine Marke glüht noch.' },
+    { cls: 'state-2a', kicker: 'N°02', word: 'Punkt.',          sub: 'Nur wer ihn trifft, wird gesehen.' },
+    { cls: 'state-2b', kicker: 'N°02', word: 'Punkt.',          sub: 'Nur wer ihn trifft, wird gesehen.' },
+    { cls: 'state-3a', kicker: 'N°03', word: 'Zu spät.',        sub: 'Wenn du zögerst, greift die Konkurrenz zu.' },
+    { cls: 'state-3b', kicker: 'N°03', word: 'Zu spät.',        sub: 'Wenn du zögerst, greift die Konkurrenz zu.' },
+    { cls: 'state-4a', kicker: 'N°04', word: 'Dein Timing.',    sub: 'Entscheidet alles.' },
+    { cls: 'state-4b', kicker: 'N°04', word: 'Dein Timing.',    sub: 'Entscheidet alles.' }
   ];
   var TOTAL_STATES = STATES.length;
-  var SLIDE_MS = 2800; // jedes Wort bekommt Zeit zum Wirken
-  var FADE_MS = 900;   // sanfter Cross-Fade zwischen Wörtern
+  var SLIDE_MS = 1400; // pro State — etwas schneller (vorher 1900)
 
   document.documentElement.classList.add('overlay-open');
   document.body.classList.add('overlay-open');
@@ -1724,23 +1728,6 @@
     return st;
   }
 
-  function crossfadeToStage(newStage) {
-    var oldStage = getCurrentStage();
-    newStage.classList.add('incoming');
-    newStage.setAttribute('data-current', '');
-    oldStage.removeAttribute('data-current');
-    stageWrap.appendChild(newStage);
-    // Reflow, dann Übergang starten
-    void newStage.offsetHeight;
-    newStage.style.transition = 'opacity ' + FADE_MS + 'ms cubic-bezier(0.4, 0, 0.2, 1)';
-    oldStage.style.transition = 'opacity ' + FADE_MS + 'ms cubic-bezier(0.4, 0, 0.2, 1)';
-    newStage.classList.remove('incoming');
-    oldStage.style.opacity = '0';
-    setTimeout(function () {
-      if (oldStage.parentNode) oldStage.parentNode.removeChild(oldStage);
-    }, FADE_MS + 60);
-  }
-
   function applyState(idx) {
     var s = STATES[idx];
     var currentStage = getCurrentStage();
@@ -1748,20 +1735,38 @@
     var wordChanges = currentWord !== s.word;
 
     if (wordChanges) {
-      // Backdrop wechselt → neue Bühne bauen und crossfaden (weicher Übergang)
-      var newStage = buildStage(s);
-      crossfadeToStage(newStage);
+      // Wort statisch: nur Text-Content wechseln, kein Stage-Slide.
+      // Wort snapt in 100ms, dann Sub fliegt neu ein.
+      var wordEl = currentStage.querySelector('.lo-word');
+      var subEl = currentStage.querySelector('.lo-sub');
+      var kickerEl = currentStage.querySelector('.kicker');
+
+      wordEl.style.opacity = '0';
+      setTimeout(function () {
+        // Farben snappen (State-Klasse wechseln)
+        STATES.forEach(function (st) { currentStage.classList.remove(st.cls); });
+        currentStage.classList.add(s.cls);
+        kickerEl.textContent = s.kicker;
+        wordEl.textContent = s.word;
+        wordEl.style.opacity = '1';
+
+        // Sub: Animation restart (fliegt neu von links ein)
+        subEl.textContent = s.sub;
+        subEl.style.animation = 'none';
+        void subEl.offsetHeight;
+        subEl.style.animation = '';
+      }, 100);
     } else {
-      // Invert-Wechsel innerhalb eines Worts: gleiche Bühne, State-Klasse tauschen
-      // CSS-Transition (0.5s) fadet Farben — kein Reload nötig
+      // Invert-Wechsel innerhalb eines Worts: gleiche Stage, State-Klasse wechseln (CSS-transition fadet Farben)
       STATES.forEach(function (st) { currentStage.classList.remove(st.cls); });
       currentStage.classList.add(s.cls);
       currentStage.querySelector('.kicker').textContent = s.kicker;
     }
 
-    // Progress-Dots: dot i wird "done" wenn Wort i+1 aktiv ist
+    // Progress-Dots
+    var wordIdx = Math.floor(idx / 2);
     dots.forEach(function (d, i) {
-      d.classList.toggle('done', i <= idx);
+      d.classList.toggle('done', i < wordIdx);
     });
   }
 
@@ -1861,7 +1866,7 @@
     text-align: center;
   }
   .brand-ember .whisper {
-    font-family: 'Rubik', 'Space Grotesk', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-style: italic;
     font-weight: 400;
     font-size: clamp(18px, 2vw, 24px);
@@ -1870,7 +1875,7 @@
     margin: 0 0 32px;
   }
   .brand-ember h2 {
-    font-family: 'Rubik', 'Space Grotesk', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-style: normal;
     font-size: clamp(72px, 12vw, 180px);
@@ -1927,7 +1932,7 @@
     margin-bottom: 16px;
   }
   .metaphor-item h4 {
-    font-family: 'Rubik', 'Space Grotesk', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-weight: 600;
     font-size: 22px;
     color: #FBF2ED;
@@ -1942,7 +1947,7 @@
     margin: 0;
   }
   .brand-ember .payoff {
-    font-family: 'Rubik', 'Space Grotesk', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-weight: 500;
     font-style: italic;
     font-size: clamp(26px, 3.5vw, 42px);
@@ -2067,7 +2072,7 @@
     <div class="video-promo-grid">
       <div class="reveal">
         <p style="font-family: 'Rubik', 'Space Grotesk', sans-serif; font-size: 11px; letter-spacing: 0.28em; color: var(--bordeaux); font-weight: 700; margin-bottom: 20px;">Neu · Video &amp; Foto</p>
-        <h2 style="font-family: 'Rubik', 'Space Grotesk', sans-serif; font-size: clamp(40px, 5.5vw, 72px); line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 24px;">Videos für <em style="font-style: italic; color: var(--bordeaux);">deinen</em> großen Tag.</h2>
+        <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(40px, 5.5vw, 72px); line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 24px;">Videos für <em style="font-style: italic; color: var(--bordeaux);">deinen</em> großen Tag.</h2>
         <p style="font-family: 'Rubik', 'Space Grotesk', sans-serif; font-size: 17px; line-height: 1.65; color: var(--ink-soft); max-width: 560px; margin-bottom: 28px;">
           Nicht nur für Marken.
           <br>Auch für dich privat.
