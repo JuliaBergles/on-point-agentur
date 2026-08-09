@@ -1031,25 +1031,14 @@
     align-items: center;
     justify-content: center;
     padding: 40px;
-    transform: translateX(0);
-    will-change: transform, background-color, color;
-    transition: background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1),
-                color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    will-change: opacity, background-color, color;
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  /* Slide-States: alter wischt nach LINKS raus, neuer kommt von RECHTS (Bewegung nach rechts) */
-  .lo-stage.leaving {
-    transform: translateX(-100%);
-    transition: transform 0.55s cubic-bezier(0.7, 0, 0.3, 1);
-  }
-  .lo-stage.incoming {
-    transform: translateX(100%);
-    transition: none;
-  }
-  .lo-stage.entering {
-    transform: translateX(0);
-    transition: transform 0.55s cubic-bezier(0.7, 0, 0.3, 1);
-  }
-  .lo-stage.hide { opacity: 0; visibility: hidden; transition: opacity 0.5s, visibility 0s linear 0.5s; }
+  /* Cross-Fade zwischen Bühnen: neue Bühne startet unsichtbar, alte fadet raus */
+  .lo-stage.incoming { opacity: 0; }
+  .lo-stage.hide { opacity: 0; visibility: hidden; transition: opacity 0.6s, visibility 0s linear 0.6s; }
 
   /* Jeder State hat sein Bild + passende Farbwelt */
 
@@ -1085,9 +1074,8 @@
     content: "";
     position: absolute;
     top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: min(90vmin, 92vh);
-    height: min(90vmin, 92vh);
+    width: min(78vmin, 82vh);
+    height: min(78vmin, 82vh);
     border-radius: 50%;
     background:
       radial-gradient(circle at 38% 32%, #f8ecd6 0%, #e0c9a3 30%, #b19878 65%, #6b5a3d 90%, #3a2f1e 100%);
@@ -1098,16 +1086,16 @@
       0 0 320px rgba(197, 164, 109, 0.2);
     z-index: 0;
     opacity: 0.9;
-    animation: moonBreath 10s ease-in-out infinite;
+    animation: moonBreath 12s ease-in-out infinite;
+    transform-origin: center;
   }
   .lo-stage.state-2a::after,
   .lo-stage.state-2b::after {
     content: "";
     position: absolute;
     top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: min(90vmin, 92vh);
-    height: min(90vmin, 92vh);
+    width: min(78vmin, 82vh);
+    height: min(78vmin, 82vh);
     border-radius: 50%;
     background:
       radial-gradient(circle at 25% 30%, rgba(50, 35, 20, 0.35) 1%, transparent 3%),
@@ -1117,10 +1105,16 @@
     pointer-events: none;
     z-index: 0;
     opacity: 0.7;
+    animation: moonBreathCraters 12s ease-in-out infinite;
+    transform-origin: center;
   }
   @keyframes moonBreath {
-    0%, 100% { opacity: 0.82; }
-    50%      { opacity: 0.95; }
+    0%, 100% { opacity: 0.82; transform: translate(-50%, -50%) scale(1); }
+    50%      { opacity: 0.96; transform: translate(-50%, -50%) scale(1.02); }
+  }
+  @keyframes moonBreathCraters {
+    0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+    50%      { opacity: 0.78; transform: translate(-50%, -50%) scale(1.02); }
   }
   .lo-stage.state-2a .lo-wordstack,
   .lo-stage.state-2b .lo-wordstack {
@@ -1132,22 +1126,65 @@
   .lo-stage.state-2b .lo-word,
   .lo-stage.state-2b .lo-sub { color: #C5A46D; text-shadow: 0 2px 24px rgba(0,0,0,0.85), 0 0 8px rgba(0,0,0,0.8); }
 
-  /* ZU SPÄT — große Uhr mittig als Bild-Element */
+  /* ZU SPÄT — große Uhr mittig, Zifferblatt statisch, Zeiger langsam drehend */
   .lo-stage.state-3a,
   .lo-stage.state-3b {
-    background: #1a0508;
-    background-image:
-      radial-gradient(ellipse at center, rgba(197, 60, 30, 0.22) 0%, transparent 55%),
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='94' fill='none' stroke='%23C5A46D' stroke-width='1.2' opacity='0.65'/><circle cx='100' cy='100' r='84' fill='none' stroke='%23C5A46D' stroke-width='0.6' opacity='0.4'/><g stroke='%23C5A46D' stroke-width='2.5' stroke-linecap='round' opacity='0.9'><line x1='100' y1='100' x2='100' y2='35'/><line x1='100' y1='100' x2='155' y2='100'/></g><circle cx='100' cy='100' r='3.5' fill='%23C5A46D' opacity='0.9'/><g stroke='%23C5A46D' stroke-width='1.8' stroke-linecap='round' opacity='0.6'><line x1='100' y1='8' x2='100' y2='22'/><line x1='192' y1='100' x2='178' y2='100'/><line x1='100' y1='192' x2='100' y2='178'/><line x1='8' y1='100' x2='22' y2='100'/></g><g stroke='%23C5A46D' stroke-width='1' stroke-linecap='round' opacity='0.35'><line x1='150' y1='27' x2='146' y2='34'/><line x1='173' y1='50' x2='166' y2='54'/><line x1='173' y1='150' x2='166' y2='146'/><line x1='150' y1='173' x2='146' y2='166'/><line x1='50' y1='173' x2='54' y2='166'/><line x1='27' y1='150' x2='34' y2='146'/><line x1='27' y1='50' x2='34' y2='54'/><line x1='50' y1='27' x2='54' y2='34'/></g></svg>");
-    background-size: cover, min(88vmin, 90vh);
-    background-position: center, center center;
-    background-repeat: no-repeat, no-repeat;
+    background: #1a0508 radial-gradient(ellipse at center, rgba(197, 60, 30, 0.22) 0%, transparent 55%) center/cover no-repeat;
     position: relative;
+    overflow: hidden;
+  }
+  /* Zifferblatt (Ring + 12 Stundenmarkierungen) */
+  .lo-stage.state-3a::before,
+  .lo-stage.state-3b::before {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: min(78vmin, 82vh);
+    height: min(78vmin, 82vh);
+    transform: translate(-50%, -50%);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='94' fill='none' stroke='%23C5A46D' stroke-width='1.2' opacity='0.65'/><circle cx='100' cy='100' r='84' fill='none' stroke='%23C5A46D' stroke-width='0.6' opacity='0.4'/><g stroke='%23C5A46D' stroke-width='1.8' stroke-linecap='round' opacity='0.6'><line x1='100' y1='8' x2='100' y2='22'/><line x1='192' y1='100' x2='178' y2='100'/><line x1='100' y1='192' x2='100' y2='178'/><line x1='8' y1='100' x2='22' y2='100'/></g><g stroke='%23C5A46D' stroke-width='1' stroke-linecap='round' opacity='0.35'><line x1='150' y1='27' x2='146' y2='34'/><line x1='173' y1='50' x2='166' y2='54'/><line x1='173' y1='150' x2='166' y2='146'/><line x1='150' y1='173' x2='146' y2='166'/><line x1='50' y1='173' x2='54' y2='166'/><line x1='27' y1='150' x2='34' y2='146'/><line x1='27' y1='50' x2='34' y2='54'/><line x1='50' y1='27' x2='54' y2='34'/></g><circle cx='100' cy='100' r='3.5' fill='%23C5A46D' opacity='0.9'/></svg>");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    z-index: 0;
+    animation: clockPulse 12s ease-in-out infinite;
+    transform-origin: center;
+  }
+  /* Zeiger — langsame Drehung, dass die Uhr lebt (60s pro voller Runde) */
+  .lo-stage.state-3a::after,
+  .lo-stage.state-3b::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: min(78vmin, 82vh);
+    height: min(78vmin, 82vh);
+    transform: translate(-50%, -50%);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><g stroke='%23C5A46D' stroke-width='2.5' stroke-linecap='round' opacity='0.9'><line x1='100' y1='100' x2='100' y2='35'/><line x1='100' y1='100' x2='155' y2='100'/></g></svg>");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    z-index: 0;
+    animation: clockSpin 60s linear infinite;
+    transform-origin: center;
+    pointer-events: none;
+  }
+  @keyframes clockPulse {
+    0%, 100% { opacity: 0.85; transform: translate(-50%, -50%) scale(1); }
+    50%      { opacity: 1;    transform: translate(-50%, -50%) scale(1.015); }
+  }
+  @keyframes clockSpin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  .lo-stage.state-3a .lo-wordstack,
+  .lo-stage.state-3b .lo-wordstack {
+    position: relative;
+    z-index: 2;
   }
   .lo-stage.state-3a .lo-word,
-  .lo-stage.state-3a .lo-sub { color: #ff9c6d; }
+  .lo-stage.state-3a .lo-sub { color: #ff9c6d; text-shadow: 0 2px 24px rgba(0,0,0,0.85), 0 0 8px rgba(0,0,0,0.8); }
   .lo-stage.state-3b .lo-word,
-  .lo-stage.state-3b .lo-sub { color: #C5A46D; }
+  .lo-stage.state-3b .lo-sub { color: #C5A46D; text-shadow: 0 2px 24px rgba(0,0,0,0.85), 0 0 8px rgba(0,0,0,0.8); }
 
   /* DEIN TIMING — Julia-Portrait, mystisch getönt */
   .lo-stage.state-4a,
@@ -1706,7 +1743,8 @@
     { cls: 'state-4b', kicker: 'N°04', word: 'Dein Timing.',    sub: 'Entscheidet alles.' }
   ];
   var TOTAL_STATES = STATES.length;
-  var SLIDE_MS = 1400; // pro State — etwas schneller (vorher 1900)
+  var SLIDE_MS = 1800; // pro State — genug Raum für sanften Cross-Fade
+  var FADE_MS = 700;   // Bühnen-Crossfade bei Wortwechsel
 
   document.documentElement.classList.add('overlay-open');
   document.body.classList.add('overlay-open');
@@ -1728,6 +1766,23 @@
     return st;
   }
 
+  function crossfadeToStage(newStage) {
+    var oldStage = getCurrentStage();
+    newStage.classList.add('incoming');
+    newStage.setAttribute('data-current', '');
+    oldStage.removeAttribute('data-current');
+    stageWrap.appendChild(newStage);
+    // Reflow, dann Übergang starten
+    void newStage.offsetHeight;
+    newStage.style.transition = 'opacity ' + FADE_MS + 'ms cubic-bezier(0.4, 0, 0.2, 1)';
+    oldStage.style.transition = 'opacity ' + FADE_MS + 'ms cubic-bezier(0.4, 0, 0.2, 1)';
+    newStage.classList.remove('incoming');
+    oldStage.style.opacity = '0';
+    setTimeout(function () {
+      if (oldStage.parentNode) oldStage.parentNode.removeChild(oldStage);
+    }, FADE_MS + 60);
+  }
+
   function applyState(idx) {
     var s = STATES[idx];
     var currentStage = getCurrentStage();
@@ -1735,29 +1790,12 @@
     var wordChanges = currentWord !== s.word;
 
     if (wordChanges) {
-      // Wort statisch: nur Text-Content wechseln, kein Stage-Slide.
-      // Wort snapt in 100ms, dann Sub fliegt neu ein.
-      var wordEl = currentStage.querySelector('.lo-word');
-      var subEl = currentStage.querySelector('.lo-sub');
-      var kickerEl = currentStage.querySelector('.kicker');
-
-      wordEl.style.opacity = '0';
-      setTimeout(function () {
-        // Farben snappen (State-Klasse wechseln)
-        STATES.forEach(function (st) { currentStage.classList.remove(st.cls); });
-        currentStage.classList.add(s.cls);
-        kickerEl.textContent = s.kicker;
-        wordEl.textContent = s.word;
-        wordEl.style.opacity = '1';
-
-        // Sub: Animation restart (fliegt neu von links ein)
-        subEl.textContent = s.sub;
-        subEl.style.animation = 'none';
-        void subEl.offsetHeight;
-        subEl.style.animation = '';
-      }, 100);
+      // Backdrop wechselt → neue Bühne bauen und crossfaden (weicher Übergang)
+      var newStage = buildStage(s);
+      crossfadeToStage(newStage);
     } else {
-      // Invert-Wechsel innerhalb eines Worts: gleiche Stage, State-Klasse wechseln (CSS-transition fadet Farben)
+      // Invert-Wechsel innerhalb eines Worts: gleiche Bühne, State-Klasse tauschen
+      // CSS-Transition (0.5s) fadet Farben — kein Reload nötig
       STATES.forEach(function (st) { currentStage.classList.remove(st.cls); });
       currentStage.classList.add(s.cls);
       currentStage.querySelector('.kicker').textContent = s.kicker;
