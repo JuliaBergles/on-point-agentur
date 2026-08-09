@@ -1040,141 +1040,39 @@
   .lo-stage.incoming { opacity: 0; }
   .lo-stage.hide { opacity: 0; visibility: hidden; transition: opacity 0.6s, visibility 0s linear 0.6s; }
 
-  /* Alle 4 States: einheitliches Bordeaux-Rot als Basis, Bild subtil darüber */
+  /* Alle 4 States: einheitliches WARM-Rot als Basis, Foto (wo vorhanden) leicht durchscheinend */
 
-  /* GLUT — Rot, Glut-Foto leicht sichtbar */
+  /* GLUT — warmes Rot mit Glut-Foto leicht sichtbar */
   .lo-stage.state-1a {
     background:
-      linear-gradient(135deg, rgba(67, 10, 20, 0.85), rgba(26, 5, 8, 0.90)),
+      linear-gradient(135deg, rgba(107, 30, 40, 0.75), rgba(67, 10, 20, 0.82)),
       url('img/glut.jpg') center/cover no-repeat;
   }
-  .lo-stage.state-1a .lo-word,
-  .lo-stage.state-1a .lo-sub {
-    color: #FBF2ED;
-    text-shadow: 0 2px 30px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.85);
-  }
 
-  /* PUNKT — Rot, Mond leicht sichtbar dahinter */
+  /* PUNKT — warmes Rot, ohne Bild */
   .lo-stage.state-2a {
-    background: linear-gradient(135deg, #430a14 0%, #2d0508 100%);
-    position: relative;
-    overflow: hidden;
-    padding: 0;
-  }
-  /* Mond: sehr transparent hinter dem Text — nur Backdrop-Atmosphäre */
-  .lo-stage.state-2a::before {
-    content: "";
-    position: fixed;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: min(88vh, 88vw);
-    height: min(88vh, 88vw);
-    border-radius: 50%;
-    background:
-      radial-gradient(circle at 38% 32%, #f8ecd6 0%, #e0c9a3 30%, #b19878 65%, #6b5a3d 90%, #3a2f1e 100%);
-    box-shadow:
-      inset -40px -60px 130px rgba(20, 10, 5, 0.6),
-      inset 25px 35px 90px rgba(255, 240, 210, 0.18);
-    z-index: 0;
-    opacity: 0.22;
-    pointer-events: none;
-    mix-blend-mode: screen;
-  }
-  /* Krater — noch subtiler */
-  .lo-stage.state-2a::after {
-    content: "";
-    position: fixed;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: min(88vh, 88vw);
-    height: min(88vh, 88vw);
-    border-radius: 50%;
-    background:
-      radial-gradient(circle at 25% 30%, rgba(50, 35, 20, 0.35) 1%, transparent 3%),
-      radial-gradient(circle at 62% 42%, rgba(50, 35, 20, 0.25) 1.2%, transparent 3.5%),
-      radial-gradient(circle at 45% 65%, rgba(50, 35, 20, 0.3) 0.8%, transparent 2.5%),
-      radial-gradient(circle at 70% 68%, rgba(50, 35, 20, 0.2) 0.6%, transparent 2%);
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.16;
-    mix-blend-mode: screen;
-  }
-  .lo-stage.state-2a .lo-wordstack {
-    position: relative;
-    z-index: 10;
-  }
-  .lo-stage.state-2a .lo-word,
-  .lo-stage.state-2a .lo-sub {
-    color: #FBF2ED;
-    text-shadow: 0 2px 30px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.85);
+    background: linear-gradient(135deg, #7a1e2c 0%, #4d0e18 100%);
   }
 
-  /* ZU SPÄT — Rot, Uhr leicht sichtbar dahinter */
+  /* ZU SPÄT — warmes Rot, ohne Bild */
   .lo-stage.state-3a {
-    background: linear-gradient(135deg, #430a14 0%, #2d0508 100%);
-    position: relative;
-    overflow: hidden;
-    padding: 0;
-  }
-  /* Zifferblatt (Ring + 12 Stundenmarkierungen) */
-  .lo-stage.state-3a::before {
-    content: "";
-    position: fixed;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: min(88vh, 88vw);
-    height: min(88vh, 88vw);
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='94' fill='none' stroke='%23C5A46D' stroke-width='1.2' opacity='0.65'/><circle cx='100' cy='100' r='84' fill='none' stroke='%23C5A46D' stroke-width='0.6' opacity='0.4'/><g stroke='%23C5A46D' stroke-width='1.8' stroke-linecap='round' opacity='0.6'><line x1='100' y1='8' x2='100' y2='22'/><line x1='192' y1='100' x2='178' y2='100'/><line x1='100' y1='192' x2='100' y2='178'/><line x1='8' y1='100' x2='22' y2='100'/></g><g stroke='%23C5A46D' stroke-width='1' stroke-linecap='round' opacity='0.35'><line x1='150' y1='27' x2='146' y2='34'/><line x1='173' y1='50' x2='166' y2='54'/><line x1='173' y1='150' x2='166' y2='146'/><line x1='150' y1='173' x2='166' y2='146'/><line x1='50' y1='173' x2='54' y2='166'/><line x1='27' y1='150' x2='34' y2='146'/><line x1='27' y1='50' x2='34' y2='54'/><line x1='50' y1='27' x2='54' y2='34'/></g><circle cx='100' cy='100' r='3.5' fill='%23C5A46D' opacity='0.9'/></svg>");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    z-index: 0;
-    opacity: 0.22;
-    pointer-events: none;
-    mix-blend-mode: screen;
-  }
-  /* Zeiger — langsame Drehung ohne Puls, dreht sich in eigenem Wrapper */
-  .lo-stage.state-3a::after {
-    content: "";
-    position: fixed;
-    top: 50%; left: 50%;
-    width: min(88vh, 88vw);
-    height: min(88vh, 88vw);
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><g stroke='%23C5A46D' stroke-width='2.5' stroke-linecap='round' opacity='0.9'><line x1='100' y1='100' x2='100' y2='35'/><line x1='100' y1='100' x2='155' y2='100'/></g></svg>");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    z-index: 1;
-    opacity: 0.22;
-    mix-blend-mode: screen;
-    animation: clockSpin 90s linear infinite;
-    transform-origin: center;
-    pointer-events: none;
-  }
-  @keyframes clockSpin {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to   { transform: translate(-50%, -50%) rotate(360deg); }
-  }
-  .lo-stage.state-3a .lo-wordstack {
-    position: relative;
-    z-index: 10;
-  }
-  .lo-stage.state-3a .lo-word,
-  .lo-stage.state-3a .lo-sub {
-    color: #FBF2ED;
-    text-shadow: 0 2px 30px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.85);
+    background: linear-gradient(135deg, #7a1e2c 0%, #4d0e18 100%);
   }
 
-  /* DEIN TIMING — Rot, Julia-Portrait leicht sichtbar dahinter */
+  /* DEIN TIMING — warmes Rot mit Julia-Portrait leicht sichtbar */
   .lo-stage.state-4a {
     background:
-      linear-gradient(180deg, rgba(67, 10, 20, 0.88), rgba(26, 5, 8, 0.92)),
+      linear-gradient(180deg, rgba(107, 30, 40, 0.75), rgba(67, 10, 20, 0.82)),
       url('img/bild-3.jpg') center 20% / cover no-repeat;
   }
-  .lo-stage.state-4a .lo-word,
-  .lo-stage.state-4a .lo-sub {
+
+  /* Alle States: Text mittig in Cream mit sanftem Shadow */
+  .lo-stage.state-1a .lo-word, .lo-stage.state-1a .lo-sub,
+  .lo-stage.state-2a .lo-word, .lo-stage.state-2a .lo-sub,
+  .lo-stage.state-3a .lo-word, .lo-stage.state-3a .lo-sub,
+  .lo-stage.state-4a .lo-word, .lo-stage.state-4a .lo-sub {
     color: #FBF2ED;
-    text-shadow: 0 2px 30px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.85);
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
   }
 
   /* Legacy .lo-slide (nur noch für Choice-Sektion) */
