@@ -1069,12 +1069,12 @@
     overflow: hidden;
     padding: 0;
   }
-  /* Mond-Wrapper: fixed-zentriert im Viewport, füllt fast komplette Höhe */
-  .lo-stage.state-2a::before,
-  .lo-stage.state-2b::before {
+  /* Mond: sehr transparent hinter dem Text — nur Backdrop-Atmosphäre */
+  .lo-stage.state-2a::before {
     content: "";
     position: fixed;
     top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
     width: min(88vh, 88vw);
     height: min(88vh, 88vw);
     border-radius: 50%;
@@ -1084,16 +1084,15 @@
       inset -40px -60px 130px rgba(20, 10, 5, 0.6),
       inset 25px 35px 90px rgba(255, 240, 210, 0.18);
     z-index: 0;
-    opacity: 0.92;
-    animation: moonBreath 12s ease-in-out infinite;
-    transform-origin: center;
+    opacity: 0.42;
+    pointer-events: none;
   }
-  /* Krater-Layer über dem Mond */
-  .lo-stage.state-2a::after,
-  .lo-stage.state-2b::after {
+  /* Krater — noch subtiler */
+  .lo-stage.state-2a::after {
     content: "";
     position: fixed;
     top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
     width: min(88vh, 88vw);
     height: min(88vh, 88vw);
     border-radius: 50%;
@@ -1104,55 +1103,43 @@
       radial-gradient(circle at 70% 68%, rgba(50, 35, 20, 0.2) 0.6%, transparent 2%);
     pointer-events: none;
     z-index: 1;
-    opacity: 0.65;
-    animation: moonBreathCraters 12s ease-in-out infinite;
-    transform-origin: center;
+    opacity: 0.28;
   }
-  @keyframes moonBreath {
-    0%, 100% { opacity: 0.88; transform: translate(-50%, -50%) scale(1); }
-    50%      { opacity: 1;    transform: translate(-50%, -50%) scale(1.015); }
-  }
-  @keyframes moonBreathCraters {
-    0%, 100% { opacity: 0.55; transform: translate(-50%, -50%) scale(1); }
-    50%      { opacity: 0.72; transform: translate(-50%, -50%) scale(1.015); }
-  }
-  .lo-stage.state-2a .lo-wordstack,
-  .lo-stage.state-2b .lo-wordstack {
+  .lo-stage.state-2a .lo-wordstack {
     position: relative;
-    z-index: 2;
+    z-index: 10;
   }
   .lo-stage.state-2a .lo-word,
-  .lo-stage.state-2a .lo-sub { color: #FBF2ED; text-shadow: 0 2px 24px rgba(0,0,0,0.85), 0 0 8px rgba(0,0,0,0.8); }
-  .lo-stage.state-2b .lo-word,
-  .lo-stage.state-2b .lo-sub { color: #C5A46D; text-shadow: 0 2px 24px rgba(0,0,0,0.85), 0 0 8px rgba(0,0,0,0.8); }
+  .lo-stage.state-2a .lo-sub {
+    color: #FBF2ED;
+    text-shadow: 0 2px 30px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.85);
+  }
 
-  /* ZU SPÄT — große Uhr mittig, Zifferblatt statisch, Zeiger langsam drehend */
-  .lo-stage.state-3a,
-  .lo-stage.state-3b {
+  /* ZU SPÄT — Uhr transparent hinter dem Text */
+  .lo-stage.state-3a {
     background: #1a0508 radial-gradient(ellipse at center, rgba(197, 60, 30, 0.22) 0%, transparent 55%) center/cover no-repeat;
     position: relative;
     overflow: hidden;
     padding: 0;
   }
-  /* Zifferblatt (Ring + 12 Stundenmarkierungen) — fixed-zentriert im Viewport */
-  .lo-stage.state-3a::before,
-  .lo-stage.state-3b::before {
+  /* Zifferblatt (Ring + 12 Stundenmarkierungen) */
+  .lo-stage.state-3a::before {
     content: "";
     position: fixed;
     top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
     width: min(88vh, 88vw);
     height: min(88vh, 88vw);
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='94' fill='none' stroke='%23C5A46D' stroke-width='1.2' opacity='0.65'/><circle cx='100' cy='100' r='84' fill='none' stroke='%23C5A46D' stroke-width='0.6' opacity='0.4'/><g stroke='%23C5A46D' stroke-width='1.8' stroke-linecap='round' opacity='0.6'><line x1='100' y1='8' x2='100' y2='22'/><line x1='192' y1='100' x2='178' y2='100'/><line x1='100' y1='192' x2='100' y2='178'/><line x1='8' y1='100' x2='22' y2='100'/></g><g stroke='%23C5A46D' stroke-width='1' stroke-linecap='round' opacity='0.35'><line x1='150' y1='27' x2='146' y2='34'/><line x1='173' y1='50' x2='166' y2='54'/><line x1='173' y1='150' x2='166' y2='146'/><line x1='150' y1='173' x2='146' y2='166'/><line x1='50' y1='173' x2='54' y2='166'/><line x1='27' y1='150' x2='34' y2='146'/><line x1='27' y1='50' x2='34' y2='54'/><line x1='50' y1='27' x2='54' y2='34'/></g><circle cx='100' cy='100' r='3.5' fill='%23C5A46D' opacity='0.9'/></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='94' fill='none' stroke='%23C5A46D' stroke-width='1.2' opacity='0.65'/><circle cx='100' cy='100' r='84' fill='none' stroke='%23C5A46D' stroke-width='0.6' opacity='0.4'/><g stroke='%23C5A46D' stroke-width='1.8' stroke-linecap='round' opacity='0.6'><line x1='100' y1='8' x2='100' y2='22'/><line x1='192' y1='100' x2='178' y2='100'/><line x1='100' y1='192' x2='100' y2='178'/><line x1='8' y1='100' x2='22' y2='100'/></g><g stroke='%23C5A46D' stroke-width='1' stroke-linecap='round' opacity='0.35'><line x1='150' y1='27' x2='146' y2='34'/><line x1='173' y1='50' x2='166' y2='54'/><line x1='173' y1='150' x2='166' y2='146'/><line x1='150' y1='173' x2='166' y2='146'/><line x1='50' y1='173' x2='54' y2='166'/><line x1='27' y1='150' x2='34' y2='146'/><line x1='27' y1='50' x2='34' y2='54'/><line x1='50' y1='27' x2='54' y2='34'/></g><circle cx='100' cy='100' r='3.5' fill='%23C5A46D' opacity='0.9'/></svg>");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
     z-index: 0;
-    animation: clockPulse 12s ease-in-out infinite;
-    transform-origin: center;
+    opacity: 0.4;
+    pointer-events: none;
   }
-  /* Zeiger — langsame Drehung, dass die Uhr lebt (60s pro voller Runde) */
-  .lo-stage.state-3a::after,
-  .lo-stage.state-3b::after {
+  /* Zeiger — langsame Drehung ohne Puls, dreht sich in eigenem Wrapper */
+  .lo-stage.state-3a::after {
     content: "";
     position: fixed;
     top: 50%; left: 50%;
@@ -1163,27 +1150,24 @@
     background-size: contain;
     background-position: center;
     z-index: 1;
-    animation: clockSpin 60s linear infinite;
+    opacity: 0.35;
+    animation: clockSpin 90s linear infinite;
     transform-origin: center;
     pointer-events: none;
-  }
-  @keyframes clockPulse {
-    0%, 100% { opacity: 0.9; transform: translate(-50%, -50%) scale(1); }
-    50%      { opacity: 1;   transform: translate(-50%, -50%) scale(1.015); }
   }
   @keyframes clockSpin {
     from { transform: translate(-50%, -50%) rotate(0deg); }
     to   { transform: translate(-50%, -50%) rotate(360deg); }
   }
-  .lo-stage.state-3a .lo-wordstack,
-  .lo-stage.state-3b .lo-wordstack {
+  .lo-stage.state-3a .lo-wordstack {
     position: relative;
-    z-index: 2;
+    z-index: 10;
   }
   .lo-stage.state-3a .lo-word,
-  .lo-stage.state-3a .lo-sub { color: #ff9c6d; text-shadow: 0 2px 24px rgba(0,0,0,0.85), 0 0 8px rgba(0,0,0,0.8); }
-  .lo-stage.state-3b .lo-word,
-  .lo-stage.state-3b .lo-sub { color: #C5A46D; text-shadow: 0 2px 24px rgba(0,0,0,0.85), 0 0 8px rgba(0,0,0,0.8); }
+  .lo-stage.state-3a .lo-sub {
+    color: #ffb590;
+    text-shadow: 0 2px 30px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.85);
+  }
 
   /* DEIN TIMING — Julia-Portrait, mystisch getönt */
   .lo-stage.state-4a,
@@ -1658,6 +1642,7 @@
     <span class="dot"></span>
     <span class="dot"></span>
     <span class="dot"></span>
+    <span class="dot"></span>
   </div>
 
   <!-- STAGE-WRAP: zwei Stages können gleichzeitig existieren (Cross-Slide) -->
@@ -1742,20 +1727,16 @@
   var timer;
   var current = 0;
 
-  // 6 States: pro Wort 2 (a = schwarz+farbig, b = farbig+schwarz)
+  // 4 Wörter, ein State pro Wort — kein Invert-Blinken mehr, nur Cross-Fade zwischen Wörtern
   var STATES = [
-    { cls: 'state-1a', kicker: 'N°01', word: 'Glut.',           sub: 'Deine Marke glüht noch.' },
-    { cls: 'state-1b', kicker: 'N°01', word: 'Glut.',           sub: 'Deine Marke glüht noch.' },
-    { cls: 'state-2a', kicker: 'N°02', word: 'Punkt.',          sub: 'Nur wer ihn trifft, wird gesehen.' },
-    { cls: 'state-2b', kicker: 'N°02', word: 'Punkt.',          sub: 'Nur wer ihn trifft, wird gesehen.' },
-    { cls: 'state-3a', kicker: 'N°03', word: 'Zu spät.',        sub: 'Wenn du zögerst, greift die Konkurrenz zu.' },
-    { cls: 'state-3b', kicker: 'N°03', word: 'Zu spät.',        sub: 'Wenn du zögerst, greift die Konkurrenz zu.' },
-    { cls: 'state-4a', kicker: 'N°04', word: 'Dein Timing.',    sub: 'Entscheidet alles.' },
-    { cls: 'state-4b', kicker: 'N°04', word: 'Dein Timing.',    sub: 'Entscheidet alles.' }
+    { cls: 'state-1a', kicker: 'N°01', word: 'Glut.',        sub: 'Deine Marke glüht noch.' },
+    { cls: 'state-2a', kicker: 'N°02', word: 'Punkt.',       sub: 'Nur wer ihn trifft, wird gesehen.' },
+    { cls: 'state-3a', kicker: 'N°03', word: 'Zu spät.',     sub: 'Wenn du zögerst, greift die Konkurrenz zu.' },
+    { cls: 'state-4a', kicker: 'N°04', word: 'Dein Timing.', sub: 'Entscheidet alles.' }
   ];
   var TOTAL_STATES = STATES.length;
-  var SLIDE_MS = 1800; // pro State — genug Raum für sanften Cross-Fade
-  var FADE_MS = 700;   // Bühnen-Crossfade bei Wortwechsel
+  var SLIDE_MS = 2800; // jedes Wort bekommt Zeit zum Wirken
+  var FADE_MS = 900;   // sanfter Cross-Fade zwischen Wörtern
 
   document.documentElement.classList.add('overlay-open');
   document.body.classList.add('overlay-open');
@@ -1812,10 +1793,9 @@
       currentStage.querySelector('.kicker').textContent = s.kicker;
     }
 
-    // Progress-Dots
-    var wordIdx = Math.floor(idx / 2);
+    // Progress-Dots: dot i wird "done" wenn Wort i+1 aktiv ist
     dots.forEach(function (d, i) {
-      d.classList.toggle('done', i < wordIdx);
+      d.classList.toggle('done', i <= idx);
     });
   }
 

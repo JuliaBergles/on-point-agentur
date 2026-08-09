@@ -226,14 +226,39 @@
     padding: 30px 0;
     perspective: 1400px;
   }
+  /* Horizontal scrollbar auf Handy — swipen zwischen Videos */
+  @media (max-width: 700px) {
+    .phone-stack {
+      overflow-x: auto;
+      overflow-y: hidden;
+      justify-content: flex-start;
+      padding: 20px 24px 30px;
+      gap: 16px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .phone-stack::-webkit-scrollbar { display: none; }
+    .phone-stack::before,
+    .phone-stack::after {
+      content: "";
+      flex: 0 0 12vw;
+    }
+  }
   .phone {
     position: relative;
     transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     animation: phoneFloat 8s ease-in-out infinite;
   }
+  @media (max-width: 700px) {
+    .phone { scroll-snap-align: center; animation: none; flex-shrink: 0; }
+  }
   .phone-1 { transform: rotateY(8deg) rotateZ(-6deg) translateY(20px); animation-delay: 0s; }
   .phone-2 { transform: rotateY(0deg) rotateZ(0deg) translateY(-14px); z-index: 3; animation-delay: -2.6s; }
   .phone-3 { transform: rotateY(-8deg) rotateZ(6deg) translateY(20px); animation-delay: -5.3s; }
+  @media (max-width: 700px) {
+    .phone-1, .phone-2, .phone-3 { transform: none; }
+  }
   .phone:hover { transform: rotateY(0deg) rotateZ(0deg) translateY(-24px) scale(1.06); z-index: 5; animation-play-state: paused; }
   @keyframes phoneFloat {
     0%, 100% { translate: 0 0; }
@@ -384,21 +409,21 @@
       <div class="phone phone-1">
         <div class="phone-frame">
           <div class="phone-screen">
-            <video src="img/videografie/copy_0CF5C65C-10C3-42CC-858E-279212BE985C.mp4" autoplay muted loop playsinline preload="metadata"></video>
+            <video src="img/videografie/copy_0CF5C65C-10C3-42CC-858E-279212BE985C.mp4" controls autoplay muted loop playsinline preload="metadata"></video>
           </div>
         </div>
       </div>
       <div class="phone phone-2">
         <div class="phone-frame">
           <div class="phone-screen">
-            <video src="img/videografie/copy_2956F52A-A640-46F4-ACAE-598D93CDCCCB.mp4" autoplay muted loop playsinline preload="metadata"></video>
+            <video src="img/videografie/copy_2956F52A-A640-46F4-ACAE-598D93CDCCCB.mp4" controls autoplay muted loop playsinline preload="metadata"></video>
           </div>
         </div>
       </div>
       <div class="phone phone-3">
         <div class="phone-frame">
           <div class="phone-screen">
-            <video src="img/videografie/copy_A4222132-1370-4988-8C16-D82A93A41FAE.mp4" autoplay muted loop playsinline preload="metadata"></video>
+            <video src="img/videografie/copy_A4222132-1370-4988-8C16-D82A93A41FAE.mp4" controls autoplay muted loop playsinline preload="metadata"></video>
           </div>
         </div>
       </div>
