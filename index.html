@@ -1059,43 +1059,47 @@
   .lo-stage.state-2a,
   .lo-stage.state-2b {
     background:
-      radial-gradient(ellipse at 15% 20%, rgba(197, 164, 109, 0.08), transparent 40%),
-      radial-gradient(ellipse at 85% 80%, rgba(197, 164, 109, 0.06), transparent 45%),
+      radial-gradient(circle at 50% 50%, rgba(255, 220, 170, 0.18) 0%, rgba(255, 220, 170, 0.08) 25%, rgba(197, 164, 109, 0.05) 45%, transparent 65%),
       radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.03) 0.5px, transparent 1px),
       radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.04) 0.5px, transparent 1px),
       radial-gradient(circle at 60% 85%, rgba(255, 255, 255, 0.03) 0.5px, transparent 1px),
       #0a0510;
-    background-size: auto, auto, 400px 300px, 500px 400px, 600px 500px, auto;
+    background-size: auto, 400px 300px, 500px 400px, 600px 500px, auto;
     position: relative;
     overflow: hidden;
+    padding: 0;
   }
+  /* Mond-Wrapper: fixed-zentriert im Viewport, füllt fast komplette Höhe */
   .lo-stage.state-2a::before,
   .lo-stage.state-2b::before {
     content: "";
-    position: absolute;
-    top: 50%; left: 50%;
-    width: min(78vmin, 82vh);
-    height: min(78vmin, 82vh);
+    position: fixed;
+    top: 50vh; left: 50vw;
+    margin-top: min(-46vh, -46vw);
+    margin-left: min(-46vh, -46vw);
+    width: min(92vh, 92vw);
+    height: min(92vh, 92vw);
     border-radius: 50%;
     background:
       radial-gradient(circle at 38% 32%, #f8ecd6 0%, #e0c9a3 30%, #b19878 65%, #6b5a3d 90%, #3a2f1e 100%);
     box-shadow:
       inset -40px -60px 130px rgba(20, 10, 5, 0.6),
-      inset 25px 35px 90px rgba(255, 240, 210, 0.18),
-      0 0 180px rgba(255, 220, 170, 0.35),
-      0 0 320px rgba(197, 164, 109, 0.2);
+      inset 25px 35px 90px rgba(255, 240, 210, 0.18);
     z-index: 0;
-    opacity: 0.9;
+    opacity: 0.92;
     animation: moonBreath 12s ease-in-out infinite;
     transform-origin: center;
   }
+  /* Krater-Layer über dem Mond */
   .lo-stage.state-2a::after,
   .lo-stage.state-2b::after {
     content: "";
-    position: absolute;
-    top: 50%; left: 50%;
-    width: min(78vmin, 82vh);
-    height: min(78vmin, 82vh);
+    position: fixed;
+    top: 50vh; left: 50vw;
+    margin-top: min(-46vh, -46vw);
+    margin-left: min(-46vh, -46vw);
+    width: min(92vh, 92vw);
+    height: min(92vh, 92vw);
     border-radius: 50%;
     background:
       radial-gradient(circle at 25% 30%, rgba(50, 35, 20, 0.35) 1%, transparent 3%),
@@ -1103,18 +1107,18 @@
       radial-gradient(circle at 45% 65%, rgba(50, 35, 20, 0.3) 0.8%, transparent 2.5%),
       radial-gradient(circle at 70% 68%, rgba(50, 35, 20, 0.2) 0.6%, transparent 2%);
     pointer-events: none;
-    z-index: 0;
-    opacity: 0.7;
+    z-index: 1;
+    opacity: 0.65;
     animation: moonBreathCraters 12s ease-in-out infinite;
     transform-origin: center;
   }
   @keyframes moonBreath {
-    0%, 100% { opacity: 0.82; transform: translate(-50%, -50%) scale(1); }
-    50%      { opacity: 0.96; transform: translate(-50%, -50%) scale(1.02); }
+    0%, 100% { opacity: 0.88; transform: scale(1); }
+    50%      { opacity: 1;    transform: scale(1.015); }
   }
   @keyframes moonBreathCraters {
-    0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
-    50%      { opacity: 0.78; transform: translate(-50%, -50%) scale(1.02); }
+    0%, 100% { opacity: 0.55; transform: scale(1); }
+    50%      { opacity: 0.72; transform: scale(1.015); }
   }
   .lo-stage.state-2a .lo-wordstack,
   .lo-stage.state-2b .lo-wordstack {
@@ -1132,16 +1136,18 @@
     background: #1a0508 radial-gradient(ellipse at center, rgba(197, 60, 30, 0.22) 0%, transparent 55%) center/cover no-repeat;
     position: relative;
     overflow: hidden;
+    padding: 0;
   }
-  /* Zifferblatt (Ring + 12 Stundenmarkierungen) */
+  /* Zifferblatt (Ring + 12 Stundenmarkierungen) — fixed-zentriert im Viewport */
   .lo-stage.state-3a::before,
   .lo-stage.state-3b::before {
     content: "";
-    position: absolute;
-    top: 50%; left: 50%;
-    width: min(78vmin, 82vh);
-    height: min(78vmin, 82vh);
-    transform: translate(-50%, -50%);
+    position: fixed;
+    top: 50vh; left: 50vw;
+    margin-top: min(-46vh, -46vw);
+    margin-left: min(-46vh, -46vw);
+    width: min(92vh, 92vw);
+    height: min(92vh, 92vw);
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='94' fill='none' stroke='%23C5A46D' stroke-width='1.2' opacity='0.65'/><circle cx='100' cy='100' r='84' fill='none' stroke='%23C5A46D' stroke-width='0.6' opacity='0.4'/><g stroke='%23C5A46D' stroke-width='1.8' stroke-linecap='round' opacity='0.6'><line x1='100' y1='8' x2='100' y2='22'/><line x1='192' y1='100' x2='178' y2='100'/><line x1='100' y1='192' x2='100' y2='178'/><line x1='8' y1='100' x2='22' y2='100'/></g><g stroke='%23C5A46D' stroke-width='1' stroke-linecap='round' opacity='0.35'><line x1='150' y1='27' x2='146' y2='34'/><line x1='173' y1='50' x2='166' y2='54'/><line x1='173' y1='150' x2='166' y2='146'/><line x1='150' y1='173' x2='146' y2='166'/><line x1='50' y1='173' x2='54' y2='166'/><line x1='27' y1='150' x2='34' y2='146'/><line x1='27' y1='50' x2='34' y2='54'/><line x1='50' y1='27' x2='54' y2='34'/></g><circle cx='100' cy='100' r='3.5' fill='%23C5A46D' opacity='0.9'/></svg>");
     background-repeat: no-repeat;
     background-size: contain;
@@ -1154,27 +1160,28 @@
   .lo-stage.state-3a::after,
   .lo-stage.state-3b::after {
     content: "";
-    position: absolute;
-    top: 50%; left: 50%;
-    width: min(78vmin, 82vh);
-    height: min(78vmin, 82vh);
-    transform: translate(-50%, -50%);
+    position: fixed;
+    top: 50vh; left: 50vw;
+    margin-top: min(-46vh, -46vw);
+    margin-left: min(-46vh, -46vw);
+    width: min(92vh, 92vw);
+    height: min(92vh, 92vw);
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><g stroke='%23C5A46D' stroke-width='2.5' stroke-linecap='round' opacity='0.9'><line x1='100' y1='100' x2='100' y2='35'/><line x1='100' y1='100' x2='155' y2='100'/></g></svg>");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    z-index: 0;
+    z-index: 1;
     animation: clockSpin 60s linear infinite;
     transform-origin: center;
     pointer-events: none;
   }
   @keyframes clockPulse {
-    0%, 100% { opacity: 0.85; transform: translate(-50%, -50%) scale(1); }
-    50%      { opacity: 1;    transform: translate(-50%, -50%) scale(1.015); }
+    0%, 100% { opacity: 0.9; transform: scale(1); }
+    50%      { opacity: 1;   transform: scale(1.015); }
   }
   @keyframes clockSpin {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to   { transform: translate(-50%, -50%) rotate(360deg); }
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
   }
   .lo-stage.state-3a .lo-wordstack,
   .lo-stage.state-3b .lo-wordstack {
