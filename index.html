@@ -1086,18 +1086,18 @@
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: min(65vmin, 60vh);
-    height: min(65vmin, 60vh);
+    width: min(90vmin, 92vh);
+    height: min(90vmin, 92vh);
     border-radius: 50%;
     background:
       radial-gradient(circle at 38% 32%, #f8ecd6 0%, #e0c9a3 30%, #b19878 65%, #6b5a3d 90%, #3a2f1e 100%);
     box-shadow:
-      inset -30px -40px 90px rgba(20, 10, 5, 0.55),
-      inset 20px 25px 60px rgba(255, 240, 210, 0.15),
-      0 0 120px rgba(255, 220, 170, 0.28),
-      0 0 240px rgba(197, 164, 109, 0.14);
+      inset -40px -60px 130px rgba(20, 10, 5, 0.6),
+      inset 25px 35px 90px rgba(255, 240, 210, 0.18),
+      0 0 180px rgba(255, 220, 170, 0.35),
+      0 0 320px rgba(197, 164, 109, 0.2);
     z-index: 0;
-    opacity: 0.88;
+    opacity: 0.9;
     animation: moonBreath 10s ease-in-out infinite;
   }
   .lo-stage.state-2a::after,
@@ -1106,8 +1106,8 @@
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: min(65vmin, 60vh);
-    height: min(65vmin, 60vh);
+    width: min(90vmin, 92vh);
+    height: min(90vmin, 92vh);
     border-radius: 50%;
     background:
       radial-gradient(circle at 25% 30%, rgba(50, 35, 20, 0.35) 1%, transparent 3%),
@@ -1132,15 +1132,15 @@
   .lo-stage.state-2b .lo-word,
   .lo-stage.state-2b .lo-sub { color: #C5A46D; text-shadow: 0 2px 24px rgba(0,0,0,0.85), 0 0 8px rgba(0,0,0,0.8); }
 
-  /* ZU SPÄT — Uhr als Silhouette dahinter */
+  /* ZU SPÄT — große Uhr mittig als Bild-Element */
   .lo-stage.state-3a,
   .lo-stage.state-3b {
     background: #1a0508;
     background-image:
-      radial-gradient(ellipse at center, rgba(197, 60, 30, 0.18) 0%, transparent 55%),
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='90' fill='none' stroke='%23C5A46D' stroke-width='1' opacity='0.55'/><circle cx='100' cy='100' r='80' fill='none' stroke='%23C5A46D' stroke-width='0.5' opacity='0.35'/><g stroke='%23C5A46D' stroke-width='2' stroke-linecap='round' opacity='0.85'><line x1='100' y1='100' x2='100' y2='40'/><line x1='100' y1='100' x2='150' y2='100'/></g><circle cx='100' cy='100' r='3' fill='%23C5A46D' opacity='0.85'/><g stroke='%23C5A46D' stroke-width='1.5' stroke-linecap='round' opacity='0.5'><line x1='100' y1='10' x2='100' y2='22'/><line x1='190' y1='100' x2='178' y2='100'/><line x1='100' y1='190' x2='100' y2='178'/><line x1='10' y1='100' x2='22' y2='100'/></g></svg>");
-    background-size: cover, min(60vh, 60vw);
-    background-position: center, center 30%;
+      radial-gradient(ellipse at center, rgba(197, 60, 30, 0.22) 0%, transparent 55%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='94' fill='none' stroke='%23C5A46D' stroke-width='1.2' opacity='0.65'/><circle cx='100' cy='100' r='84' fill='none' stroke='%23C5A46D' stroke-width='0.6' opacity='0.4'/><g stroke='%23C5A46D' stroke-width='2.5' stroke-linecap='round' opacity='0.9'><line x1='100' y1='100' x2='100' y2='35'/><line x1='100' y1='100' x2='155' y2='100'/></g><circle cx='100' cy='100' r='3.5' fill='%23C5A46D' opacity='0.9'/><g stroke='%23C5A46D' stroke-width='1.8' stroke-linecap='round' opacity='0.6'><line x1='100' y1='8' x2='100' y2='22'/><line x1='192' y1='100' x2='178' y2='100'/><line x1='100' y1='192' x2='100' y2='178'/><line x1='8' y1='100' x2='22' y2='100'/></g><g stroke='%23C5A46D' stroke-width='1' stroke-linecap='round' opacity='0.35'><line x1='150' y1='27' x2='146' y2='34'/><line x1='173' y1='50' x2='166' y2='54'/><line x1='173' y1='150' x2='166' y2='146'/><line x1='150' y1='173' x2='146' y2='166'/><line x1='50' y1='173' x2='54' y2='166'/><line x1='27' y1='150' x2='34' y2='146'/><line x1='27' y1='50' x2='34' y2='54'/><line x1='50' y1='27' x2='54' y2='34'/></g></svg>");
+    background-size: cover, min(88vmin, 90vh);
+    background-position: center, center center;
     background-repeat: no-repeat, no-repeat;
     position: relative;
   }
