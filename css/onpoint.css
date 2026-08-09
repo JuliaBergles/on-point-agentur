@@ -10,6 +10,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap');
 
 /* Body-Schrift: Quicksand überall — Überschriften behalten Playfair/Rubik */
 body, p, li, blockquote, cite, small, label, input, textarea, select, button,
@@ -67,10 +68,10 @@ img, video { max-width: 100%; display: block; }
 @media (max-width: 700px) { .container { padding: 0 24px; } }
 
 h1, h2, h3, h4 {
-  font-family: 'Rubik', 'Space Grotesk', 'Object Sans', sans-serif !important;
+  font-family: 'Nunito', 'Rubik', 'Space Grotesk', sans-serif !important;
   font-weight: 900 !important;
-  letter-spacing: -0.025em;
-  line-height: 1.05;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
   color: var(--ink);
   text-transform: none;
 }
