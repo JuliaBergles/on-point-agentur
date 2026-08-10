@@ -208,21 +208,56 @@
   .k-cta {
     padding: 100px 32px;
     background: var(--bg-warm);
-    text-align: center;
+  }
+  .k-cta-split {
+    max-width: 1100px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 40px;
+    align-items: stretch;
+  }
+  @media (max-width: 900px) {
+    .k-cta-split { grid-template-columns: 1fr; gap: 24px; }
   }
   .k-cta-card {
-    max-width: 720px; margin: 0 auto;
     background: linear-gradient(160deg, #fffcf9 0%, #efe3da 100%);
     border: 1px solid rgba(42, 42, 42, 0.1);
     border-radius: 12px;
-    padding: 60px 40px;
+    padding: 60px 44px;
     box-shadow: 0 20px 40px rgba(45, 31, 34, 0.06);
+    display: flex; flex-direction: column; justify-content: center;
   }
   .k-cta-card h2 { margin: 0 0 14px; }
   .k-cta-card p {
     font-family: 'Quicksand', sans-serif; font-weight: 500;
     font-size: 16px; color: var(--ink-soft);
     line-height: 1.6; margin: 0 0 30px;
+  }
+  .k-cta-photo {
+    position: relative;
+    aspect-ratio: 4/5;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(45, 31, 34, 0.16);
+  }
+  @media (max-width: 900px) { .k-cta-photo { aspect-ratio: 16/10; } }
+  .k-cta-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .k-cta-photo .over {
+    position: absolute; bottom: 20px; left: 20px; right: 20px;
+    padding: 14px 18px;
+    background: rgba(251, 242, 237, 0.94);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px; font-weight: 700;
+    color: var(--oxblood);
+    line-height: 1.5;
+  }
+  .k-cta-photo .over .small {
+    display: block;
+    font-size: 10px; letter-spacing: 0.28em;
+    color: var(--muted); font-weight: 600;
+    margin-bottom: 4px;
   }
 </style>
 </head>
@@ -411,17 +446,26 @@
 
 <!-- CTA -->
 <section class="k-cta" id="kontakt">
-  <div class="k-cta-card reveal">
-    <span class="k-eyebrow">Jetzt anfragen</span>
-    <h2 class="k-h2">Interesse an einem <em>Werk</em>?</h2>
-    <p>
-      Manche Werke sind noch verfügbar, andere entstehen auf Auftrag.<br>
-      Schreiben Sie mir kurz was Sie anspricht — ich melde mich mit Details.
-    </p>
-    <a href="mailto:julia@juliabergles-agentur.de?subject=Kunstwerk%20anfragen&body=Hallo%20Julia%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20ein%20Kunstwerk.%0A%0AGr%C3%B6%C3%9Fe%20der%20Leinwand%20%2F%20des%20Papiers%3A%20%0ATechnik%20(Acryl%20%2F%20Aquarell%20%2F%20Modellieren)%3A%20%0AStil%20(abstrakt%20%2F%20Aquarell-Detail)%3A%20%0AFarbgebung%20(gew%C3%BCnschte%20Farben%20%2F%20Stimmung)%3A%20%0AReferenzbild%20(gerne%20anh%C3%A4ngen%2C%20wie%20es%20im%20Stil%20sein%20soll)%3A%20%0AMit%20oder%20ohne%20Rahmen%3F%3A%20%0AZeitrahmen%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe" class="btn-red">Jetzt anfragen</a>
-    <p style="font-family: 'Quicksand', sans-serif; font-size: 13px; color: var(--muted); margin-top: 18px; line-height: 1.5;">
-      Referenzbild können Sie direkt an die Mail anhängen.
-    </p>
+  <div class="k-cta-split">
+    <div class="k-cta-card reveal">
+      <span class="k-eyebrow">Jetzt anfragen</span>
+      <h2 class="k-h2">Interesse an einem <em>Werk</em>?</h2>
+      <p>
+        Manche Werke sind noch verfügbar, andere entstehen auf Auftrag.<br>
+        Schreiben Sie mir kurz was Sie anspricht — ich melde mich mit Details.
+      </p>
+      <a href="mailto:julia@juliabergles-agentur.de?subject=Kunstwerk%20anfragen&body=Hallo%20Julia%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20ein%20Kunstwerk.%0A%0AGr%C3%B6%C3%9Fe%20der%20Leinwand%20%2F%20des%20Papiers%3A%20%0ATechnik%20(Acryl%20%2F%20Aquarell%20%2F%20Modellieren)%3A%20%0AStil%20(abstrakt%20%2F%20Aquarell-Detail)%3A%20%0AFarbgebung%20(gew%C3%BCnschte%20Farben%20%2F%20Stimmung)%3A%20%0AReferenzbild%20(gerne%20anh%C3%A4ngen%2C%20wie%20es%20im%20Stil%20sein%20soll)%3A%20%0AMit%20oder%20ohne%20Rahmen%3F%3A%20%0AZeitrahmen%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe" class="btn-red">Jetzt anfragen</a>
+      <p style="font-family: 'Quicksand', sans-serif; font-size: 13px; color: var(--muted); margin-top: 18px; line-height: 1.5;">
+        Referenzbild können Sie direkt an die Mail anhängen.
+      </p>
+    </div>
+    <div class="k-cta-photo reveal d1">
+      <img src="img/portraits/julia-4.jpeg" alt="Julia Bergles vor einem ihrer Werke">
+      <div class="over">
+        <span class="small">Julia · Malerei &amp; Design</span>
+        Ich antworte innerhalb 48 Stunden mit Skizze-Vorschlag und Preisrahmen.
+      </div>
+    </div>
   </div>
 </section>
 

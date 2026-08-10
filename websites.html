@@ -61,33 +61,43 @@
     color: var(--ink-soft);
   }
 
-  /* Zeitleiste — Desktop horizontal */
+  /* Zeitleiste — hell mit Nummern ÜBER den Bubbles, Schimmer-Effekt */
   .prozess-track {
     position: relative;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 16px;
-    padding-top: 60px;
+    padding-top: 70px;
   }
-  /* Grundlinie hinter allen Steps */
+  /* Nummern-Reihe oben — schweben über den Bubbles */
   .prozess-track::before {
     content: "";
     position: absolute;
-    top: 90px; left: 6%; right: 6%;
+    top: 128px; left: 6%; right: 6%;
     height: 2px;
-    background: rgba(74, 20, 24, 0.15);
+    background: rgba(74, 20, 24, 0.12);
     z-index: 0;
   }
-  /* Animierter Fortschritt — von 0 % auf 100 % beim Scroll */
+  /* Animierter Fortschritt mit Shimmer-Gradient */
   .prozess-track::after {
     content: "";
     position: absolute;
-    top: 90px; left: 6%;
+    top: 128px; left: 6%;
     height: 2px;
-    background: linear-gradient(90deg, var(--oxblood), var(--gold));
+    background: linear-gradient(90deg,
+      var(--oxblood) 0%,
+      #c48b6c 40%,
+      #E8C4A8 60%,
+      var(--oxblood) 100%);
+    background-size: 200% 100%;
     width: 0%;
     transition: width 2.5s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 1;
+    animation: shimmerLine 6s linear infinite;
+  }
+  @keyframes shimmerLine {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
   }
   .prozess-track.in::after { width: 88%; }
   @media (max-width: 900px) {
@@ -112,27 +122,45 @@
   .prozess-track.in .p-step:nth-child(3) { transition-delay: 0.85s; }
   .prozess-track.in .p-step:nth-child(4) { transition-delay: 1.2s; }
   .prozess-track.in .p-step:nth-child(5) { transition-delay: 1.55s; }
+  /* Große Nummer OBEN */
+  .p-step .num-above {
+    display: block;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: clamp(38px, 4vw, 52px);
+    color: var(--oxblood);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 18px;
+    background: linear-gradient(135deg, var(--oxblood) 0%, #c48b6c 50%, var(--oxblood) 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmerText 8s linear infinite;
+  }
+  @keyframes shimmerText {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  /* Kleiner Dot direkt auf der Linie */
   .p-step .bubble {
     position: relative;
-    width: 62px; height: 62px;
+    width: 20px; height: 20px;
     margin: 0 auto 24px;
     border-radius: 50%;
     background: var(--card);
-    border: 2px solid var(--oxblood);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 900;
-    font-size: 22px;
-    color: var(--oxblood);
-    letter-spacing: -0.02em;
+    border: 3px solid var(--oxblood);
     z-index: 2;
-    box-shadow: 0 8px 22px rgba(74, 20, 24, 0.15);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s, color 0.4s;
+    box-shadow: 0 4px 14px rgba(74, 20, 24, 0.20), 0 0 0 6px rgba(255, 252, 249, 0.9);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s;
   }
   .p-step:hover .bubble {
-    transform: scale(1.08);
+    transform: scale(1.25);
     background: var(--oxblood);
-    color: var(--card);
+  }
+  .p-step:hover .num-above {
+    animation-play-state: paused;
   }
   .p-step h4 {
     font-family: 'Raleway', sans-serif;
@@ -371,27 +399,32 @@
     </div>
     <div class="prozess-track" id="prozessTrack">
       <div class="p-step">
-        <div class="bubble">01</div>
+        <span class="num-above">01</span>
+        <div class="bubble"></div>
         <h4>Konzept</h4>
         <p>Ziele, Zielgruppe, Wettbewerb.<br>Was soll die Website leisten?</p>
       </div>
       <div class="p-step">
-        <div class="bubble">02</div>
+        <span class="num-above">02</span>
+        <div class="bubble"></div>
         <h4>Design</h4>
         <p>Look &amp; Feel, Struktur, Typografie.<br>Klick-Prototyp zur Freigabe.</p>
       </div>
       <div class="p-step">
-        <div class="bubble">03</div>
+        <span class="num-above">03</span>
+        <div class="bubble"></div>
         <h4>Setup</h4>
         <p>Domain, Hosting, Analytics.<br>Alles technisch aufgeräumt.</p>
       </div>
       <div class="p-step">
-        <div class="bubble">04</div>
+        <span class="num-above">04</span>
+        <div class="bubble"></div>
         <h4>Umsetzung</h4>
         <p>Ich baue.<br>Sie geben Feedback in klaren Runden.</p>
       </div>
       <div class="p-step">
-        <div class="bubble">05</div>
+        <span class="num-above">05</span>
+        <div class="bubble"></div>
         <h4>Launch</h4>
         <p>Live gehen, testen, feilen.<br>Danach eine kurze Einweisung für Sie.</p>
       </div>
