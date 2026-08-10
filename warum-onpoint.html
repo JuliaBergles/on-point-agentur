@@ -504,15 +504,25 @@
     flex-shrink: 0; color: #fff;
   }
 
-  /* CTA-Card */
+  /* CTA-Card — mymiapage-Stil: Text links + Julia-Foto rechts */
+  .wo-cta-split {
+    max-width: 1100px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 40px;
+    align-items: stretch;
+  }
+  @media (max-width: 900px) {
+    .wo-cta-split { grid-template-columns: 1fr; gap: 24px; }
+  }
   .wo-cta-card {
-    max-width: 720px; margin: 0 auto;
     background: linear-gradient(160deg, #fffcf9 0%, #efe3da 100%);
     border: 1px solid rgba(42, 42, 42, 0.1);
     border-radius: 12px;
-    padding: 60px 40px;
+    padding: 60px 44px;
     box-shadow: 0 20px 40px rgba(45, 31, 34, 0.06);
-    text-align: center;
+    text-align: left;
+    display: flex; flex-direction: column; justify-content: center;
   }
   .wo-cta-card h2 { margin: 0 0 14px; }
   .wo-cta-card p {
@@ -521,7 +531,34 @@
     line-height: 1.6; margin: 0 0 30px;
   }
   .wo-cta-card .actions {
-    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+    display: flex; gap: 14px; flex-wrap: wrap;
+  }
+  .wo-cta-photo {
+    position: relative;
+    aspect-ratio: 4/5;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(45, 31, 34, 0.16);
+  }
+  @media (max-width: 900px) { .wo-cta-photo { aspect-ratio: 16/10; } }
+  .wo-cta-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .wo-cta-photo .over {
+    position: absolute;
+    bottom: 20px; left: 20px; right: 20px;
+    padding: 14px 18px;
+    background: rgba(251, 242, 237, 0.94);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px; font-weight: 700;
+    color: var(--oxblood);
+    letter-spacing: -0.01em; line-height: 1.5;
+  }
+  .wo-cta-photo .over .small {
+    display: block;
+    font-size: 10px; letter-spacing: 0.28em; text-transform: none;
+    color: var(--muted); font-weight: 600;
+    margin-bottom: 4px;
   }
 </style>
 </head>
@@ -770,17 +807,26 @@
 
 <!-- CTA -->
 <section class="wo-section bg-warm" id="kontakt">
-  <div class="wo-cta-card reveal">
-    <span class="wo-eyebrow">Kennenlernen</span>
-    <h2 class="wo-h2">Reden wir <em>offen zusammen</em>.</h2>
-    <p>
-      30 Minuten Kennenlerngespräch.<br>
-      Kostenlos und unverbindlich.<br>
-      Wir schauen, ob wir zusammenpassen.
-    </p>
-    <div class="actions">
-      <a href="https://calendly.com/julia-bergles/30min" target="_blank" rel="noopener" class="btn-red">Kennenlerngespräch buchen</a>
-      <a href="anfrage.html" class="btn-outline">Angebot anfragen</a>
+  <div class="wo-cta-split">
+    <div class="wo-cta-card reveal">
+      <span class="wo-eyebrow">Kennenlernen</span>
+      <h2 class="wo-h2">Reden wir <em>offen zusammen</em>.</h2>
+      <p>
+        30 Minuten Kennenlerngespräch.<br>
+        Kostenlos und unverbindlich.<br>
+        Wir schauen, ob wir zusammenpassen.
+      </p>
+      <div class="actions">
+        <a href="https://calendly.com/julia-bergles/30min" target="_blank" rel="noopener" class="btn-red">Kennenlerngespräch buchen</a>
+        <a href="anfrage.html" class="btn-outline">Angebot anfragen</a>
+      </div>
+    </div>
+    <div class="wo-cta-photo reveal d1">
+      <img src="img/portraits/julia-6.jpeg" alt="Julia Bergles">
+      <div class="over">
+        <span class="small">Julia · @julia_bergles</span>
+        Ich melde mich innerhalb von 24 Stunden persönlich zurück.
+      </div>
     </div>
   </div>
 </section>
