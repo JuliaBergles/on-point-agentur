@@ -265,6 +265,78 @@
     margin: 0;
   }
 
+  /* JULIA-GALLERIE — Masonry-Grid mit versetzten Größen im mymiapage-Stil */
+  .um-gallery-section { padding: 100px 32px; background: var(--bg); }
+  @media (max-width: 700px) { .um-gallery-section { padding: 70px 20px; } }
+  .um-gallery-head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 50px;
+  }
+  .um-gallery-head h2 { margin: 0 0 18px; }
+  .um-gallery-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-flow: dense;
+    gap: 16px;
+  }
+  @media (max-width: 900px) { .um-gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; } }
+  @media (max-width: 600px) { .um-gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+  .um-g {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-warm);
+    box-shadow: 0 6px 18px rgba(45, 31, 34, 0.08);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s;
+  }
+  .um-g:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(45, 31, 34, 0.16);
+  }
+  .um-g img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .um-g:hover img { transform: scale(1.05); }
+  .um-g.tall { grid-row: span 2; aspect-ratio: 4 / 6.5; }
+  .um-g.wide { grid-column: span 2; aspect-ratio: 16 / 10; }
+  .um-g.square { aspect-ratio: 1 / 1; }
+  @media (max-width: 900px) {
+    .um-g.tall { grid-row: auto; aspect-ratio: 4 / 5; }
+  }
+  @media (max-width: 600px) {
+    .um-g.tall { grid-row: auto; aspect-ratio: 4 / 5; }
+    .um-g.wide { grid-column: span 2; aspect-ratio: 4 / 3; }
+  }
+  /* Transparente Text-Überlagerung auf einem Bild — mymiapage-Signature */
+  .um-g .caption-over {
+    position: absolute;
+    inset: auto 14px 14px 14px;
+    padding: 14px 18px;
+    background: rgba(251, 242, 237, 0.92);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--bordeaux);
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+  }
+  .um-g .caption-over .small {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    text-transform: none;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
   /* CTA — mymiapage-Stil: cream Sektion mit prominenter Bordeaux-Karte */
   .um-cta {
     padding: 100px 32px;
@@ -394,6 +466,52 @@
   </div>
 </section>
 
+<!-- JULIA IM ALLTAG — Masonry-Grid mymiapage-Stil, versetzte Größen -->
+<section class="um-gallery-section">
+  <div class="um-gallery-head reveal">
+    <span class="um-eyebrow">Julia im Alltag</span>
+    <h2 class="um-h2">Wer <em>ich bin</em> — auf Bildern.</h2>
+    <p class="um-lede">
+      Nicht inszeniert.
+      <br>Aus der Praxis, vom Drehtag, aus dem Atelier.
+    </p>
+  </div>
+  <div class="um-gallery-grid">
+    <div class="um-g tall reveal">
+      <img src="img/portraits/julia-5.jpeg" alt="Julia Bergles">
+    </div>
+    <div class="um-g reveal d1">
+      <img src="img/portraits/julia-3.jpeg" alt="Julia Bergles">
+    </div>
+    <div class="um-g square reveal d2">
+      <img src="img/portraits/julia-6.jpeg" alt="Julia Bergles">
+      <div class="caption-over">
+        <span class="small">@julia_bergles</span>
+        1 Mio. Aufrufe / Monat
+      </div>
+    </div>
+    <div class="um-g reveal d1">
+      <img src="img/portraits/julia-7.jpeg" alt="Julia Bergles">
+    </div>
+    <div class="um-g wide reveal d2">
+      <img src="img/portraits/julia-8.jpeg" alt="Julia Bergles">
+      <div class="caption-over">
+        <span class="small">Julia · Augsburg</span>
+        Handwerk, Content, Design — alles aus einer Hand.
+      </div>
+    </div>
+    <div class="um-g tall reveal d1">
+      <img src="img/sprech-julia-kamera.jpg" alt="Julia bei der Kameraarbeit">
+    </div>
+    <div class="um-g reveal d2">
+      <img src="img/portrait-neu-2.jpg" alt="Julia Bergles Portrait">
+    </div>
+    <div class="um-g square reveal d1">
+      <img src="img/bild-3.jpg" alt="Julia Bergles">
+    </div>
+  </div>
+</section>
+
 <!-- WOHER DAS WISSEN KOMMT -->
 <section class="um-section bg-cream">
   <div class="um-section-head reveal">
@@ -413,9 +531,9 @@
         <div>
           <h5>Eigene Reichweite</h5>
           <p>
-            706.000 erreichte Konten und 1,77 Mio. Reel-Aufrufe pro Monat auf @Julia_Bergles.
+            Über 1 Mio. Aufrufe pro Monat auf @Julia_Bergles, 92,7 % Nicht-Follower.
             <br>Ich weiß, was 2026 auf Instagram funktioniert.
-            <br>Weil ich es täglich selbst mache.
+            <br>Weil ich es täglich selbst mache. <a href="reichweite.html" style="color: var(--bordeaux); text-decoration: underline;">Screenshots ansehen</a>.
           </p>
         </div>
       </li>
