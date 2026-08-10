@@ -406,7 +406,7 @@ nav.site-nav ul a.current::after {
   max-width: 900px; margin-left: auto; margin-right: auto;
   line-height: 1;
 }
-.page-hero h1 em { font-style: italic; color: var(--bordeaux); }
+.page-hero h1 em { font-style: italic; color: var(--oxblood); }
 .page-hero .lede {
   font-size: 15px;
   color: var(--muted);
@@ -557,7 +557,7 @@ nav.site-nav ul a.current::after {
   margin-bottom: 16px;
   line-height: 1.05;
 }
-.section-header h2 em { font-style: italic; color: var(--bordeaux); }
+.section-header h2 em { font-style: italic; color: var(--oxblood); }
 .section-dark .section-header h2 em { color: var(--gold); }
 .section-header p { font-size: 15px; color: var(--muted); line-height: 1.6; }
 .section-dark .section-header p { color: rgba(251, 242, 237, 0.7); }
@@ -697,7 +697,7 @@ nav.site-nav ul a.current::after {
 @media (max-width: 700px) { .cta-block .inner { padding: 50px 28px; } }
 .cta-block .mark { width: 60px; height: 2px; background: var(--gold); margin: 0 auto 28px; }
 .cta-block h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 400; margin-bottom: 20px; }
-.cta-block h2 em { font-style: italic; color: var(--bordeaux); }
+.cta-block h2 em { font-style: italic; color: var(--oxblood); }
 .cta-block p { font-size: 16px; color: var(--muted); margin-bottom: 36px; }
 .cta-block .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
