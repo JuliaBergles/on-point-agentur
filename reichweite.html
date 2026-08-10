@@ -199,15 +199,56 @@
     transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* Screenshot-Grid: iPhone-Screenshots als Beweis */
+  /* Screenshot-Gruppen: 3 thematische Blöcke (Übersicht, Content, Zielgruppe) */
+  .ig-groups { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 70px; }
+  .ig-group { }
+  .ig-group-head {
+    display: flex; align-items: baseline; gap: 20px;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line-strong);
+  }
+  .ig-group-num {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: 42px;
+    color: var(--oxblood);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    flex-shrink: 0;
+  }
+  .ig-group-title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: clamp(24px, 3vw, 34px);
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0;
+  }
+  .ig-group-title em { font-style: normal; color: var(--oxblood); }
+  .ig-group-sub {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--muted);
+    margin-left: auto;
+    text-align: right;
+    line-height: 1.5;
+    max-width: 340px;
+  }
+  @media (max-width: 700px) {
+    .ig-group-head { flex-wrap: wrap; gap: 12px; }
+    .ig-group-sub { margin-left: 0; text-align: left; max-width: 100%; }
+  }
+
   .ig-screens {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    max-width: 1200px; margin: 0 auto;
   }
-  @media (max-width: 1000px) { .ig-screens { grid-template-columns: repeat(3, 1fr); } }
-  @media (max-width: 700px) { .ig-screens { grid-template-columns: repeat(2, 1fr); gap: 14px; } }
+  @media (max-width: 800px) { .ig-screens { grid-template-columns: repeat(2, 1fr); gap: 14px; } }
+  @media (max-width: 500px) { .ig-screens { grid-template-columns: 1fr; gap: 14px; } }
   .ig-screen {
     margin: 0;
     background: var(--card);
@@ -398,7 +439,7 @@
   </div>
 </section>
 
-<!-- SCREENSHOTS: verifizierbare Insights direkt aus Instagram -->
+<!-- SCREENSHOTS: verifizierbare Insights direkt aus Instagram — thematisch in 3 Gruppen -->
 <section class="section" style="background: var(--bg);">
   <div class="container">
     <div class="section-header reveal">
@@ -410,15 +451,50 @@
         <br><strong>Stand: 10. August 2026 · Zeitraum: 10. Juli – 8. August.</strong>
       </p>
     </div>
-    <div class="ig-screens">
-      <figure class="ig-screen reveal d1"><img src="img/reichweite/IMG_3467.jpg" alt="Instagram-Profil Julia Bergles: 1.448 Beiträge, 6.070 Follower, 577 Gefolgt"><figcaption>Profil-Snapshot · 6.070 Follower · 1.448 Beiträge · 492 Tsd. Insights-Aufrufe</figcaption></figure>
-      <figure class="ig-screen reveal d2"><img src="img/reichweite/IMG_3461.PNG" alt="Insights Übersicht 30 Tage: 1.020.876 Aufrufe, +484 Netto-Follower, 22,3k Interaktionen"><figcaption>Übersicht 30 Tage · 1.020.876 Aufrufe · 92,7 % Nicht-Follower</figcaption></figure>
-      <figure class="ig-screen reveal d3"><img src="img/reichweite/IMG_3462.PNG" alt="Aufrufe nach Content-Art: 925.946 Reels, 54.510 Stories, 38.116 Beiträge"><figcaption>Content-Art · Reels 925.946 · Stories 54.510 · Beiträge 38.116</figcaption></figure>
-      <figure class="ig-screen reveal d4"><img src="img/reichweite/IMG_3463.PNG" alt="Interaktionen und Profilaktivitäten: 20.571 Reel-Interaktionen, 7.749 Profilaufrufe"><figcaption>Interaktionen · 20.571 auf Reels · 7.749 Profilaufrufe</figcaption></figure>
-      <figure class="ig-screen reveal d1"><img src="img/reichweite/IMG_3464.PNG" alt="Follower-Zuwachs: 6.070 Follower, +8,7 % seit 9. Juli"><figcaption>Follower · 6.070 (+8,7 % seit 9. Juli)</figcaption></figure>
-      <figure class="ig-screen reveal d2"><img src="img/reichweite/IMG_3465.PNG" alt="Zielgruppe Geschlecht und Alter: 73,7 % Frauen, 25-34 dominant"><figcaption>Zielgruppe · 73,7 % Frauen · 25–34 dominant (34,7 %)</figcaption></figure>
-      <figure class="ig-screen reveal d3"><img src="img/reichweite/IMG_3466.PNG" alt="Top-Standorte: Deutschland 85,4 %, Österreich 7,6 %, Schweiz 3,4 %"><figcaption>Standorte · DE 85,4 % · AT 7,6 % · CH 3,4 %</figcaption></figure>
-      <figure class="ig-screen reveal d4"><img src="img/reichweite/IMG_3460.PNG" alt="Professional Dashboard: 991.423 Aufrufe, 661 Neue Follower, 191 Inhalte geteilt"><figcaption>Dashboard · 991.423 Aufrufe · 661 neue Follower · 191 Posts</figcaption></figure>
+
+    <div class="ig-groups">
+
+      <!-- Gruppe 1: Übersicht — Profil + Gesamtzahlen -->
+      <div class="ig-group reveal">
+        <div class="ig-group-head">
+          <span class="ig-group-num">01</span>
+          <h3 class="ig-group-title">Die <em>Übersicht</em>.</h3>
+          <span class="ig-group-sub">Wer ich bin, was in 30 Tagen zusammenkam.</span>
+        </div>
+        <div class="ig-screens">
+          <figure class="ig-screen"><img src="img/reichweite/IMG_3467.jpg" alt="Instagram-Profil Julia Bergles: 1.448 Beiträge, 6.070 Follower, 577 Gefolgt"><figcaption>Profil · 6.070 Follower · 1.448 Beiträge · 492 Tsd. Insights-Aufrufe</figcaption></figure>
+          <figure class="ig-screen"><img src="img/reichweite/IMG_3461.PNG" alt="Insights Übersicht 30 Tage: 1.020.876 Aufrufe, +484 Netto-Follower, 22,3k Interaktionen"><figcaption>Übersicht 30 Tage · 1.020.876 Aufrufe · 92,7 % Nicht-Follower</figcaption></figure>
+          <figure class="ig-screen"><img src="img/reichweite/IMG_3460.PNG" alt="Professional Dashboard: 991.423 Aufrufe, 661 Neue Follower, 191 Inhalte geteilt"><figcaption>Dashboard · 991.423 Reel-Aufrufe · 661 neue Follower · 191 Posts</figcaption></figure>
+        </div>
+      </div>
+
+      <!-- Gruppe 2: Was Reichweite bringt — Content-Art + Interaktionen -->
+      <div class="ig-group reveal">
+        <div class="ig-group-head">
+          <span class="ig-group-num">02</span>
+          <h3 class="ig-group-title">Was <em>Reichweite</em> bringt.</h3>
+          <span class="ig-group-sub">Content-Aufteilung und Interaktionen im Detail.</span>
+        </div>
+        <div class="ig-screens">
+          <figure class="ig-screen"><img src="img/reichweite/IMG_3462.PNG" alt="Aufrufe nach Content-Art: 925.946 Reels, 54.510 Stories, 38.116 Beiträge"><figcaption>Content-Art · Reels 925.946 · Stories 54.510 · Beiträge 38.116</figcaption></figure>
+          <figure class="ig-screen"><img src="img/reichweite/IMG_3463.PNG" alt="Interaktionen und Profilaktivitäten: 20.571 Reel-Interaktionen, 7.749 Profilaufrufe"><figcaption>Interaktionen · 20.571 auf Reels · 7.749 Profilaufrufe</figcaption></figure>
+          <figure class="ig-screen"><img src="img/reichweite/IMG_3464.PNG" alt="Follower-Zuwachs: 6.070 Follower, +8,7 % seit 9. Juli"><figcaption>Wachstum · 6.070 Follower · +8,7 % seit 9. Juli</figcaption></figure>
+        </div>
+      </div>
+
+      <!-- Gruppe 3: Wer meinen Content sieht — Demografie + Standorte -->
+      <div class="ig-group reveal">
+        <div class="ig-group-head">
+          <span class="ig-group-num">03</span>
+          <h3 class="ig-group-title">Wer den Content <em>sieht</em>.</h3>
+          <span class="ig-group-sub">Geschlecht, Alter, Standort, Sprache — direkt aus Instagram.</span>
+        </div>
+        <div class="ig-screens">
+          <figure class="ig-screen"><img src="img/reichweite/IMG_3465.PNG" alt="Zielgruppe Geschlecht und Alter: 73,7 % Frauen, 25-34 dominant"><figcaption>Zielgruppe · 73,7 % Frauen · 25–34 dominant (34,7 %)</figcaption></figure>
+          <figure class="ig-screen"><img src="img/reichweite/IMG_3466.PNG" alt="Top-Standorte: Deutschland 85,4 %, Österreich 7,6 %, Schweiz 3,4 %"><figcaption>Standorte · DE 85,4 % · AT 7,6 % · CH 3,4 % · deutschsprachig 96,8 %</figcaption></figure>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
