@@ -1812,6 +1812,77 @@
   </div>
 </section>
 
+<!-- VALUE-BANNER (Endlos-Marquee) -->
+<style>
+  .value-marquee {
+    background: var(--oxblood);
+    color: #ECEAE6;
+    padding: 22px 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(236, 234, 230, 0.12);
+    border-bottom: 1px solid rgba(236, 234, 230, 0.12);
+  }
+  .value-marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    width: max-content;
+    animation: valueScroll 32s linear infinite;
+    will-change: transform;
+  }
+  .value-marquee-track:hover { animation-play-state: paused; }
+  .value-marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 32px;
+    font-family: 'Raleway', 'Rubik', sans-serif;
+    font-size: clamp(16px, 2.2vw, 26px);
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .value-marquee-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #ff8854;
+    flex-shrink: 0;
+  }
+  @keyframes valueScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .value-marquee-track { animation: none; }
+  }
+</style>
+<div class="value-marquee" aria-label="Was ich für Sie tue">
+  <div class="value-marquee-track">
+    <span class="value-marquee-item">Kunden gewinnen<span class="value-marquee-dot"></span></span>
+    <span class="value-marquee-item">Sichtbar werden<span class="value-marquee-dot"></span></span>
+    <span class="value-marquee-item">Alles außer KI<span class="value-marquee-dot"></span></span>
+    <span class="value-marquee-item">Social Media<span class="value-marquee-dot"></span></span>
+    <span class="value-marquee-item">Reels · Beiträge · Stories<span class="value-marquee-dot"></span></span>
+    <span class="value-marquee-item">Webdesign<span class="value-marquee-dot"></span></span>
+    <span class="value-marquee-item">Mediendesign<span class="value-marquee-dot"></span></span>
+    <span class="value-marquee-item">1 Mio+ Aufrufe im Monat<span class="value-marquee-dot"></span></span>
+    <span class="value-marquee-item">Vor-Ort-Erklärtag<span class="value-marquee-dot"></span></span>
+    <span class="value-marquee-item">Handgemachte Kunst<span class="value-marquee-dot"></span></span>
+    <!-- Duplikat für nahtlose Endlos-Schleife -->
+    <span class="value-marquee-item" aria-hidden="true">Kunden gewinnen<span class="value-marquee-dot"></span></span>
+    <span class="value-marquee-item" aria-hidden="true">Sichtbar werden<span class="value-marquee-dot"></span></span>
+    <span class="value-marquee-item" aria-hidden="true">Alles außer KI<span class="value-marquee-dot"></span></span>
+    <span class="value-marquee-item" aria-hidden="true">Social Media<span class="value-marquee-dot"></span></span>
+    <span class="value-marquee-item" aria-hidden="true">Reels · Beiträge · Stories<span class="value-marquee-dot"></span></span>
+    <span class="value-marquee-item" aria-hidden="true">Webdesign<span class="value-marquee-dot"></span></span>
+    <span class="value-marquee-item" aria-hidden="true">Mediendesign<span class="value-marquee-dot"></span></span>
+    <span class="value-marquee-item" aria-hidden="true">1 Mio+ Aufrufe im Monat<span class="value-marquee-dot"></span></span>
+    <span class="value-marquee-item" aria-hidden="true">Vor-Ort-Erklärtag<span class="value-marquee-dot"></span></span>
+    <span class="value-marquee-item" aria-hidden="true">Handgemachte Kunst<span class="value-marquee-dot"></span></span>
+  </div>
+</div>
+
 <!-- BRAND-STORY — Solange es noch glüht -->
 <style>
   .brand-ember {
