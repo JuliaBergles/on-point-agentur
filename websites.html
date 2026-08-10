@@ -176,6 +176,104 @@
   }
   .price-hero .num em { font-size: 40%; font-style: normal; color: var(--bg); opacity: 0.7; }
   .price-hero p { color: rgba(251, 242, 237, 0.75); font-size: 15px; max-width: 480px; margin: 0 auto; line-height: 1.65; }
+
+  /* Editorial-Sektion: Julia-Portrait + Text-um-Bild-Wrap (Magazin-Layout) */
+  .w-editorial-section {
+    padding: 120px 32px;
+    background: var(--bg);
+  }
+  @media (max-width: 700px) { .w-editorial-section { padding: 80px 20px; } }
+  .w-editorial-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .w-editorial-head {
+    max-width: 720px;
+    margin: 0 auto 50px;
+    text-align: center;
+  }
+  .w-editorial-head .eyebrow {
+    display: inline-block;
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px; letter-spacing: 0.32em;
+    color: var(--oxblood); font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .w-editorial-head h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: clamp(34px, 4.5vw, 54px);
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    margin: 0;
+  }
+  .w-editorial-head h2 em { font-style: normal; color: var(--oxblood); }
+  /* Text-Fluss mit floats — Bilder liegen in der Spalte, Text umfließt */
+  .w-editorial-text {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .w-editorial-text p { margin-bottom: 22px; }
+  .w-editorial-text p:last-child { margin-bottom: 0; }
+  .w-editorial-text strong { color: var(--oxblood); font-weight: 700; }
+  .w-editorial-text em { font-style: normal; color: var(--ink); font-weight: 700; }
+
+  /* Float-Bild links: kleines Julia-Portrait mit rundem Rahmen */
+  .w-float-left {
+    float: left;
+    width: 200px;
+    aspect-ratio: 4/5;
+    margin: 6px 32px 12px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(45, 31, 34, 0.14);
+    shape-outside: margin-box;
+  }
+  .w-float-right {
+    float: right;
+    width: 180px;
+    aspect-ratio: 3/4;
+    margin: 6px 0 12px 32px;
+    border-radius: 999px 999px 20px 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(45, 31, 34, 0.14);
+    shape-outside: margin-box;
+  }
+  .w-float-round {
+    float: left;
+    width: 160px;
+    height: 160px;
+    margin: 6px 28px 12px 0;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(45, 31, 34, 0.14);
+    shape-outside: circle();
+  }
+  .w-float-left img, .w-float-right img, .w-float-round img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .w-float-left:hover img, .w-float-right:hover img, .w-float-round:hover img {
+    transform: scale(1.05);
+  }
+  @media (max-width: 700px) {
+    .w-float-left, .w-float-right, .w-float-round {
+      float: none;
+      display: block;
+      margin: 0 auto 24px;
+      width: 60%;
+      max-width: 260px;
+      shape-outside: none;
+    }
+  }
 </style>
 </head>
 <body>
@@ -297,6 +395,44 @@
         <h4>Launch</h4>
         <p>Live gehen, testen, feilen.<br>Danach eine kurze Einweisung für Sie.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDITORIAL: Julia-Portraits umfließen den Text (Magazin-Layout) -->
+<section class="w-editorial-section">
+  <div class="w-editorial-inner">
+    <div class="w-editorial-head reveal">
+      <span class="eyebrow">Warum ich Websites baue</span>
+      <h2>Aus <em>einer</em> Hand.</h2>
+    </div>
+    <div class="w-editorial-text reveal d1">
+      <div class="w-float-left">
+        <img src="img/portraits/julia-3.jpeg" alt="Julia Bergles bei der Arbeit am Design">
+      </div>
+      <p>
+        Ich baue Websites, weil ich <strong>Content</strong> denke — nicht weil ich Template-Baukästen schön finde. Wenn ich am Reel drehe, weiß ich schon, wie die Landingpage dazu aussieht. Wenn ich Visitenkarten gestalte, ziehe ich die Farbwelt weiter auf den Web-Auftritt.
+      </p>
+      <p>
+        Diese <em>Konsistenz</em> gibt es bei mir automatisch, weil alles aus einer Hand kommt. Kein Agentur-Übergabe, kein „das machen wir dann in einem zweiten Projekt". Web, Print, Social — dieselbe Handschrift von Tag eins.
+      </p>
+      <div class="w-float-right">
+        <img src="img/portraits/julia-6.jpeg" alt="Julia mit Notizbuch am Schreibtisch">
+      </div>
+      <p>
+        Für mich ist eine Website kein Selbstzweck. Sie ist der stille Verkäufer, der 24/7 arbeitet, wenn Sie schlafen. Deshalb starte ich immer mit der <em>Frage</em>: „Was soll passieren, wenn jemand die Seite öffnet? Anrufen? Buchen? Downloaden?" Ohne klares Ziel wird jede Seite nur schön — nicht wirksam.
+      </p>
+      <p>
+        Und weil ich täglich selbst auf Instagram publiziere und sehe, wie Menschen im Feed scrollen, weiß ich, wie kurz die Zeit ist, in der eine Landingpage überzeugen muss. Diese Erfahrung fließt direkt in jede Struktur, jeden Hero, jeden ersten Satz.
+      </p>
+      <div style="clear: both;"></div>
+      <div class="w-float-round">
+        <img src="img/portraits/julia-5.jpeg" alt="Julia lächelt">
+      </div>
+      <p>
+        Das Ergebnis: eine <strong>Website, die zu Ihnen klingt</strong>. Nicht generisch, nicht KI-glattgebügelt. Sondern warm, konkret und in Ihrer Sprache. Wenn Kunden dann ankommen, wissen sie schon vor dem ersten Gespräch, wer Sie sind.
+      </p>
+      <div style="clear: both;"></div>
     </div>
   </div>
 </section>
