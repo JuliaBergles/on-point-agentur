@@ -1057,32 +1057,32 @@
   }
   .lo-stage.hide { opacity: 0; visibility: hidden; transition: opacity 0.5s, visibility 0s linear 0.5s; }
 
-  /* Metropolregion-Style Snap-Flip: Greige-BG ↔ Anthrazit-BG, ohne Bilder, harter Cut.
-     Jedes Wort bekommt beide Zustände (a=greige, b=anthrazit) — kurzer Doppel-Puls, dann nächstes Wort. */
+  /* Metropolregion-Style Snap-Flip: 3 Farben rotierend (Cream #ECEAE6, Orange #ff8854, Oxblood #500011).
+     Jedes Wort bekommt einen Farbflip (a→b), dann nächstes Wort mit neuer Kombi. Harter Cut, keine Fades. */
 
-  .lo-stage.state-1a, .lo-stage.state-2a, .lo-stage.state-3a, .lo-stage.state-4a {
-    background: #ede6d9;
-  }
-  .lo-stage.state-1a .lo-word, .lo-stage.state-2a .lo-word,
-  .lo-stage.state-3a .lo-word, .lo-stage.state-4a .lo-word {
-    color: #2a2a2a;
-  }
-  .lo-stage.state-1a .lo-sub, .lo-stage.state-2a .lo-sub,
-  .lo-stage.state-3a .lo-sub, .lo-stage.state-4a .lo-sub {
-    color: #2a2a2a;
-  }
+  /* GLUT — Cream + Oxblood */
+  .lo-stage.state-1a { background: #ECEAE6; }
+  .lo-stage.state-1a .lo-word, .lo-stage.state-1a .lo-sub { color: #500011; }
+  .lo-stage.state-1b { background: #500011; }
+  .lo-stage.state-1b .lo-word, .lo-stage.state-1b .lo-sub { color: #ECEAE6; }
 
-  .lo-stage.state-1b, .lo-stage.state-2b, .lo-stage.state-3b, .lo-stage.state-4b {
-    background: #2a2a2a;
-  }
-  .lo-stage.state-1b .lo-word, .lo-stage.state-2b .lo-word,
-  .lo-stage.state-3b .lo-word, .lo-stage.state-4b .lo-word {
-    color: #ede6d9;
-  }
-  .lo-stage.state-1b .lo-sub, .lo-stage.state-2b .lo-sub,
-  .lo-stage.state-3b .lo-sub, .lo-stage.state-4b .lo-sub {
-    color: #ede6d9;
-  }
+  /* PUNKT — Orange + Oxblood */
+  .lo-stage.state-2a { background: #ff8854; }
+  .lo-stage.state-2a .lo-word, .lo-stage.state-2a .lo-sub { color: #500011; }
+  .lo-stage.state-2b { background: #500011; }
+  .lo-stage.state-2b .lo-word, .lo-stage.state-2b .lo-sub { color: #ff8854; }
+
+  /* ZU SPÄT — Cream + Orange */
+  .lo-stage.state-3a { background: #ECEAE6; }
+  .lo-stage.state-3a .lo-word, .lo-stage.state-3a .lo-sub { color: #ff8854; }
+  .lo-stage.state-3b { background: #ff8854; }
+  .lo-stage.state-3b .lo-word, .lo-stage.state-3b .lo-sub { color: #ECEAE6; }
+
+  /* IHR TIMING — Oxblood + Orange */
+  .lo-stage.state-4a { background: #500011; }
+  .lo-stage.state-4a .lo-word, .lo-stage.state-4a .lo-sub { color: #ff8854; }
+  .lo-stage.state-4b { background: #ff8854; }
+  .lo-stage.state-4b .lo-word, .lo-stage.state-4b .lo-sub { color: #500011; }
 
   /* Snap statt Fade — Farben wechseln sofort */
   .lo-stage {
