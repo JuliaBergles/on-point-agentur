@@ -21,50 +21,143 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700;800;900&display=swap">
 <link rel="stylesheet" href="css/onpoint.css">
 <style>
-  /* Leistungen (dark editorial) */
+  /* Leistungen — hell editorial (mymiapage-Stil) */
   .leistung-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; }
   @media (max-width: 1050px) { .leistung-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 500px) { .leistung-grid { grid-template-columns: 1fr; } }
   .leistung {
-    background: rgba(251, 242, 237, 0.04);
-    border: 1px solid rgba(255, 156, 109, 0.22);
+    background: var(--card);
+    border: 1px solid var(--line);
     border-radius: 12px;
-    padding: 32px 28px;
+    padding: 36px 30px;
     text-align: left;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    backdrop-filter: blur(6px);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 14px rgba(45, 31, 34, 0.04);
   }
   .leistung::before {
     content: ""; position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 60%, rgba(255, 156, 109, 0.08));
+    background: linear-gradient(180deg, transparent 70%, rgba(74, 20, 24, 0.04));
     opacity: 0; transition: opacity 0.6s; pointer-events: none;
   }
   .leistung:hover {
     transform: translateY(-6px);
-    border-color: var(--gold);
-    background: rgba(251, 242, 237, 0.06);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+    border-color: var(--oxblood);
+    box-shadow: 0 24px 50px rgba(45, 31, 34, 0.10);
   }
   .leistung:hover::before { opacity: 1; }
   .leistung .icon {
-    width: 40px; height: 40px; border-radius: 50%;
-    background: rgba(255, 156, 109, 0.14);
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, rgba(196, 139, 108, 0.18), rgba(232, 196, 168, 0.28));
     display: inline-flex; align-items: center; justify-content: center;
-    color: var(--gold); margin-bottom: 18px;
+    color: var(--oxblood); margin-bottom: 20px;
   }
   .leistung h4 {
     font-family: 'Raleway', 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; font-weight: 900;
-    font-size: 22px; color: var(--bg); margin-bottom: 12px;
+    font-size: 22px; color: var(--ink); margin-bottom: 12px;
     line-height: 1.15; letter-spacing: -0.01em;
   }
-  .leistung p { font-size: 14px; color: rgba(251, 242, 237, 0.65); line-height: 1.6; }
+  .leistung p { font-family: 'Quicksand', sans-serif; font-size: 14px; color: var(--ink-soft); line-height: 1.65; }
   .leistung .preis-hint {
     display: block; margin-top: 14px; padding-top: 14px;
-    border-top: 1px solid rgba(255, 156, 109, 0.15);
-    font-size: 12px; color: var(--gold); letter-spacing: 0.05em;
+    border-top: 1px dashed var(--line-strong);
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px; color: var(--oxblood); letter-spacing: 0.05em; font-weight: 700;
   }
+
+  /* Editorial-Split: Julia + Video (mymiapage-Stil) */
+  .v-editorial-section { padding: 100px 32px; background: var(--bg); }
+  @media (max-width: 700px) { .v-editorial-section { padding: 70px 20px; } }
+  .v-editorial-inner { max-width: 1200px; margin: 0 auto; }
+  .v-editorial-head { text-align: center; max-width: 720px; margin: 0 auto 60px; }
+  .v-editorial-head .eyebrow {
+    display: inline-block;
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px; letter-spacing: 0.32em;
+    color: var(--oxblood); font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .v-editorial-head h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: clamp(32px, 4vw, 48px);
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0 0 18px;
+  }
+  .v-editorial-head h2 em { font-style: normal; color: var(--oxblood); }
+  .v-editorial-head p {
+    font-family: 'Quicksand', sans-serif; font-weight: 500;
+    font-size: 16px; line-height: 1.7;
+    color: var(--ink-soft);
+  }
+  .v-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+  .v-split:last-child { margin-bottom: 0; }
+  .v-split.reverse .v-split-photo { order: 2; }
+  @media (max-width: 900px) {
+    .v-split { grid-template-columns: 1fr; gap: 30px; }
+    .v-split.reverse .v-split-photo { order: 0; }
+  }
+  .v-split-photo {
+    position: relative;
+    aspect-ratio: 4/5;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 24px 50px rgba(45, 31, 34, 0.15);
+  }
+  .v-split-photo img, .v-split-photo video {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .v-split-photo .over {
+    position: absolute; bottom: 20px; left: 20px; right: 20px;
+    padding: 14px 18px;
+    background: rgba(251, 242, 237, 0.94);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px; font-weight: 700;
+    color: var(--oxblood);
+    line-height: 1.5;
+  }
+  .v-split-photo .over .small {
+    display: block;
+    font-size: 10px; letter-spacing: 0.28em; text-transform: none;
+    color: var(--muted); font-weight: 600; margin-bottom: 4px;
+  }
+  .v-split-txt .kicker {
+    display: inline-block;
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px; letter-spacing: 0.32em;
+    color: var(--oxblood); font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .v-split-txt h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: clamp(26px, 3vw, 38px);
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .v-split-txt h3 em { font-style: normal; color: var(--oxblood); }
+  .v-split-txt p {
+    font-family: 'Quicksand', sans-serif; font-weight: 500;
+    font-size: 16px; line-height: 1.75;
+    color: var(--ink-soft); margin-bottom: 16px;
+  }
+  .v-split-txt p:last-child { margin-bottom: 0; }
+  .v-split-txt strong { color: var(--oxblood); font-weight: 700; }
 
   /* Anlässe */
   .anlaesse-grid {
@@ -409,8 +502,62 @@
   </div>
 </div>
 
-<!-- LEISTUNGEN (dark) -->
-<section class="section section-dark section-orbs">
+<!-- EDITORIAL-SPLIT: Julia hinter der Kamera -->
+<section class="v-editorial-section">
+  <div class="v-editorial-inner">
+    <div class="v-editorial-head reveal">
+      <span class="eyebrow">Warum ich filme</span>
+      <h2>Momente <em>echt</em> festhalten.</h2>
+      <p>
+        Ich stelle nichts nach. Kein „lächelt mal in die Kamera" — sondern der wirkliche Moment.
+        <br>Was Sie später sehen, ist das was war.
+      </p>
+    </div>
+
+    <div class="v-split reveal">
+      <div class="v-split-photo">
+        <img src="img/sprech-julia-kamera.jpg" alt="Julia Bergles bei der Kameraarbeit">
+        <div class="over">
+          <span class="small">Julia · hinter der Kamera</span>
+          Zurückhaltend, aber aufmerksam — ich merke, wenn der Moment kommt.
+        </div>
+      </div>
+      <div class="v-split-txt">
+        <span class="kicker">01 · Meine Haltung</span>
+        <h3>Ich bleibe im <em>Hintergrund</em>.</h3>
+        <p>
+          Bei Ihrer Feier sollen die Gäste feiern — nicht die Kamera anlächeln. Ich bewege mich leise, filme aus der Distanz und komme nur nah heran, wenn's zur Szene passt.
+        </p>
+        <p>
+          Das Ergebnis sind Aufnahmen, in denen sich alle wohl fühlen und Sie später denken: „Genau so war es." <strong>Keine Pose, kein Stress, keine Wiederholungen.</strong>
+        </p>
+      </div>
+    </div>
+
+    <div class="v-split reverse reveal">
+      <div class="v-split-photo">
+        <img src="img/portraits/julia-7.jpeg" alt="Julia Bergles am Schnittplatz">
+        <div class="over">
+          <span class="small">Nach dem Dreh · Schnitt</span>
+          Aus mehreren Stunden Material entsteht eine kompakte Story.
+        </div>
+      </div>
+      <div class="v-split-txt">
+        <span class="kicker">02 · Nach dem Dreh</span>
+        <h3>Der <em>Schnitt</em> macht die Story.</h3>
+        <p>
+          Rohes Material ist noch keine Erinnerung. Der Schnitt entscheidet, ob aus 3 Stunden Aufnahmen ein Film wird, den Sie in 5 Jahren wieder ansehen wollen.
+        </p>
+        <p>
+          Ich wähle die Momente, die tragen — und lasse den Rest weg. Dazu eine passende Musik, ruhiges Grading, keine Effekt-Show. <strong>Klar, ehrlich, in Ihrem Tempo.</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN (hell editorial) -->
+<section class="section" style="background: var(--bg-warm);">
   <div class="container">
     <div class="section-header reveal">
       <div class="eyebrow">Leistungen</div>
