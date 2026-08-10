@@ -180,16 +180,17 @@
     box-shadow: 0 12px 30px rgba(98, 3, 3, 0.25);
   }
 
-  /* Tool Badges (helles Theme) */
+  /* Tool Badges (helles Theme, mit echten Screenshots) */
   .tools-visual { position: relative; z-index: 2; }
   .tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
   .tool-badge {
     background: #fff;
     border: 1px solid rgba(196, 139, 108, 0.28);
     border-radius: 10px;
-    padding: 18px 12px;
+    padding: 0;
     text-align: center;
-    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    display: flex; flex-direction: column;
+    overflow: hidden;
     transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s;
   }
   .tool-badge:hover {
@@ -197,16 +198,33 @@
     border-color: var(--copper-dark);
     box-shadow: 0 8px 20px rgba(196, 139, 108, 0.15);
   }
-  .tool-badge .icon {
-    width: 28px; height: 28px;
-    display: inline-flex; align-items: center; justify-content: center;
-    color: var(--copper-dark);
+  .tool-badge .shot {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: var(--bg-warm);
+    border-bottom: 1px solid rgba(196, 139, 108, 0.15);
+  }
+  .tool-badge .shot img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
   }
   .tool-badge .name {
     font-family: 'Nunito', sans-serif;
     font-size: 11px; letter-spacing: 0.05em;
-    color: var(--bordeaux); font-weight: 700;
+    color: var(--bordeaux); font-weight: 800;
     line-height: 1.2;
+    padding: 10px 8px;
+    text-transform: uppercase;
+  }
+  .tool-badge .pro {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 2px 6px;
+    background: var(--copper-gradient);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    vertical-align: middle;
   }
   .tools-caption {
     text-align: center; margin-top: 20px;
@@ -578,31 +596,31 @@
     <div class="tools-visual">
       <div class="tools-grid">
         <div class="tool-badge">
-          <span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>
-          <span class="name">ManyChat</span>
+          <div class="shot"><img src="img/proof/manychat-automations.png" alt="ManyChat Pro Automation Dashboard"></div>
+          <span class="name">ManyChat<span class="pro">PRO</span></span>
         </div>
         <div class="tool-badge">
-          <span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 010 18M3 12h18"/></svg></span>
-          <span class="name">Canva Pro</span>
+          <div class="shot"><img src="img/proof/capcut-editor.png" alt="CapCut Pro Editor"></div>
+          <span class="name">CapCut<span class="pro">PRO</span></span>
         </div>
         <div class="tool-badge">
-          <span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
-          <span class="name">Schnitt</span>
+          <div class="shot"><img src="img/proof/linktree-links.jpg" alt="Linktree Pro Setup"></div>
+          <span class="name">Linktree<span class="pro">PRO</span></span>
         </div>
         <div class="tool-badge">
-          <span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></span>
-          <span class="name">Stock</span>
+          <div class="shot"><img src="img/proof/capcut-projekte.png" alt="Canva Pro"></div>
+          <span class="name">Canva<span class="pro">PRO</span></span>
         </div>
         <div class="tool-badge">
-          <span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
-          <span class="name">Musik</span>
+          <div class="shot"><img src="img/proof/manychat-account.png" alt="Musik & Stock Lizenzen"></div>
+          <span class="name">Musik &amp; Stock</span>
         </div>
         <div class="tool-badge">
-          <span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></span>
-          <span class="name">Hosting</span>
+          <div class="shot"><img src="img/proof/insta-feed-grid.jpg" alt="Cloud & Speicher"></div>
+          <span class="name">Cloud &amp; Speicher</span>
         </div>
       </div>
-      <div class="tools-caption">Alle inklusive. Immer.</div>
+      <div class="tools-caption">Alle Pro-Accounts. Alle inklusive. Immer.</div>
     </div>
   </div>
 
@@ -638,11 +656,12 @@
   </div>
   <div class="costs-split reveal d1">
     <div class="invoice">
-      <span class="ersparnis-badge"><strong>≈ 117 €</strong> unnötige Kosten / Monat</span>
+      <span class="ersparnis-badge"><strong>≈ 122 €</strong> unnötige Kosten / Monat</span>
       <span class="invoice-head">Wenn du's selbst machst</span>
       <div class="costs-tool"><span class="name">ManyChat Pro</span><span class="amount"><s>25 €</s></span></div>
+      <div class="costs-tool"><span class="name">CapCut Pro (Schnitt)</span><span class="amount"><s>25 €</s></span></div>
       <div class="costs-tool"><span class="name">Canva Pro</span><span class="amount"><s>12 €</s></span></div>
-      <div class="costs-tool"><span class="name">Schnitt-Software</span><span class="amount"><s>25 €</s></span></div>
+      <div class="costs-tool"><span class="name">Linktree Pro</span><span class="amount"><s>5 €</s></span></div>
       <div class="costs-tool"><span class="name">Stock-Footage</span><span class="amount"><s>30 €</s></span></div>
       <div class="costs-tool"><span class="name">Musik-Lizenzen</span><span class="amount"><s>15 €</s></span></div>
       <div class="costs-tool"><span class="name">Cloud-Speicher</span><span class="amount"><s>10 €</s></span></div>
@@ -653,6 +672,10 @@
     </div>
     <div class="costs-txt">
       <h3>Alles <em>inklusive</em>.</h3>
+      <p>
+        ManyChat für Automation. CapCut für Schnitt. Canva für Grafik. Linktree für den Bio-Hub.
+        <br>Alles Pro-Accounts, alles läuft über meinen Zugang.
+      </p>
       <p>
         Wenn du deinen Content selbst machen willst,
         <br>brauchst du all diese Tools zusätzlich.
