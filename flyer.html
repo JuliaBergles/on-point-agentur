@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index, follow" />
+<title>Flyer &amp; Print · Individuelles Design von On Point</title>
+<meta name="description" content="Flyer und Print-Design mit Charakter. Editorial-Layouts statt Standard. Julia Bergles, Raum Augsburg." />
+<link rel="canonical" href="https://www.agentur.juliabergles.de/flyer.html" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.agentur.juliabergles.de/flyer.html" />
+<meta property="og:title" content="Flyer &amp; Print · On Point" />
+<meta property="og:description" content="Flyer und Print-Design mit Charakter." />
+<meta property="og:image" content="https://www.agentur.juliabergles.de/img/mediendesign/flyer-visitenkarten-showcase.jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/onpoint.css">
+<style>
+  .md-hero { padding: 140px 32px 60px; text-align: center; background: var(--bg); }
+  .md-hero .eyebrow {
+    display: inline-block; font-family: 'Nunito', sans-serif;
+    font-size: 12px; letter-spacing: 0.32em;
+    color: var(--copper-dark); font-weight: 700; margin-bottom: 22px;
+  }
+  .md-hero h1 {
+    font-family: 'Nunito', sans-serif; font-weight: 900;
+    font-size: clamp(38px, 5vw, 68px); line-height: 1.05;
+    letter-spacing: -0.02em; color: var(--bordeaux);
+    margin: 0 auto 20px; max-width: 900px;
+  }
+  .md-hero h1 em {
+    font-style: normal;
+    background: var(--copper-gradient);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .md-hero .lede {
+    font-family: 'Quicksand', sans-serif; font-weight: 500;
+    font-size: clamp(15px, 1.4vw, 18px); color: var(--ink-soft);
+    max-width: 560px; margin: 0 auto; line-height: 1.6;
+  }
+
+  .md-gallery { padding: 60px 24px 100px; background: var(--bg); }
+  .md-gallery-grid {
+    max-width: 1280px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
+  }
+  @media (max-width: 800px) { .md-gallery-grid { grid-template-columns: 1fr; gap: 20px; } }
+
+  .md-card {
+    position: relative; aspect-ratio: 4 / 5;
+    border-radius: 4px; overflow: hidden;
+    background: var(--bg-warm);
+    box-shadow: 0 8px 24px rgba(45, 31, 34, 0.06);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s;
+  }
+  .md-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(45, 31, 34, 0.12); }
+  .md-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+  .md-card:hover img { transform: scale(1.04); }
+  .md-card .veil {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 40px 28px 28px;
+    background: linear-gradient(180deg, transparent, rgba(45, 31, 34, 0.72));
+    color: #fffcf9; z-index: 2;
+  }
+  .md-card .veil .kind {
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px; letter-spacing: 0.28em;
+    color: var(--copper-light); font-weight: 700;
+    display: block; margin-bottom: 8px;
+  }
+  .md-card .veil h3 {
+    font-family: 'Nunito', sans-serif; font-weight: 800;
+    font-size: 22px; line-height: 1.15; color: #fffcf9; margin: 0 0 4px;
+  }
+  .md-card .veil p {
+    font-family: 'Quicksand', sans-serif; font-weight: 500;
+    font-size: 13.5px; line-height: 1.5;
+    color: rgba(255, 252, 249, 0.85); margin: 6px 0 0;
+  }
+  .md-card.featured { grid-column: 1 / -1; aspect-ratio: 21 / 9; }
+  @media (max-width: 800px) { .md-card.featured { aspect-ratio: 4 / 5; } }
+
+  .md-story { padding: 100px 32px; background: var(--bg-warm); text-align: center; }
+  .md-story-inner { max-width: 720px; margin: 0 auto; }
+  .md-story h2 {
+    font-family: 'Nunito', sans-serif; font-weight: 900;
+    font-size: clamp(32px, 4vw, 48px); line-height: 1.1;
+    color: var(--bordeaux); margin: 0 0 24px; letter-spacing: -0.015em;
+  }
+  .md-story h2 em { font-style: normal; color: var(--copper-dark); }
+  .md-story p {
+    font-family: 'Quicksand', sans-serif; font-weight: 500;
+    font-size: clamp(15px, 1.4vw, 18px); line-height: 1.7;
+    color: var(--ink-soft); margin: 0 auto 18px;
+  }
+
+  .md-cta { padding: 80px 32px 120px; text-align: center; background: var(--bg); }
+  .md-cta h3 {
+    font-family: 'Nunito', sans-serif; font-weight: 900;
+    font-size: clamp(24px, 3vw, 36px); color: var(--bordeaux); margin: 0 0 14px;
+  }
+  .md-cta p {
+    font-family: 'Quicksand', sans-serif; color: var(--ink-soft);
+    margin-bottom: 28px; font-size: 15px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="row">
+    <a href="index.html" class="brand">On Point</a>
+    <ul>
+      <li><a href="warum-onpoint.html">Warum On Point</a></li>
+      <li><a href="social-media.html">Social Media</a></li>
+      <li class="has-drop">
+        <a href="mediendesign.html" class="current">Mediendesign <span class="drop-caret">▾</span></a>
+        <div class="drop-menu">
+          <a href="visitenkarten.html">Visitenkarten</a>
+          <a href="flyer.html" class="current">Flyer</a>
+          <a href="verpackungsdesign.html">Verpackungsdesign</a>
+          <a href="mediendesign.html" class="all">Alle Design-Arbeiten</a>
+        </div>
+      </li>
+      <li><a href="videografie.html">Video &amp; Foto</a></li>
+      <li><a href="websites.html">Webdesign</a></li>
+      <li><a href="reichweite.html">Reichweite</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+    </ul>
+    <a href="#kontakt" class="nav-cta">Beratung</a>
+    <button class="nav-burger" aria-label="Menü" onclick="document.getElementById('mobile-menu').classList.toggle('open'); this.classList.toggle('open');"><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="warum-onpoint.html">Warum On Point</a>
+    <a href="social-media.html">Social Media</a>
+    <a href="mediendesign.html">Mediendesign</a>
+    <a href="visitenkarten.html" style="padding-left: 20px;">→ Visitenkarten</a>
+    <a href="flyer.html" class="current" style="padding-left: 20px;">→ Flyer</a>
+    <a href="verpackungsdesign.html" style="padding-left: 20px;">→ Verpackungsdesign</a>
+    <a href="videografie.html">Video &amp; Foto</a>
+    <a href="websites.html">Webdesign</a>
+    <a href="reichweite.html">Reichweite</a>
+    <a href="ueber-mich.html">Über mich</a>
+    <a href="#kontakt" class="mobile-cta">Beratung</a>
+  </div>
+</nav>
+<div class="nav-spacer"></div>
+
+<section class="md-hero">
+  <div class="eyebrow reveal">Mediendesign · Flyer &amp; Print</div>
+  <h1 class="reveal d1">Print, das <em>bleibt</em>.</h1>
+  <p class="lede reveal d2">
+    Flyer, Karten, Broschüren — Editorial-Layouts mit Charakter statt Baukasten-Look.
+  </p>
+</section>
+
+<section class="md-gallery">
+  <div class="md-gallery-grid">
+    <div class="md-card featured reveal">
+      <img src="img/mediendesign/flyer-visitenkarten-showcase.jpeg" alt="Flyer und Visitenkarten Showcase">
+      <div class="veil">
+        <span class="kind">Showcase</span>
+        <h3>Print-Serie</h3>
+        <p>Flyer und Karten aus verschiedenen Projekten — Editorial, taktil, hochwertig.</p>
+      </div>
+    </div>
+
+    <div class="md-card reveal d1">
+      <img src="img/flyer-1.png" alt="Flyer Design 1">
+      <div class="veil">
+        <span class="kind">Flyer</span>
+        <h3>Klare Info-Hierarchie</h3>
+        <p>Der Blick geht dorthin, wo er hinsoll.</p>
+      </div>
+    </div>
+
+    <div class="md-card reveal d2">
+      <img src="img/flyer-2.png" alt="Flyer Design 2">
+      <div class="veil">
+        <span class="kind">Flyer</span>
+        <h3>Editorial-Style</h3>
+        <p>Wie aus einem Magazin geschnitten — nur für dich.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="md-story">
+  <div class="md-story-inner reveal">
+    <h2>Print, das <em>hält</em>.</h2>
+    <p>
+      Ein guter Flyer landet nicht im Papierkorb. Er wird angesehen, herumgereicht,
+      liegen gelassen — und wieder in die Hand genommen.
+    </p>
+    <p>
+      Ich gestalte Print-Designs so, dass sie sich wie ein kleines Editorial anfühlen.
+      Weniger Werbung, mehr Aussage. Klar, ruhig, mit Blick fürs Detail.
+    </p>
+  </div>
+</section>
+
+<section class="md-cta" id="kontakt">
+  <h3>Dein Print-Projekt.</h3>
+  <p>30 Minuten Kennenlerngespräch — kostenlos und unverbindlich.</p>
+  <a href="https://calendly.com/julia-bergles/30min" target="_blank" rel="noopener" class="btn-red">Anfrage stellen</a>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">On Point</div>
+      <div class="tag">Content auf den Punkt gebracht.</div>
+      <div class="adr">Julia Bergles<br>Augsburg + remote<br>julia@juliabergles-agentur.de</div>
+    </div>
+    <div class="footer-col">
+      <h5>Bereiche</h5>
+      <a href="social-media.html">Social Media</a>
+      <a href="mediendesign.html">Mediendesign</a>
+      <a href="videografie.html">Video &amp; Foto</a>
+      <a href="websites.html">Webdesign</a>
+    </div>
+    <div class="footer-col">
+      <h5>Mediendesign</h5>
+      <a href="visitenkarten.html">Visitenkarten</a>
+      <a href="flyer.html">Flyer</a>
+      <a href="verpackungsdesign.html">Verpackungsdesign</a>
+    </div>
+    <div class="footer-col">
+      <h5>Rechtliches</h5>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+  </div>
+  <div class="footer-xxl">
+    <div class="logo-big">ON<span class="g">·</span>POINT</div>
+    <div class="footer-copy">© 2026 On Point · Julia Bergles · Augsburg</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+</body>
+</html>
