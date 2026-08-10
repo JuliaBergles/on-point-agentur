@@ -1243,71 +1243,202 @@
   .lo-skip:hover { background: rgba(255, 255, 255, 0.3); }
   .lo-skip.hide { display: none; }
 
-  /* Choice-Slide — Glut kommt richtig durch, nur oben etwas Overlay für Text */
+  /* Choice-Slide — mymiapage-Stil: helles Cream mit Bildkarten */
   .lo-slide.slide-choice {
-    background-image: linear-gradient(180deg, rgba(26, 5, 8, 0.55) 0%, rgba(26, 5, 8, 0.22) 40%, rgba(26, 5, 8, 0.50) 100%), url('img/glut.jpg');
-    background-size: cover;
-    background-position: center;
+    background: var(--bg);
     align-items: flex-start !important;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    padding-top: 60px !important;
-    padding-bottom: 60px !important;
+    padding: 80px 24px 80px !important;
   }
   .choice-inner {
-    max-width: 1280px;
+    max-width: 1200px;
     width: 100%;
+    text-align: center;
+    padding: 20px;
+  }
+  @media (max-width: 700px) {
+    .lo-slide.slide-choice { padding: 60px 16px !important; }
+    .choice-inner { padding: 10px; }
+  }
+  .choice-tagline {
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    color: var(--copper-dark);
+    text-transform: uppercase;
+    margin: 0 0 20px;
+    display: block;
+  }
+  .choice-inner h2 {
+    font-family: 'Nunito', sans-serif !important;
+    font-weight: 900 !important;
+    font-size: clamp(38px, 5.5vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--bordeaux);
+    margin: 0 auto 18px;
+    max-width: 720px;
+  }
+  .choice-inner h2 em {
+    font-style: normal;
+    background: var(--copper-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .choice-inner .sub {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: clamp(15px, 1.4vw, 18px);
+    color: var(--ink-soft);
+    max-width: 480px;
+    margin: 0 auto 60px;
+    line-height: 1.6;
+  }
+
+  .choice-grid-lo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+  }
+  @media (max-width: 1000px) { .choice-grid-lo { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .choice-grid-lo { grid-template-columns: 1fr; gap: 18px; } }
+
+  .choice-card-lo,
+  .choice-card-lo.c-orange,
+  .choice-card-lo.c-red,
+  .choice-card-lo.c-pink,
+  .choice-card-lo.c-blue,
+  .choice-card-lo.c-ink {
+    background: #fff;
+    border: 1px solid rgba(98, 3, 3, 0.06);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    color: var(--ink);
+    text-decoration: none;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s;
+    box-shadow: 0 4px 14px rgba(45, 31, 34, 0.05);
+  }
+  .choice-card-lo:hover,
+  .choice-card-lo.c-orange:hover,
+  .choice-card-lo.c-red:hover,
+  .choice-card-lo.c-pink:hover,
+  .choice-card-lo.c-blue:hover,
+  .choice-card-lo.c-ink:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px rgba(45, 31, 34, 0.14);
+    border-color: rgba(196, 139, 108, 0.3);
+  }
+  .choice-card-lo .card-img {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--bg-warm);
+    position: relative;
+  }
+  .choice-card-lo .card-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .choice-card-lo:hover .card-img img { transform: scale(1.05); }
+  .choice-card-lo .card-body {
+    padding: 24px 26px 24px;
+    display: flex; flex-direction: column;
+    flex: 1;
+  }
+  .choice-card-lo .n {
+    font-family: 'Nunito', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    color: var(--copper-dark) !important;
+    text-transform: uppercase;
+    margin: 0 0 8px !important;
+    opacity: 1;
+    display: block;
+  }
+  .choice-card-lo h3 {
+    font-family: 'Nunito', sans-serif !important;
+    font-weight: 900 !important;
+    font-size: 22px;
+    color: var(--bordeaux) !important;
+    margin: 0 0 10px !important;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .choice-card-lo p {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--ink-soft) !important;
+    line-height: 1.55;
+    margin: 0 0 18px;
+    flex-grow: 1;
+    opacity: 1;
+  }
+  .choice-card-lo .card-more {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--bordeaux);
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s, color 0.3s;
+  }
+  .choice-card-lo:hover .card-more { gap: 14px; color: var(--copper-dark); }
+
+  /* Payoff (CTA) — mymiapage-Stil: prominent auf hellem Grund */
+  .choice-payoff {
+    margin: 40px auto 0;
+    max-width: 640px;
     text-align: center;
     padding: 40px 20px;
   }
-  @media (max-width: 700px) {
-    .lo-slide.slide-choice { padding-top: 80px !important; padding-bottom: 40px !important; }
-    .choice-inner { padding: 20px 12px; }
-  }
-  .choice-tagline {
-    font-family: 'Nunito', 'Rubik', 'Space Grotesk', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.28em;
-    color: rgba(197, 164, 109, 0.85);
-    margin: 8px 0 24px;
-  }
-  .choice-payoff {
-    margin: 44px auto 0;
-    max-width: 640px;
-    text-align: center;
-  }
   .choice-payoff .cta-kicker {
-    font-family: 'Nunito', 'Rubik', 'Space Grotesk', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 0.32em;
-    color: #C5A46D;
+    color: var(--copper-dark);
     text-transform: uppercase;
-    margin: 0 0 18px;
+    margin: 0 0 20px;
+    display: block;
   }
   .choice-payoff .cta-line {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-weight: 500;
-    font-size: clamp(20px, 2.6vw, 30px);
-    line-height: 1.3;
-    color: #FBF2ED;
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: clamp(28px, 3.6vw, 42px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--bordeaux);
     margin: 0 0 22px;
   }
   .choice-payoff .cta-line strong {
     font-style: normal;
-    font-weight: 700;
-    color: #C5A46D;
+    font-weight: 900;
+    color: var(--copper-dark);
   }
   .choice-payoff .cta-sub {
-    font-family: 'Nunito', 'Rubik', 'Space Grotesk', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: clamp(13px, 1.4vw, 16px);
+    font-size: clamp(14px, 1.4vw, 16px);
     line-height: 1.6;
-    color: rgba(251, 242, 237, 0.82);
-    margin: 0 0 26px;
+    color: var(--ink-soft);
+    margin: 0 0 32px;
   }
   .choice-socials {
     display: inline-flex;
@@ -1320,114 +1451,24 @@
     align-items: center;
     gap: 8px;
     padding: 12px 22px;
-    background: rgba(251, 242, 237, 0.08);
-    border: 1px solid rgba(197, 164, 109, 0.35);
-    color: #FBF2ED;
+    background: #fff;
+    border: 1.5px solid rgba(98, 3, 3, 0.2);
+    color: var(--bordeaux);
     border-radius: 999px;
-    font-family: 'Nunito', 'Rubik', 'Space Grotesk', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.1em;
     text-decoration: none;
     transition: all 0.35s;
   }
   .choice-socials a:hover {
-    background: rgba(197, 164, 109, 0.2);
-    border-color: #C5A46D;
-    color: #C5A46D;
+    background: var(--bordeaux);
+    border-color: var(--bordeaux);
+    color: #fff;
     transform: translateY(-2px);
   }
   .choice-socials svg { width: 14px; height: 14px; }
-  .choice-inner h2 {
-    font-family: 'Nunito', 'Rubik', 'Space Grotesk', sans-serif !important;
-    font-weight: 900 !important;
-    font-size: clamp(34px, 4.5vw, 54px);
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    color: #FBF2ED;
-    margin: 0 0 12px;
-  }
-  .choice-inner .sub {
-    font-family: 'Nunito', 'Rubik', 'Space Grotesk', sans-serif;
-    font-size: 15px;
-    color: rgba(255, 156, 109, 0.9);
-    margin-bottom: 40px;
-  }
-  .choice-grid-lo {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 12px;
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-  @media (max-width: 1200px) { .choice-grid-lo { grid-template-columns: repeat(3, 1fr); } }
-  @media (max-width: 640px)  { .choice-grid-lo { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 420px)  { .choice-grid-lo { grid-template-columns: 1fr; } }
-
-  .choice-card-lo {
-    border-radius: 12px;
-    padding: 24px 18px 20px;
-    text-align: left;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    display: flex; flex-direction: column;
-    position: relative;
-    overflow: hidden;
-    min-height: 180px;
-  }
-  @media (max-width: 700px) {
-    .choice-card-lo { min-height: 150px; padding: 22px 16px 18px; }
-    .choice-card-lo h3 { font-size: 20px !important; }
-    .choice-card-lo .n { font-size: 22px; margin-bottom: 10px; }
-  }
-  .choice-card-lo:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(45, 31, 34, 0.18);
-  }
-  .choice-card-lo .n {
-    font-family: 'Nunito', 'Rubik', 'Space Grotesk', sans-serif !important;
-    font-weight: 900 !important;
-    font-size: 26px;
-    color: inherit;
-    margin: 0 0 14px;
-    opacity: 0.85;
-  }
-  .choice-card-lo h3 {
-    font-family: 'Nunito', 'Rubik', 'Space Grotesk', sans-serif !important;
-    font-weight: 900 !important;
-    font-size: 22px;
-    color: inherit !important;
-    margin: 0 0 8px;
-    line-height: 1.05;
-    text-transform: none;
-    letter-spacing: -0.01em;
-  }
-  .choice-card-lo p {
-    font-family: 'Nunito', 'Rubik', 'Space Grotesk', sans-serif;
-    font-size: 12.5px;
-    line-height: 1.5;
-    flex-grow: 1;
-    opacity: 0.85;
-  }
-  /* Alle Cards einheitlich: Bordeaux mit Gold — ruhig und markig */
-  .choice-card-lo.c-orange,
-  .choice-card-lo.c-red,
-  .choice-card-lo.c-pink,
-  .choice-card-lo.c-blue,
-  .choice-card-lo.c-ink {
-    background: #430a14;
-    color: #ff9c6d;
-    border: 1px solid rgba(255, 156, 109, 0.32);
-  }
-  .choice-card-lo.c-orange:hover,
-  .choice-card-lo.c-red:hover,
-  .choice-card-lo.c-pink:hover,
-  .choice-card-lo.c-blue:hover,
-  .choice-card-lo.c-ink:hover {
-    border-color: #ff9c6d;
-    background: #5a1220;
-  }
-  .choice-card-lo p { color: rgba(255, 156, 109, 0.75); }
 
   /* ─── Wobei kann ich dir helfen? ─── */
   .help-choice {
@@ -1558,44 +1599,68 @@
     <span class="kicker">Auswahl</span>
     <span class="brand-mark">On Point Studios</span>
     <div class="choice-inner">
-      <h2>Wobei kann ich dir helfen?</h2>
+      <span class="choice-tagline">Social Media · Videos · Fotos · Design</span>
+      <h2>Wobei kann ich dir <em>helfen</em>?</h2>
       <p class="sub">Wähl, wo du anfangen willst.</p>
-      <p class="choice-tagline">Social Media · Videos · Fotos · Design · Auf den Punkt gebracht.</p>
       <div class="choice-grid-lo">
         <a href="social-media.html" class="choice-card-lo c-orange">
-          <span class="n">01</span>
-          <h3>Social Media</h3>
-          <p>Ich komme, filme, schneide und poste. Direkt aus deinem Instagram.</p>
+          <div class="card-img"><img src="img/hero-social-media.jpg" alt="Social Media"></div>
+          <div class="card-body">
+            <span class="n">01 · Bereich</span>
+            <h3>Social Media</h3>
+            <p>Ich komme, filme, schneide und poste. Direkt aus deinem Instagram.</p>
+            <span class="card-more">Mehr erfahren →</span>
+          </div>
         </a>
         <a href="websites.html" class="choice-card-lo c-pink">
-          <span class="n">02</span>
-          <h3>Webdesign</h3>
-          <p>Handgemacht, ohne Baukasten. Vom Konzept bis Launch.</p>
+          <div class="card-img"><img src="img/hero-websites.jpg" alt="Webdesign"></div>
+          <div class="card-body">
+            <span class="n">02 · Bereich</span>
+            <h3>Webdesign</h3>
+            <p>Handgemacht, ohne Baukasten. Vom Konzept bis Launch.</p>
+            <span class="card-more">Mehr erfahren →</span>
+          </div>
         </a>
         <a href="mediendesign.html" class="choice-card-lo c-red">
-          <span class="n">03</span>
-          <h3>Mediendesign</h3>
-          <p>Flyer, Visitenkarten, Logo. Editorial, ohne KI.</p>
-        </a>
-        <a href="warum-onpoint.html" class="choice-card-lo c-blue">
-          <span class="n">04</span>
-          <h3>Erst mal stöbern</h3>
-          <p>Warum On Point und was mich anders macht.</p>
-        </a>
-        <a href="ueber-mich.html" class="choice-card-lo c-ink">
-          <span class="n">05</span>
-          <h3>Über Julia erfahren</h3>
-          <p>Wer ich bin und warum ich das mache.</p>
+          <div class="card-img"><img src="img/mediendesign/visitenkarte-onpoint-1.jpeg" alt="Mediendesign"></div>
+          <div class="card-body">
+            <span class="n">03 · Bereich</span>
+            <h3>Mediendesign</h3>
+            <p>Flyer, Visitenkarten, Logo. Editorial, ohne KI.</p>
+            <span class="card-more">Mehr erfahren →</span>
+          </div>
         </a>
         <a href="videografie.html" class="choice-card-lo c-orange">
-          <span class="n">06</span>
-          <h3>Video &amp; Foto</h3>
-          <p>Für Hochzeit, Geburtstag, Baby Shower, Firmenfeier. Jeder Anlass willkommen.</p>
+          <div class="card-img"><img src="img/hero-pakete.jpg" alt="Video und Foto"></div>
+          <div class="card-body">
+            <span class="n">04 · Bereich</span>
+            <h3>Video &amp; Foto</h3>
+            <p>Für Hochzeit, Geburtstag, Baby Shower, Firmenfeier. Jeder Anlass willkommen.</p>
+            <span class="card-more">Mehr erfahren →</span>
+          </div>
+        </a>
+        <a href="warum-onpoint.html" class="choice-card-lo c-blue">
+          <div class="card-img"><img src="img/hero-warum-onpoint.jpg" alt="Warum On Point"></div>
+          <div class="card-body">
+            <span class="n">05 · Info</span>
+            <h3>Erst mal stöbern</h3>
+            <p>Warum On Point und was mich anders macht.</p>
+            <span class="card-more">Mehr erfahren →</span>
+          </div>
+        </a>
+        <a href="ueber-mich.html" class="choice-card-lo c-ink">
+          <div class="card-img"><img src="img/portraits/julia-1.jpeg" alt="Über Julia"></div>
+          <div class="card-body">
+            <span class="n">06 · Persönlich</span>
+            <h3>Über Julia erfahren</h3>
+            <p>Wer ich bin und warum ich das mache.</p>
+            <span class="card-more">Mehr erfahren →</span>
+          </div>
         </a>
       </div>
 
       <div class="choice-payoff">
-        <p class="cta-kicker">Dein Timing entscheidet.</p>
+        <span class="cta-kicker">Dein Timing entscheidet</span>
         <p class="cta-line"><strong>Anzünden.</strong> Bevor es zu spät ist.</p>
         <p class="cta-sub">Dein Marketing. Deine Marke. Deine Sichtbarkeit.<br>Glut wird nicht von allein wieder Feuer.</p>
         <div class="choice-socials">
