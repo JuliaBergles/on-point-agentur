@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index, follow" />
+<title>Erklärtag · Ich zeige Ihrem Team wie Social Media geht · On Point</title>
+<meta name="description" content="Zwei bis drei Stunden bei Ihnen vor Ort. Ich zeige Ihrem Team was 2026 auf Instagram funktioniert — direkt aus meiner eigenen Reichweite. Julia Bergles." />
+<link rel="canonical" href="https://www.agentur.juliabergles.de/erklaertag.html" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.agentur.juliabergles.de/erklaertag.html" />
+<meta property="og:title" content="Erklärtag · Ich komme zu Ihnen · On Point" />
+<meta property="og:description" content="Zwei bis drei Stunden bei Ihnen vor Ort. Wie Sie und Ihr Team ab morgen besseren Content posten." />
+<meta property="og:image" content="https://www.agentur.juliabergles.de/img/portraits/julia-1.jpeg" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:site_name" content="On Point" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Erklärtag · Ich zeige Ihrem Team wie Social Media geht" />
+<meta name="twitter:description" content="Zwei bis drei Stunden bei Ihnen vor Ort." />
+<meta name="twitter:image" content="https://www.agentur.juliabergles.de/img/portraits/julia-1.jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=object-sans@300,400,500,600,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="css/onpoint.css">
+<style>
+  /* Ablauf-Timeline (Schritt für Schritt) */
+  .abl-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  @media (max-width: 1000px) { .abl-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .abl-grid { grid-template-columns: 1fr; } }
+  .abl-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 36px 28px;
+    position: relative;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s, border-color 0.5s;
+    box-shadow: 0 8px 20px rgba(45, 31, 34, 0.05);
+  }
+  .abl-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    box-shadow: 0 24px 50px rgba(45, 31, 34, 0.10);
+  }
+  .abl-card .n {
+    display: inline-block;
+    font-family: 'Raleway', 'Rubik', 'Space Grotesk', sans-serif;
+    font-weight: 900;
+    font-size: 42px;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 18px;
+  }
+  .abl-card h4 {
+    font-family: 'Raleway', 'Rubik', 'Space Grotesk', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    color: var(--bordeaux);
+    margin: 0 0 12px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .abl-card p {
+    font-family: 'Quicksand', 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* Was-Sie-mitnehmen-Grid */
+  .out-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  @media (max-width: 700px) { .out-grid { grid-template-columns: 1fr; } }
+  .out-card {
+    background: rgba(251, 242, 237, 0.04);
+    border: 1px solid rgba(255, 156, 109, 0.25);
+    border-radius: 12px;
+    padding: 28px 26px;
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 18px;
+    align-items: flex-start;
+    backdrop-filter: blur(6px);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s, background 0.5s;
+  }
+  .out-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    background: rgba(251, 242, 237, 0.07);
+  }
+  .out-card .icn {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(255, 156, 109, 0.14);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .out-card h5 {
+    font-family: 'Raleway', 'Rubik', 'Space Grotesk', sans-serif;
+    font-weight: 900;
+    font-size: 17px;
+    color: var(--bg);
+    margin: 0 0 6px;
+  }
+  .out-card p {
+    font-size: 13px;
+    color: rgba(251, 242, 237, 0.72);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Text-Bild-Split (Julia im Termin) */
+  .split-julia {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+  }
+  @media (max-width: 900px) {
+    .split-julia { grid-template-columns: 1fr; gap: 40px; }
+  }
+  .split-julia .photo {
+    position: relative;
+    aspect-ratio: 4/5;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(45, 31, 34, 0.18);
+  }
+  .split-julia .photo img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .split-julia .photo .tag-overlay {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+    padding: 18px 22px;
+    background: rgba(251, 242, 237, 0.94);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    color: var(--bordeaux);
+    font-family: 'Raleway', 'Rubik', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    line-height: 1.5;
+  }
+  .split-julia .tag-overlay .small {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: none;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .split-julia .txt h2 {
+    font-family: 'Raleway', 'Rubik', sans-serif;
+    font-weight: 900;
+    font-size: clamp(32px, 4vw, 46px);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  .split-julia .txt h2 em {
+    font-style: normal;
+    color: var(--bordeaux);
+  }
+  .split-julia .txt p {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="row">
+    <a href="index.html" class="brand">On Point</a>
+    <ul>
+      <li><a href="warum-onpoint.html">Warum On Point</a></li>
+      <li><a href="social-media.html">Social Media</a></li>
+      <li class="has-drop"><a href="mediendesign.html">Mediendesign <span class="drop-caret">▾</span></a><div class="drop-menu"><a href="visitenkarten.html">Visitenkarten</a><a href="flyer.html">Flyer</a><a href="verpackungsdesign.html">Verpackungsdesign</a><a href="kunst.html">Meine Kunst</a><a href="mediendesign.html" class="all">Alle Design-Arbeiten</a></div></li>
+      <li><a href="videografie.html">Video &amp; Foto</a></li>
+      <li><a href="websites.html">Webdesign</a></li>
+      <li><a href="erklaertag.html" class="current">Erklärtag</a></li>
+      <li><a href="reichweite.html">Reichweite</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+    </ul>
+    <a href="#kontakt" class="nav-cta">Beratung</a>
+    <button class="nav-burger" aria-label="Menü" onclick="document.getElementById('mobile-menu').classList.toggle('open'); this.classList.toggle('open');"><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="warum-onpoint.html">Warum On Point</a>
+    <a href="social-media.html">Social Media</a>
+    <a href="mediendesign.html">Mediendesign</a>
+    <a href="visitenkarten.html" style="padding-left: 20px;">→ Visitenkarten</a>
+    <a href="flyer.html" style="padding-left: 20px;">→ Flyer</a>
+    <a href="verpackungsdesign.html" style="padding-left: 20px;">→ Verpackungsdesign</a>
+    <a href="videografie.html">Video &amp; Foto</a>
+    <a href="websites.html">Webdesign</a>
+    <a href="erklaertag.html" class="current">Erklärtag</a>
+    <a href="reichweite.html">Reichweite</a>
+    <a href="ueber-mich.html">Über mich</a>
+    <a href="#kontakt" class="mobile-cta">Beratung</a>
+  </div>
+</nav>
+<div class="nav-spacer"></div>
+
+<!-- HERO -->
+<section class="page-hero page-hero-image" style="background-image: linear-gradient(180deg, rgba(45, 31, 34, 0.86), rgba(45, 31, 34, 0.94)), url('img/hero-social-media.jpg'); background-size: cover; background-position: center; color: var(--bg);">
+  <div class="container">
+    <div class="eyebrow reveal" style="color: var(--gold);">Erklärtag · 2 – 3 Stunden vor Ort</div>
+    <h1 class="reveal d1" style="color: #fff;">Ich zeige, wie Sie und Ihr Team ab morgen <em style="color: var(--gold);">selbst</em> posten.</h1>
+    <p class="lede reveal d2" style="color: rgba(255, 255, 255, 0.85);">
+      Ich komme zu Ihnen ins Büro, in die Werkstatt, in die Küche.
+      <br>Zwei bis drei Stunden Klartext dazu, was 2026 auf Instagram funktioniert.
+      <br><em style="color: var(--gold);">Direkt aus meiner eigenen Reichweite. Nicht aus Kursen.</em>
+    </p>
+    <div class="reveal d3" style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+      <a href="#kontakt" class="btn-red">Erklärtag anfragen</a>
+      <a href="#ablauf" class="btn-outline-white">Was passiert an dem Tag</a>
+    </div>
+  </div>
+</section>
+
+<!-- MICRO-USPs -->
+<div class="mini-marquee reveal">
+  <div class="track">
+    <span class="item">Vor Ort bei Ihnen</span><span class="sep"></span>
+    <span class="item">2 – 3 Stunden</span><span class="sep"></span>
+    <span class="item">Für Team &amp; Chef</span><span class="sep"></span>
+    <span class="item">Aktuelle Reichweite als Basis</span><span class="sep"></span>
+    <span class="item">Konkret. Umsetzbar. Direkt.</span><span class="sep"></span>
+    <span class="item">Vor Ort bei Ihnen</span><span class="sep"></span>
+    <span class="item">2 – 3 Stunden</span><span class="sep"></span>
+    <span class="item">Für Team &amp; Chef</span><span class="sep"></span>
+    <span class="item">Aktuelle Reichweite als Basis</span><span class="sep"></span>
+    <span class="item">Konkret. Umsetzbar. Direkt.</span><span class="sep"></span>
+  </div>
+</div>
+
+<!-- SPLIT: FÜR WEN -->
+<section class="section" style="background: var(--bg-warm);">
+  <div class="container">
+    <div class="split-julia">
+      <div class="txt reveal">
+        <div class="eyebrow" style="color: var(--bordeaux);">Für wen</div>
+        <h2>Wenn Sie Social Media <em>selbst machen</em> — nur besser.</h2>
+        <p>
+          Nicht jede Marke braucht eine Agentur, die alles übernimmt.
+          <br>Manchmal reicht ein Nachmittag mit jemandem, der es täglich macht.
+        </p>
+        <p>
+          Für Handwerksbetriebe, Praxen, Gastronomien und Selbständige, die schon posten — nur nicht mit dem Ergebnis, das sie sich wünschen.
+        </p>
+        <a href="#kontakt" class="btn-red" style="margin-top: 12px;">Erklärtag anfragen</a>
+      </div>
+      <div class="photo reveal d1">
+        <img src="img/portraits/julia-5.jpeg" alt="Julia Bergles">
+        <div class="tag-overlay">
+          <span class="small">Julia Bergles · @julia_bergles</span>
+          1 Mio. Aufrufe pro Monat, 92,7 % Nicht-Follower — das Wissen fließt in Ihren Termin.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABLAUF -->
+<section class="section" id="ablauf">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Der Ablauf</div>
+      <h2>Wie so ein Tag <em>abläuft</em>.</h2>
+      <p>
+        Vier Blöcke à etwa 30 – 45 Minuten.
+        <br>Pausen, Fragen und Umsetzung passieren zwischendrin.
+      </p>
+    </div>
+    <div class="abl-grid">
+      <div class="abl-card reveal d1">
+        <span class="n">01</span>
+        <h4>Ist-Aufnahme</h4>
+        <p>
+          Wir schauen zusammen auf Ihren aktuellen Auftritt.
+          <br>Was läuft, was nicht, warum.
+          <br>Ohne Schönfärberei.
+        </p>
+      </div>
+      <div class="abl-card reveal d2">
+        <span class="n">02</span>
+        <h4>Was gerade funktioniert</h4>
+        <p>
+          Reels, Hooks, Formate, Trends.
+          <br>Alles am konkreten Beispiel aus Ihrer Branche.
+          <br>Direkt am Handy demonstriert.
+        </p>
+      </div>
+      <div class="abl-card reveal d3">
+        <span class="n">03</span>
+        <h4>Wir drehen etwas</h4>
+        <p>
+          Ein bis zwei Reels direkt vor Ort.
+          <br>Sie halten das Handy. Ich stehe daneben.
+          <br>Sie sehen, wie ich denke und filme.
+        </p>
+      </div>
+      <div class="abl-card reveal d4">
+        <span class="n">04</span>
+        <h4>Plan für die nächsten Wochen</h4>
+        <p>
+          Konkreter Content-Plan zum Mitnehmen.
+          <br>Themen, Reihenfolge, Frequenz.
+          <br>Anpassbar an Ihre Zeit.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAS SIE MITNEHMEN (dark) -->
+<section class="section section-dark section-orbs">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Was Sie mitnehmen</div>
+      <h2>Nach 2 – 3 Stunden <em>können</em> Sie loslegen.</h2>
+    </div>
+    <div class="out-grid">
+      <div class="out-card reveal d1">
+        <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div>
+          <h5>Fertigen Content-Plan</h5>
+          <p>Themen, Reihenfolge, Frequenz für die nächsten 4 – 8 Wochen.</p>
+        </div>
+      </div>
+      <div class="out-card reveal d2">
+        <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7zM14 5H3a2 2 0 00-2 2v10a2 2 0 002 2h11a2 2 0 002-2V7a2 2 0 00-2-2z"/></svg></span>
+        <div>
+          <h5>1 – 2 fertige Reels</h5>
+          <p>Direkt am Termin gedreht und einsatzbereit.</p>
+        </div>
+      </div>
+      <div class="out-card reveal d3">
+        <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg></span>
+        <div>
+          <h5>Klarheit über Ihre Nische</h5>
+          <p>Was funktioniert bei Ihrer Zielgruppe. Was nicht.</p>
+        </div>
+      </div>
+      <div class="out-card reveal d4">
+        <span class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+        <div>
+          <h5>Tool-Empfehlungen</h5>
+          <p>Welche Apps, welche Formate, welche Zeit-Slots. Ohne Software-Wildwuchs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREIS -->
+<section class="section" style="background: var(--bg);">
+  <div class="container">
+    <div class="reveal" style="max-width: 780px; margin: 0 auto; text-align: center; padding: 60px 44px; background: linear-gradient(135deg, var(--bg-warm), var(--card)); border: 1.5px solid var(--gold); border-radius: 16px; box-shadow: 0 24px 50px rgba(45, 31, 34, 0.08);">
+      <div style="font-size: 10px; letter-spacing: 0.32em; text-transform: none; color: var(--bordeaux); font-weight: 700; margin-bottom: 18px;">Preis</div>
+      <div style="font-family: 'Raleway', 'Rubik', sans-serif; font-weight: 900; font-size: clamp(48px, 6vw, 72px); color: var(--bordeaux); line-height: 1; letter-spacing: -0.03em; margin-bottom: 12px;">450 &euro;</div>
+      <div style="font-size: 13px; letter-spacing: 0.24em; color: var(--muted); font-weight: 600; margin-bottom: 24px;">Pauschal · 2 – 3 Stunden vor Ort</div>
+      <p style="font-family: 'Quicksand', sans-serif; font-size: 15px; color: var(--ink-soft); line-height: 1.7; max-width: 480px; margin: 0 auto 28px;">
+        Fahrtkostenpauschale bei Terminen außerhalb Augsburg.
+        <br>Content-Plan und Reels inklusive.
+      </p>
+      <a href="#kontakt" class="btn-red">Termin anfragen</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-block" id="kontakt">
+  <div class="container">
+    <div class="inner reveal">
+      <div class="mark"></div>
+      <h2>Reden wir <em>offen zusammen</em>.</h2>
+      <p>
+        30 Minuten Kennenlerngespräch.
+        <br>Kostenlos und unverbindlich.
+        <br>Danach: Termin für den Erklärtag.
+      </p>
+      <div class="actions">
+        <a href="https://calendly.com/julia-bergles/30min" target="_blank" rel="noopener" class="btn-red">Kennenlerngespräch buchen</a>
+        <a href="anfrage.html" class="btn-outline">Angebot anfragen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">On Point</div>
+      <div class="tag">Content auf den Punkt gebracht.</div>
+      <div class="adr">Julia Bergles<br>Augsburg + remote<br>julia@bergles.net</div>
+    </div>
+    <div class="footer-col">
+      <h5>Bereiche</h5>
+      <a href="social-media.html">Social Media</a>
+      <a href="mediendesign.html">Mediendesign</a>
+      <a href="videografie.html">Video &amp; Foto</a>
+      <a href="websites.html">Webdesign</a>
+      <a href="erklaertag.html">Erklärtag</a>
+    </div>
+    <div class="footer-col">
+      <h5>Info</h5>
+      <a href="warum-onpoint.html">Warum On Point</a>
+      <a href="reichweite.html">Reichweite</a>
+      <a href="ueber-mich.html">Über mich</a>
+      <a href="index.html">Startseite</a>
+    </div>
+    <div class="footer-col">
+      <h5>Rechtliches</h5>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+  </div>
+  <div class="footer-xxl">
+    <div class="logo-big">ON<span class="g">·</span>POINT</div>
+    <div class="footer-copy">© 2026 On Point · Julia Bergles · Augsburg</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>
