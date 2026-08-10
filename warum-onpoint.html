@@ -207,6 +207,13 @@
   .tool-badge .shot img {
     width: 100%; height: 100%; object-fit: cover; display: block;
   }
+  .tool-badge .shot-icon {
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, var(--bg-warm), #efe3da);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--copper-dark);
+    border-bottom: 1px solid rgba(196, 139, 108, 0.15);
+  }
   .tool-badge .name {
     font-family: 'Nunito', sans-serif;
     font-size: 11px; letter-spacing: 0.05em;
@@ -596,28 +603,30 @@
     <div class="tools-visual">
       <div class="tools-grid">
         <div class="tool-badge">
-          <div class="shot"><img src="img/proof/manychat-automations.png" alt="ManyChat Pro Automation Dashboard"></div>
+          <div class="shot"><img src="img/proof/manychat-automations.png" alt="ManyChat Pro — Live Automation Dashboard"></div>
           <span class="name">ManyChat<span class="pro">PRO</span></span>
+        </div>
+        <div class="tool-badge">
+          <div class="shot"><img src="img/proof/manychat-account.png" alt="ManyChat Pro Account"></div>
+          <span class="name">Automation<span class="pro">PRO</span></span>
         </div>
         <div class="tool-badge">
           <div class="shot"><img src="img/proof/capcut-editor.png" alt="CapCut Pro Editor"></div>
           <span class="name">CapCut<span class="pro">PRO</span></span>
         </div>
         <div class="tool-badge">
+          <div class="shot"><img src="img/proof/capcut-projekte.png" alt="Schnitt-Projekte in CapCut Pro"></div>
+          <span class="name">Schnitt<span class="pro">PRO</span></span>
+        </div>
+        <div class="tool-badge">
           <div class="shot"><img src="img/proof/linktree-links.jpg" alt="Linktree Pro Setup"></div>
           <span class="name">Linktree<span class="pro">PRO</span></span>
         </div>
         <div class="tool-badge">
-          <div class="shot"><img src="img/proof/capcut-projekte.png" alt="Canva Pro"></div>
+          <div class="shot-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 010 18M3 12h18"/></svg>
+          </div>
           <span class="name">Canva<span class="pro">PRO</span></span>
-        </div>
-        <div class="tool-badge">
-          <div class="shot"><img src="img/proof/manychat-account.png" alt="Musik & Stock Lizenzen"></div>
-          <span class="name">Musik &amp; Stock</span>
-        </div>
-        <div class="tool-badge">
-          <div class="shot"><img src="img/proof/insta-feed-grid.jpg" alt="Cloud & Speicher"></div>
-          <span class="name">Cloud &amp; Speicher</span>
         </div>
       </div>
       <div class="tools-caption">Alle Pro-Accounts. Alle inklusive. Immer.</div>
@@ -728,7 +737,7 @@
 <section class="wo-section bg-cream" id="mentor">
   <div class="about-inner">
     <div class="about-portrait reveal">
-      <img src="img/portraits/julia-7.jpeg" alt="Julia Bergles">
+      <img src="img/portraits/julia-5.jpeg" alt="Julia Bergles">
       <span class="caption">Wer ich bin</span>
     </div>
     <div class="about-content reveal d1">
