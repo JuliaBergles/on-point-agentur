@@ -23,26 +23,30 @@ body, p, li, blockquote, cite, small, label, input, textarea, select, button,
 }
 
 :root {
-  /* Basis: tieferes warmes Greige — edel, ruhig, gibt Kontrast zu Cards */
-  --bg: #d8cfc0;
-  --bg-warm: #c9bfaf;
-  --bg-soft: #ddd4c5;
-  --bg-mint: #d2c9ba;
+  /* Neutral-Palette: Beige/Greige-Basis, Anthrazit als "Dark", Oxblood nur als seltener Highlight */
+  --bg: #ede6d9;
+  --bg-warm: #d8cfc0;
+  --bg-soft: #f5f0e6;
+  --bg-mint: #e2dacc;
   --card: #ffffff;
 
-  --ink: #2D1F22;
-  --ink-soft: #4a3236;
-  --muted: #8a6f72;
-  --muted-lite: #b09a9c;
+  --ink: #2a2a2a;
+  --ink-soft: #4a4a4a;
+  --muted: #6f6a63;
+  --muted-lite: #a49f97;
 
-  /* Rose als Hauptakzent (Buttons, Nav-Aktiv, Borders) */
-  --bordeaux: #be7676;
-  --bordeaux-hi: #d29999;
-  --bordeaux-deep: #8b5555;
+  /* Anthrazit als Hauptakzent (Buttons, Nav-Aktiv, Borders) — statt Rose */
+  --bordeaux: #2a2a2a;
+  --bordeaux-hi: #4a4a4a;
+  --bordeaux-deep: #0f0f0f;
 
-  /* Oxblood — sehr dunkles Rot, nur sparsam als Highlight (Headline-Italics, Micro-Akzente) */
+  /* Oxblood — sehr dunkles Rot, sparsam als Highlight (Headline-Italics, Focus-Ringe) */
   --oxblood: #4a1418;
   --oxblood-hi: #6d1e24;
+
+  /* Rose als sanfter Neben-Akzent (weiche Details, nicht dominant) */
+  --rose: #be7676;
+  --rose-soft: #d29999;
 
   --copper: #C48B6C;
   --copper-dark: #A0705A;

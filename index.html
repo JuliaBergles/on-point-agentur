@@ -75,9 +75,9 @@
     --muted: #8a6f72;
     --muted-lite: #b09a9c;
 
-    --bordeaux: #be7676;
-    --bordeaux-hi: #d29999;
-    --bordeaux-deep: #8b5555;
+    --bordeaux: #2a2a2a;
+    --bordeaux-hi: #4a4a4a;
+    --bordeaux-deep: #0f0f0f;
 
     --copper: #C48B6C;
     --copper-dark: #A0705A;
@@ -91,8 +91,8 @@
     --gold: #C48B6C;
     --gold-hi: #E8C4A8;
 
-    --line: rgba(190, 118, 118, 0.08);
-    --line-strong: rgba(190, 118, 118, 0.18);
+    --line: rgba(42, 42, 42, 0.08);
+    --line-strong: rgba(42, 42, 42, 0.18);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -1057,31 +1057,31 @@
   }
   .lo-stage.hide { opacity: 0; visibility: hidden; transition: opacity 0.5s, visibility 0s linear 0.5s; }
 
-  /* Metropolregion-Style Snap-Flip: Rose-BG ↔ Schwarz-BG, ohne Bilder, harter Cut.
-     Jedes Wort bekommt beide Zustände (a=rose-bg, b=schwarz-bg) — kurzer Doppel-Puls, dann nächstes Wort. */
+  /* Metropolregion-Style Snap-Flip: Greige-BG ↔ Anthrazit-BG, ohne Bilder, harter Cut.
+     Jedes Wort bekommt beide Zustände (a=greige, b=anthrazit) — kurzer Doppel-Puls, dann nächstes Wort. */
 
   .lo-stage.state-1a, .lo-stage.state-2a, .lo-stage.state-3a, .lo-stage.state-4a {
-    background: #be7676;
+    background: #ede6d9;
   }
   .lo-stage.state-1a .lo-word, .lo-stage.state-2a .lo-word,
   .lo-stage.state-3a .lo-word, .lo-stage.state-4a .lo-word {
-    color: #0a0a0a;
+    color: #2a2a2a;
   }
   .lo-stage.state-1a .lo-sub, .lo-stage.state-2a .lo-sub,
   .lo-stage.state-3a .lo-sub, .lo-stage.state-4a .lo-sub {
-    color: #0a0a0a;
+    color: #2a2a2a;
   }
 
   .lo-stage.state-1b, .lo-stage.state-2b, .lo-stage.state-3b, .lo-stage.state-4b {
-    background: #0a0a0a;
+    background: #2a2a2a;
   }
   .lo-stage.state-1b .lo-word, .lo-stage.state-2b .lo-word,
   .lo-stage.state-3b .lo-word, .lo-stage.state-4b .lo-word {
-    color: #be7676;
+    color: #ede6d9;
   }
   .lo-stage.state-1b .lo-sub, .lo-stage.state-2b .lo-sub,
   .lo-stage.state-3b .lo-sub, .lo-stage.state-4b .lo-sub {
-    color: #be7676;
+    color: #ede6d9;
   }
 
   /* Snap statt Fade — Farben wechseln sofort */
@@ -1313,7 +1313,7 @@
   .choice-card-lo.c-blue,
   .choice-card-lo.c-ink {
     background: #fff;
-    border: 1px solid rgba(190, 118, 118, 0.06);
+    border: 1px solid rgba(42, 42, 42, 0.06);
     border-radius: 10px;
     overflow: hidden;
     text-align: left;
@@ -1450,7 +1450,7 @@
     gap: 8px;
     padding: 12px 22px;
     background: #fff;
-    border: 1.5px solid rgba(190, 118, 118, 0.2);
+    border: 1.5px solid rgba(42, 42, 42, 0.2);
     color: var(--bordeaux);
     border-radius: 999px;
     font-family: 'Raleway', sans-serif;
