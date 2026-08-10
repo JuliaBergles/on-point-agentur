@@ -25,64 +25,131 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700;800;900&display=swap">
 <link rel="stylesheet" href="css/onpoint.css">
 <style>
-  /* Prozess-Schritte (dark editorial) */
-  .step-grid {
-    display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
-    max-width: 1200px; margin: 0 auto;
-  }
-  @media (max-width: 900px) { .step-grid { grid-template-columns: 1fr 1fr; gap: 16px; } }
-  @media (max-width: 600px) { .step-grid { grid-template-columns: 1fr; gap: 16px; } }
-
-  .step {
-    background: rgba(251, 242, 237, 0.03);
-    border: 1px solid rgba(255, 156, 109, 0.18);
-    border-radius: 10px;
-    padding: 40px 26px 34px;
+  /* Prozess-Timeline (hell/beige, animiert wie Zeitleiste) */
+  .prozess-timeline-section {
+    padding: 120px 32px;
+    background: var(--bg-warm);
     position: relative;
     overflow: hidden;
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    backdrop-filter: blur(4px);
   }
-  .step::before {
-    content: "";
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 60%, rgba(255, 156, 109, 0.08));
-    opacity: 0; transition: opacity 0.6s;
-    pointer-events: none;
-  }
-  .step:hover {
-    transform: translateY(-8px);
-    border-color: var(--gold);
-    background: rgba(251, 242, 237, 0.06);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
-  }
-  .step:hover::before { opacity: 1; }
-
-  .step .n {
-    font-family: 'Raleway', 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; font-weight: 900;
-    color: var(--gold);
-    font-size: 64px; line-height: 1;
-    margin-bottom: 26px;
-    letter-spacing: -0.02em;
-    display: block;
-  }
-  .step h4 {
-    font-family: 'Raleway', 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; font-weight: 900;
-    font-size: 24px; color: var(--bg);
-    margin-bottom: 12px;
-    letter-spacing: -0.01em;
-  }
-  .step p {
-    font-size: 13px;
-    color: rgba(251, 242, 237, 0.65);
-    line-height: 1.65;
-  }
-  .step .rule {
-    display: block;
-    width: 24px; height: 1px;
-    background: var(--gold);
+  @media (max-width: 700px) { .prozess-timeline-section { padding: 80px 20px; } }
+  .prozess-timeline-inner { max-width: 1280px; margin: 0 auto; }
+  .prozess-timeline-head { text-align: center; max-width: 720px; margin: 0 auto 80px; }
+  .prozess-timeline-head .eyebrow {
+    display: inline-block;
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px; letter-spacing: 0.32em;
+    color: var(--oxblood); font-weight: 700;
+    text-transform: uppercase;
     margin-bottom: 20px;
-    opacity: 0.6;
+  }
+  .prozess-timeline-head h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: clamp(34px, 4.5vw, 54px);
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    margin-bottom: 18px;
+  }
+  .prozess-timeline-head h2 em { font-style: normal; color: var(--oxblood); }
+  .prozess-timeline-head p {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: clamp(15px, 1.5vw, 18px);
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  /* Zeitleiste — Desktop horizontal */
+  .prozess-track {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    padding-top: 60px;
+  }
+  /* Grundlinie hinter allen Steps */
+  .prozess-track::before {
+    content: "";
+    position: absolute;
+    top: 90px; left: 6%; right: 6%;
+    height: 2px;
+    background: rgba(74, 20, 24, 0.15);
+    z-index: 0;
+  }
+  /* Animierter Fortschritt — von 0 % auf 100 % beim Scroll */
+  .prozess-track::after {
+    content: "";
+    position: absolute;
+    top: 90px; left: 6%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--oxblood), var(--gold));
+    width: 0%;
+    transition: width 2.5s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+  }
+  .prozess-track.in::after { width: 88%; }
+  @media (max-width: 900px) {
+    .prozess-track {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding-top: 20px;
+    }
+    .prozess-track::before, .prozess-track::after { display: none; }
+  }
+  .p-step {
+    position: relative;
+    text-align: center;
+    padding: 0 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .prozess-track.in .p-step { opacity: 1; transform: translateY(0); }
+  .prozess-track.in .p-step:nth-child(1) { transition-delay: 0.15s; }
+  .prozess-track.in .p-step:nth-child(2) { transition-delay: 0.5s; }
+  .prozess-track.in .p-step:nth-child(3) { transition-delay: 0.85s; }
+  .prozess-track.in .p-step:nth-child(4) { transition-delay: 1.2s; }
+  .prozess-track.in .p-step:nth-child(5) { transition-delay: 1.55s; }
+  .p-step .bubble {
+    position: relative;
+    width: 62px; height: 62px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 2px solid var(--oxblood);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--oxblood);
+    letter-spacing: -0.02em;
+    z-index: 2;
+    box-shadow: 0 8px 22px rgba(74, 20, 24, 0.15);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s, color 0.4s;
+  }
+  .p-step:hover .bubble {
+    transform: scale(1.08);
+    background: var(--oxblood);
+    color: var(--card);
+  }
+  .p-step h4 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--ink);
+    margin: 0 0 12px;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .p-step p {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin: 0;
   }
 
   /* Pricing box */
@@ -193,152 +260,42 @@
   </div>
 </section>
 
-<!-- 5-SCHRITTE PROZESS (Dark Editorial) -->
-<section class="section section-dark section-orbs" id="prozess">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="eyebrow">Prozess</div>
+<!-- PROZESS-TIMELINE (hell/beige, animiert) -->
+<section class="prozess-timeline-section" id="prozess">
+  <div class="prozess-timeline-inner">
+    <div class="prozess-timeline-head reveal">
+      <span class="eyebrow">Prozess</span>
       <h2>In fünf Schritten <em>online</em>.</h2>
       <p>
         Klar, ruhig, ohne Überraschungen.
         <br>Sie wissen immer, wo wir stehen.
       </p>
     </div>
-    <div class="step-grid">
-      <div class="step reveal d1">
-        <span class="n">01</span>
-        <span class="rule"></span>
+    <div class="prozess-track" id="prozessTrack">
+      <div class="p-step">
+        <div class="bubble">01</div>
         <h4>Konzept</h4>
-        <p>
-          Ziele, Zielgruppe, Wettbewerb.
-          <br>Was soll die Website leisten?
-        </p>
+        <p>Ziele, Zielgruppe, Wettbewerb.<br>Was soll die Website leisten?</p>
       </div>
-      <div class="step reveal d1">
-        <span class="n">02</span>
-        <span class="rule"></span>
+      <div class="p-step">
+        <div class="bubble">02</div>
         <h4>Design</h4>
-        <p>
-          Look &amp; Feel, Struktur, Typografie.
-          <br>Klicken Sie-Prototyp zur Freigabe.
-        </p>
+        <p>Look &amp; Feel, Struktur, Typografie.<br>Klick-Prototyp zur Freigabe.</p>
       </div>
-      <div class="step reveal d2">
-        <span class="n">03</span>
-        <span class="rule"></span>
+      <div class="p-step">
+        <div class="bubble">03</div>
         <h4>Setup</h4>
-        <p>
-          Domain, Hosting, Analytics.
-          <br>Alles technisch aufgeräumt.
-        </p>
+        <p>Domain, Hosting, Analytics.<br>Alles technisch aufgeräumt.</p>
       </div>
-      <div class="step reveal d2">
-        <span class="n">04</span>
-        <span class="rule"></span>
+      <div class="p-step">
+        <div class="bubble">04</div>
         <h4>Umsetzung</h4>
-        <p>
-          Ich baue.
-          <br>Sie geben Feedback in klaren Runden.
-        </p>
+        <p>Ich baue.<br>Sie geben Feedback in klaren Runden.</p>
       </div>
-      <div class="step reveal d3">
-        <span class="n">05</span>
-        <span class="rule"></span>
+      <div class="p-step">
+        <div class="bubble">05</div>
         <h4>Launch</h4>
-        <p>
-          Live gehen, testen, feilen.
-          <br>Danach eine kurze Einweisung für Sie.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WAS DANACH PASSIERT -->
-<section class="section" id="danach">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="eyebrow">Nach dem Launch</div>
-      <h2>Sie besitzen alles.<br><em>Kein Lock-in</em>.</h2>
-      <p>
-        Wichtig für mich: Sie können jederzeit ohne mich weitermachen.
-        <br>Domain, Code, Hosting-Account laufen auf Ihren Namen.
-      </p>
-    </div>
-
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto;">
-      <div class="reveal d1" style="background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 36px 28px;">
-        <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, rgba(67, 10, 20, 0.08), rgba(255, 156, 109, 0.14)); color: var(--bordeaux); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h4 style="font-family: 'Raleway', 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; font-weight: 900; font-size: 22px; color: var(--ink); margin-bottom: 10px;">Sie besitzen alles</h4>
-        <p style="font-size: 14px; color: var(--muted); line-height: 1.6;">
-          Domain, Code auf GitHub, Hosting-Account.
-          <br>Alles unter Ihrem Namen.
-          <br>Jeder Web-Entwickler kann jederzeit übernehmen.
-        </p>
-      </div>
-      <div class="reveal d2" style="background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 36px 28px;">
-        <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, rgba(67, 10, 20, 0.08), rgba(255, 156, 109, 0.14)); color: var(--bordeaux); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-        </div>
-        <h4 style="font-family: 'Raleway', 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; font-weight: 900; font-size: 22px; color: var(--ink); margin-bottom: 10px;">Selbst editieren</h4>
-        <p style="font-size: 14px; color: var(--muted); line-height: 1.6;">
-          Sie bekommen einen Web-Zugang.
-          <br>Damit ändern Sie Texte, Bilder und Blog-Posts direkt.
-          <br>Ganz ohne HTML-Kenntnisse.
-        </p>
-      </div>
-      <div class="reveal d3" style="background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 36px 28px;">
-        <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, rgba(67, 10, 20, 0.08), rgba(255, 156, 109, 0.14)); color: var(--bordeaux); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-        </div>
-        <h4 style="font-family: 'Raleway', 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; font-weight: 900; font-size: 22px; color: var(--ink); margin-bottom: 10px;">Wenn Sie Hilfe wollen</h4>
-        <p style="font-size: 14px; color: var(--muted); line-height: 1.6;">
-          Änderungen jederzeit auf Anfrage — pauschal je nach Aufwand.
-          <br>Auf Wunsch monatliches Wartungs-Paket, individuell abgestimmt.
-        </p>
-      </div>
-    </div>
-
-    <!-- Laufende Kosten -->
-    <div class="reveal" style="max-width: 780px; margin: 60px auto 0; background: linear-gradient(135deg, var(--bordeaux), var(--bordeaux-deep)); color: var(--bg); border-radius: 16px; padding: 48px 44px; position: relative; overflow: hidden;">
-      <div style="position: absolute; top: -100px; right: -100px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 156, 109, 0.16), transparent 70%); pointer-events: none;"></div>
-      <div style="position: relative;">
-        <div style="font-size: 11px; letter-spacing: 0.3em; text-transform: none; color: var(--gold); font-weight: 700; margin-bottom: 18px;">Laufende Pflegekosten</div>
-        <h3 style="font-family: 'Raleway', 'Rubik', 'Space Grotesk', sans-serif; font-weight: 900; font-size: 32px; color: var(--bg); margin-bottom: 24px; line-height: 1.15;">Fast <span style="font-style: normal; color: var(--gold);">nichts</span>.</h3>
-        <div style="display: grid; grid-template-columns: 1fr; gap: 4px; margin-bottom: 24px;">
-          <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 14px 0; border-bottom: 1px dashed rgba(251, 242, 237, 0.15); gap: 20px;">
-            <div>
-              <div style="font-size: 15px; color: var(--bg); font-weight: 500;">Domain</div>
-              <div style="font-size: 12px; color: rgba(251, 242, 237, 0.6); margin-top: 2px;">z. B. .de bei INWX, Netcup, IONOS</div>
-            </div>
-            <div style="font-family: 'Raleway', 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; color: var(--gold); font-size: 18px; white-space: nowrap;">ca. 10–20&thinsp;€&thinsp;/&thinsp;Jahr</div>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 14px 0; border-bottom: 1px dashed rgba(251, 242, 237, 0.15); gap: 20px;">
-            <div>
-              <div style="font-size: 15px; color: var(--bg); font-weight: 500;">Hosting (Vercel / Netlify)</div>
-              <div style="font-size: 12px; color: rgba(251, 242, 237, 0.6); margin-top: 2px;">Free-Tier reicht für 99 % der Fälle</div>
-            </div>
-            <div style="font-family: 'Raleway', 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; color: var(--gold); font-size: 18px; white-space: nowrap;">0&thinsp;€</div>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 14px 0; gap: 20px;">
-            <div>
-              <div style="font-size: 15px; color: var(--bg); font-weight: 500;">CMS-Zugang</div>
-              <div style="font-size: 12px; color: rgba(251, 242, 237, 0.6); margin-top: 2px;">Open Source</div>
-            </div>
-            <div style="font-family: 'Raleway', 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; color: var(--gold); font-size: 18px; white-space: nowrap;">0&thinsp;€</div>
-          </div>
-        </div>
-        <div style="padding-top: 18px; border-top: 2px solid var(--gold); display: flex; justify-content: space-between; align-items: baseline;">
-          <div style="font-family: 'Raleway', 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; font-size: 20px; color: var(--bg);">Zusammen</div>
-          <div style="font-family: 'Raleway', 'Rubik', 'Space Grotesk', sans-serif; font-style: normal; font-weight: 900; font-size: 28px; color: var(--gold);">ca. 15&thinsp;€&thinsp;/&thinsp;Jahr</div>
-        </div>
-        <p style="margin-top: 24px; font-size: 13px; color: rgba(251, 242, 237, 0.7); line-height: 1.65; font-style: normal;">
-          Sie zahlen die Domain direkt an den Anbieter, ich bekomme davon nichts.
-          <br>Bei sehr viel Traffic (über 100k Besuche pro Monat) kann Hosting auf ca. 20&thinsp;€ pro Monat steigen.
-          <br>Bis dahin: kostenlos.
-        </p>
+        <p>Live gehen, testen, feilen.<br>Danach eine kurze Einweisung für Sie.</p>
       </div>
     </div>
   </div>
@@ -540,6 +497,20 @@
     entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
   }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // Prozess-Timeline Animation-Trigger
+  const prozessTrack = document.getElementById('prozessTrack');
+  if (prozessTrack) {
+    const trackIO = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          trackIO.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    trackIO.observe(prozessTrack);
+  }
 </script>
 
 </body>
