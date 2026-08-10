@@ -1883,6 +1883,150 @@
   </div>
 </div>
 
+<!-- CUTOUT-EDITORIAL: Julia-Portraits als runde Cutouts, Text umfließt (Magazin-Layout) -->
+<style>
+  .cutout-editorial {
+    padding: 140px 40px 120px;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  @media (max-width: 700px) { .cutout-editorial { padding: 90px 20px 70px; } }
+  .cutout-inner { max-width: 900px; margin: 0 auto; position: relative; }
+  .cutout-eyebrow {
+    display: inline-block;
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px; letter-spacing: 0.32em;
+    color: var(--oxblood); font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .cutout-h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: clamp(38px, 5vw, 62px);
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1.06;
+    margin-bottom: 50px;
+    max-width: 720px;
+  }
+  .cutout-h2 em { font-style: normal; color: var(--oxblood); }
+  .cutout-text {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: clamp(16px, 1.6vw, 18px);
+    line-height: 1.9;
+    color: var(--ink-soft);
+  }
+  .cutout-text p { margin-bottom: 22px; }
+  .cutout-text strong { color: var(--oxblood); font-weight: 700; }
+  .cutout-text em { font-style: normal; color: var(--ink); font-weight: 700; }
+
+  /* Cutout-Bilder — runde/blob Rahmen, floaten und Text fließt drumrum */
+  .cutout-left {
+    float: left;
+    width: 220px; height: 220px;
+    margin: 4px 32px 16px 0;
+    border-radius: 50%;
+    overflow: hidden;
+    shape-outside: circle();
+    box-shadow: 0 24px 50px rgba(45, 31, 34, 0.14);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .cutout-right {
+    float: right;
+    width: 240px; height: 300px;
+    margin: 4px 0 16px 32px;
+    border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%;
+    overflow: hidden;
+    shape-outside: margin-box;
+    animation: cutoutBlob 14s ease-in-out infinite;
+    box-shadow: 0 24px 50px rgba(45, 31, 34, 0.14);
+  }
+  @keyframes cutoutBlob {
+    0%, 100% { border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%; }
+    50%      { border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%; }
+  }
+  .cutout-left img, .cutout-right img, .cutout-oval-tiny img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .cutout-left:hover img, .cutout-right:hover img, .cutout-oval-tiny:hover img {
+    transform: scale(1.08);
+  }
+  .cutout-oval-tiny {
+    float: left;
+    width: 140px; height: 180px;
+    margin: 4px 28px 16px 0;
+    border-radius: 50% / 60%;
+    overflow: hidden;
+    shape-outside: margin-box;
+    box-shadow: 0 16px 32px rgba(45, 31, 34, 0.12);
+  }
+
+  /* Decorative Oxblood-Streusel */
+  .cutout-dot {
+    position: absolute;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--oxblood);
+    opacity: 0.6;
+  }
+  .cutout-dot.d1 { top: 100px; right: 80px; }
+  .cutout-dot.d2 { top: 380px; left: -20px; width: 24px; height: 24px; opacity: 0.15; }
+  .cutout-dot.d3 { bottom: 100px; right: 40px; width: 8px; height: 8px; opacity: 0.5; }
+
+  @media (max-width: 700px) {
+    .cutout-left, .cutout-right, .cutout-oval-tiny {
+      float: none;
+      display: block;
+      margin: 0 auto 24px;
+      shape-outside: none;
+    }
+    .cutout-left  { width: 200px; height: 200px; }
+    .cutout-right { width: 220px; height: 280px; }
+    .cutout-oval-tiny { width: 160px; height: 200px; }
+    .cutout-dot { display: none; }
+  }
+</style>
+<section class="cutout-editorial">
+  <div class="cutout-inner">
+    <span class="cutout-dot d1"></span>
+    <span class="cutout-dot d2"></span>
+    <span class="cutout-dot d3"></span>
+    <span class="cutout-eyebrow reveal">Wer hier arbeitet</span>
+    <h2 class="cutout-h2 reveal d1">Julia. Alles aus <em>einer</em> Hand.</h2>
+    <div class="cutout-text reveal d2">
+      <div class="cutout-left">
+        <img src="img/portraits/julia-3.jpeg" alt="Julia Bergles">
+      </div>
+      <p>
+        Kein Team, das sich für Sie ausgibt. Kein „wir übernehmen das" ohne dass Sie wissen, wer eigentlich Ihre Marke in die Hand nimmt. Bei On Point sitze <strong>ich</strong> hinter jedem Reel, jedem Post, jeder Visitenkarte, jeder Zeile Code.
+      </p>
+      <p>
+        Ich bin Julia Bergles, 20, aus Wehringen bei Augsburg. Ich schreibe, filme, schneide, gestalte und programmiere selbst. Was ich delegiere, sind nur die Aufgaben, bei denen jemand anderes es besser kann — dann arbeite ich mit ausgewählten Freelancern zusammen.
+      </p>
+      <div class="cutout-right">
+        <img src="img/portraits/julia-5.jpeg" alt="Julia Bergles">
+      </div>
+      <p>
+        Warum das für Sie zählt: Sie haben <em>eine</em> Ansprechpartnerin. Keine Übergaben, keine internen Missverständnisse, kein Ping-Pong zwischen drei Abteilungen. Sie schreiben mir, ich antworte — meist innerhalb weniger Stunden.
+      </p>
+      <p>
+        Und weil ich alles selbst mache, ist die Handschrift konsistent. Der Reel-Look sitzt auf der Website. Die Website-Farben sitzen auf der Visitenkarte. Das Instagram-Feed-Design zieht sich durch bis zur Präsentation, die Sie später halten.
+      </p>
+      <div class="cutout-oval-tiny">
+        <img src="img/portraits/julia-6.jpeg" alt="Julia Bergles">
+      </div>
+      <p>
+        Nebenbei entwickle ich meine eigene App <strong>TerraLuna</strong> und poste auf <strong>@julia_bergles</strong> — <em>über 1 Million Aufrufe pro Monat</em>, 92,7 % Nicht-Follower. Das heißt: ich weiß aus erster Hand, was 2026 auf Instagram funktioniert. Das fließt direkt in Ihre Marke.
+      </p>
+      <div style="clear: both;"></div>
+    </div>
+  </div>
+</section>
+
 <!-- BRAND-STORY — Solange es noch glüht -->
 <style>
   .brand-ember {
