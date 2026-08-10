@@ -1,10 +1,9 @@
-# On Point Kontext
+# On Point — Projektkontext
 
-Kompakter Ueberblick fuer Website, Design, Konditionen und offene Punkte.
+Kompakter Überblick für die Agentur-Website unter **agentur.juliabergles.de**.
 Bei jeder Sitzung zuerst hier reinschauen.
 
-Ersetzt die vorige Version (Petrol/Champagner/Inter, alte Preise) vollstaendig.
-Aktueller Stand: Juli 2026.
+**Stand: 10. August 2026.** Ersetzt alle vorherigen Stände (Juli-Version mit Bordeaux #8B2E3A + Playfair war Vorgänger).
 
 ---
 
@@ -12,203 +11,339 @@ Aktueller Stand: Juli 2026.
 
 - Julia Bergles, 20 Jahre, aus Wehringen bei Augsburg
 - Rollen: Social Media Managerin, Mediendesignerin, Webdesignerin
-- Agentur: On Point
-- Instagram: @julia_bergles
-- App-Projekt: TerraLuna (ganzheitlich fuer Frauen mit chronischen Beschwerden. Histamin, Reizdarm, Zoeliakie, Fructose, Laktose, Zyklus, Allergien. Reisen-Bereich aktiv)
-- Persoenliche Geschichte: Darmverschluss, 2 Jahre Isolation, Fahrrad als mentale Rettung. Nur teilen wenn passend, sonst zurueckhaltend
-- Kontakt: julia@bergles.net, https://calendly.com/julia-bergles/30min, +49 1511 8515 394
+- Agentur: **On Point**
+- Instagram: [@julia_bergles](https://www.instagram.com/julia_bergles/)
+- App-Projekt: **TerraLuna** (ganzheitlich für Frauen mit chronischen Beschwerden — Histamin, Reizdarm, Zöliakie, Fructose, Laktose, Zyklus, Allergien)
+- Persönliche Geschichte: Darmverschluss, 2 Jahre Isolation, Fahrrad als mentale Rettung. Nur teilen wenn passend, sonst zurückhaltend.
+- Kontakt: julia@bergles.net · [Calendly 30min](https://calendly.com/julia-bergles/30min) · +49 1511 8515 394
 
 ## Team
 
 - Julia macht Social Media (Konzept, Dreh, Sprache), Mediendesign (Konzept), Webdesign
 - Cutter/Schnitt wird abgegeben
-- Fuer Mediendesign ggf. Studenten hinzugezogen
-- Kein "wir/Team" so tun als waeren sie viele. Ehrlich als kleine Struktur auftreten
+- Für Mediendesign ggf. Studenten hinzugezogen
+- Kein „wir/Team" so tun als wären sie viele. Ehrlich als kleine Struktur auftreten.
 
 ---
 
-## Website On Point
+## Repo & Hosting
 
-### Seitenstruktur
+- Lokal: `/Users/juliabergles/Desktop/On Point Website/`
+- Remote: `github.com/JuliaBergles/on-point-agentur`
+- Domain: `agentur.juliabergles.de` (CNAME-Datei im Repo)
+- Deploy: Push auf `main` → GitHub Pages baut in ca. 1 Minute
+- **Julia testet live am Handy**, nicht lokal. Kein Preview-Setup.
+- Alternativ-Domain `juliabergles-onpoint.de` bei Cloudflare (Workers Static Assets, mit wrangler.toml + .assetsignore für die 25 MiB-Grenze)
 
-- `index.html` — Startseite. Hero mit Julia-Bild, Auswahl-Modal "Weswegen sind Sie hier?", 4 Bausteine, Branchen, Ueber Julia, Testimonial
-- `warum-onpoint.html` — 3 Versprechen. Nebenkosten, Ohne Drehbuch, Nur eine Marke pro Branche
-- `social-media.html` — Beitrag 220 EUR, Reel 250 EUR, Story 50 EUR. Sprech-Optionen mit Bildern
-- `mediendesign.html` — Visitenkarten, Print/Flyer, Workbooks/E-Books/Praesentationen, Logo/CD
-- `websites.html` — 80 EUR/h. Landing 400 bis 640 EUR. Uebliche Website ca. 1.120 EUR. Komplex 1.760 bis 2.560 EUR
-- `pakete.html` — Retainer als Accordion. Wachstum als Empfehlung. Prozess "So starten wir"
-- `reichweite.html` — aktuelle Instagram-Zahlen (heller Look, Bordeaux-Boxen)
-- `hotel-guide.html` — private Landing (noindex/nofollow, robots.txt disallow), Hybrid Design hell mit dunklen Akzenten
+---
 
-### Design System
+## Aktuelle Seitenstruktur
 
-- Farben:
-  - `--bordeaux: #8B2E3A`
-  - `--bordeaux-deep: dunkler Bordeaux fuer Backgrounds`
-  - `--gold: #C5A46D`
-  - `--off-white: #FBF2ED`
-  - `--ink: #2D1F22`
-- Schriften: Playfair Display (Serif Headlines) + Object Sans (Sans, Body und Zahlen)
-- Shared Styles: `css/onpoint.css` fuer neue Seiten, teils inline styles auf Startseite
-- Look: dark editorial mit hellen Sektionen im Wechsel, klare Kontraste
+### Hauptnavigation (aktive Menü-Punkte)
 
-### Design-Regeln
+| # | Seite | Datei | Zweck |
+|---|---|---|---|
+| 1 | Warum On Point | `warum-onpoint.html` | 3 Versprechen: Nebenkosten, Ohne Drehbuch, Nur eine Marke pro Branche. Tool-Badges. KENNENLERNEN mit Julia-Foto-Split. |
+| 2 | Social Media | `social-media.html` | Sprech-Formate, Vogue-Tab-Selector „Wählen Sie Ihre Branche" (4 Branchen: Fitness/Einrichtung/Mediale/Gastro), FAQ. |
+| 3 | Mediendesign ▾ | `mediendesign.html` | Leistungen dark, „Meine Handschrift" (3 alternierende Text-Bild-Blöcke Soul-of-Women-Stil), Referenzen. |
+| 3a | · Visitenkarten | `visitenkarten.html` | Sub-Menü |
+| 3b | · Flyer | `flyer.html` | Sub-Menü |
+| 3c | · Verpackungsdesign | `verpackungsdesign.html` | Sub-Menü |
+| 3d | · Meine Kunst | `kunst.html` | 9 Werke (Acryl, Aquarell, Modellieren), Stundensatz 80 €, 50 % Anzahlung. |
+| 4 | Video & Foto | `videografie.html` | Phone-Mockups-Hero, Videos & Fotos, Referenzen. **Umbau in mymiapage-Stil noch offen.** |
+| 5 | Webdesign | `websites.html` | Prozess, Preise 80 €/h, Beispiel-Referenzen. |
+| 6 | **Erklärtag** *(neu 08/2026)* | `erklaertag.html` | 2 – 3h vor Ort. Ablauf-Timeline, Preis 450 € pauschal. |
+| 7 | Reichweite | `reichweite.html` | 8 Instagram-Insights-Screenshots + Zahlen. **Stand 10.08.2026:** 1.020.876 Aufrufe / 30 Tage, 92,7 % Nicht-Follower, 6.070 Follower. |
+| 8 | Über mich | `ueber-mich.html` | Hero-Split, Werdegang, „Julia im Alltag"-Masonry-Galerie (8 Bilder), Wissen, Werte. |
 
-- Sektionen nicht starr wirken lassen. Klare Background-Wechsel und spuerbare Motion
-- Zahlen NIEMALS in Playfair-Italic (schlecht lesbar). Immer Object Sans Bold
-- Kein "6 von 8 Bildern" pro Panel. Kompakt halten
-- Bordeaux dominant, Gold als Akzent
-- Hero-Bilder gross und ruhig, keine ueberladenen Overlays
+### Weitere Seiten (nicht in Hauptnav)
+
+- `index.html` — Startseite mit Landing-Overlay (jetzt EIN Wort: „Ihr Timing. Entscheidet alles.")
+- `anfrage.html` — 8-Fragen-Anfrageformular
+- `angebot.html` — Angebots-Seite
+- `hotel-guide.html` — private Landing (noindex/nofollow, robots.txt disallow)
+- `mealbites.html` — Landing für Mealbites-Projekt
+- `impressum.html`, `datenschutz.html`, `agb.html`
+- `old-index.html` — alter Stand, archiv
+
+---
+
+## Design-System
+
+### Farb-Palette (Stand 10.08.2026 — reduziert-neutral)
+
+Basis, Ink, Muted (in `css/onpoint.css`):
+
+```
+--bg:          #d8cfc0   /* warmes tieferes Greige */
+--bg-warm:     #c9bfaf   /* deeper greige für Sektionen */
+--bg-soft:     #ddd4c5
+--bg-mint:     #d2c9ba
+--card:        #ffffff
+--ink:         #2D1F22   /* Body-Text: warmes Pflaume-Braun */
+--ink-soft:    #4a3236
+--muted:       #8a6f72
+--muted-lite:  #b09a9c
+```
+
+Hauptakzent (Buttons, Nav-Aktiv, Borders) — nach mehreren Iterationen jetzt weiche Rose als sanfter Akzent:
+
+```
+--bordeaux:      #be7676   /* Rose — Hauptakzent */
+--bordeaux-hi:   #d29999
+--bordeaux-deep: #8b5555
+```
+
+Highlight (sparsam, nur in Headline-Italics und CTA-em):
+
+```
+--oxblood:     #4a1418   /* sehr dunkles Rot — Highlight-Punkt */
+--oxblood-hi:  #6d1e24
+```
+
+Landing-Rotation (nur index.html Overlay):
+
+```
+Cream  #ECEAE6   /* Landing-BG 1 */
+Orange #ff8854   /* Landing-BG 2 */
+Oxblood #500011  /* Landing-Highlight */
+```
+
+Kupfer/Gold-Legacy (in einzelnen Sektionen noch vorhanden):
+
+```
+--copper:       #C48B6C
+--copper-dark:  #A0705A
+--copper-light: #E8C4A8
+--gold:         #C48B6C (Alias von --copper)
+```
+
+**Iteration-Historie:** Bordeaux #660e30 (Juli) → Rose #be7676 → Copper #a67150 (verworfen) → Rose zurück + Greige-Base + Oxblood-Highlight. Julia will Kunden-Kontinuität mit ihren roten Visitenkarten — deshalb Oxblood #500011 als Highlight statt hellem Rot. Rot+Gold ist die Zielrichtung, aber nicht plakativ, sondern sparsam.
+
+### Landing (index.html) — Stand 10.08.
+
+- **Nur EIN Wort:** „Ihr Timing." mit Sub „Entscheidet alles."
+- **Grund:** 4-Wörter-Version war zu lang, Kunden bounced ab
+- **Snap-Flip:** 2 Farbstände (Oxblood-BG + Orange-Text ↔ Orange-BG + Oxblood-Text)
+- **Font:** Archivo Black, uppercase, clamp(72px – 260px)
+- **Dauer:** ca. 2,2 Sekunden bis Choice-Screen
+- **Kein Fade** (`transition: none` auf .lo-stage)
+
+### Typografie
+
+- **Headlines & UI:** Raleway 500–900
+- **Landing-Display:** Archivo Black (nur Landing-Overlay)
+- **Body:** Quicksand 300–700
+- Legacy als Fallbacks: Rubik, Space Grotesk, Playfair Display, Object Sans
+
+**Fonts-Import (in `css/onpoint.css`, gespiegelt in allen HTML-Heads):**
+
+```
+Space Grotesk 400-700
+Clash Display 600-700
+Bricolage Grotesque 12..96, 600..800
+Rubik 400-900
+Archivo Black
+Quicksand 300-700
+Raleway 500-900
+```
+
+### Design-Muster (mymiapage.de / Soul-of-Women-Club inspiriert)
+
+Wiederkehrende Layout-Bausteine sitewide:
+
+1. **Editorial-Split** — Text + großes Foto nebeneinander (`.wo-cta-split`, `.um-hero-inner`, `.um-wissen-split`, `.split-julia`, `.md-block`, `.cta-block.with-photo`)
+2. **Transparente Text-Overlay auf Foto** — cream 94 % backdrop-blur, Oxblood-Text, Muted-Small-Caps-Label. Konsistente Signature auf: über-mich, warum-onpoint, erklärtag, social-media, mediendesign, cta-block sitewide.
+3. **Masonry-Grid** mit versetzten Bildgrößen (`.tall`, `.wide`, `.square`) — z.B. `um-gallery-grid` (Julia im Alltag), `k-gallery-grid` (Kunst)
+4. **Alternierendes Text-Bild-Layout** — Bild links/rechts wechselnd mit `.reverse`-Modifier (`md-block` auf mediendesign)
+5. **Tab-Selector** — Vogue-Editorial-Stil, aktiv = Oxblood-BG + Cream-Text, Fade-In-Content (Branchen-Tabs auf social-media)
+6. **Screenshot-Grid** — iPhone-9:19.5-Aspect, Hover-Lift (Reichweite)
+7. **KENNENLERNEN-CTA mit Julia-Foto** — `.cta-block.with-photo` Modifier sitewide: Text links + Portrait rechts mit „24h Antwortversprechen"-Overlay. Aktiv auf erklaertag/mediendesign/social-media/reichweite/websites/videografie. warum-onpoint hat eigene `.wo-cta-split`-Variante.
 
 ### Text-Regeln
 
-- Keine Bindestriche als Separator (weder — noch – als Trenner). Stattdessen Punkt, Komma oder neue Zeile
-- Jeder Satz auf neue Zeile (bei Fliesstexten mit `<br>` trennen)
-- Zahlen sauber schreiben, nicht verschnoerkeln
-- Keine Werbe-Phrasen wie "Kein Verkaufs-Pitch" oder "Ihr Argument". Direkt zur Sache
-- Konditionen und Preise klar zeigen, nicht verstecken
+- **Sie-Form durchgängig.** Diese Site siezt (im Gegensatz zu juliabergles.de).
+- Kein „Wusstest du...", keine KI-Sprache
+- Keine Bindestriche als Trenner. Punkt oder neue Zeile.
+- Jeder Satz auf neue Zeile (`<br>` in HTML)
+- Zahlen sauber schreiben, nicht verschnörkeln
+- Konditionen und Preise klar zeigen
+- **Julia schreibt alle Prosa selbst.** Claude macht Placeholder + strukturelles/faktisches Scaffolding (Header, Button-Labels, Nav, kurze Beschreibungen).
 
-### Was Julia NICHT will
+### Content-Regeln
 
-- Alte Petrol/Champagner-Palette (ersetzt durch Bordeaux/Gold)
-- Fraunces und Inter (ersetzt durch Playfair und Object Sans)
-- Marquee-Baender und iPhone-Mockups (weg, wirkt unruhig)
-- Zu volle Sektionen
-- Erfundene Zitate und Testimonials
-- Kupfer, Salbeigruen, reines Rot
+- **Kein Heilversprechen** (auch nicht für TerraLuna-App-Bezug)
+- **Kein „wir sind ein großes Team"** — Julia ist Solo mit Freelancer-Netzwerk
+- **Peer-Support = Erfahrungsaustausch**, nicht Beratung (Heilpraktiker-Gesetz-relevant)
 
 ---
 
-## Deployment
+## Aktuelle Zahlen (Stand 10.08.2026)
 
-- Repo: `https://github.com/JuliaBergles/on-point-agentur`
-- `agentur.juliabergles.de` auf GitHub Pages (CNAME auf juliabergles.github.io)
-- `juliabergles-onpoint.de` auf Cloudflare Workers Static Assets
-  - `wrangler.toml` und `.assetsignore` schliessen `.git`, `dashboard/`, `Hotel-Guide/`, `On-Point-Bilder/` aus
-  - Grund: .git-Ordner (96 MiB) sprengt Cloudflare 25 MiB Limit
-- Nameserver bei Cloudflare: `keenan.ns.cloudflare.com`, `tia.ns.cloudflare.com`
-- Visitenkarten mit `www.agentur.juliabergles.de`. DNS-Record dafuer setzen falls neu
+Aus Instagram Insights, Zeitraum 10. Juli – 8. August 2026:
+
+- **1.020.876** Aufrufe in 30 Tagen (davon 925.946 Reels, 54.510 Stories, 38.116 Beiträge)
+- **22.384** Interaktionen (20.571 auf Reels)
+- **+484** Netto neue Follower — total **6.070 Follower**
+- **7.749** Profilaufrufe
+- **92,7 %** Nicht-Follower
+- **506.191** Betrachter (unique accounts reached)
+
+### Zielgruppe
+
+- **Frauen 73,7 %** / Männer 26,3 %
+- Alter dominant: **25–34 mit 34,7 %**, 35–44 mit 25,3 %, 18–24 mit 14,9 %, 45–54 mit 13,4 %
+- Länder: **Deutschland 85,4 %**, Österreich 7,6 %, Schweiz 3,4 %
+- Sprache: 96,8 % deutschsprachig
+
+**Screenshots** liegen unter `img/reichweite/IMG_3460.PNG` bis `IMG_3467.jpg` (8 Dateien).
 
 ---
 
 ## Konditionen
 
-### Social Media (Einzelbuchung)
-
-- Beitrag: 220 EUR
-- Reel: 250 EUR
-- Story: 50 EUR
-
-### Webdesign
-
-- Stundensatz: 80 EUR/h
-- Landing Page: 5 bis 8 h (400 bis 640 EUR)
-- Uebliche Website: ca. 14 h (rund 1.120 EUR, inkl. Astro-Setup)
-- Komplex: 22 bis 32 h (1.760 bis 2.560 EUR)
-
-### Kilometer
-
-- Ab 20 km von Wehringen: 0,30 EUR/km
-
-### Retainer
-
-- 3 Monate Mindestlaufzeit, 1 Monat Kuendigung
-- Preisanpassung nach 8 Monaten
-- Freigabe innerhalb 24 h, 1 Follow-up inklusive
-- Referenznutzung durch Julia erlaubt
+| Leistung | Preis | Anmerkung |
+|---|---|---|
+| Social Media Beitrag | 220 € | |
+| Social Media Reel + Videodreh | 250 € | zzgl. Fahrtpauschale außerhalb Augsburg |
+| Social Media Story | 50 € | |
+| Webdesign | 80 €/h | Landing 400–640 €, mittlere Website ca. 1.120 €, komplex 1.760–2.560 € |
+| Kunst-Auftrag | 80 €/h | 50 % Anzahlung, Farben inklusive |
+| **Erklärtag** | **450 € pauschal** | 2–3h vor Ort, Content-Plan + 1–2 Reels inklusive |
+| Kilometer | 0,30 €/km | Ab 20 km von Wehringen |
+| Retainer | auf Anfrage | 3 Monate Mindestlaufzeit, 1 Monat Kündigung, Preisanpassung nach 8 Monaten |
 
 Alle Preise zzgl. MwSt.
 
 ---
 
-## Reichweite (Case Study Zahlen)
+## Bilder-Struktur
 
-Stand aktuell:
-- 1.393.620 Aufrufe / Monat
-- 581.274 erreichte Konten
-- 22.435 Interaktionen
-- 16.830 Profilaufrufe
-- 5.675 Follower gesamt
-- 91,6 Prozent Nicht-Follower Reichweite
-- Demografie: 75,9 Prozent Frauen, 24,1 Prozent Maenner
-- Alter: 25-34 (35,5 Prozent), 35-44 (25,2 Prozent)
-- Land: DE 85,1 Prozent, AT 7,6 Prozent
-- Accounts: @julia_bergles, @Smacado_
+```
+Desktop/On Point Website/
+├── img/                          # website-Bilder (in Repo, versioniert)
+│   ├── portraits/                # julia-1 bis julia-8 (verwendet auf ueber-mich, cta-blocks)
+│   ├── landing/                  # webdesign, ueber-julia
+│   ├── mediendesign/             # visitenkarten, flyer, verpackung, kunstwerke
+│   ├── kunst/                    # 9 Werke (aquarell, acryl, modellieren, etc.)
+│   ├── reichweite/               # 8 IG-Insights-Screenshots (IMG_3460–3467)
+│   ├── mymia-refs/               # Referenzbilder mymiapage (nur intern, nicht öffentlich zeigen)
+│   ├── fitness-1..4.png          # Kunde Fitnessstudio
+│   ├── kitchen-1..6.png          # Kunde Bruckner Einrichtungshaus
+│   ├── mental-1..10.png          # Kunde Nicole Schleer Mediale Beratung
+│   ├── idea-1..7.png             # generische Content-Ideen
+│   └── ref-*.jpg                 # Referenz-Fotos
+├── Bilder /                      # Julias Rohbilder (unversioniert, Staging)
+│   ├── Reichweite aktuell/       # Screenshot-Vorlage
+│   ├── Meine Kunst/              # Kunst-Rohbilder
+│   └── Social Media Bilder /
+└── css/onpoint.css               # Shared Stylesheet
+```
 
----
-
-## Kundenprojekte
-
-- **relax Fitness und Vital Lounge e.K.** (Daniel Hartmann). Retainer laeuft, Vertragsentwurf existiert auf Desktop (`Vertrag-relax-Fitness.html`)
-- **Hotel-Kooperationen**. Anreise gratis, kein Cash-Honorar bei Erst-Kooperation. Guide fuer Hotels als HTML (Desktop `/Hotel-Guide/`)
-  - Angeschrieben: Panorama Hotel Niedermair, Partschins (Familie Kuen)
-- **Kooperations-Anfragen an Marken**. Periodenunterwaesche (MyMense, Selenacare, Ooia), allergikerfreundliche Kleidung (Dilling). Mail-Vorlagen auf Desktop `/Kooperations-Mails/`
-
----
-
-## Externe Tools
-
-- Calendly (Standard, 30 Min Kennenlerngespraech): https://calendly.com/julia-bergles/30min
-- Google Search Console: HTML-Tag Verifizierung, Sitemap.xml und robots.txt vorhanden
-- IONOS: DNS-Verwaltung fuer juliabergles.de Subdomains
-- Cloudflare: Nameserver und Workers-Hosting fuer juliabergles-onpoint.de
-- GitHub Pages: Hosting fuer agentur.juliabergles.de
+**Cross-Nutzung erlaubt:** Blog-Bilder aus dem juliabergles-Website-Repo (`~/Library/Mobile Documents/.../juliabergles Website/blog-bilder/`) dürfen auch hier verwendet werden — sind Julias eigene Fotos.
 
 ---
 
-## Standard-Stack fuer Kunden-Websites
+## Was Julia NICHT will
 
-Fuer NEUE Kundenprojekte (nicht On Point selbst):
+- ❌ Alte Petrol/Champagner-Palette
+- ❌ Fraunces und Inter als Primary-Fonts
+- ❌ Nunito als Headline-Font (durch Raleway ersetzt)
+- ❌ Marquee-Bänder und iPhone-Mockups die unruhig wirken
+- ❌ Zu volle Sektionen — Weißraum ist Signature
+- ❌ Erfundene Zitate und Testimonials
+- ❌ Rose als Hauptton (zu weiblich-verspielt)
+- ❌ Reines Rot (zu plakativ) — deshalb Oxblood-Highlight statt dominantem Rot
+- ❌ Reines Blau/Maritime (kalt, off-brand)
+- ❌ Reines Salbeigrün
+- ❌ Bindestriche als Satz-Separator
+- ❌ „Wir sind ein großes Team"-Sprache
+- ❌ Prosa-Absätze in Julias Stimme (Julia schreibt selbst)
+- ❌ Heilversprechen
+- ❌ Nicht-Julia-Bilder in Personen-Kontext (nur Julia auf Julia-Fotos, keine Blumen/Landschaften wo Portrait hingehört)
 
-- Astro als Framework
-- Decap CMS fuer Kunden-Redaktion
-- Vercel oder Netlify als Hosting
-- Kunden-Ownership: Domain, Code, Hosting im Kunden-Account
-- Kein Lock-in, alles gehoert dem Kunden
+## Was Julia will
 
----
-
-## Offene Todos
-
-- Kooperations-Mails an MyMense und Selenacare senden
-- Mail an Familie Kuen (Panorama Hotel Niedermair) senden
-- SSL/HTTPS auf agentur.juliabergles.de pruefen (falls noch offen)
-- Google Search Console fuer juliabergles-onpoint.de: Property anlegen und Sitemap einreichen
-- Cloudflare Pages Custom Domain fuer juliabergles-onpoint.de und www abschliessen
-- Optional: Redirect agentur.juliabergles.de nach juliabergles-onpoint.de
-
----
-
-## Naechstes Projekt: Dashboard On Point
-
-- Eigenes Tool fuer Julias Agentur-Betrieb
-- Noch keine konkreten Specs
-- Im neuen Chat starten (nicht hier weiter)
-- Vor Implementation klaeren:
-  1. Was soll das Dashboard koennen (Kunden, Rechnungen, Content-Kalender, KPIs, Termine)
-  2. Fuer wen (nur Julia oder auch Kunden-Login)
-  3. Wo hosten (Cloudflare, Vercel, Supabase)
-  4. Datenspeicher (Datenbank oder erstmal Frontend-Skizze)
-- Design-Sprache muss zur Website passen: Bordeaux/Gold/Off-white/Ink, Playfair und Object Sans, dark editorial
+- ✅ Editorial-Look Richtung mymiapage.de + Metropolregion-München-Kraft
+- ✅ Text und Bilder gemischt, versetzte Layouts, transparente Overlays
+- ✅ Viele Julia-Bilder sichtbar (nicht inszeniert, aus der Praxis)
+- ✅ Klare Farb-Highlights sparsam einsetzen (Oxblood-Signature)
+- ✅ Live-Push zu GitHub Pages, direkt am Handy testen
+- ✅ Rot + Gold als Zielfarben (aus Visitenkarten-Kontinuität) — aktuell durch Oxblood-Highlight umgesetzt
+- ✅ Referenzen konkret zeigen (nicht anonymisieren wo möglich)
+- ✅ Auf jeder Seite: Julia-Foto neben dem KENNENLERNEN-CTA
 
 ---
 
-## Arbeitsweise (aus CLAUDE.md)
+## Iteration-Log 10.08.2026
 
-- Sauber und strukturiert, kein Quick-and-Dirty
-- Bestehenden Code erst verstehen bevor geaendert wird
-- Gute UX mitdenken
-- Langfristig sinnvoll bauen, keine kurzfristigen Hacks
-- Aenderungen klein und nachvollziehbar
-- Bei Unklarheiten nachfragen statt raten
-- Tests und Dokumentation gehoeren dazu
+Diese Session (rund 20 Commits) hat komplett umgebaut:
+
+1. **Landing** metropolregion-Snap-Flip (Cream/Orange/Oxblood, Archivo Black) → auf EIN Wort reduziert
+2. **Sitewide Sie-Form** (mechanisch via perl, alle Du/dein/dir → Sie/Ihr/Ihnen mit ~50 Verb-Konjugationen)
+3. **Farbe** von Bordeaux #660e30 → durch mehrere Iterationen → Greige-Base + Rose + Oxblood-Highlight
+4. **Schrift** von Nunito → Raleway sitewide
+5. **social-media** aufgeräumt: ManyChat/Einzelleistungen/Referenzen raus, dafür Vogue-Tabs
+6. **Reichweite** komplett neu mit 8 IG-Screenshots + Stand 10.08.
+7. **Erklärtag** neue Seite (450 €) mit Nav-Integration
+8. **Kunst** ausgebaut auf 9 Werke
+9. **Über-mich** Julia-Bilder-Masonry (8 Bilder mymiapage-Grid)
+10. **Mediendesign** neue Handschrift-Sektion (3 alternierende Text-Bild-Blöcke)
+11. **Warum-onpoint CTA** Split-Layout mit Julia-Foto
+12. **CTA-Block sitewide** Julia-Foto daneben (`.cta-block.with-photo`)
+13. **Oxblood** in Headline-Italics (h1/h2/cta em)
 
 ---
 
-## Prinzipien fuer Aenderungen
+## Offene Punkte / Nächste Iterationen
 
-1. CONTEXT.md ist die Wahrheit. Bei jeder neuen Sitzung erst hier reinschauen.
-2. Keine erfundenen Zitate oder Testimonials.
-3. Fokus bleibt: Kunden-Gewinnung, nicht Content-Produktion.
-4. Kein Kupfer, kein reines Rot, kein Fraunces.
-5. Weniger Text ist mehr.
+- **videografie.html** komplett-Redesign im mymiapage-Stil mit eingebetteten Videos
+- **Kunst als eigener Menüpunkt** (aktuell nur Sub-Menü unter Mediendesign — Julia will es top-level)
+- **Erklärtag als Unterpunkt bei Warum On Point** (Nav-Restructuring)
+- **Landing:** mehr Bilder in unterschiedlichen Größen nebeneinander, Cutouts, Text-wrap-around
+- **Runde/ovale Rahmen** bei Bildern sitewide als Design-Element
+- **Reichweite-Screenshots** systematischer gruppieren (nach Übersicht / Content-Art / Zielgruppe)
+- **Kundenprojekte fortführen:** relax Fitness & Vital Lounge (Daniel Hartmann), Hotel-Kooperationen (Panorama Hotel Niedermair), Kooperations-Mails (MyMense, Selenacare, Ooia, Dilling)
+- **SSL/HTTPS** auf agentur.juliabergles.de finalisieren
+- **Google Search Console** für juliabergles-onpoint.de
+
+---
+
+## Deployment / Externe Tools
+
+- **GitHub Pages:** Hosting agentur.juliabergles.de (Push auf main → live in ~1 min)
+- **Cloudflare Workers:** juliabergles-onpoint.de (wrangler.toml, .assetsignore für 25 MiB-Limit)
+- **Calendly:** `calendly.com/julia-bergles/30min` (30-Min Kennenlerngespräch)
+- **IONOS:** DNS für juliabergles.de-Subdomains
+- **Google Search Console:** HTML-Tag verifiziert, sitemap.xml + robots.txt vorhanden
+
+### Standard-Stack für Kunden-Websites (nicht für On Point selbst)
+
+- **Astro** als Framework
+- **Decap CMS** für Kunden-Redaktion
+- **Vercel oder Netlify** als Hosting
+- **Kunden-Ownership:** Domain, Code, Hosting im Kunden-Account
+- **Kein Lock-in**, alles gehört dem Kunden
+
+---
+
+## Prinzipien für Änderungen
+
+1. **CONTEXT.md ist die Wahrheit.** Bei jeder neuen Sitzung erst hier reinschauen.
+2. **Keine erfundenen Zitate oder Testimonials.**
+3. **Fokus:** Kunden-Gewinnung, nicht Content-Produktion.
+4. **Kein reines Rot, kein Fraunces, kein Nunito, kein plakatives Blau.**
+5. **Weniger Text ist mehr.**
+6. **Julia schreibt Prosa selbst** — Claude scaffoldet nur.
+7. **Push-first, live testen am Handy.** Kein lokaler Preview-Flow.
+8. **Ein Task = ein Commit.** Deutsche Commit-Messages mit warum/was.
+9. **Bei Farb-/Design-Fragen:** Julia entscheidet, Claude gibt Meinung + Empfehlung + Direction, dann tut.
+
+---
+
+## Wenn du diese Datei liest…
+
+…dann arbeitest du gerade an On Point Website (Agentur, Sie-Form).
+**Verwechsle sie nicht mit juliabergles.de** (Personal Brand, du-Form) — das ist ein anderes Repo unter `~/Library/Mobile Documents/.../juliabergles Website/`.
+
+Zuerst hier reinschauen, dann Änderung planen. Direkt und knapp arbeiten. Live-Push mit klarer deutscher Commit-Message.
