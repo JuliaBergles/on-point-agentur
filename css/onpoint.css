@@ -25,9 +25,9 @@ body, p, li, blockquote, cite, small, label, input, textarea, select, button,
 :root {
   /* Neutral-Palette: Beige/Greige-Basis, Anthrazit als "Dark", Oxblood nur als seltener Highlight */
   --bg: #ede6d9;
-  --bg-warm: #d8cfc0;
+  --bg-warm: #ECEAE6;
   --bg-soft: #f5f0e6;
-  --bg-mint: #e2dacc;
+  --bg-mint: #ECEAE6;
   --card: #ffffff;
 
   --ink: #2a2a2a;
