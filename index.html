@@ -64,10 +64,10 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap">
 <style>
   :root {
-    --bg: #FBF2ED;
-    --bg-warm: #F3D6C6;
-    --bg-soft: #E8D0BE;
-    --bg-mint: #e7fffe;
+    --bg: #fffcf9;
+    --bg-warm: #efe3da;
+    --bg-soft: #f6e7e7;
+    --bg-mint: #f4f3f1;
     --card: #ffffff;
 
     --ink: #2D1F22;
@@ -75,19 +75,24 @@
     --muted: #8a6f72;
     --muted-lite: #b09a9c;
 
-    --bordeaux: #430a14;
-    --bordeaux-hi: #c74873;
-    --bordeaux-deep: #2d0508;
+    --bordeaux: #620303;
+    --bordeaux-hi: #8a1010;
+    --bordeaux-deep: #3d0202;
 
-    --pink: #c74873;
+    --copper: #C48B6C;
+    --copper-dark: #A0705A;
+    --copper-light: #E8C4A8;
+    --copper-gradient: linear-gradient(135deg, #A0705A 0%, #C48B6C 25%, #E8C4A8 50%, #C48B6C 75%, #A0705A 100%);
+
+    --pink: #C48B6C;
     --blue: #7993ae;
-    --orange: #ff9c6d;
+    --orange: #C48B6C;
 
-    --gold: #ff9c6d;
-    --gold-hi: #ffb08a;
+    --gold: #C48B6C;
+    --gold-hi: #E8C4A8;
 
-    --line: rgba(67, 10, 20, 0.10);
-    --line-strong: rgba(67, 10, 20, 0.22);
+    --line: rgba(98, 3, 3, 0.08);
+    --line-strong: rgba(98, 3, 3, 0.18);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -1054,57 +1059,37 @@
 
   /* Jeder State hat sein Bild + passende Farbwelt */
 
-  /* GLUT — glühende Kohle als Hintergrund */
-  .lo-stage.state-1a,
-  .lo-stage.state-1b {
-    background-image: linear-gradient(135deg, rgba(67, 10, 20, 0.60), rgba(26, 5, 8, 0.55)), url('img/glut.jpg');
-    background-size: cover;
-    background-position: center;
+  /* GLUT — warmes Beige, Glut nur ganz leicht als Backdrop */
+  .lo-stage.state-1a {
+    background:
+      linear-gradient(135deg, rgba(255, 252, 249, 0.88), rgba(239, 227, 218, 0.90)),
+      url('img/glut.jpg') center/cover no-repeat;
   }
-  .lo-stage.state-1a .lo-word,
-  .lo-stage.state-1a .lo-sub { color: #ffd6a8; text-shadow: 0 2px 24px rgba(0,0,0,0.6); }
-  .lo-stage.state-1b { background-image: linear-gradient(135deg, rgba(67, 10, 20, 0.35), rgba(26, 5, 8, 0.30)), url('img/glut.jpg'); }
-  .lo-stage.state-1b .lo-word,
-  .lo-stage.state-1b .lo-sub { color: #FBF2ED; text-shadow: 0 2px 24px rgba(0,0,0,0.75); }
+  .lo-stage.state-1a .lo-word { color: #620303; }
+  .lo-stage.state-1a .lo-sub  { color: #A0705A; }
 
-  /* PUNKT — schönes warmes Rot (kein Mond mehr) */
+  /* PUNKT — schlicht Cream */
   .lo-stage.state-2a {
-    background: linear-gradient(135deg, #8B2E3A 0%, #6b1e2c 100%);
+    background: #fffcf9;
   }
-  .lo-stage.state-2a .lo-word,
-  .lo-stage.state-2a .lo-sub { color: #FBF2ED; }
+  .lo-stage.state-2a .lo-word { color: #620303; }
+  .lo-stage.state-2a .lo-sub  { color: #A0705A; }
 
-  .lo-stage.state-2b {
-    background: #FBF2ED;
-  }
-  .lo-stage.state-2b .lo-word,
-  .lo-stage.state-2b .lo-sub { color: #8B2E3A; }
-
-  /* ZU SPÄT — schönes warmes Orange (keine Uhr mehr) */
+  /* ZU SPÄT — Copper-Gradient als Akzent-Moment */
   .lo-stage.state-3a {
-    background: linear-gradient(135deg, #ff9c6d 0%, #e57a4a 100%);
+    background: linear-gradient(135deg, #A0705A 0%, #C48B6C 25%, #E8C4A8 50%, #C48B6C 75%, #A0705A 100%);
   }
-  .lo-stage.state-3a .lo-word,
-  .lo-stage.state-3a .lo-sub { color: #2D1F22; }
+  .lo-stage.state-3a .lo-word { color: #fffcf9; }
+  .lo-stage.state-3a .lo-sub  { color: #3d0202; }
 
-  .lo-stage.state-3b {
-    background: #2D1F22;
+  /* DEIN TIMING — warmes Beige, Julia-Portrait leicht */
+  .lo-stage.state-4a {
+    background:
+      linear-gradient(180deg, rgba(255, 252, 249, 0.86), rgba(239, 227, 218, 0.90)),
+      url('img/bild-3.jpg') center 20% / cover no-repeat;
   }
-  .lo-stage.state-3b .lo-word,
-  .lo-stage.state-3b .lo-sub { color: #ff9c6d; }
-
-  /* DEIN TIMING — Julia-Portrait, mystisch getönt */
-  .lo-stage.state-4a,
-  .lo-stage.state-4b {
-    background-image: linear-gradient(180deg, rgba(67, 10, 20, 0.72), rgba(26, 5, 8, 0.85)), url('img/bild-3.jpg');
-    background-size: cover;
-    background-position: center 20%;
-  }
-  .lo-stage.state-4a .lo-word,
-  .lo-stage.state-4a .lo-sub { color: #C5A46D; text-shadow: 0 2px 24px rgba(0,0,0,0.7); }
-  .lo-stage.state-4b { background-image: linear-gradient(180deg, rgba(197, 164, 109, 0.55), rgba(67, 10, 20, 0.80)), url('img/bild-3.jpg'); }
-  .lo-stage.state-4b .lo-word,
-  .lo-stage.state-4b .lo-sub { color: #FBF2ED; text-shadow: 0 2px 24px rgba(0,0,0,0.65); }
+  .lo-stage.state-4a .lo-word { color: #620303; }
+  .lo-stage.state-4a .lo-sub  { color: #A0705A; }
 
   /* Legacy .lo-slide (nur noch für Choice-Sektion) */
   .lo-slide {
@@ -1554,6 +1539,7 @@
     <span class="dot"></span>
     <span class="dot"></span>
     <span class="dot"></span>
+    <span class="dot"></span>
   </div>
 
   <!-- STAGE-WRAP: zwei Stages können gleichzeitig existieren (Cross-Slide) -->
@@ -1638,19 +1624,15 @@
   var timer;
   var current = 0;
 
-  // 6 States: pro Wort 2 (a = schwarz+farbig, b = farbig+schwarz)
+  // 4 Wörter, ein State pro Wort — ruhig, kein Farb-Invert-Blinken mehr
   var STATES = [
-    { cls: 'state-1a', kicker: 'N°01', word: 'Glut.',           sub: 'Deine Marke glüht noch.' },
-    { cls: 'state-1b', kicker: 'N°01', word: 'Glut.',           sub: 'Deine Marke glüht noch.' },
-    { cls: 'state-2a', kicker: 'N°02', word: 'Punkt.',          sub: 'Nur wer ihn trifft, wird gesehen.' },
-    { cls: 'state-2b', kicker: 'N°02', word: 'Punkt.',          sub: 'Nur wer ihn trifft, wird gesehen.' },
-    { cls: 'state-3a', kicker: 'N°03', word: 'Zu spät.',        sub: 'Wenn du zögerst, greift die Konkurrenz zu.' },
-    { cls: 'state-3b', kicker: 'N°03', word: 'Zu spät.',        sub: 'Wenn du zögerst, greift die Konkurrenz zu.' },
-    { cls: 'state-4a', kicker: 'N°04', word: 'Dein Timing.',    sub: 'Entscheidet alles.' },
-    { cls: 'state-4b', kicker: 'N°04', word: 'Dein Timing.',    sub: 'Entscheidet alles.' }
+    { cls: 'state-1a', kicker: 'N°01', word: 'Glut.',        sub: 'Deine Marke glüht noch.' },
+    { cls: 'state-2a', kicker: 'N°02', word: 'Punkt.',       sub: 'Nur wer ihn trifft, wird gesehen.' },
+    { cls: 'state-3a', kicker: 'N°03', word: 'Zu spät.',     sub: 'Wenn du zögerst, greift die Konkurrenz zu.' },
+    { cls: 'state-4a', kicker: 'N°04', word: 'Dein Timing.', sub: 'Entscheidet alles.' }
   ];
   var TOTAL_STATES = STATES.length;
-  var SLIDE_MS = 1400; // pro State — etwas schneller (vorher 1900)
+  var SLIDE_MS = 3200; // jedes Wort bekommt Zeit zum Wirken
 
   document.documentElement.classList.add('overlay-open');
   document.body.classList.add('overlay-open');
@@ -1707,10 +1689,9 @@
       currentStage.querySelector('.kicker').textContent = s.kicker;
     }
 
-    // Progress-Dots
-    var wordIdx = Math.floor(idx / 2);
+    // Progress-Dots: dot i wird "done" wenn Wort i+1 aktiv ist
     dots.forEach(function (d, i) {
-      d.classList.toggle('done', i < wordIdx);
+      d.classList.toggle('done', i <= idx);
     });
   }
 

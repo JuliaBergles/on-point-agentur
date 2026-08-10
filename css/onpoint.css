@@ -23,10 +23,10 @@ body, p, li, blockquote, cite, small, label, input, textarea, select, button,
 }
 
 :root {
-  --bg: #FBF2ED;
-  --bg-warm: #F3D6C6;
-  --bg-soft: #E8D0BE;
-  --bg-mint: #e7fffe;
+  --bg: #fffcf9;
+  --bg-warm: #efe3da;
+  --bg-soft: #f6e7e7;
+  --bg-mint: #f4f3f1;
   --card: #ffffff;
 
   --ink: #2D1F22;
@@ -34,20 +34,25 @@ body, p, li, blockquote, cite, small, label, input, textarea, select, button,
   --muted: #8a6f72;
   --muted-lite: #b09a9c;
 
-  /* Neue Palette: Weinrot als Primär, Pink als Hover, Blau als Kontrast, Orange als Akzent */
-  --bordeaux: #430a14;
-  --bordeaux-hi: #c74873;
-  --bordeaux-deep: #2d0508;
+  /* Schlichte Palette: Weiß/Beige Basis — Bordeaux + Copper nur als Akzent */
+  --bordeaux: #620303;
+  --bordeaux-hi: #8a1010;
+  --bordeaux-deep: #3d0202;
 
-  --pink: #c74873;
+  --copper: #C48B6C;
+  --copper-dark: #A0705A;
+  --copper-light: #E8C4A8;
+  --copper-gradient: linear-gradient(135deg, #A0705A 0%, #C48B6C 25%, #E8C4A8 50%, #C48B6C 75%, #A0705A 100%);
+
+  --pink: #C48B6C;
   --blue: #7993ae;
-  --orange: #ff9c6d;
+  --orange: #C48B6C;
 
-  --gold: #ff9c6d;
-  --gold-hi: #ffb08a;
+  --gold: #C48B6C;
+  --gold-hi: #E8C4A8;
 
-  --line: rgba(67, 10, 20, 0.10);
-  --line-strong: rgba(67, 10, 20, 0.22);
+  --line: rgba(98, 3, 3, 0.08);
+  --line-strong: rgba(98, 3, 3, 0.18);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -290,16 +295,19 @@ nav.site-nav ul a.current::after {
 /* ─── BUTTONS ─── */
 .btn-red {
   padding: 20px 44px;
-  background: var(--bordeaux); color: #fff;
+  background: var(--copper-gradient); color: #fff;
+  background-size: 200% 100%;
+  background-position: 0% 50%;
   border: 0; border-radius: 999px;
   font-family: 'Nunito', 'Rubik', 'Space Grotesk', sans-serif;
-  font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: none;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: none;
+  transition: background-position 0.6s ease, transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
   transition: all 0.4s;
   box-shadow: 0 20px 40px rgba(139, 46, 58, 0.35);
   display: inline-block;
 }
-.btn-red:hover { background: var(--bordeaux-hi); transform: translateY(-3px); box-shadow: 0 25px 50px rgba(139, 46, 58, 0.5); }
+.btn-red:hover { background-position: 100% 50%; transform: translateY(-3px); box-shadow: 0 20px 40px rgba(196, 139, 108, 0.35); }
 
 .btn-outline {
   padding: 20px 44px;
