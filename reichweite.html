@@ -385,56 +385,244 @@
   </div>
 </section>
 
-<!-- ZAHLEN GRID (hell mit Bordeaux-Boxen) -->
-<section class="section" style="background: var(--bg-warm);">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="eyebrow">Alle Kennzahlen</div>
+<!-- DASHBOARD-ÜBERSICHT — animierte Counter + Donut-Diagramm -->
+<style>
+  .dash-section { padding: 100px 32px; background: var(--bg-warm); }
+  @media (max-width: 700px) { .dash-section { padding: 70px 20px; } }
+  .dash-inner { max-width: 1200px; margin: 0 auto; }
+  .dash-head { text-align: center; max-width: 720px; margin: 0 auto 60px; }
+  .dash-head .eyebrow {
+    display: inline-block;
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px; letter-spacing: 0.32em;
+    color: var(--oxblood); font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .dash-head h2 {
+    font-family: 'Raleway', sans-serif; font-weight: 900;
+    font-size: clamp(34px, 4.5vw, 54px);
+    color: var(--ink); letter-spacing: -0.02em; line-height: 1.08;
+    margin: 0;
+  }
+  .dash-head h2 em { font-style: normal; color: var(--oxblood); }
+
+  /* KPI-Kacheln — animierte Counter */
+  .dash-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 50px;
+  }
+  @media (max-width: 900px) { .dash-kpi-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 500px) { .dash-kpi-grid { grid-template-columns: 1fr; } }
+  .dash-kpi {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 30px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s, border-color 0.5s;
+    box-shadow: 0 8px 20px rgba(45, 31, 34, 0.05);
+  }
+  .dash-kpi:hover {
+    transform: translateY(-6px);
+    border-color: var(--oxblood);
+    box-shadow: 0 24px 50px rgba(74, 20, 24, 0.14);
+  }
+  .dash-kpi .lbl {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px; letter-spacing: 0.28em;
+    color: var(--muted); font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .dash-kpi .num {
+    font-family: 'Raleway', sans-serif; font-weight: 900;
+    font-size: clamp(36px, 4vw, 52px);
+    color: var(--ink);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, var(--oxblood) 0%, #c48b6c 50%, var(--oxblood) 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: dashShimmer 10s linear infinite;
+  }
+  @keyframes dashShimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  .dash-kpi .desc {
+    font-family: 'Quicksand', sans-serif; font-weight: 500;
+    font-size: 13px; color: var(--ink-soft); line-height: 1.6;
+  }
+  .dash-kpi .trend {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 3px 9px;
+    margin-top: 10px;
+    background: rgba(74, 20, 24, 0.08);
+    color: var(--oxblood);
+    border-radius: 999px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+  }
+
+  /* Donut-Diagramm — Nicht-Follower / Follower */
+  .dash-split {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 900px; margin: 0 auto;
+    padding: 44px 44px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(45, 31, 34, 0.06);
+  }
+  @media (max-width: 700px) { .dash-split { grid-template-columns: 1fr; gap: 32px; padding: 32px 24px; } }
+  .donut {
+    position: relative;
+    width: 260px; height: 260px;
+    margin: 0 auto;
+  }
+  .donut svg { transform: rotate(-90deg); width: 100%; height: 100%; }
+  .donut circle.track { fill: none; stroke: var(--bg-warm); stroke-width: 24; }
+  .donut circle.value {
+    fill: none;
+    stroke: url(#donutGrad);
+    stroke-width: 24;
+    stroke-linecap: round;
+    stroke-dasharray: 707;
+    stroke-dashoffset: 707;
+    transition: stroke-dashoffset 2.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .donut.in circle.value { stroke-dashoffset: 51.6; /* 92.7% of 707 */ }
+  .donut-center {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+  }
+  .donut-center .big {
+    font-family: 'Raleway', sans-serif; font-weight: 900;
+    font-size: 54px; line-height: 1;
+    color: var(--oxblood);
+    letter-spacing: -0.03em;
+  }
+  .donut-center .small {
+    font-family: 'Raleway', sans-serif; font-weight: 700;
+    font-size: 10px; letter-spacing: 0.28em;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+  .dash-split-txt h3 {
+    font-family: 'Raleway', sans-serif; font-weight: 900;
+    font-size: clamp(24px, 2.6vw, 32px);
+    color: var(--ink); line-height: 1.15;
+    letter-spacing: -0.02em; margin: 0 0 18px;
+  }
+  .dash-split-txt h3 em { font-style: normal; color: var(--oxblood); }
+  .dash-split-txt p {
+    font-family: 'Quicksand', sans-serif; font-weight: 500;
+    font-size: 15px; color: var(--ink-soft); line-height: 1.7;
+    margin: 0 0 20px;
+  }
+  .dash-legend { display: flex; flex-direction: column; gap: 10px; }
+  .dash-legend-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px;
+    background: var(--bg-warm);
+    border-radius: 10px;
+  }
+  .dash-legend-row .swatch {
+    width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0;
+  }
+  .dash-legend-row .swatch.oxblood { background: var(--oxblood); }
+  .dash-legend-row .swatch.muted { background: var(--muted-lite); }
+  .dash-legend-row .label {
+    font-family: 'Raleway', sans-serif; font-weight: 700;
+    font-size: 13px; color: var(--ink);
+    flex-grow: 1;
+  }
+  .dash-legend-row .pct {
+    font-family: 'Raleway', sans-serif; font-weight: 900;
+    font-size: 18px; color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+</style>
+<section class="dash-section">
+  <div class="dash-inner">
+    <div class="dash-head reveal">
+      <span class="eyebrow">Alle Kennzahlen</span>
       <h2>Wo Ihr Content <em>ankommt</em>.</h2>
     </div>
-    <div class="stats-grid">
-      <div class="stat reveal d1">
-        <div class="lbl">Aufrufe</div>
-        <div class="num">1.020.876</div>
-        <div class="desc">Aufrufe in den letzten 30 Tagen. 925.946 davon Reels.</div>
+
+    <div class="dash-kpi-grid reveal d1">
+      <div class="dash-kpi">
+        <span class="lbl">Aufrufe · 30 Tage</span>
+        <div class="num" data-count="1020876" data-format="short">0</div>
+        <div class="desc">Davon 925.946 auf Reels.</div>
+        <span class="trend">↑ Rekord-Monat</span>
       </div>
-      <div class="stat reveal d2">
-        <div class="lbl">Interaktionen</div>
-        <div class="num">22.384</div>
-        <div class="desc">Likes, Kommentare, Shares und Saves. 20.571 davon auf Reels.</div>
+      <div class="dash-kpi">
+        <span class="lbl">Interaktionen</span>
+        <div class="num" data-count="22384">0</div>
+        <div class="desc">Likes, Kommentare, Shares, Saves. 20.571 auf Reels.</div>
       </div>
-      <div class="stat reveal d3">
-        <div class="lbl">Neue Follower</div>
-        <div class="num">+484</div>
-        <div class="desc">Netto-Zuwachs in 30 Tagen. Aktuell 6.070 Follower.</div>
+      <div class="dash-kpi">
+        <span class="lbl">Neue Follower</span>
+        <div class="num" data-prefix="+" data-count="484">+0</div>
+        <div class="desc">Netto in 30 Tagen. Aktuell 6.070 Follower.</div>
+        <span class="trend">↑ +8,7 %</span>
       </div>
-      <div class="stat reveal d4">
-        <div class="lbl">Profilaufrufe</div>
-        <div class="num">7.749</div>
-        <div class="desc">Menschen, die aktiv auf mein Profil geklickt haben.</div>
+      <div class="dash-kpi">
+        <span class="lbl">Profilaufrufe</span>
+        <div class="num" data-count="7749">0</div>
+        <div class="desc">Aktive Klicks aufs Profil.</div>
       </div>
     </div>
 
-    <!-- Follower / Non-Follower (hell mit Bordeaux-Boxen) -->
-    <div class="reveal" style="max-width: 900px; margin: 60px auto 0; padding: 44px 44px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 20px 40px rgba(45, 31, 34, 0.06);">
-      <div style="text-align: center; margin-bottom: 32px;">
-        <div style="font-size: 10px; letter-spacing: 0.3em; text-transform: none; color: var(--bordeaux); font-weight: 700; margin-bottom: 12px;">Wer sieht meinen Content</div>
-        <h3 style="font-family: 'Raleway', 'Rubik', 'Space Grotesk', sans-serif; font-weight: 900; font-size: 28px; color: var(--ink); letter-spacing: -0.01em;">Über <em style="font-style: normal; color: var(--bordeaux);">92 %</em> außerhalb meiner eigenen Bubble.</h3>
-      </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: center;">
-        <div style="padding: 28px 24px; background: linear-gradient(150deg, var(--bordeaux), var(--bordeaux-hi)); border-radius: 10px; color: #fff; box-shadow: 0 12px 30px rgba(67, 10, 20, 0.2);">
-          <div style="font-family: 'Raleway', 'Rubik', 'Space Grotesk', sans-serif; color: #fff; font-size: 46px; line-height: 1; margin-bottom: 10px; font-weight: 700; letter-spacing: -0.03em;">92,7&thinsp;%</div>
-          <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: none; color: var(--gold); font-weight: 700;">Nicht-Follower</div>
+    <div class="dash-split reveal d2">
+      <div class="donut" id="donutFollow">
+        <svg viewBox="0 0 260 260">
+          <defs>
+            <linearGradient id="donutGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#4a1418"/>
+              <stop offset="50%" stop-color="#c48b6c"/>
+              <stop offset="100%" stop-color="#4a1418"/>
+            </linearGradient>
+          </defs>
+          <circle class="track" cx="130" cy="130" r="112.5"/>
+          <circle class="value" cx="130" cy="130" r="112.5"/>
+        </svg>
+        <div class="donut-center">
+          <div class="big">92,7&thinsp;%</div>
+          <div class="small">Nicht-Follower</div>
         </div>
-        <div style="padding: 28px 24px; background: var(--bg-warm); border-radius: 10px; border: 1px solid var(--line);">
-          <div style="font-family: 'Raleway', 'Rubik', 'Space Grotesk', sans-serif; color: var(--ink); font-size: 46px; line-height: 1; margin-bottom: 10px; font-weight: 700; letter-spacing: -0.03em;">7,3&thinsp;%</div>
-          <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: none; color: var(--muted); font-weight: 700;">Follower</div>
+      </div>
+      <div class="dash-split-txt">
+        <h3>Über 92 % außerhalb der eigenen <em>Bubble</em>.</h3>
+        <p>
+          Nur 7,3 % meiner Aufrufe kommen von meinen 6.070 Followern. Der Rest — <strong>92,7 %</strong> — sind neue Menschen, die der Instagram-Algorithmus mir vor die Nase schiebt. Genau die Reichweite, die Marken sich wünschen.
+        </p>
+        <div class="dash-legend">
+          <div class="dash-legend-row">
+            <span class="swatch oxblood"></span>
+            <span class="label">Nicht-Follower</span>
+            <span class="pct">92,7&thinsp;%</span>
+          </div>
+          <div class="dash-legend-row">
+            <span class="swatch muted"></span>
+            <span class="label">Follower (6.070)</span>
+            <span class="pct">7,3&thinsp;%</span>
+          </div>
         </div>
       </div>
-      <p style="text-align: center; margin-top: 28px; font-size: 14px; color: var(--muted); font-style: normal;">
-        6.070 Follower insgesamt.
-        <br>Der Rest kommt organisch über den Instagram-Algorithmus.
-      </p>
     </div>
   </div>
 </section>
@@ -640,6 +828,42 @@
     entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
   }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // Animierte KPI-Counter — zählt von 0 auf Zielwert beim Scroll
+  function animateCounter(el) {
+    const target = parseInt(el.getAttribute('data-count'), 10);
+    const prefix = el.getAttribute('data-prefix') || '';
+    const duration = 1800;
+    const start = performance.now();
+    function step(now) {
+      const p = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const value = Math.round(target * eased);
+      el.textContent = prefix + value.toLocaleString('de-DE');
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  const counterIO = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        animateCounter(e.target);
+        counterIO.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('[data-count]').forEach((el) => counterIO.observe(el));
+
+  // Donut animiert füllen, sobald sichtbar
+  const donut = document.getElementById('donutFollow');
+  if (donut) {
+    const donutIO = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('in'); donutIO.unobserve(e.target); }
+      });
+    }, { threshold: 0.4 });
+    donutIO.observe(donut);
+  }
 </script>
 
 </body>
