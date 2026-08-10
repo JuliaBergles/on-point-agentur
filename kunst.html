@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index, follow" />
+<title>Meine Kunst · Acryl &amp; Aquarell · Julia Bergles</title>
+<meta name="description" content="Handgemalte Werke in Acryl und Aquarell von Julia Bergles. Auf Anfrage bestellbar." />
+<link rel="canonical" href="https://www.agentur.juliabergles.de/kunst.html" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.agentur.juliabergles.de/kunst.html" />
+<meta property="og:title" content="Meine Kunst · Acryl &amp; Aquarell · Julia Bergles" />
+<meta property="og:description" content="Handgemalte Werke in Acryl und Aquarell. Auf Anfrage bestellbar." />
+<meta property="og:image" content="https://www.agentur.juliabergles.de/img/kunst/aquarell.jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/onpoint.css">
+<style>
+  .k-eyebrow {
+    display: inline-block;
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px; letter-spacing: 0.32em;
+    color: var(--copper-dark); font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .k-h1, .k-h2 {
+    font-family: 'Nunito', sans-serif !important;
+    font-weight: 900 !important;
+    color: var(--bordeaux);
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+  }
+  .k-h1 { font-size: clamp(42px, 5.5vw, 72px); }
+  .k-h2 { font-size: clamp(30px, 4vw, 48px); }
+  .k-h1 em, .k-h2 em {
+    font-style: normal;
+    background: var(--copper-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .k-lede {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: clamp(15px, 1.5vw, 19px);
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+  .k-lede em { font-style: normal; color: var(--bordeaux); font-weight: 700; }
+
+  /* HERO */
+  .k-hero {
+    padding: 140px 32px 60px;
+    background: var(--bg);
+    text-align: center;
+  }
+  .k-hero .inner { max-width: 780px; margin: 0 auto; }
+
+  /* GALLERY — Masonry-ähnliches Grid mit unterschiedlichen Aspect Ratios */
+  .k-gallery {
+    padding: 40px 24px 100px;
+    background: var(--bg);
+  }
+  .k-gallery-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .k-gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; } }
+  @media (max-width: 600px) { .k-gallery-grid { grid-template-columns: 1fr; gap: 16px; } }
+
+  .k-card {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--bg-warm);
+    box-shadow: 0 8px 24px rgba(45, 31, 34, 0.06);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s;
+    aspect-ratio: 4 / 5;
+  }
+  .k-card.tall { grid-row: span 2; aspect-ratio: 4 / 6; }
+  @media (max-width: 900px) { .k-card.tall { grid-row: auto; aspect-ratio: 4 / 5; } }
+  .k-card.wide { grid-column: span 2; aspect-ratio: 16 / 9; }
+  @media (max-width: 900px) { .k-card.wide { grid-column: span 2; } }
+  @media (max-width: 600px) { .k-card.wide { grid-column: auto; aspect-ratio: 4 / 5; } }
+
+  .k-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px rgba(45, 31, 34, 0.14);
+  }
+  .k-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .k-card:hover img { transform: scale(1.04); }
+  .k-card .veil {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 40px 24px 24px;
+    background: linear-gradient(180deg, transparent, rgba(45, 31, 34, 0.78));
+    color: #fffcf9; z-index: 2;
+  }
+  .k-card .veil .kind {
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px; letter-spacing: 0.28em;
+    color: #E8C4A8; font-weight: 700;
+    display: block; margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .k-card .veil h3 {
+    font-family: 'Nunito', sans-serif; font-weight: 800;
+    font-size: 20px; line-height: 1.2;
+    color: #fffcf9; margin: 0;
+  }
+  .k-card .veil .status {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 4px 10px;
+    background: rgba(255, 252, 249, 0.15);
+    border: 1px solid rgba(255, 252, 249, 0.4);
+    border-radius: 999px;
+    font-family: 'Nunito', sans-serif; font-weight: 700;
+    font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase;
+    backdrop-filter: blur(4px);
+  }
+
+  /* STORY */
+  .k-story {
+    padding: 100px 32px;
+    background: var(--bg-warm);
+    text-align: center;
+  }
+  .k-story-inner { max-width: 720px; margin: 0 auto; }
+  .k-story h2 { margin: 0 0 24px; }
+  .k-story p {
+    font-family: 'Quicksand', sans-serif; font-weight: 500;
+    font-size: clamp(15px, 1.4vw, 18px);
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin: 0 auto 18px;
+  }
+  .k-story p:last-child { margin-bottom: 0; }
+
+  /* KONDITIONEN — 3×2 Grid mit Icon-Cards */
+  .k-conditions {
+    padding: 100px 32px;
+    background: var(--bg);
+  }
+  .k-conditions-inner {
+    max-width: 1200px; margin: 0 auto;
+  }
+  .k-conditions-head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 60px;
+  }
+  .k-conditions-head h2 { margin: 0 0 18px; }
+  .k-conditions-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  @media (max-width: 900px) { .k-conditions-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .k-conditions-grid { grid-template-columns: 1fr; } }
+  .k-condition {
+    background: #fff;
+    border: 1px solid rgba(98, 3, 3, 0.08);
+    border-radius: 12px;
+    padding: 32px 28px;
+    transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+    box-shadow: 0 4px 14px rgba(45, 31, 34, 0.04);
+  }
+  .k-condition:hover {
+    transform: translateY(-4px);
+    border-color: var(--copper);
+    box-shadow: 0 20px 40px rgba(45, 31, 34, 0.08);
+  }
+  .k-cond-icon {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--copper-gradient);
+    color: #fff;
+    font-family: 'Nunito', sans-serif; font-weight: 900;
+    font-size: 16px;
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+  .k-condition h4 {
+    font-family: 'Nunito', sans-serif; font-weight: 900;
+    font-size: 20px; color: var(--bordeaux);
+    margin: 0 0 10px; line-height: 1.2;
+  }
+  .k-condition p {
+    font-family: 'Quicksand', sans-serif; font-weight: 500;
+    font-size: 14.5px; color: var(--ink-soft); line-height: 1.6;
+    margin: 0;
+  }
+  .k-condition p strong {
+    color: var(--bordeaux); font-weight: 700;
+  }
+
+  /* CTA */
+  .k-cta {
+    padding: 100px 32px;
+    background: var(--bg-warm);
+    text-align: center;
+  }
+  .k-cta-card {
+    max-width: 720px; margin: 0 auto;
+    background: linear-gradient(160deg, #fffcf9 0%, #efe3da 100%);
+    border: 1px solid rgba(98, 3, 3, 0.1);
+    border-radius: 12px;
+    padding: 60px 40px;
+    box-shadow: 0 20px 40px rgba(45, 31, 34, 0.06);
+  }
+  .k-cta-card h2 { margin: 0 0 14px; }
+  .k-cta-card p {
+    font-family: 'Quicksand', sans-serif; font-weight: 500;
+    font-size: 16px; color: var(--ink-soft);
+    line-height: 1.6; margin: 0 0 30px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="row">
+    <a href="index.html" class="brand">On Point</a>
+    <ul>
+      <li><a href="warum-onpoint.html">Warum On Point</a></li>
+      <li><a href="social-media.html">Social Media</a></li>
+      <li class="has-drop"><a href="mediendesign.html" class="current">Mediendesign <span class="drop-caret">▾</span></a><div class="drop-menu"><a href="visitenkarten.html">Visitenkarten</a><a href="flyer.html">Flyer</a><a href="verpackungsdesign.html">Verpackungsdesign</a><a href="kunst.html" class="current">Meine Kunst</a><a href="mediendesign.html" class="all">Alle Design-Arbeiten</a></div></li>
+      <li><a href="videografie.html">Video &amp; Foto</a></li>
+      <li><a href="websites.html">Webdesign</a></li>
+      <li><a href="reichweite.html">Reichweite</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+    </ul>
+    <a href="#kontakt" class="nav-cta">Beratung</a>
+    <button class="nav-burger" aria-label="Menü" onclick="document.getElementById('mobile-menu').classList.toggle('open'); this.classList.toggle('open');"><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="warum-onpoint.html">Warum On Point</a>
+    <a href="social-media.html">Social Media</a>
+    <a href="mediendesign.html">Mediendesign</a>
+    <a href="visitenkarten.html" style="padding-left: 20px;">→ Visitenkarten</a>
+    <a href="flyer.html" style="padding-left: 20px;">→ Flyer</a>
+    <a href="verpackungsdesign.html" style="padding-left: 20px;">→ Verpackungsdesign</a>
+    <a href="kunst.html" style="padding-left: 20px;">→ Kunst (Acryl &amp; Aquarell)</a>
+    <a href="videografie.html">Video &amp; Foto</a>
+    <a href="websites.html">Webdesign</a>
+    <a href="reichweite.html">Reichweite</a>
+    <a href="ueber-mich.html">Über mich</a>
+    <a href="#kontakt" class="mobile-cta">Beratung</a>
+  </div>
+</nav>
+<div class="nav-spacer"></div>
+
+<!-- HERO -->
+<section class="k-hero">
+  <div class="inner">
+    <span class="k-eyebrow reveal">Meine Kunst</span>
+    <h1 class="k-h1 reveal d1">Acryl. Aquarell. <em>Handgemalt</em>.</h1>
+    <p class="k-lede reveal d2">
+      Was vor der Agentur war und was bis heute geblieben ist.
+      <br>Werke aus meinen eigenen Händen — <em>auf Anfrage bestellbar</em>.
+    </p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="k-gallery">
+  <div class="k-gallery-grid">
+    <div class="k-card tall reveal">
+      <img src="img/kunst/aquarell.jpeg" alt="Aquarell-Werk">
+      <div class="veil">
+        <span class="kind">Aquarell</span>
+        <h3>Aquarell-Werk</h3>
+        <span class="status">Auf Anfrage</span>
+      </div>
+    </div>
+    <div class="k-card reveal d1">
+      <img src="img/kunst/acryl-verkauft.jpeg" alt="Acryl-Werk">
+      <div class="veil">
+        <span class="kind">Acryl</span>
+        <h3>Acryl-Werk</h3>
+        <span class="status">Verkauft</span>
+      </div>
+    </div>
+    <div class="k-card reveal d2">
+      <img src="img/kunst/modellieren.jpeg" alt="Modellieren">
+      <div class="veil">
+        <span class="kind">Modellieren</span>
+        <h3>Skulpturale Arbeit</h3>
+        <span class="status">Auf Anfrage</span>
+      </div>
+    </div>
+    <div class="k-card wide reveal d1">
+      <img src="img/kunst/atelier-1.jpeg" alt="Atelier">
+      <div class="veil">
+        <span class="kind">Atelier</span>
+        <h3>Aus dem Atelier</h3>
+      </div>
+    </div>
+    <div class="k-card reveal d2">
+      <img src="img/kunst/fos-werk-1.jpeg" alt="Werk aus der FOS">
+      <div class="veil">
+        <span class="kind">FOS · Werkstätten</span>
+        <h3>Werk aus der Ausbildung</h3>
+      </div>
+    </div>
+    <div class="k-card reveal d1">
+      <img src="img/kunst/fos-werk-2.jpeg" alt="Werk aus der FOS Projektmappe">
+      <div class="veil">
+        <span class="kind">FOS · Projektmappe</span>
+        <h3>Projektmappen-Werk</h3>
+      </div>
+    </div>
+    <div class="k-card reveal d2">
+      <img src="img/kunst/anfaenge.jpeg" alt="Meine Anfänge">
+      <div class="veil">
+        <span class="kind">Anfänge</span>
+        <h3>Wo alles begann</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="k-story">
+  <div class="k-story-inner reveal">
+    <span class="k-eyebrow">Über meine Kunst</span>
+    <h2 class="k-h2">Zwischen Pinsel und <em>Bildschirm</em>.</h2>
+    <p>
+      Bevor ich Websites gebaut oder Content produziert habe, habe ich gemalt.
+      Aquarell, Acryl, Modellieren — alles was Farbe hatte und meine Hände beschäftigt.
+    </p>
+    <p>
+      Ich arbeite eher <em style="font-style: normal; color: var(--bordeaux); font-weight: 700;">abstrakt</em>.
+      Nur bei Aquarell gehe ich mehr ins Detail.
+    </p>
+    <p>
+      Vieles davon steckt heute im Design, das ich für andere Marken mache.
+      Das Auge für Komposition, der Umgang mit Farbe, der Blick fürs Detail —
+      all das kommt aus der Malerei, nicht aus einem Kurs.
+    </p>
+  </div>
+</section>
+
+<!-- KONDITIONEN — So arbeite ich -->
+<section class="k-conditions">
+  <div class="k-conditions-inner reveal">
+    <div class="k-conditions-head">
+      <span class="k-eyebrow">So arbeite ich</span>
+      <h2 class="k-h2">Klare <em>Konditionen</em>.</h2>
+      <p class="k-lede">Damit du weißt, was auf dich zukommt — bevor der erste Pinselstrich fällt.</p>
+    </div>
+    <div class="k-conditions-grid">
+      <div class="k-condition">
+        <div class="k-cond-icon">€</div>
+        <h4>Stundensatz</h4>
+        <p><strong>80 €</strong> pro Stunde.<br>Farben sind immer inklusive.</p>
+      </div>
+      <div class="k-condition">
+        <div class="k-cond-icon">50%</div>
+        <h4>Anzahlung</h4>
+        <p>Ich arbeite nur mit <strong>50 % Anzahlung</strong>.<br>Rest bei Fertigstellung.</p>
+      </div>
+      <div class="k-condition">
+        <div class="k-cond-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
+        <h4>Leinwände</h4>
+        <p>Bei Acryl-Werken kommen die <strong>Leinwand-Kosten zzgl.</strong> dazu.</p>
+      </div>
+      <div class="k-condition">
+        <div class="k-cond-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="14" rx="1"/></svg></div>
+        <h4>Rahmen (optional)</h4>
+        <p>Aquarelle kommen <strong>ohne Rahmen</strong>.<br>Rahmen bei Acryl und Aquarell zzgl.</p>
+      </div>
+      <div class="k-condition">
+        <div class="k-cond-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h12l4 4v12H4z"/><path d="M4 12h12"/></svg></div>
+        <h4>Aquarell-Papier</h4>
+        <p>Bei Aquarell ist das <strong>Papier inklusive</strong>.</p>
+      </div>
+      <div class="k-condition">
+        <div class="k-cond-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <h4>Farben</h4>
+        <p><strong>Immer inklusive</strong> — egal ob Acryl oder Aquarell.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="k-cta" id="kontakt">
+  <div class="k-cta-card reveal">
+    <span class="k-eyebrow">Jetzt anfragen</span>
+    <h2 class="k-h2">Interesse an einem <em>Werk</em>?</h2>
+    <p>
+      Manche Werke sind noch verfügbar, andere entstehen auf Auftrag.<br>
+      Schreib mir kurz was dich anspricht — ich melde mich mit Details.
+    </p>
+    <a href="mailto:julia@juliabergles-agentur.de?subject=Kunstwerk%20anfragen&body=Hallo%20Julia%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20ein%20Kunstwerk.%0A%0AGr%C3%B6%C3%9Fe%20der%20Leinwand%20%2F%20des%20Papiers%3A%20%0ATechnik%20(Acryl%20%2F%20Aquarell%20%2F%20Modellieren)%3A%20%0AStil%20(abstrakt%20%2F%20Aquarell-Detail)%3A%20%0AFarbgebung%20(gew%C3%BCnschte%20Farben%20%2F%20Stimmung)%3A%20%0AReferenzbild%20(gerne%20anh%C3%A4ngen%2C%20wie%20es%20im%20Stil%20sein%20soll)%3A%20%0AMit%20oder%20ohne%20Rahmen%3F%3A%20%0AZeitrahmen%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe" class="btn-red">Jetzt anfragen</a>
+    <p style="font-family: 'Quicksand', sans-serif; font-size: 13px; color: var(--muted); margin-top: 18px; line-height: 1.5;">
+      Referenzbild kannst du direkt an die Mail anhängen.
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">On Point</div>
+      <div class="tag">Content auf den Punkt gebracht.</div>
+      <div class="adr">Julia Bergles<br>Augsburg + remote<br>julia@juliabergles-agentur.de</div>
+    </div>
+    <div class="footer-col">
+      <h5>Bereiche</h5>
+      <a href="social-media.html">Social Media</a>
+      <a href="mediendesign.html">Mediendesign</a>
+      <a href="videografie.html">Video &amp; Foto</a>
+      <a href="websites.html">Webdesign</a>
+    </div>
+    <div class="footer-col">
+      <h5>Persönlich</h5>
+      <a href="ueber-mich.html">Über mich</a>
+      <a href="kunst.html">Meine Kunst</a>
+      <a href="warum-onpoint.html">Warum On Point</a>
+    </div>
+    <div class="footer-col">
+      <h5>Rechtliches</h5>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+  </div>
+  <div class="footer-xxl">
+    <div class="logo-big">ON<span class="g">·</span>POINT</div>
+    <div class="footer-copy">© 2026 On Point · Julia Bergles · Augsburg</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>
