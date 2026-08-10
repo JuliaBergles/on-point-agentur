@@ -35,9 +35,9 @@ body, p, li, blockquote, cite, small, label, input, textarea, select, button,
   --muted-lite: #b09a9c;
 
   /* Schlichte Palette: Weiß/Beige Basis — Bordeaux + Copper nur als Akzent */
-  --bordeaux: #620303;
-  --bordeaux-hi: #8a1010;
-  --bordeaux-deep: #3d0202;
+  --bordeaux: #660e30;
+  --bordeaux-hi: #8a1a45;
+  --bordeaux-deep: #470820;
 
   --copper: #C48B6C;
   --copper-dark: #A0705A;
@@ -51,8 +51,8 @@ body, p, li, blockquote, cite, small, label, input, textarea, select, button,
   --gold: #C48B6C;
   --gold-hi: #E8C4A8;
 
-  --line: rgba(98, 3, 3, 0.08);
-  --line-strong: rgba(98, 3, 3, 0.18);
+  --line: rgba(102, 14, 48, 0.08);
+  --line-strong: rgba(102, 14, 48, 0.18);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
