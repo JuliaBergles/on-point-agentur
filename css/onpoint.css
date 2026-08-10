@@ -44,6 +44,12 @@ body, p, li, blockquote, cite, small, label, input, textarea, select, button,
   --oxblood: #4a1418;
   --oxblood-hi: #6d1e24;
 
+  /* Form-Utilities für Bilder — spielerische Rahmen sitewide einsetzbar */
+  --radius-round: 50%;
+  --radius-oval:  50% / 60%;
+  --radius-soft:  20px;
+  --radius-blob:  60% 40% 55% 45% / 55% 45% 60% 40%;
+
   /* Rose als sanfter Neben-Akzent (weiche Details, nicht dominant) */
   --rose: #be7676;
   --rose-soft: #d29999;
@@ -698,6 +704,16 @@ nav.site-nav ul a.current::after {
 .cta-block .mark { width: 60px; height: 2px; background: var(--gold); margin: 0 auto 28px; }
 .cta-block h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 400; margin-bottom: 20px; }
 .cta-block h2 em { font-style: italic; color: var(--oxblood); }
+
+/* Form-Utility-Klassen — auf jedem Bild einsetzbar für spielerischen Look */
+.shape-round { border-radius: var(--radius-round) !important; overflow: hidden; aspect-ratio: 1 / 1; }
+.shape-oval  { border-radius: var(--radius-oval)  !important; overflow: hidden; }
+.shape-soft  { border-radius: var(--radius-soft)  !important; overflow: hidden; }
+.shape-blob  { border-radius: var(--radius-blob)  !important; overflow: hidden; animation: blobMorph 12s ease-in-out infinite; }
+@keyframes blobMorph {
+  0%, 100% { border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%; }
+  50%      { border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%; }
+}
 .cta-block p { font-size: 16px; color: var(--muted); margin-bottom: 36px; }
 .cta-block .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
