@@ -1579,18 +1579,16 @@
   <div class="lo-progress" id="lo-progress">
     <span class="dot"></span>
     <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
   </div>
 
   <!-- STAGE-WRAP: zwei Stages können gleichzeitig existieren (Cross-Slide) -->
   <div class="lo-stage-wrap" id="lo-stage-wrap">
-    <div class="lo-stage state-1a" data-current>
-      <span class="kicker">N°01</span>
+    <div class="lo-stage state-4a" data-current>
+      <span class="kicker">On Point</span>
       <span class="brand-mark">On Point Studios</span>
       <div class="lo-wordstack">
-        <h1 class="lo-word">Glut.</h1>
-        <p class="lo-sub">Ihre Marke glüht noch.</p>
+        <h1 class="lo-word">Ihr Timing.</h1>
+        <p class="lo-sub">Entscheidet alles.</p>
       </div>
     </div>
   </div>
@@ -1689,20 +1687,15 @@
   var timer;
   var current = 0;
 
-  // Metropolregion-Snap-Flip: 4 Wörter × 2 Farbstände = 8 Slides.
-  // Rose-BG / Schwarz-Text → Schwarz-BG / Rose-Text → nächstes Wort.
+  // Reduziert auf EIN Wort: 'Ihr Timing entscheidet alles.'
+  // 4-Wörter-Version war zu lang — Kunden bounced ab, bevor sie zur Auswahl kamen.
+  // Nur ein kurzer Doppel-Farbflip, dann direkt Choice-Screen.
   var STATES = [
-    { cls: 'state-1a', kicker: 'N°01', word: 'Glut.',        sub: 'Ihre Marke glüht noch.' },
-    { cls: 'state-1b', kicker: 'N°01', word: 'Glut.',        sub: 'Ihre Marke glüht noch.' },
-    { cls: 'state-2a', kicker: 'N°02', word: 'Punkt.',       sub: 'Nur wer ihn trifft, wird gesehen.' },
-    { cls: 'state-2b', kicker: 'N°02', word: 'Punkt.',       sub: 'Nur wer ihn trifft, wird gesehen.' },
-    { cls: 'state-3a', kicker: 'N°03', word: 'Zu spät.',     sub: 'Wer zögert, wird überholt.' },
-    { cls: 'state-3b', kicker: 'N°03', word: 'Zu spät.',     sub: 'Wer zögert, wird überholt.' },
-    { cls: 'state-4a', kicker: 'N°04', word: 'Ihr Timing.',  sub: 'Entscheidet alles.' },
-    { cls: 'state-4b', kicker: 'N°04', word: 'Ihr Timing.',  sub: 'Entscheidet alles.' }
+    { cls: 'state-4a', kicker: 'On Point', word: 'Ihr Timing.', sub: 'Entscheidet alles.' },
+    { cls: 'state-4b', kicker: 'On Point', word: 'Ihr Timing.', sub: 'Entscheidet alles.' }
   ];
   var TOTAL_STATES = STATES.length;
-  var SLIDE_MS = 900; // schneller Doppel-Puls je Wort
+  var SLIDE_MS = 1100; // etwas länger, weil nur ein Wort — muss wirken
 
   document.documentElement.classList.add('overlay-open');
   document.body.classList.add('overlay-open');
