@@ -154,44 +154,157 @@
     line-height: 1.5;
   }
 
-  /* Preis-Block auf dunklem section-dark Hintergrund — alles hell */
-  .preis-block {
-    max-width: 800px;
-    margin: 40px auto 0;
-    padding: 48px 40px;
-    background: linear-gradient(135deg, rgba(251, 242, 237, 0.06), rgba(197, 164, 109, 0.12));
-    border: 1.5px solid var(--gold);
-    border-radius: 16px;
-    text-align: center;
-    backdrop-filter: blur(6px);
+  /* PHONE-MOCKUPS HERO — 3 iPhones nebeneinander mit Videos */
+  .phones-hero {
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(196, 139, 108, 0.18), transparent 55%),
+      radial-gradient(ellipse at 80% 70%, rgba(255, 200, 155, 0.15), transparent 55%),
+      linear-gradient(160deg, #FBF2ED 0%, #f3e5d8 55%, #ecd8c4 100%);
+    padding: 100px 32px 110px;
+    overflow: hidden;
+    position: relative;
+    color: var(--ink);
   }
-  .preis-block .eyebrow {
-    font-family: 'Nunito', 'Rubik', 'Space Grotesk', sans-serif;
-    font-size: 11px; letter-spacing: 0.28em;
-    color: var(--gold); font-weight: 700;
-    margin-bottom: 20px;
+  .phones-hero-inner {
+    max-width: 1400px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative; z-index: 1;
   }
-  .preis-row {
-    display: flex; gap: 60px; justify-content: center; flex-wrap: wrap;
-    margin-bottom: 24px;
+  @media (max-width: 1000px) {
+    .phones-hero-inner { grid-template-columns: 1fr; gap: 50px; text-align: center; }
   }
-  .preis-item .zahl {
-    font-family: 'Nunito', 'Rubik', 'Space Grotesk', sans-serif;
-    font-style: normal; font-weight: 900;
-    font-size: 48px; color: #FBF2ED;
-    line-height: 1;
+  .phones-hero-text .eyebrow {
+    display: inline-block;
+    font-family: 'Nunito', 'Rubik', sans-serif;
+    font-size: 12px; letter-spacing: 0.25em;
+    color: var(--bordeaux); font-weight: 700;
+    margin-bottom: 22px;
   }
-  .preis-item .zahl small {
-    font-size: 18px; color: rgba(251, 242, 237, 0.7); font-weight: 500;
+  .phones-hero-text h1 {
+    font-family: 'Nunito', 'Rubik', sans-serif;
+    font-weight: 900;
+    font-size: clamp(42px, 5.5vw, 76px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0 0 22px;
   }
-  .preis-item .label {
-    font-family: 'Nunito', 'Rubik', 'Space Grotesk', sans-serif;
-    font-size: 13px; color: rgba(251, 242, 237, 0.75);
-    margin-top: 8px;
+  .phones-hero-text h1 em {
+    font-style: normal;
+    color: var(--bordeaux);
   }
-  .preis-block .hint {
-    font-size: 14px; color: rgba(251, 242, 237, 0.7);
-    line-height: 1.6; margin-top: 16px;
+  .phones-hero-text .lede {
+    font-family: 'Quicksand', sans-serif;
+    font-size: clamp(15px, 1.4vw, 18px);
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0 0 32px;
+    max-width: 520px;
+    font-weight: 500;
+  }
+  @media (max-width: 1000px) {
+    .phones-hero-text .lede { margin-left: auto; margin-right: auto; }
+  }
+  .phones-hero-text .lede em {
+    font-style: normal;
+    color: var(--bordeaux);
+    font-weight: 700;
+  }
+  .phones-hero-buttons {
+    display: flex; gap: 14px; flex-wrap: wrap;
+  }
+  @media (max-width: 1000px) {
+    .phones-hero-buttons { justify-content: center; }
+  }
+
+  .phone-stack {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px 0;
+    perspective: 1400px;
+  }
+  @media (max-width: 700px) {
+    .phone-stack {
+      overflow-x: auto;
+      overflow-y: hidden;
+      justify-content: flex-start;
+      padding: 20px 24px 30px;
+      gap: 16px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .phone-stack::-webkit-scrollbar { display: none; }
+    .phone-stack::before,
+    .phone-stack::after {
+      content: "";
+      flex: 0 0 12vw;
+    }
+  }
+  .phone {
+    position: relative;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: phoneFloat 8s ease-in-out infinite;
+  }
+  @media (max-width: 700px) {
+    .phone { scroll-snap-align: center; animation: none; flex-shrink: 0; }
+  }
+  .phone-1 { transform: rotateY(8deg) rotateZ(-6deg) translateY(20px); animation-delay: 0s; }
+  .phone-2 { transform: rotateY(0deg) rotateZ(0deg) translateY(-14px); z-index: 3; animation-delay: -2.6s; }
+  .phone-3 { transform: rotateY(-8deg) rotateZ(6deg) translateY(20px); animation-delay: -5.3s; }
+  @media (max-width: 700px) {
+    .phone-1, .phone-2, .phone-3 { transform: none; }
+  }
+  .phone:hover { transform: rotateY(0deg) rotateZ(0deg) translateY(-24px) scale(1.06); z-index: 5; animation-play-state: paused; }
+  @keyframes phoneFloat {
+    0%, 100% { translate: 0 0; }
+    50%      { translate: 0 -8px; }
+  }
+  .phone-frame {
+    width: clamp(150px, 15vw, 210px);
+    aspect-ratio: 9 / 19.5;
+    border-radius: 34px;
+    background: #0a0507;
+    padding: 10px;
+    box-shadow:
+      0 30px 70px rgba(0, 0, 0, 0.35),
+      0 0 0 1.5px rgba(196, 139, 108, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+  .phone-frame::before {
+    content: "";
+    position: absolute;
+    top: 20px; left: 50%;
+    transform: translateX(-50%);
+    width: 68px; height: 20px;
+    background: #0a0507;
+    border-radius: 12px;
+    z-index: 3;
+  }
+  .phone-screen {
+    width: 100%; height: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #000;
+    position: relative;
+  }
+  .phone-screen video {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 600px) {
+    .phone-frame { width: clamp(120px, 30vw, 170px); border-radius: 28px; padding: 8px; }
+    .phone-frame::before { width: 52px; height: 16px; top: 16px; }
+    .phone-screen { border-radius: 20px; }
   }
 </style>
 </head>
@@ -225,18 +338,43 @@
 </nav>
 <div class="nav-spacer"></div>
 
-<section class="page-hero page-hero-image" style="background: linear-gradient(135deg, #430a14 0%, #8B2E3A 60%, #C5A46D 130%); color: var(--bg);">
-  <div class="container">
-    <div class="eyebrow reveal" style="color: var(--gold);">Video &amp; Foto</div>
-    <h1 class="reveal d1" style="color: #fff;">Momente, die <em style="color: var(--gold);">bleiben</em>.</h1>
-    <p class="lede reveal d2" style="color: rgba(255, 255, 255, 0.88);">
-      Video und Foto für Hochzeit, Geburtstag, Baby Shower, Firmenfeier.
-      <br>Dazu Einladungs- und Dankeskarten und Fotoalben.
-      <br><em style="color: var(--gold);">Jeder Anlass ist willkommen.</em>
-    </p>
-    <div class="reveal d3" style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-      <a href="#kontakt" class="btn-red">Anfrage stellen</a>
-      <a href="#beispiele" class="btn-outline">Beispiele ansehen</a>
+<section class="phones-hero">
+  <div class="phones-hero-inner">
+    <div class="phones-hero-text">
+      <div class="eyebrow reveal">Video &amp; Foto</div>
+      <h1 class="reveal d1">Momente, die <em>bleiben</em>.</h1>
+      <p class="lede reveal d2">
+        Video und Foto für Hochzeit, Geburtstag, Baby Shower, Firmenfeier.
+        <br>Dazu Einladungs- und Dankeskarten und Fotoalben.
+        <br><em>Jeder Anlass ist willkommen.</em>
+      </p>
+      <div class="phones-hero-buttons reveal d3">
+        <a href="#kontakt" class="btn-red">Anfrage stellen</a>
+        <a href="#anlaesse" class="btn-outline">Anlässe entdecken</a>
+      </div>
+    </div>
+    <div class="phone-stack reveal d4">
+      <div class="phone phone-1">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <video src="img/videografie/copy_0CF5C65C-10C3-42CC-858E-279212BE985C.mp4" controls autoplay muted loop playsinline preload="metadata"></video>
+          </div>
+        </div>
+      </div>
+      <div class="phone phone-2">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <video src="img/videografie/copy_2956F52A-A640-46F4-ACAE-598D93CDCCCB.mp4" controls autoplay muted loop playsinline preload="metadata"></video>
+          </div>
+        </div>
+      </div>
+      <div class="phone phone-3">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <video src="img/videografie/copy_A4222132-1370-4988-8C16-D82A93A41FAE.mp4" controls autoplay muted loop playsinline preload="metadata"></video>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -288,7 +426,6 @@
           <br>Echte Momente, keine gestellten Szenen.
           <br>Danach geschnitten zu einem Video, das du immer wieder ansehen willst.
         </p>
-        <span class="preis-hint">70 €/h Dreh · 70 €/h Schnitt</span>
       </div>
       <div class="leistung reveal d2">
         <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
@@ -322,24 +459,6 @@
       </div>
     </div>
 
-    <div class="preis-block reveal">
-      <div class="eyebrow">Video · Preise</div>
-      <div class="preis-row">
-        <div class="preis-item">
-          <div class="zahl">70 €<small> / Stunde</small></div>
-          <div class="label">Dreh vor Ort</div>
-        </div>
-        <div class="preis-item">
-          <div class="zahl">70 €<small> / Stunde</small></div>
-          <div class="label">Schnitt &amp; Bearbeitung</div>
-        </div>
-      </div>
-      <p class="hint">
-        Alle weiteren Leistungen (Fotos, Karten, Fotoalben) auf Anfrage.
-        <br>Anfahrt ab 20 km ab Wehringen: 0,30 €/km.
-        <br>Alle Preise zzgl. MwSt.
-      </p>
-    </div>
   </div>
 </section>
 
@@ -399,9 +518,9 @@
           <video src="img/videografie/copy_2956F52A-A640-46F4-ACAE-598D93CDCCCB.mp4" controls autoplay muted loop playsinline preload="metadata"></video>
         </div>
         <div class="showcase-meta">
-          <span class="kind">Video · Gym</span>
-          <h4>Fitness &amp; Bewegung</h4>
-          <span class="sub">Content-Aufnahmen für ein Fitnessstudio.</span>
+          <span class="kind">Video · Private Geburtstagsfeier</span>
+          <h4>Geburtstag</h4>
+          <span class="sub">Aufnahmen von einer privaten Feier.</span>
         </div>
       </div>
       <div class="showcase-card reveal d3">
@@ -422,16 +541,6 @@
           <span class="kind">Karte · Weihnachten</span>
           <h4>Weihnachtskarte Lebkuchenhaus</h4>
           <span class="sub">Individuelles Karten-Design zur Weihnachtszeit.</span>
-        </div>
-      </div>
-      <div class="showcase-card reveal d1">
-        <div class="showcase-media">
-          <img src="img/videografie/glut-portrait.jpg" alt="Glühende Kohle — Foto aus einem Abend">
-        </div>
-        <div class="showcase-meta">
-          <span class="kind">Foto · Stimmung</span>
-          <h4>Glut</h4>
-          <span class="sub">Nahaufnahme, warme Farben, echte Atmosphäre.</span>
         </div>
       </div>
     </div>
