@@ -735,37 +735,149 @@
   </div>
 </section>
 
-<!-- REICHWEITE -->
+<!-- REICHWEITE — mit runden Julia-Cutouts + Text-Wrap (Magazin-Layout) -->
+<style>
+  .reichweite-editorial {
+    max-width: 900px;
+    margin: 40px auto 0;
+    position: relative;
+  }
+  .reichweite-editorial::before,
+  .reichweite-editorial::after {
+    content: "";
+    position: absolute;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--oxblood);
+    opacity: 0.5;
+  }
+  .reichweite-editorial::before { top: 40px; right: 12px; }
+  .reichweite-editorial::after  { bottom: 40px; left: 12px; opacity: 0.25; width: 20px; height: 20px; }
+  .re-text {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: clamp(16px, 1.6vw, 18px);
+    line-height: 1.9;
+    color: var(--ink-soft);
+  }
+  .re-text p { margin-bottom: 22px; }
+  .re-text p:last-child { margin-bottom: 0; }
+  .re-text strong { color: var(--oxblood); font-weight: 700; }
+  .re-text em { font-style: normal; color: var(--ink); font-weight: 700; }
+  .re-big-num {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: clamp(48px, 6vw, 78px);
+    color: var(--oxblood);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--oxblood) 0%, #c48b6c 50%, var(--oxblood) 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: reNumShimmer 8s linear infinite;
+    display: inline-block;
+    margin: 0 6px;
+  }
+  @keyframes reNumShimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  .re-cutout-round {
+    float: right;
+    width: 220px; height: 220px;
+    margin: 4px 0 16px 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    shape-outside: circle();
+    box-shadow: 0 24px 50px rgba(45, 31, 34, 0.14);
+  }
+  .re-cutout-oval {
+    float: left;
+    width: 180px; height: 240px;
+    margin: 4px 32px 16px 0;
+    border-radius: 50% / 60%;
+    overflow: hidden;
+    shape-outside: margin-box;
+    box-shadow: 0 20px 40px rgba(45, 31, 34, 0.12);
+  }
+  .re-cutout-round img, .re-cutout-oval img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .re-cutout-round:hover img, .re-cutout-oval:hover img { transform: scale(1.06); }
+  .re-inline-facts {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin: 30px 0 22px;
+  }
+  .re-fact {
+    padding: 8px 16px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .re-fact::before {
+    content: "";
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--oxblood);
+  }
+  @media (max-width: 700px) {
+    .re-cutout-round, .re-cutout-oval {
+      float: none; display: block; margin: 0 auto 20px;
+      shape-outside: none;
+    }
+  }
+</style>
 <section class="wo-section bg-warm" id="reichweite">
   <div class="wo-section-head reveal">
     <span class="wo-eyebrow">Meine Reichweite</span>
     <h2 class="wo-h2">Nicht nur Content.<br>Sondern <em>Reichweite</em>.</h2>
     <p class="wo-lede">Was ich Ihnen zusätzlich mitbringen kann, wenn's passt.</p>
   </div>
-  <div class="reach-grid">
-    <div class="reach-card reveal d1">
-      <div class="kind">Personal Brand</div>
-      <div class="num">706k</div>
-      <div class="lbl">erreichte Konten / Monat</div>
-      <h4>@Julia_Bergles</h4>
+
+  <div class="reichweite-editorial reveal">
+    <div class="re-text">
+      <div class="re-cutout-round">
+        <img src="img/portraits/julia-6.jpeg" alt="Julia Bergles">
+      </div>
       <p>
-        Instagram-Community mit 79,2&thinsp;% Non-Follower-Interaktion.
-        <br>Bevorzugte Zielgruppe: Frauen zwischen 18 und 25.
-        <br>86,6&thinsp;% aus Deutschland.
+        Ich poste seit Jahren jeden Tag auf <strong>@julia_bergles</strong> — und sehe direkt, was Reels 2026 nach vorne bringt und was floppt. Aktuell lande ich bei <span class="re-big-num">1 Mio+</span> Aufrufen pro Monat. Davon sind <em>92,7 %</em> Nicht-Follower — also Menschen, die den Algorithmus mir vor die Nase schiebt, nicht meine Bubble.
       </p>
-    </div>
-    <div class="reach-card img-card reveal d2">
-      <img src="img/terraluna-1.png" alt="TerraLuna App">
-    </div>
-    <div class="reach-card reveal d3">
-      <div class="kind">Insider-Wissen</div>
-      <div class="num">1,77M</div>
-      <div class="lbl">Reel-Aufrufe / Monat</div>
-      <h4>Format-Erfahrung</h4>
       <p>
-        Ich weiß, was 2026 auf Instagram funktioniert.
-        <br>Aus eigener Reichweite, nicht aus Kursen.
-        <br>Das fließt direkt in Ihren Content.
+        Diese Reichweite ist kein Selbstzweck. Sie ist mein <strong>Testfeld</strong>. Was auf meinem Feed funktioniert, funktioniert später auch auf Ihrem — nur mit Ihrer Marke, Ihrer Story, Ihrer Zielgruppe.
+      </p>
+      <div class="re-cutout-oval">
+        <img src="img/portraits/julia-5.jpeg" alt="Julia Bergles">
+      </div>
+      <p>
+        Parallel entwickle ich meine eigene App <strong>TerraLuna</strong> — die erste deutsche Health-App speziell für Frauen mit Histaminintoleranz und zyklusbezogenen Ernährungsbedürfnissen. Vom Konzept bis Store-Launch, alles selbst.
+      </p>
+      <p>
+        Das gibt mir eine <em>zweite Perspektive</em>: ich weiß, wie es ist, ein Produkt zu bauen und dafür Kundinnen gewinnen zu müssen. Genau diese Sicht bringe ich in Ihre Marke ein — nicht nur „schöner Content", sondern Content, der Anfragen bringt.
+      </p>
+      <p>
+        Fundament unter allem: <strong>Fachabitur im Bereich Gestaltung</strong>. Typografie, Layout, Farbtheorie, Komposition — nicht aus einem Online-Kurs, sondern aus Ausbildung. Das steckt heute in jedem Reel, jeder Website, jedem Print.
+      </p>
+
+      <div style="clear: both;"></div>
+      <div class="re-inline-facts">
+        <span class="re-fact">1 Mio+ Aufrufe / Monat</span>
+        <span class="re-fact">92,7 % Nicht-Follower</span>
+        <span class="re-fact">6.070 Follower</span>
+        <span class="re-fact">73,7 % Frauen</span>
+        <span class="re-fact">TerraLuna-Gründerin</span>
+        <span class="re-fact">Fachabitur Gestaltung</span>
+      </div>
+      <p style="text-align: center; margin-top: 24px;">
+        <a href="reichweite.html" style="color: var(--oxblood); font-weight: 700; text-decoration: underline; font-family: 'Raleway', sans-serif; font-size: 13px; letter-spacing: 0.05em;">Alle Screenshots aus Instagram Insights ansehen →</a>
       </p>
     </div>
   </div>
@@ -787,7 +899,7 @@
         <br>Gründerin und Entwicklerin der TerraLuna App, der ersten deutschen App speziell für Frauen mit Histaminintoleranz und zyklusbezogenen Ernährungsbedürfnissen.
       </p>
       <p>
-        Ich baue Content, der zu 93,8&thinsp;% außerhalb der eigenen Bubble ankommt.
+        Ich baue Content, der zu 92,7&thinsp;% außerhalb der eigenen Bubble ankommt.
         <br>Weil ich Marken von zwei Seiten kenne.
         <br>Als Gründerin, die selbst Kundinnen gewinnen muss.
         <br>Und als Designerin, die weiß, wie Content aussehen muss, damit er nicht scrollt.
@@ -797,8 +909,8 @@
         <li><span class="dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Seit 2024 selbständig</li>
         <li><span class="dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>TerraLuna-Gründerin</li>
         <li><span class="dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Augsburg + remote</li>
-        <li><span class="dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>706k Konten / Monat</li>
-        <li><span class="dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>93,8 % Nicht-Follower</li>
+        <li><span class="dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>1 Mio+ Aufrufe / Monat</li>
+        <li><span class="dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>92,7 % Nicht-Follower</li>
       </ul>
       <a href="#kontakt" class="btn-red">Kennenlerngespräch buchen</a>
     </div>
